@@ -425,6 +425,58 @@
 
           </div>
 
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+
+            <div class="portfolio-wrap">
+
+              <img src="/img/portfolio/kiboaluminio.png" class="img-fluid" alt="">
+
+              <div class="portfolio-links">
+
+                <a href="/img/portfolio/kiboaluminio.png" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="icofont-plus-circle"></i></a>
+
+                <a href="http://www.kiboaluminio.com.ar" target='_blank' title="Enlace"><i class="icofont-link"></i></a>
+
+              </div>
+
+              <div class="portfolio-info">
+
+                <h4>Baiocchi</h4>
+
+                <p>Web</p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+
+            <div class="portfolio-wrap">
+
+              <img src="/img/portfolio/analiamorad.png" class="img-fluid" alt="">
+
+              <div class="portfolio-links">
+
+                <a href="/img/portfolio/analiamorad.png" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="icofont-plus-circle"></i></a>
+
+                <a href="http://www.analiamorad.com.ar" target='_blank' title="Enlace"><i class="icofont-link"></i></a>
+
+              </div>
+
+              <div class="portfolio-info">
+
+                <h4>Analía Morad</h4>
+
+                <p>Web</p>
+
+              </div>
+
+            </div>
+
+          </div>
+
 
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
