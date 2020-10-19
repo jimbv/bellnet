@@ -15,7 +15,7 @@ class IndexController extends Controller
     public function index()
     { 
         
-        $resultado = ' ';
+        $resultado = '';
         return view('pagina.index',compact('resultado'));
     }
     public function empresa(){
@@ -24,7 +24,7 @@ class IndexController extends Controller
     }
     
     public function contacto(){  
-        $resultado = ' ';
+        $resultado = '';
         return view ('pagina.index',compact('resultado'));
     }
 
@@ -54,7 +54,7 @@ class IndexController extends Controller
 
             Mail::to('joseignaciomartin@gmail.com')->send(new ContactoMail($mensaje_enviar));
 
-            $resultado = '<div style="font-weight:bold;font-size:24px;color:green;">Gracias por enviarnos su mensaje en la brevedad nos contactaremos.<br/><br/></div>';
+            $resultado = '<div style="font-weight:bold;font-size:24px;">Gracias por enviarnos su mensaje en la brevedad nos contactaremos.<br/><br/><br/></div>';
             
         return view ('pagina.index',compact('resultado'));
 

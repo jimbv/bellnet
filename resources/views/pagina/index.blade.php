@@ -898,14 +898,16 @@ Durante la implementación del sistema pueden surgir mejoras o cambios necesario
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
 
-            <form id="contact-form"  action="{{ route('Contacto') }}" method="post" role="form" class="php-email-form">
+            <form id="contact-form"  action="{{ route('Contacto') }}#contact" method="post" role="form" class="php-email-form">
 
             @csrf
 
             @method('POST')
 
 		
-
+            <h2 style='color:#EB5D1E;width:100%;'>
+            {!! $resultado ?? '' !!}
+            </h2>
 			
 
    
