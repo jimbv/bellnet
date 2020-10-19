@@ -697,7 +697,7 @@ Durante la implementación del sistema pueden surgir mejoras o cambios necesario
 
             <div class="member">
 
-              <img src="/img/jose.png" class="img-fluid" alt="">
+              <img src="/img/josemartin.png" class="img-fluid" alt="">
 
               <div class="member-info">
 
@@ -790,7 +790,10 @@ Durante la implementación del sistema pueden surgir mejoras o cambios necesario
         <div class="owl-carousel clients-carousel" data-aos="fade-up" data-aos-delay="100">
 
           <img src="/img/cas-logo.png" alt="">
-
+          
+          <a href="http://www.kiboaluminio.com.ar" target='_blank'>
+            <img src="/img/kibo.png" alt="">
+          </a>
           <img src="/img/sokam.png" alt="">
 
           <img src="/img/cec.png" alt="">
