@@ -567,9 +567,9 @@
 
 
 
-          <li data-aos="fade-up" data-aos-delay="100">
+          <li>
 
-            <a data-toggle="collapse" class="" href="#faq1">¿Por qué realizar el desarrollo de un sistema sobre Web? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" class="" href="#faq1" class="collapsed>¿Por qué realizar el desarrollo de un sistema sobre Web? <i class="icofont-simple-up"></i></a>
 
             <div id="faq1" class="collapse show" data-parent=".faq-list">
 
@@ -593,7 +593,7 @@
 
 
 
-          <li data-aos="fade-up" data-aos-delay="200">
+          <li >
 
             <a data-toggle="collapse" href="#faq2" class="collapsed">¿Qué se necesita para tener un sistema o sitio web? <i class="icofont-simple-up"></i></a>
 
@@ -615,7 +615,7 @@
 
           </li>
 
-          <li data-aos="fade-up" data-aos-delay="200">
+          <li>
 
             <a data-toggle="collapse" href="#faq3" class="collapsed">¿Mi sitio o sistema web requiere mantenimiento? <i class="icofont-simple-up"></i></a>
 
@@ -635,7 +635,7 @@
             </div>
 
           </li>
-          <li data-aos="fade-up" data-aos-delay="200">
+          <li>
 
           <a data-toggle="collapse" href="#faq4" class="collapsed">¿Qué tan importante es realizar Backups?<i class="icofont-simple-up"></i></a>
 
@@ -650,7 +650,7 @@
           </div>
 
           </li>
-          <li data-aos="fade-up" data-aos-delay="200">
+          <li>
 
             <a data-toggle="collapse" href="#faq5" class="collapsed">¿Puedo delegar el diseño de mi sitio o interfaces a mi departamento creativo o tercerizarlo?<i class="icofont-simple-up"></i></a>
 
@@ -666,7 +666,7 @@
             </div>
 
             </li>
-          <li data-aos="fade-up" data-aos-delay="300">
+          <li>
 
             <a data-toggle="collapse" href="#faq6" class="collapsed">¿Cómo hago para que mi sitio sea mas visible en buscadores? <i class="icofont-simple-up"></i></a>
 
@@ -699,7 +699,7 @@
 
 
 
-          <li data-aos="fade-up" data-aos-delay="400">
+          <li>
 
             <a data-toggle="collapse" href="#faq7" class="collapsed">¿Realizan outsourcing o subcontrataciones? <i class="icofont-simple-up"></i></a>
 
