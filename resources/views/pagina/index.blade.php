@@ -569,22 +569,22 @@
 
           <li data-aos="fade-up" data-aos-delay="100">
 
-            <a data-toggle="collapse" class="" href="#faq1">¿Qué es el Desarrollo Web? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" class="" href="#faq1">¿Por qué realizar el desarrollo de un sistema sobre Web? <i class="icofont-simple-up"></i></a>
 
             <div id="faq1" class="collapse show" data-parent=".faq-list">
 
-              <p>
-
-              Desarrollo web es el conjunto de tecnologías de software del lado del servidor y del cliente que involucran una combinación de procesos de base de datos con el uso de un navegador en Internet a fin de realizar determinadas tareas o mostrar información. 
-
+              <p> 
+              La evolución de la web llevó a que las tecnologías cliente-servidor permitan dotar de toda clase de funcionalidades a los sitios como asi también 
+              desarrollar los más ambiciosos sistemas corporativos realizando una revolución en la industria.
               </p>
-
               <p>
-
-
-
-Tradicionalmente un software departamental o incluso un ambicioso proyecto corporativo de gran envergadura es desarrollado en forma standalone, es decir, usando lenguajes ya sea compilados, semicompilados, o interpretados para crear tanto la funcionalidad como toda la interfaz de los usuarios, pero cabe perfectamente un desarrollo orientado a web para dichos propósitos, siendo más homogéneo y multiplataforma, y dependiendo de las  tecnologías utilizadas, más rápido y robusto tanto para diseñar, implementar y probar, como para su uso una vez terminado.
-
+               El desarrollo orientado a web cabe para todos los propósitos, siendo más homogéneo y multiplataforma, 
+               y dependiendo de las  tecnologías utilizadas, más rápido y robusto tanto para diseñar, 
+               implementar y probar, como para su uso una vez terminado.
+              </p>
+              <p>
+               Los sistemas web amplian las posibilidades aumentando la accesibilidad y reduciendo la complejidad de instalación y configuración con los que 
+               otros sistemas cuentan.
               </p>
 
             </div>
@@ -595,45 +595,103 @@ Tradicionalmente un software departamental o incluso un ambicioso proyecto corpo
 
           <li data-aos="fade-up" data-aos-delay="200">
 
-            <a data-toggle="collapse" href="#faq2" class="collapsed">¿Qué es el servicio de Hosting? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq2" class="collapsed">¿Qué se necesita para tener un sistema o sitio web? <i class="icofont-simple-up"></i></a>
 
             <div id="faq2" class="collapse" data-parent=".faq-list">
 
               <p>
 
-              Servicio de Alojamiento de Sitios Web. Servidores dedicados a la empresa, planes a medida del cliente. Mantenimiento de servidores Linux y Windows. Administración de bases de datos: DB2, PostgreSQL, MySQL, Oracle. Atención personalizada. 
-
+              El sitio o sistema que va a desarrollar necesita estar alojado en un servidor desde donde los clientes van a poder acceder. 
+              Al servicio de alquilar un servidor temporalmente se lo conoce como <strong>Hosting</strong>, el mismo debe contar cumplir con los requerimientos del proyecto.
+              Ofrecemos como opción nuestro servicio de hosting con servidor dedicado, mantenimiento de bases de datos y atención personalizada.
+              </p>
+              <p> También es necesario para los sitios gestionar el dominio o nombre de la página ante la autoridad competente. Para este trámite realizamos el asesoramiento.
+              </p>
+              <p> Se recomienda también gestionar un certificado de seguridad SSL. En el caso del que servicio de hosting sea nuestro tambien lo podremos configurar sino deberá hablarlo con su servicio de soporte IT.
+              El certificado aporta cifrado para sus conexiones y suma fiabilidad a la experiencia de navegación ya que evita las advertencias de "sitio inseguro" que puedan recaer sobre el suyo.
               </p>
 
             </div>
 
           </li>
 
+          <li data-aos="fade-up" data-aos-delay="200">
 
+            <a data-toggle="collapse" href="#faq2" class="collapsed">¿Mi sitio o sistema web requiere mantenimiento? <i class="icofont-simple-up"></i></a>
 
+            <div id="faq2" class="collapse" data-parent=".faq-list">
+
+              <p> 
+              Sí, la solidez de un sistema se encuentra muy relacionada con lo actualizados que se encuentren sus componentes, 
+              mantener los componentes actualizados es una tarea necesaria para evitar exponerse a vulnerabilidades,
+               aprovechar nuevas tecnologías que vuelvan más eficientes las funciones y no permitir deshabilitaciones 
+               de servicios debido a módulos que se vuelven obsoletos.
+              </p>
+              <p> El dinamismo del contexto y la importancia de la información hacen necesario el soporte como una actividad tan
+              o más esencial que el desarrollo para la vida de un sistema. Ofrecemos soporte para actualizaciones y mejoras sobre los desarrollos 
+              propios asi como también recibimos sistemas legados que precisen mantenimiento.
+              </p> 
+
+            </div>
+
+          </li>
+          <li data-aos="fade-up" data-aos-delay="200">
+
+          <a data-toggle="collapse" href="#faq2" class="collapsed">¿Qué tan importante es realizar Backups?<i class="icofont-simple-up"></i></a>
+
+          <div id="faq2" class="collapse" data-parent=".faq-list">
+
+            <p> 
+            Dependiendo de los cambios y la importancia de la información almacenada, los backups o copias de seguridad 
+            son una buena práctica que fomentamos y para el caso de sistemas con información 
+            sensible recomendamos llevar un cronograma con periodos de tiempo establecidos.
+            </p> 
+
+          </div>
+
+          </li>
+          <li data-aos="fade-up" data-aos-delay="200">
+
+            <a data-toggle="collapse" href="#faq2" class="collapsed">¿Puedo delegar el diseño de mi sitio o interfaces a mi departamento creativo o tercerizarlo?<i class="icofont-simple-up"></i></a>
+
+            <div id="faq2" class="collapse" data-parent=".faq-list">
+
+              <p> 
+              Seguro, es una buena opción que recomendamos siempre que esté a disposición del cliente. El diseño gráfico ayuda mucho 
+              en la experiencia del usuario y es muy importante en los sitios web. Recomendamos que el diseñador o creativo a cargo tenga 
+              conocimiento particular de las interfaces web. Es muy bueno que el trabajo sea colaborativo y que cada arista del proyecto 
+              sea considerada con la importancia adecuada.  
+              </p> 
+
+            </div>
+
+            </li>
           <li data-aos="fade-up" data-aos-delay="300">
 
-            <a data-toggle="collapse" href="#faq3" class="collapsed">¿Sirve hacer publicidad en Google? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq3" class="collapsed">¿Cómo hago para que mi sitio sea mas visible en buscadores? <i class="icofont-simple-up"></i></a>
 
             <div id="faq3" class="collapse" data-parent=".faq-list">
-
               <p>
-
-              Google Adwords es un sistema de publicidad mediante el cual se crean anuncios que serán incorporados de manera especial en el buscador Google y en páginas asociadas. Los anuncios se administran de manera automática en base a la demanda de publicidad que tenga y el costo es en base al uso. De esta manera nuestros clientes pueden controlar su inversión ya que solamente se le cobrará cuando alguien haga click en su anuncio descontandose el precio por click de un presupuesto diario preestablecido.
+              Hay dos tipos de posicionamiento, el primero es el orgánico (SEO) en el que le damos palabras claves a los rastreadores 
+                de los buscadores para que clasifiquen la página y los damos de alta en varios directorios web ya que el sistema de 
+                ponderación de los sitios asigna más valor a aquellos que estén mas relacionados.
+              </p>
+              <p>
+              Por otro lado existe el posicionamiento pago (SEM) en el que Google se destaca por sobre sus competidores. <br/>
+              Google Adwords es un sistema de publicidad mediante el cual se crean anuncios que serán
+               incorporados de manera especial en el buscador Google y en páginas asociadas. 
+               Los anuncios se administran de manera automática en base a la demanda de publicidad que 
+               tenga y el costo es en base al uso. De esta manera nuestros clientes pueden controlar su 
+               inversión ya que solamente se le cobrará cuando alguien haga click en su anuncio 
+               descontandose el precio por click de un presupuesto diario preestablecido.
 
               </p>
 
               <p>
-
-Realizamos campañas de anuncios en este sistema utilizando estrategias de puja y herramientas avanzadas de administración  para que los resultados sean los óptimos. Mediante un sistema de estadísticas online hacemos el seguimiento día a día de cada campaña de manera personalizada y realizamos análisis exhaustivos para que la estrategia a seguir sea la más agresiva frente al competitivo mercado en auge de la publicidad en Internet.
-
-</p>
-
-              <p>
-
-Tenemos entre nuestra cartera de clientes muchos casos de éxito y alentamos al uso de este sistema de publicidad ya que es una gran herramienta que usada de la manera correcta puede llegar a definir un modelo de negocios para una empresa evitando muchos gastos en intermediarios.
+              Realizamos capacitaciones para organizar campañas de anuncios en este sistema utilizando estrategias de puja y herramientas avanzadas de administración  para que los resultados sean los óptimos.
 
               </p>
+
 
             </div>
 
@@ -643,30 +701,25 @@ Tenemos entre nuestra cartera de clientes muchos casos de éxito y alentamos al 
 
           <li data-aos="fade-up" data-aos-delay="400">
 
-            <a data-toggle="collapse" href="#faq4" class="collapsed">¿Qué es el outsourcing? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq4" class="collapsed">¿Realizan outsourcing o subcontrataciones? <i class="icofont-simple-up"></i></a>
 
             <div id="faq4" class="collapse" data-parent=".faq-list">
 
               <p>
 
-                Subcontrataciones para el desarrollo de todo tipo de sistemas.
+               Sí, para el desarrollo de todo tipo de sistemas.
+               </p>
 
-Servicio recomendable para diseñadores gráficos que quieran ofrecer funcionalidad web a sus clientes.
-
-Realizamos campañas de anuncios en este sistema utilizando estrategias de puja y herramientas avanzadas de administración  para que los resultados sean los óptimos. Mediante un sistema de estadísticas online hacemos el seguimiento día a día de cada campaña de manera personalizada y realizamos análisis exhaustivos para que la estrategia a seguir sea la más agresiva frente al competitivo mercado en auge de la publicidad en Internet.
-
-</p>
+                  Servicio recomendable para diseñadores gráficos que quieran ofrecer funcionalidad 
+                  web a sus clientes. 
+                </p>
 
               <p>
 
-Tecnologías de programación y acceso a datos: PHP, Ajax, Java, Javascript, MySQL, MS Visual Basic, C#.
+                Tecnologías de programación y acceso a datos: PHP, Ajax, Java, Javascript, MySQL, MS Visual Basic, C#.
+                <br/>
 
-Frameworks: Laravel, CakePHP, CodeIgniter.
-
-
-
-
-
+                Frameworks: Laravel, CakePHP, CodeIgniter. 
               </p>
 
             </div>
@@ -675,42 +728,7 @@ Frameworks: Laravel, CakePHP, CodeIgniter.
 
 
 
-          <li data-aos="fade-up" data-aos-delay="500">
-
-            <a data-toggle="collapse" href="#faq5" class="collapsed">¿Ofrecen servicio postventa? <i class="icofont-simple-up"></i></a>
-
-            <div id="faq5" class="collapse" data-parent=".faq-list">
-
-              <p>
-
-              Con cada uno de nuestros desarrollos ofrecemos también capacitación y mantenimiento para todos los usuarios del sistema como parte integral del periodo de implementación.
-
-              </p>
-
-              <p>
-
-<strong>Capacitación</strong><br/>
-
-Incluye manuales de usuario para cada uno de los perfiles de acceso al sistema, clases personalizadas y atención continua.
-
-</p>
-
-              <p>
-
-              <strong>Mantenimiento</strong><br/>
-
-Durante la implementación del sistema pueden surgir mejoras o cambios necesarios para mejorar la usabilidad, estos son tenidos en cuenta por el equipo de desarrollo durante toda esta etapa.
-
-              </p>
-
-            </div>
-
-          </li>
-
-
-
-         
-
+            
 
 
         </ul>
