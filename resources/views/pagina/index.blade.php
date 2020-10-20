@@ -1210,11 +1210,11 @@
 
 
 
-    <div class="container py-4">
+    <div class="container py-4" style='background:#DDD;'>
 
       <div class="copyright">
 
-        &copy; <strong><span>bellnet</span></strong> 
+         <strong><span><img src="img/bellnet_icon.png" alt="Bellnet"></span></strong> 
 
       </div>
 
