@@ -569,7 +569,7 @@
 
           <li>
 
-            <a data-toggle="collapse" class="" href="#faq1" class="collapsed>¿Por qué realizar el desarrollo de un sistema sobre Web? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" class="" href="#faq1" class="collapsed">¿Por qué realizar el desarrollo de un sistema sobre Web? <i class="icofont-simple-up"></i></a>
 
             <div id="faq1" class="collapse show" data-parent=".faq-list">
 
