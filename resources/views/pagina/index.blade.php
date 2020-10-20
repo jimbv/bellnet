@@ -1104,7 +1104,7 @@
 
   <!-- ======= Footer ======= -->
 
-  <footer id="footer"  style='background:#DDD;'> 
+  <footer id="footer"  style='background:#CCC;'> 
 
 
     <div class="footer-top">
@@ -1209,7 +1209,7 @@
 
       <div class="copyright">
 
-         <strong><span><img src="img/bellnet_icon.png" alt="Bellnet" style='width:35px;'></span></strong> 
+         <strong><span><img src="img/bellnet_icon.png" alt="Bellnet" style='width:25px;'></span></strong> 
 
       </div>
 
