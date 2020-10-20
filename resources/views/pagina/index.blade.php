@@ -617,9 +617,9 @@
 
           <li data-aos="fade-up" data-aos-delay="200">
 
-            <a data-toggle="collapse" href="#faq2" class="collapsed">¿Mi sitio o sistema web requiere mantenimiento? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq3" class="collapsed">¿Mi sitio o sistema web requiere mantenimiento? <i class="icofont-simple-up"></i></a>
 
-            <div id="faq2" class="collapse" data-parent=".faq-list">
+            <div id="faq3" class="collapse" data-parent=".faq-list">
 
               <p> 
               Sí, la solidez de un sistema se encuentra muy relacionada con lo actualizados que se encuentren sus componentes, 
@@ -637,9 +637,9 @@
           </li>
           <li data-aos="fade-up" data-aos-delay="200">
 
-          <a data-toggle="collapse" href="#faq2" class="collapsed">¿Qué tan importante es realizar Backups?<i class="icofont-simple-up"></i></a>
+          <a data-toggle="collapse" href="#faq4" class="collapsed">¿Qué tan importante es realizar Backups?<i class="icofont-simple-up"></i></a>
 
-          <div id="faq2" class="collapse" data-parent=".faq-list">
+          <div id="faq4" class="collapse" data-parent=".faq-list">
 
             <p> 
             Dependiendo de los cambios y la importancia de la información almacenada, los backups o copias de seguridad 
@@ -652,9 +652,9 @@
           </li>
           <li data-aos="fade-up" data-aos-delay="200">
 
-            <a data-toggle="collapse" href="#faq2" class="collapsed">¿Puedo delegar el diseño de mi sitio o interfaces a mi departamento creativo o tercerizarlo?<i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq5" class="collapsed">¿Puedo delegar el diseño de mi sitio o interfaces a mi departamento creativo o tercerizarlo?<i class="icofont-simple-up"></i></a>
 
-            <div id="faq2" class="collapse" data-parent=".faq-list">
+            <div id="faq5" class="collapse" data-parent=".faq-list">
 
               <p> 
               Seguro, es una buena opción que recomendamos siempre que esté a disposición del cliente. El diseño gráfico ayuda mucho 
@@ -668,9 +668,9 @@
             </li>
           <li data-aos="fade-up" data-aos-delay="300">
 
-            <a data-toggle="collapse" href="#faq3" class="collapsed">¿Cómo hago para que mi sitio sea mas visible en buscadores? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq6" class="collapsed">¿Cómo hago para que mi sitio sea mas visible en buscadores? <i class="icofont-simple-up"></i></a>
 
-            <div id="faq3" class="collapse" data-parent=".faq-list">
+            <div id="faq6" class="collapse" data-parent=".faq-list">
               <p>
               Hay dos tipos de posicionamiento, el primero es el orgánico (SEO) en el que le damos palabras claves a los rastreadores 
                 de los buscadores para que clasifiquen la página y los damos de alta en varios directorios web ya que el sistema de 
@@ -701,9 +701,9 @@
 
           <li data-aos="fade-up" data-aos-delay="400">
 
-            <a data-toggle="collapse" href="#faq4" class="collapsed">¿Realizan outsourcing o subcontrataciones? <i class="icofont-simple-up"></i></a>
+            <a data-toggle="collapse" href="#faq7" class="collapsed">¿Realizan outsourcing o subcontrataciones? <i class="icofont-simple-up"></i></a>
 
-            <div id="faq4" class="collapse" data-parent=".faq-list">
+            <div id="faq7" class="collapse" data-parent=".faq-list">
 
               <p>
 
