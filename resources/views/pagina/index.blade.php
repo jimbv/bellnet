@@ -1104,12 +1104,7 @@
 
   <!-- ======= Footer ======= -->
 
-  <footer id="footer">
-
-
-
-   
-
+  <footer id="footer"  style='background:#DDD;'> 
 
 
     <div class="footer-top">
@@ -1210,11 +1205,11 @@
 
 
 
-    <div class="container py-4" style='background:#DDD;'>
+    <div class="container py-4">
 
       <div class="copyright">
 
-         <strong><span><img src="img/bellnet_icon.png" alt="Bellnet"></span></strong> 
+         <strong><span><img src="img/bellnet_icon.png" alt="Bellnet" style='width:35px;'></span></strong> 
 
       </div>
 
