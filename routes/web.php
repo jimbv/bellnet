@@ -4,7 +4,12 @@ use App\Category;
 use App\Image;
 
 
- 
+Auth::routes(['verify' => true]);
+
+Route::get('profile', function () {
+    // Only verified users may enter...
+})->middleware('verified');
+
 
 // Mostrar resultados
 Route::get('/resultados', function () {
@@ -21,8 +26,7 @@ Route::get('/contacto','Pagina\IndexController@contacto')->name('Contacto');
 Route::post('/contacto','Pagina\IndexController@contactoenviado')->name('Contacto_enviado'); 
 Route::get('/categoria/{slug}/','Pagina\IndexController@categoria');
 Route::get('/producto/{slug}/','Pagina\IndexController@producto');
- 
-Auth::routes();
+  
 
 Route::get('/home', 'HomeController@index')->name('home');
 
