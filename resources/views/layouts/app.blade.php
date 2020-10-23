@@ -9,6 +9,10 @@
 
     <title>{{ config('app.name', 'Panel de administración') }}</title>
 
+
+    <link href="/img/icono.png" rel="icon">
+
+    <link href="/img/icono.png" rel="apple-touch-icon">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -24,7 +28,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                  <img src='img/icono.png' style='height:30px;'/>  &nbsp;&nbsp;{{ config('app.name', 'Panel de administración') }}
+                  <img src='/img/icono.png' style='height:30px;'/>  &nbsp;&nbsp;{{ config('app.name', 'Panel de administración') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
