@@ -49744,6 +49744,8 @@ var app = new Vue({
   el: '#app'
 });
 
+__webpack_require__(/*! ./localidades */ "./resources/js/localidades.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -49860,6 +49862,63 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/localidades.js":
+/*!*************************************!*\
+  !*** ./resources/js/localidades.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    Axios = _require["default"];
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    selected_provincia: '',
+    selected_localidad: '',
+    localidades: [],
+    conyuge: ''
+  },
+  mounted: function mounted() {
+    document.getElementById('localidad').disabled = true;
+    this.conyuge = document.getElementById('conyuge').getAttribute('data-old');
+    this.showDatosConyuge();
+    this.selected_provincia = document.getElementById('provincia').getAttribute('data-old');
+
+    if (this.selected_provincia != '') {
+      this.loadLocalidades();
+    }
+
+    this.selected_localidad = document.getElementById('localidad').getAttribute('data-old');
+  },
+  methods: {
+    showDatosConyuge: function showDatosConyuge() {
+      if (this.conyuge == 'Si') {
+        document.getElementById('datos_conyuge').hidden = false;
+      } else {
+        document.getElementById('datos_conyuge').hidden = true;
+      }
+    },
+    loadLocalidades: function loadLocalidades() {
+      var _this = this;
+
+      if (this.selected_provincia != '') {
+        axios.get('/localidades', {
+          params: {
+            provincia_id: this.selected_provincia
+          }
+        }).then(function (response) {
+          _this.localidades = response.data;
+          document.getElementById('localidad').disabled = false;
+        });
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49878,8 +49937,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\kiboaluminio\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\kiboaluminio\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\bellnet\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\bellnet\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
