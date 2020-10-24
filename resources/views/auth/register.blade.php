@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div id="api">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -46,6 +47,66 @@
                                 <input id="telefono" type="number" size='10' class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono" autofocus>
 
                                 @error('telefono')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="provincia" class="col-md-4 col-form-label text-md-right">Provincia</label>
+
+                            <div class="col-md-6">
+
+ 
+                                            <SELECT v-model='selected_provincia' @change='loadLocalidades' style='width: 100%;
+                                            height: 44px;
+                                            border: 2px solid gray;
+                                            padding-left: 12px;
+                                            padding-right: 12px;
+                                            border-radius:5px;
+                                            position: relative;
+                                            font-size: 16px;   color: #6c6c6c;' id='provincia' name='provincia' data-old="{{old('provincia')}}"> 
+                                            @foreach($provincias as $prov)
+                                                <option value="{{$prov->id}}" >
+                                                {{$prov->nombre}}
+                                                </option>
+                                            @endforeach
+                                            </SELECT>
+                                            <i class="lni lni-card"></i>
+                                        
+
+
+                                
+
+                                @error('provincia')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="localidad" class="col-md-4 col-form-label text-md-right">Localidad</label>
+
+                            <div class="col-md-6">
+                                <SELECT v-model='selected_localidad' style='width: 100%;
+                                            height: 44px;
+                                            border: 2px solid gray;
+                                            border-radius:5px;
+                                            padding-left: 12px;
+                                            padding-right: 12px;
+                                            position: relative;
+                                            font-size: 16px;   color: #6c6c6c;' id='localidad' name='localidad' data-old="{{old('localidad')}}">
+                                                <option v-for='localidad in localidades' v-bind:value='localidad.id'>   
+                                                @{{localidad.nombre}}
+                                                </option>  
+                                            </SELECT>
+                                @error('localidad')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -115,5 +176,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

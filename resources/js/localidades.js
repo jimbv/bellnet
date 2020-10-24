@@ -2,12 +2,11 @@ const { default: Axios } = require("axios");
 
 
 const app = new Vue({
-    el: '#app',
+    el: '#api',
     data: {
         selected_provincia: '',
         selected_localidad: '', 
-        localidades: [],
-        conyuge: ''
+        localidades: []
     },
     mounted: function (){
         document.getElementById('localidad').disabled=true;
@@ -21,21 +20,15 @@ const app = new Vue({
         this.selected_localidad =  document.getElementById('localidad').getAttribute('data-old');
     },
     methods: {
-        showDatosConyuge(){
-            if(this.conyuge=='Si'){ 
-                document.getElementById('datos_conyuge').hidden=false;
-            }else{ 
-                document.getElementById('datos_conyuge').hidden=true;
-            }
-        },
         loadLocalidades(){
+
             if(this.selected_provincia != ''){
                 axios.get('/localidades',{params:{provincia_id: this.selected_provincia} }).then((response) =>{
                     this.localidades = response.data;
                     document.getElementById('localidad').disabled=false;
                 })
             }
-
+            
 
         }
     }

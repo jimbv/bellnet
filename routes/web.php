@@ -43,3 +43,6 @@ Route::resource('admin/product','Admin\AdminProductController')->names('admin.pr
 Route::get('cancelar/{ruta}',function($ruta){
     return redirect()->route($ruta)->with('cancelar','Acción cancelada');
 })->name('cancelar');
+
+  
+Route::get('/localidades','DatosPersonales@getLocalidades'); 

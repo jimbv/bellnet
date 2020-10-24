@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Provincia;
+use App\Localidad;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -40,6 +42,18 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+
+    public function showRegistrationForm(){ 
+
+        $prov  =  new Provincia();
+        $provincias =  $prov->all()->sortBy('nombre');
+
+        $localidades = $prov::find(6)->localidades;
+ 
+        return view('auth.register',compact('localidades','provincias'));
+    }
+
+    
 
     /**
      * Get a validator for an incoming registration request.
