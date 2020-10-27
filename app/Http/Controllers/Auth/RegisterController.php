@@ -69,7 +69,8 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'direccion' => ['required', 'string', 'max:255'],
             'telefono' => ['required', 'numeric', 'min:10'],
-            'cuit' => ['required', 'numeric', 'min:11'],
+            'cuit' => ['required', 'numeric', 'min:11'], 
+            'localidad' => ['required', 'numeric']
         ]);
     }
 
@@ -88,6 +89,7 @@ class RegisterController extends Controller
             'direccion' => $data['direccion'],
             'telefono' => $data['telefono'],
             'cuit' => $data['cuit'],
+            'localidad_id' => $data['localidad']
         ]);
     }
 }

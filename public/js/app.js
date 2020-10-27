@@ -49748,9 +49748,24 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
-  el: '#app'
+/*
+const app = new Vue({
+    el: '#app',
 });
+
+
+Vue.component('button-counter', {
+
+    data: function () {
+      return {
+        count: 0
+      }
+    },
+    template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+  })
+
+  new Vue({ el: '#components-demo' })
+*/
 
 __webpack_require__(/*! ./localidades */ "./resources/js/localidades.js");
 
@@ -49881,16 +49896,17 @@ var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
     Axios = _require["default"];
 
 var app = new Vue({
-  el: '#api',
+  el: '#app',
   data: {
-    selected_provincia: '',
+    selected_provincia: '6',
     selected_localidad: '',
-    localidades: []
+    localidades: [] //conyuge: ''
+
   },
   mounted: function mounted() {
-    document.getElementById('localidad').disabled = true;
-    this.conyuge = document.getElementById('conyuge').getAttribute('data-old');
-    this.showDatosConyuge();
+    //document.getElementById('localidad').disabled=true;
+    //this.conyuge =  document.getElementById('conyuge').getAttribute('data-old'); 
+    //this.showDatosConyuge();
     this.selected_provincia = document.getElementById('provincia').getAttribute('data-old');
 
     if (this.selected_provincia != '') {

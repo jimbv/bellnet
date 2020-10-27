@@ -26,11 +26,22 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+/*
 const app = new Vue({
     el: '#app',
 });
 
 
+Vue.component('button-counter', {
 
+    data: function () {
+      return {
+        count: 0
+      }
+    },
+    template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+  })
+
+  new Vue({ el: '#components-demo' })
+*/
 require('./localidades');

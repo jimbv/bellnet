@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="api">
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -56,12 +56,14 @@
 
 
                         <div class="form-group row">
-                            <label for="provincia" class="col-md-4 col-form-label text-md-right">Provincia</label>
-
+                            <label for="provincias" class="col-md-4 col-form-label text-md-right">Provincia</label>
+                             
+  
+  
                             <div class="col-md-6">
 
  
-                                            <SELECT v-model='selected_provincia' @change='loadLocalidades' style='width: 100%;
+                                            <SELECT v-model='selected_provincia'  @change='loadLocalidades' style='width: 100%;
                                             height: 44px;
                                             border: 2px solid gray;
                                             padding-left: 12px;
@@ -91,7 +93,7 @@
 
 
                         <div class="form-group row">
-                            <label for="localidad" class="col-md-4 col-form-label text-md-right">Localidad</label>
+                            <label for="localidades" class="col-md-4 col-form-label text-md-right">Localidad</label>
 
                             <div class="col-md-6">
                                 <SELECT v-model='selected_localidad' style='width: 100%;

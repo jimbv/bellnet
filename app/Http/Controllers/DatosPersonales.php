@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Provincia;
 use App\Localidad;
-
-use Illuminate\Http\Request;
+ 
 
 class DatosPersonales extends Controller
 {
