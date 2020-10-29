@@ -41,4 +41,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belogsTo('App\Localidad');
     }
+
+    
+    public function roles(){
+        return $this->belongsToMany('App\Permisos\Models\Role')->withTimesTamps();
+    }
+
 }

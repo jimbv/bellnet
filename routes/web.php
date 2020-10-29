@@ -2,6 +2,9 @@
 use App\Product;
 use App\Category;
 use App\Image;
+use App\User;
+use App\Permisos\Models\Role;
+
 
 
 Auth::routes(['verify' => true]);
@@ -44,5 +47,31 @@ Route::get('cancelar/{ruta}',function($ruta){
     return redirect()->route($ruta)->with('cancelar','Acción cancelada');
 })->name('cancelar');
 
+
+
+
+Route::get('/admin', function () {
+    return view('plantilla.admin');
+})->name('admin');
+
+
   
 Route::get('/localidades','DatosPersonales@getLocalidades'); 
+
+
+
+Route::get('/test', function () {
+    /*return  Role::create([
+        'nombre'=>'Admin',
+        'slug'=>'admin',
+        'descripcion'=>'Administrador',
+        'acceso-total'=>'si'
+        ]);
+    */
+    $user = User::find(1);
+    //$user->roles()->dettach([1,3]); // Quitar 1 y 3
+    //$user->roles()->attach([1,3]); // Agregar 1 y 3
+    $user->roles()->sync([1,3]); // Solo los roles 1 y 3 
+    return $user->roles;
+});
+
