@@ -1346,7 +1346,6 @@ module.exports = function isAbsoluteURL(url) {
 
 
 var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
-var isValidXss = __webpack_require__(/*! ./isValidXss */ "./node_modules/axios/lib/helpers/isValidXss.js");
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -1366,10 +1365,6 @@ module.exports = (
     */
       function resolveURL(url) {
         var href = url;
-
-        if (isValidXss(url)) {
-          throw new Error('URL contains XSS injection attempt');
-        }
 
         if (msie) {
         // IE needs attribute set twice to normalize properties
@@ -1416,25 +1411,6 @@ module.exports = (
       };
     })()
 );
-
-
-/***/ }),
-
-/***/ "./node_modules/axios/lib/helpers/isValidXss.js":
-/*!******************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/isValidXss.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function isValidXss(requestURL) {
-  var xssRegex = /(\b)(on\w+)=|javascript|(<\s*)(\/*)script/gi;
-  return xssRegex.test(requestURL);
-};
-
 
 
 /***/ }),
@@ -2545,7 +2521,12 @@ function normalizeComponent (
     options._ssrRegister = hook
   } else if (injectStyles) {
     hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      ? function () {
+        injectStyles.call(
+          this,
+          (options.functional ? this.parent : this).$root.$options.shadowRoot
+        )
+      }
       : injectStyles
   }
 
@@ -2554,7 +2535,7 @@ function normalizeComponent (
       // for template-only hot-reload because in that case the render fn doesn't
       // go through the normalizer
       options._injectStyles = hook
-      // register for functioal component in vue file
+      // register for functional component in vue file
       var originalRender = options.render
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
@@ -2587,8 +2568,8 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.6.11
- * (c) 2014-2019 Evan You
+ * Vue.js v2.6.12
+ * (c) 2014-2020 Evan You
  * Released under the MIT License.
  */
 
@@ -8027,7 +8008,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.6.11';
+Vue.version = '2.6.12';
 
 /*  */
 
@@ -10233,7 +10214,7 @@ function updateDOMProps (oldVnode, vnode) {
       // skip the update if old and new VDOM state is the same.
       // `value` is handled separately because the DOM value may be temporarily
       // out of sync with VDOM state due to focus, composition and modifiers.
-      // This  #4521 by skipping the unnecesarry `checked` update.
+      // This  #4521 by skipping the unnecessary `checked` update.
       cur !== oldProps[key]
     ) {
       // some property updates can throw
@@ -12478,7 +12459,7 @@ function parse (
       }
     },
     comment: function comment (text, start, end) {
-      // adding anyting as a sibling to the root node is forbidden
+      // adding anything as a sibling to the root node is forbidden
       // comments should still be allowed, but ignored
       if (currentParent) {
         var child = {
@@ -14674,6 +14655,88 @@ var apicategory = new Vue({
 
 /***/ }),
 
+/***/ "./resources/js/admin/apiespecialidad.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/apiespecialidad.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var apiespecialidad = new Vue({
+  el: "#apiespecialidad",
+  data: {
+    nombre: '',
+    slug: '',
+    div_mensajeslug: 'Slug Existe',
+    div_clase_slug: 'badge badge-danger',
+    div_aparecer: false,
+    deshabilitar_boton: 0
+  },
+  computed: {
+    generarSlug: function generarSlug() {
+      var _char = {
+        "á": "a",
+        "é": "e",
+        "í": "i",
+        "ó": "o",
+        "ú": "u",
+        "Á": "A",
+        "É": "E",
+        "Í": "I",
+        "Ó": "O",
+        "Ú": "U",
+        "ñ": "n",
+        "Ñ": "N",
+        " ": "-",
+        "_": "-"
+      };
+      var expr = /[á,Á,É,é,Í,í,Ó,ó,Ú,ú,Ñ,ñ,_, ]/g;
+      this.slug = this.nombre.trim().replace(expr, function (e) {
+        return _char[e];
+      }).toLowerCase();
+      return this.slug;
+    }
+  },
+  methods: {
+    getEspecialidad: function getEspecialidad() {
+      var _this = this;
+
+      if (this.slug) {
+        var url = '/api/especialidad/' + this.slug;
+        axios.get(url).then(function (response) {
+          _this.div_mensajeslug = response.data;
+
+          if (_this.div_mensajeslug == 'Slug disponible') {
+            _this.div_clase_slug = 'badge badge-success';
+
+            if (document.getElementById('editar')) {
+              _this.deshabilitar_boton = 0;
+            }
+          } else {
+            _this.div_clase_slug = 'badge badge-danger';
+            _this.deshabilitar_boton = 1;
+          }
+
+          _this.div_aparecer = true;
+        });
+      } else {
+        this.div_clase_slug = 'badge badge-danger';
+        this.div_mensajeslug = "Ingresar un nombre para la especialidad";
+        this.deshabilitar_boton = 1;
+        this.div_aparecer = true;
+      }
+    }
+  },
+  mounted: function mounted() {
+    if (document.getElementById('editar')) {
+      this.nombre = document.getElementById('nombretemp').innerHTML;
+      this.deshabilitar_boton = 1;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/admin/apiproduct.js":
 /*!******************************************!*\
   !*** ./resources/js/admin/apiproduct.js ***!
@@ -14925,6 +14988,10 @@ if (document.getElementById('apiproduct')) {
   __webpack_require__(/*! ./admin/apiproduct */ "./resources/js/admin/apiproduct.js");
 }
 
+if (document.getElementById('apiespecialidad')) {
+  __webpack_require__(/*! ./admin/apiespecialidad */ "./resources/js/admin/apiespecialidad.js");
+}
+
 if (document.getElementById('confirmareliminar')) {
   __webpack_require__(/*! ./confirmareliminar */ "./resources/js/confirmareliminar.js");
 }
@@ -14962,7 +15029,7 @@ var confirmareliminar = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\laragon\www\metalurgicasm_nuevo\resources\js\app_admin.js */"./resources/js/app_admin.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\bellnet\resources\js\app_admin.js */"./resources/js/app_admin.js");
 
 
 /***/ })

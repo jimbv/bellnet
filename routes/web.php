@@ -4,7 +4,7 @@ use App\Category;
 use App\Image;
 use App\User;
 use App\Permisos\Models\Role;
-
+use App\Permisos\Models\Permission;
 
 
 Auth::routes(['verify' => true]);
@@ -68,10 +68,24 @@ Route::get('/test', function () {
         'acceso-total'=>'si'
         ]);
     */
-    $user = User::find(1);
+    //$user = User::find(1);
     //$user->roles()->dettach([1,3]); // Quitar 1 y 3
     //$user->roles()->attach([1,3]); // Agregar 1 y 3
-    $user->roles()->sync([1,3]); // Solo los roles 1 y 3 
-    return $user->roles;
+    //$user->roles()->sync([1,3]); // Solo los roles 1 y 3 
+    //return $user->roles;
+/*
+    return  Permission::create([
+        'nombre'=>'Listar productos',
+        'slug'=>'product.index',
+        'descripcion'=>'Un usuario puede ver los productos',
+        'acceso-total'=>'si'
+        ]);
+*/
+    $role = Role::find(2);
+    $role->permissions()->sync([1]); // Solo los roles 1 y 3 
+    return $role->permissions;
+
 });
+
+
 
