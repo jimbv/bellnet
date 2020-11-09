@@ -1,6 +1,6 @@
 @extends ('plantilla.admin')
 
-@section('titulo','Administración de Categorías')
+@section('titulo','Administración de Roles')
 
 @section('breadcrumb')
 
@@ -14,7 +14,7 @@
 
 <div class="row" id='confirmareliminar'>
 
-<span style='display:none;' id='URLbase'>{{route('admin.category.index')}}</span>
+<span style='display:none;' id='URLbase'>{{route('admin.role.index')}}</span>
 
 @include('custom.modal_eliminar')
 
@@ -28,7 +28,7 @@
 
               <div class="card-header">
 
-                <h3 class="card-title">Sección de categorías</h3>
+                <h3 class="card-title">Sección de Roles</h3>
 
 
 
@@ -70,17 +70,19 @@
 
                
 
-              <a class='m-2 float-right btn btn-primary' href="{{ route('admin.category.create')}}">Nueva Categoría</a>
+              <a class='m-2 float-right btn btn-primary' href="{{ route('admin.role.create')}}">Nuevo Rol</a>
 
               
+              
+              @include('custom.mensaje');
 
-              <table class="table table-head-fixed text-nowrap  table-hover">
+              <table class="table table-head-fixed text-nowrap table-hover">
 
                   <thead>
 
                     <tr>
 
-                      <th>ID</th>
+                      <th>#</th>
 
                       <th>Nombre</th>
 
@@ -92,6 +94,7 @@
 
                       <th>Fecha modificación</th>
 
+
                       <th colspan="3"></th>
 
                     </tr>
@@ -100,39 +103,39 @@
 
                   <tbody>
 
-                  @foreach ($categorias as $categoria)
+                  @foreach ($roles as $role)
 
                    
 
                     <tr>
 
-                      <td> {{$categoria->id}}</td>
+                      <td> {{$role->id}}</td>
 
-                      <td> {{$categoria->nombre}}</td>
+                      <td> {{$role->nombre}}</td>
 
-                      <td> {{$categoria->slug}}</td>
+                      <td> {{$role->slug}}</td>
 
-                      <td style ="max-width:300px;overflow:hidden;"> {{$categoria->descripcion}}</td>
+                      <td style ="max-width:300px;overflow:hidden;"> {{$role->descripcion}}</td>
 
-                      <td> {{$categoria->created_at}}</td>
+                      <td> {{$role->created_at}}</td>
 
-                      <td> {{$categoria->updated_at}}</td>
+                      <td> {{$role->updated_at}}</td>
 
-                      <td> <a class='btn btn-default' href="{{ route('admin.category.show',$categoria->slug)}}">
+                      <td> <a class='btn btn-default' href="{{ route('admin.role.show',$role->slug)}}">
 
                           <i class="fas fa-eye"></i>
 
                           </a></td>
 
-                      <td> <a class='btn btn-info' href="{{ route('admin.category.edit',$categoria->slug)}}">
+                      <td> <a class='btn btn-info' href="{{ route('admin.role.edit',$role->slug)}}">
 
                           <i class="fas fa-edit"></i>
 
                           </a></td>
 
-                      <td> <a class='btn btn-danger' href="{{ route('admin.category.index')}}" 
+                      <td> <a class='btn btn-danger' href="{{ route('admin.role.index')}}" 
 
-                          v-on:click.prevent='deseas_eliminar({{ $categoria->id }})'
+                          v-on:click.prevent='deseas_eliminar({{ $role->id }})'
 
                           >
 
@@ -158,14 +161,11 @@
 
           </div>
 
-        </div>
-
-
-
+        </div> 
 
 
   
 
-        {{ $categorias->appends($_GET)->links()}} 
+        {{ $roles->appends($_GET)->links()}} 
 
 @endsection

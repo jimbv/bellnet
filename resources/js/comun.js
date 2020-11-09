@@ -43,6 +43,13 @@ if(document.getElementById('apiproduct')){
 }
 
 
+if(document.getElementById('apirole')){
+
+    require('./admin/apirole');   
+
+}
+
+
 
 
 

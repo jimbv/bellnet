@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Category; 
 
-class AdminController extends Controller
+use App\Http\Controllers\Controller;
+use App\Permisos\Models\Role;
+use App\Permisos\Models\Permission;
+
+class RoleController extends Controller
 {
     public function __construct(){
 
@@ -19,7 +21,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('plantilla.admin');
+        $roles = Role::orderBy('id','Desc')->paginate(2);   
+        return view('admin.role.index',compact('roles'));
     }
 
     /**
@@ -29,7 +32,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        
+        $permisos = Permission::get(); 
+        return view('admin.role.create',compact('permisos'));
     }
 
     /**
@@ -40,7 +44,9 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
+
+        return $request->all();
     }
 
     /**
@@ -62,7 +68,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        
+        //
     }
 
     /**
@@ -74,8 +80,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-       
+        //
     }
 
     /**

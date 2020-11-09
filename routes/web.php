@@ -31,17 +31,19 @@ Route::get('/categoria/{slug}/','Pagina\IndexController@categoria');
 Route::get('/producto/{slug}/','Pagina\IndexController@producto');
   
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home'); 
 
 
+ 
 
-Route::get('/admin', function () {
-    return view('plantilla.admin');
-})->name('admin');
+Route::get('/admin', 'Admin\AdminController@index')->name('admin');
 
 Route::resource('admin/category','Admin\AdminCategoryController')->names('admin.category');
-
 Route::resource('admin/product','Admin\AdminProductController')->names('admin.product');
+
+
+Route::resource('admin/role','Admin\RoleController')->names('admin.role');
+Route::resource('admin/user','Admin\UserController')->names('admin.user');
 
 Route::get('cancelar/{ruta}',function($ruta){
     return redirect()->route($ruta)->with('cancelar','Acción cancelada');
@@ -49,10 +51,6 @@ Route::get('cancelar/{ruta}',function($ruta){
 
 
 
-
-Route::get('/admin', function () {
-    return view('plantilla.admin');
-})->name('admin');
 
 
   
