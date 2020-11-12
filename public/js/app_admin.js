@@ -14881,85 +14881,6 @@ var apiproduct = new Vue({
 
 /***/ }),
 
-/***/ "./resources/js/admin/apirole.js":
-/*!***************************************!*\
-  !*** ./resources/js/admin/apirole.js ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var apirole = new Vue({
-  el: "#apirole",
-  data: {
-    nombre: '',
-    slug: '',
-    div_mensajeslug: 'Slug Existe',
-    div_clase_slug: 'badge badge-danger',
-    div_aparecer: false,
-    deshabilitar_boton: 0
-  },
-  computed: {
-    generarSlug: function generarSlug() {
-      var _char = {
-        "á": "a",
-        "é": "e",
-        "í": "i",
-        "ó": "o",
-        "ú": "u",
-        "Á": "A",
-        "É": "E",
-        "Í": "I",
-        "Ó": "O",
-        "Ú": "U",
-        "ñ": "n",
-        "Ñ": "N",
-        " ": "-",
-        "_": "-"
-      };
-      var expr = /[á,Á,É,é,Í,í,Ó,ó,Ú,ú,Ñ,ñ,_, ]/g;
-      this.slug = this.nombre.trim().replace(expr, function (e) {
-        return _char[e];
-      }).toLowerCase();
-      return this.slug;
-    }
-  },
-  methods: {
-    getrole: function getrole() {
-      var _this = this;
-
-      if (this.slug) {
-        var url = '/admin/role/' + this.slug;
-        axios.get(url).then(function (response) {
-          _this.div_mensajeslug = response.data;
-
-          if (_this.div_mensajeslug == 'Slug disponible') {
-            _this.div_clase_slug = 'badge badge-success';
-            _this.deshabilitar_boton = 0;
-          } else {
-            _this.div_clase_slug = 'badge badge-danger';
-            _this.deshabilitar_boton = 1;
-          }
-
-          _this.div_aparecer = true;
-        });
-      } else {
-        this.div_clase_slug = 'badge badge-danger';
-        this.div_mensajeslug = "Ingresar un nombre";
-        this.deshabilitar_boton = 1;
-        this.div_aparecer = true;
-      }
-    }
-  },
-  mounted: function mounted() {
-    if (document.getElementById('editar')) {
-      this.nombre = document.getElementById('nombretemp').innerHTML;
-      this.deshabilitar_boton = 1;
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./resources/js/app_admin.js":
 /*!***********************************!*\
   !*** ./resources/js/app_admin.js ***!
@@ -15065,10 +14986,6 @@ if (document.getElementById('apicategory')) {
 
 if (document.getElementById('apiproduct')) {
   __webpack_require__(/*! ./admin/apiproduct */ "./resources/js/admin/apiproduct.js");
-}
-
-if (document.getElementById('apirole')) {
-  __webpack_require__(/*! ./admin/apirole */ "./resources/js/admin/apirole.js");
 }
 
 if (document.getElementById('apiespecialidad')) {

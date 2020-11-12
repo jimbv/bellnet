@@ -41,13 +41,7 @@ if(document.getElementById('apiproduct')){
     require('./admin/apiproduct');   
 
 }
-
-
-if(document.getElementById('apirole')){
-
-    require('./admin/apirole');   
-
-}
+ 
 
 
 

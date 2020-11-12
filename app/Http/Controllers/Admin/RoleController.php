@@ -19,9 +19,10 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $roles = Role::orderBy('id','Desc')->paginate(2);   
+        $nombre = $request->get('nombre'); 
+        $roles = Role::where('nombre','like',"%$nombre%")->orderBy('nombre')->paginate(5);   
         return view('admin.role.index',compact('roles'));
     }
 
@@ -44,7 +45,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
         $request->validate([
             'nombre' => 'required|max:50|unique:roles,nombre',
             'slug' => 'required|max:50|unique:roles,slug',
@@ -70,17 +71,15 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
-    {
-        //$rol = Role::where('slug',$slug)->firstOrFail();
-        if (Role::where('slug',$slug)->first()) {
-            return 'Slug existe';
-        }else{
-            return 'Slug disponible';
-        } 
-        /*$editar = "Si";
-
-        return view('admin.category.show',compact('cat','editar'));*/
+    public function show(Role $role)
+    { 
+        $permission_role = [];
+        foreach($role->permissions as $permission){
+            $permission_role[] = $permission->id; 
+        }
+        
+        $permisos = Permission::get(); 
+        return view('admin.role.view',compact('permisos','role','permission_role'));
     }
 
     /**
@@ -89,9 +88,15 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Role $role)
     {
-        return 'ok';
+        $permission_role = [];
+        foreach($role->permissions as $permission){
+            $permission_role[] = $permission->id; 
+        }
+ 
+        $permisos = Permission::get(); 
+        return view('admin.role.edit',compact('permisos','role','permission_role'));
     }
 
     /**
@@ -101,9 +106,25 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, Role $role)
+    { 
+        $request->validate([
+            'nombre' => 'required|max:50|unique:roles,nombre,'.$role->id,
+            'slug' => 'required|max:50|unique:roles,slug,'.$role->id,
+            'descripcion' => 'required|max:50',
+            'acceso-total' => 'required|in:si,no'
+        ]);
+
+        $role = Role::update($request->all());
+
+        if($request->get('permisos')){
+            $role->permissions()->sync($request->get('permisos'));
+        }
+
+
+        //return $request->all();
+        return redirect()->route('admin.role.index')
+            ->with('status_success','Rol editado correctamente');
     }
 
     /**
@@ -114,6 +135,8 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rol = Role::findOrFail($id); 
+        $rol->delete();
+        return redirect()->route('admin.role.index')->with('datos','Registro eliminado correctamente');
     }
 }

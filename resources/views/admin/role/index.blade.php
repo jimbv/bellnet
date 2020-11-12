@@ -121,13 +121,13 @@
 
                       <td> {{$role->updated_at}}</td>
 
-                      <td> <a class='btn btn-default' href="{{ route('admin.role.show',$role->slug)}}">
+                      <td> <a class='btn btn-default' href="{{ route('admin.role.show',$role->id)}}">
 
                           <i class="fas fa-eye"></i>
 
                           </a></td>
 
-                      <td> <a class='btn btn-info' href="{{ route('admin.role.edit',$role->slug)}}">
+                      <td> <a class='btn btn-info' href="{{ route('admin.role.edit',$role->id)}}">
 
                           <i class="fas fa-edit"></i>
 

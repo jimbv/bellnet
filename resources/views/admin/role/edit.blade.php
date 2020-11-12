@@ -1,6 +1,6 @@
 @extends ('plantilla.admin')
 
-@section('titulo','Crear Rol')
+@section('titulo','Editar Rol')
 
 @section('breadcrumb')
 
@@ -18,10 +18,10 @@
 
         
 
-      <form action="{{ route('admin.role.store') }}" method='POST'>
+      <form action="{{ route('admin.role.update',$role->id) }}" method='POST'>
 
         @csrf
-
+        @method('PUT')
       <div id="apirole">
 
         <div class="card-header">
@@ -55,7 +55,7 @@
                       @blur='getRole' 
                       @focus='div_aparecer=false' 
                       class="form-control" type="text" name="nombre" id="nombre"
-                      value="{{old('nombre')}}"
+                      value="{{old('nombre',$role->nombre)}}"
                       >
 
 
@@ -65,19 +65,22 @@
                       <input 
                       v-model='generarSlug' 
                       class="form-control" type="text" name="slug" id="slug" 
-                      value="{{old('slug')}}"
+                      value="{{old('slug',$role->slug)}}"
                       >
 
   
 
                       <label for="nombre">Descripción</label>
 
-                      <textarea class="form-control" name="descripcion" id="descripcion" cols='30' rows='5'>{{old('descripcion')}}</textarea>
+                      <textarea class="form-control" name="descripcion" id="descripcion" cols='30' 
+                      rows='5'>{{old('descripcion',$role->descripcion)}}</textarea>
                         <hr>
                         <h3>Acceso total</h3> <br>
                         <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="acceso-total-si" name="acceso-total" class="custom-control-input"  value='si'
-                        @if(old('acceso-total')=="si")
+                        @if($role['acceso-total']=="si")
+                          checked 
+                        @elseif(old('acceso-total')=="si")
                           checked
                         @endif
                         >
@@ -86,13 +89,11 @@
                         <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="acceso-total-no" name="acceso-total" class="custom-control-input" value='no' 
                         
-                        @if(old('acceso-total')=="no")
+                        @if($role['acceso-total']=="no")
+                          checked 
+                        @elseif(old('acceso-total')=="no")
                           checked
                         @endif
-                        @if(old('acceso-total')===null)
-                          checked
-                        @endif
-
                         >
                         <label class="custom-control-label" for="acceso-total-no" > No</label>
                         </div>
@@ -108,6 +109,8 @@
                                     value="{{$permiso->id}}"
                                     name="permisos[]" 
                                     @if(is_array(old('permisos'))&&in_array("$permiso->id",old('permisos')))
+                                      checked
+                                    @elseif(is_array($permission_role)&&in_array("$permiso->id",$permission_role))
                                       checked
                                     @endif
                                     >
@@ -142,7 +145,7 @@
 
 
 
-        <input :disabled="deshabilitar_boton==1"  type="submit" value="Guardar" class='btn btn-primary float-right'>
+        <input :disabled="deshabilitar_boton==1"  type="submit" value="Actualizar" class='btn btn-primary float-right'>
 
                
 
