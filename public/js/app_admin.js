@@ -14928,7 +14928,7 @@ var apirole = new Vue({
       var _this = this;
 
       if (this.slug) {
-        var url = '/api/role/' + this.slug;
+        var url = '/admin/role/' + this.slug;
         axios.get(url).then(function (response) {
           _this.div_mensajeslug = response.data;
 

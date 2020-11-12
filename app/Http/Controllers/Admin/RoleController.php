@@ -48,10 +48,19 @@ class RoleController extends Controller
         $request->validate([
             'nombre' => 'required|max:50|unique:roles,nombre',
             'slug' => 'required|max:50|unique:roles,slug',
-            'acceso-total' => 'required|in:si,no',
-            'nombre' => 'required|max:50|unique:roles,nombre',
+            'acceso-total' => 'required|in:si,no'
         ]);
-        return $request->all();
+
+        $role = Role::create($request->all());
+
+        if($request->get('permisos')){
+            $role->permissions()->sync($request->get('permisos'));
+        }
+
+
+        //return $request->all();
+        return redirect()->route('admin.role.index')
+            ->with('status_success','Rol guardado correctamente');
     }
 
     /**

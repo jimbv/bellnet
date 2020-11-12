@@ -418,25 +418,16 @@
 
 <!-- ./wrapper -->
 
-
-
 <!-- jQuery -->
-
 <script src="/adminlte/plugins/jquery/jquery.min.js"></script>
-
 <!-- Bootstrap 4 -->
-
 <script src="/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- AdminLTE App -->
-
 <script src="/adminlte/dist/js/adminlte.min.js"></script>
-
 <!-- AdminLTE for demo purposes -->
 
 <script src="/adminlte/dist/js/demo.js"></script>
-
-
 
 
 
@@ -444,16 +435,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-
-
 <!-- Scripts -->
-
-<script src="{{ asset('js/app_admin.js') }}?v=7" defer></script> 
-
-
+<script src="{{ asset('js/app_admin.js') }}?v=8" defer></script> 
 
 @yield('scripts')
-
 
 
 </body>

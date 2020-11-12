@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product; 
+use App\Permisos\Models\Role; 
 use App\Mail\ContactoMail;
 use Illuminate\Support\Facades\Mail;
 
@@ -67,6 +68,15 @@ class IndexController extends Controller
         $cat = Category::with('products')->where('slug',$slug)->firstOrFail(); 
         $productos = $cat->products;
         return view('tienda.categoria',compact('cat','categorias','productos'));
+    }
+
+    public function role(Request $respuesta)
+    { 
+        $slug = $respuesta->slug;
+        $rol = Role::where('slug',$slug)->firstOrFail(); 
+        
+        return $role;
+        //return view('admin.role',compact('permisos'));
     }
 
     public function producto(Request $respuesta)

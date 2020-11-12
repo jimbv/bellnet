@@ -175,12 +175,26 @@
         </div>
 
 
+        <ul class="pagination">
+          <li class="paginate_button page-item previous disabled" id="example2_previous">
+            <a href="{{$productos->previousPageUrl()}}" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">
+              Anterior
+            </a>
+          </li>
+          <li class="paginate_button page-item active">
+              <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">
+              {{$productos->currentPage()}}
+              </a>
+          </li>
+          <li class="paginate_button page-item next" id="example2_next">
+              <a href="{{$productos->nextPageUrl()}}" aria-controls="example2" data-dt-idx="7" 
+                tabindex="0" class="page-link">Siguiente
+              </a>
+          </li>
+        </ul>
 
 
 
-  
-
-        {{ $productos->appends($_GET)->links()}} 
 
 <br/>
 

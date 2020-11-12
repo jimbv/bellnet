@@ -4,7 +4,7 @@
 
 @section('breadcrumb')
 
-  <li class="breadcrumb-item"><a href="{{route('admin.category.index')}}">Roles</a></li>
+  <li class="breadcrumb-item"><a href="{{route('admin.role.index')}}">Roles</a></li>
 
   <li class="breadcrumb-item active">@yield('titulo')</li>
 
@@ -53,7 +53,7 @@
 
                       <input v-model='nombre' 
 
-                      @blur='getCategory' 
+                      @blur='getRole' 
 
                       @focus='div_aparecer=false' 
 
@@ -65,7 +65,7 @@
 
                       <input 
 
-                      readonly 
+                       
 
                       v-model='generarSlug' 
 
