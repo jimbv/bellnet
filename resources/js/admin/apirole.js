@@ -56,7 +56,7 @@ const apirole = new Vue({
 
             if(this.slug){
 
-                let url= '/api/role/'+this.slug;
+                let url= '/admin/role/'+this.slug;
 
                 axios.get(url).then(response=>{
 

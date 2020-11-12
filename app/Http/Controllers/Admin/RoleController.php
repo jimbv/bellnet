@@ -45,7 +45,12 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         //
-
+        $request->validate([
+            'nombre' => 'required|max:50|unique:roles,nombre',
+            'slug' => 'required|max:50|unique:roles,slug',
+            'acceso-total' => 'required|in:si,no',
+            'nombre' => 'required|max:50|unique:roles,nombre',
+        ]);
         return $request->all();
     }
 
@@ -55,9 +60,17 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        //$rol = Role::where('slug',$slug)->firstOrFail();
+        if (Role::where('slug',$slug)->first()) {
+            return 'Slug existe';
+        }else{
+            return 'Slug disponible';
+        } 
+        /*$editar = "Si";
+
+        return view('admin.category.show',compact('cat','editar'));*/
     }
 
     /**
@@ -68,7 +81,7 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        return 'ok';
     }
 
     /**

@@ -74,7 +74,7 @@
 
               
               
-              @include('custom.mensaje');
+              @include('custom.mensaje')
 
               <table class="table table-head-fixed text-nowrap table-hover">
 

@@ -29,7 +29,6 @@ Route::get('/contacto','Pagina\IndexController@contacto')->name('Contacto');
 Route::post('/contacto','Pagina\IndexController@contactoenviado')->name('Contacto_enviado'); 
 Route::get('/categoria/{slug}/','Pagina\IndexController@categoria');
 Route::get('/producto/{slug}/','Pagina\IndexController@producto');
-  
 
 Route::get('/home', 'HomeController@index')->name('home'); 
 

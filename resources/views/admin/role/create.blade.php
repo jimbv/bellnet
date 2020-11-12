@@ -45,8 +45,7 @@
         </div>
 
         <div class="card-body">
-
-            @include('custom.mensaje');
+ 
 
                     <div class="form-group">
 
