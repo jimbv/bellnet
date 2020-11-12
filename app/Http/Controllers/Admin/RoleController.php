@@ -48,6 +48,7 @@ class RoleController extends Controller
         $request->validate([
             'nombre' => 'required|max:50|unique:roles,nombre',
             'slug' => 'required|max:50|unique:roles,slug',
+            'descripcion' => 'required|max:50|unique:roles,slug',
             'acceso-total' => 'required|in:si,no'
         ]);
 

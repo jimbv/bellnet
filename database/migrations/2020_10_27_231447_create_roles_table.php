@@ -17,7 +17,7 @@ class CreateRolesTable extends Migration
             $table->id();
             $table->String('nombre')->unique();
             $table->String('slug')->unique();
-            $table->text('descripcion')->nulleable();
+            $table->text('descripcion')->nullable();
             $table->enum('acceso-total',['si','no'])->nulleable();
             $table->timestamps();
         });

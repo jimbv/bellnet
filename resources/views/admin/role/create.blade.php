@@ -51,47 +51,55 @@
 
                         <label for="nombre">Nombre</label>
 
-                      <input v-model='nombre' 
-
+                      <input v-model='nombre'
                       @blur='getRole' 
-
                       @focus='div_aparecer=false' 
-
-                      class="form-control" type="text" name="nombre" id="nombre">
+                      class="form-control" type="text" name="nombre" id="nombre"
+                      value="{{old('nombre')}}"
+                      >
 
 
 
                       <label for="slug">Slug</label>
 
                       <input 
-
-                       
-
                       v-model='generarSlug' 
-
-                      class="form-control" type="text" name="slug" id="slug">
+                      class="form-control" type="text" name="slug" id="slug" 
+                      value="{{old('slug')}}"
+                      >
 
 
 
                       <div v-if="div_aparecer" v-bind:class="div_clase_slug">
-
                           @{{div_mensajeslug}}
-
                       </div>
 
                       <br v-if="div_aparecer">
 
                       <label for="nombre">Descripción</label>
 
-                      <textarea class="form-control" name="descripcion" id="descripcion" cols='30' rows='5'></textarea>
+                      <textarea class="form-control" name="descripcion" id="descripcion" cols='30' rows='5'>{{old('descripcion')}}</textarea>
                         <hr>
                         <h3>Acceso total</h3> <br>
                         <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="acceso-total-si" name="acceso-total" class="custom-control-input"  value='si'>
+                        <input type="radio" id="acceso-total-si" name="acceso-total" class="custom-control-input"  value='si'
+                        @if(old('acceso-total')=="si")
+                          checked
+                        @endif
+                        >
                         <label class="custom-control-label" for="acceso-total-si">Si</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="acceso-total-no" name="acceso-total" class="custom-control-input" value='no' checked>
+                        <input type="radio" id="acceso-total-no" name="acceso-total" class="custom-control-input" value='no' 
+                        
+                        @if(old('acceso-total')=="no")
+                          checked
+                        @endif
+                        @if(old('acceso-total')===null)
+                          checked
+                        @endif
+
+                        >
                         <label class="custom-control-label" for="acceso-total-no" > No</label>
                         </div>
 
@@ -105,6 +113,9 @@
                                     id="permiso_{{$permiso->id}}"
                                     value="{{$permiso->id}}"
                                     name="permisos[]" 
+                                    @if(is_array(old('permisos'))&&in_array("$permiso->id",old('permisos')))
+                                      checked
+                                    @endif
                                     >
                                 <label class="custom-control-label" for="permiso_{{$permiso->id}}">
                                     {{$permiso->id}} 
@@ -147,8 +158,7 @@
 
         </div>
 
-        </form>
-
+        </form> 
         <!-- /.card-footer-->
 
       </div>
