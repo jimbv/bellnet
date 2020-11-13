@@ -5,7 +5,7 @@ use App\Image;
 use App\User;
 use App\Permisos\Models\Role;
 use App\Permisos\Models\Permission;
-
+use Illuminate\Support\Facades\Gate;
 
 Auth::routes(['verify' => true]);
 
@@ -21,6 +21,15 @@ Route::get('/resultados', function () {
 });
 
 
+Route::get('/prueba', function () {
+    
+    $user = User::find(3);
+    /*
+    $user->roles()->sync([2]);
+    return $user->havePermission('admin.role.edit');*/
+    return Gate::authorize('haveaccess','admin.role.index');
+    return $user;
+});
 
 
 Route::get('/','Pagina\IndexController@index')->name('Inicio');

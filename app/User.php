@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Permisos\Traits\UserTrait;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
+    use Notifiable,UserTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -42,9 +43,5 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belogsTo('App\Localidad');
     }
 
-    
-    public function roles(){
-        return $this->belongsToMany('App\Permisos\Models\Role')->withTimesTamps();
-    }
-
+  
 }
