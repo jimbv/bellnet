@@ -34,7 +34,7 @@
 
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini text-sm">
 
 <!-- Site wrapper -->
 
@@ -179,7 +179,7 @@
 
       <nav class="mt-2">
 
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-widget="treeview" role="menu" data-accordion="false">
 
           <!-- Add icons to the links using the .nav-icon class
 
@@ -191,7 +191,7 @@
           <!-- Administración de usuarios, roles y permisos -->
           <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-list-alt"></i>
+            <i class="nav-icon fas fa-users"></i>
             <p>
               Usuarios
               <i class="right fas fa-angle-left"></i>
@@ -203,13 +203,13 @@
 
             <li class="nav-item">
               <a href="{{route('admin.role.index')}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-user nav-icon"></i>
                 <p>Roles</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{{route('admin.user.index')}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-users nav-icon"></i>
                 <p>Usuarios</p>
               </a>
             </li> 
@@ -447,7 +447,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 <!-- Scripts -->
-<script src="{{ asset('js/app_admin.js') }}?v=8" defer></script> 
+<script src="{{ asset('js/app_admin.js') }}?v=10" defer></script> 
 
 @yield('scripts')
 

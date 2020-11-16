@@ -67,7 +67,7 @@ class RoleController extends Controller
 
         //return $request->all();
         return redirect()->route('admin.role.index')
-            ->with('status_success','Rol guardado correctamente');
+            ->with('datos','Rol guardado correctamente');
     }
 
     /**
@@ -140,7 +140,7 @@ class RoleController extends Controller
 
         //return $request->all();
         return redirect()->route('admin.role.index')
-            ->with('status_success','Rol editado correctamente');
+            ->with('datos','Rol editado correctamente');
     }
 
     /**

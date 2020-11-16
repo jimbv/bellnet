@@ -14,23 +14,21 @@
 
 <div class="row" id='confirmareliminar'>
 
-<span style='display:none;' id='URLbase'>{{route('admin.role.index')}}</span>
+<span style='display:none;' id='URLbase'>{{route('admin.user.index')}}</span>
 
 @include('custom.modal_eliminar')
 
-
           <div class="col-12">
 
-            
-
-          @include('custom.mensaje')
             <div class="card">
+
+            
 
             
 
               <div class="card-header">
 
-                <h3 class="card-title">Sección de Roles</h3>
+                <h3 class="card-title">Sección de Usuarios</h3>
 
 
 
@@ -70,12 +68,7 @@
 
               <div class="card-body table-responsive p-0" style="height: 500px;">
 
-               
-
-              <a class='m-2 float-right btn btn-primary' href="{{ route('admin.role.create')}}">Nuevo Rol</a>
-
-              
-              
+              @include('custom.mensaje')
 
               <table class="table table-head-fixed text-nowrap table-hover">
 
@@ -85,11 +78,13 @@
 
                       <th>#</th>
 
-                      <th>Nombre</th>
+                      <th>Razón Social</th>
 
-                      <th>Slug</th>
+                      <th>CUIT</th>
 
                       <th>Descripción</th>
+
+                      <th>Rol/es</th>
 
                       <th>Fecha creación</th>
 
@@ -104,39 +99,45 @@
 
                   <tbody>
 
-                  @foreach ($roles as $role)
+                  @foreach ($users as $user)
 
                    
 
                     <tr>
 
-                      <td> {{$role->id}}</td>
+                      <td> {{$user->id}}</td>
 
-                      <td> {{$role->nombre}}</td>
+                      <td> {{$user->name}}</td>
 
-                      <td> {{$role->slug}}</td>
+                      <td> {{$user->cuit}}</td>
 
-                      <td style ="max-width:300px;overflow:hidden;"> {{$role->descripcion}}</td>
+                      <td style ="max-width:300px;overflow:hidden;"> {{$user->email}}</td>
 
-                      <td> {{$role->created_at}}</td>
+                      <td style ="max-width:300px;overflow:hidden;">
+                      @foreach($user->roles as $rol)
+                      {{$rol->nombre}} 
+                      @endforeach
+                      </td>
 
-                      <td> {{$role->updated_at}}</td>
+                      <td> {{$user->created_at}}</td>
 
-                      <td> <a class='btn btn-default' href="{{ route('admin.role.show',$role->id)}}">
+                      <td> {{$user->updated_at}}</td>
+
+                      <td> <a class='btn btn-default' href="{{ route('admin.user.show',$user->id)}}">
 
                           <i class="fas fa-eye"></i>
 
                           </a></td>
 
-                      <td> <a class='btn btn-info' href="{{ route('admin.role.edit',$role->id)}}">
+                      <td> <a class='btn btn-info' href="{{ route('admin.user.edit',$user->id)}}">
 
                           <i class="fas fa-edit"></i>
 
                           </a></td>
 
-                      <td> <a class='btn btn-danger' href="{{ route('admin.role.index')}}" 
+                      <td> <a class='btn btn-danger' href="{{ route('admin.user.index')}}" 
 
-                          v-on:click.prevent='deseas_eliminar({{ $role->id }})'
+                          v-on:click.prevent='deseas_eliminar({{ $user->id }})'
 
                           >
 
@@ -156,25 +157,25 @@
               
               <ul class="pagination" style="padding-bottom:15px;width:200px;margin:auto;">
                                 <li class="paginate_button page-item previous 
-                                @if ($roles->currentPage() === 1)
+                                @if ($users->currentPage() === 1)
                                   disabled 
                                 @endif
                                 " id="anterior">
-                                  <a href="{{$roles->previousPageUrl()}}" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">
+                                  <a href="{{$users->previousPageUrl()}}" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">
                                     Anterior
                                   </a>
                                 </li>
                                 <li class="paginate_button page-item active">
                                     <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">
-                                    {{$roles->currentPage()}}
+                                    {{$users->currentPage()}}
                                     </a>
                                 </li>
                                 <li class="paginate_button page-item next
-                                @if ($roles->currentPage() === $roles->lastPage())
+                                @if ($users->currentPage() === $users->lastPage())
                                   disabled 
                                 @endif
                                 " id="siguiente">
-                                    <a href="{{$roles->nextPageUrl()}}" aria-controls="example2" data-dt-idx="7" 
+                                    <a href="{{$users->nextPageUrl()}}" aria-controls="example2" data-dt-idx="7" 
                                       tabindex="0" class="page-link">Siguiente
                                     </a>
                                 </li>

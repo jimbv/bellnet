@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Permisos\Traits\UserTrait;
+use App\Permisos\Models\Role;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -40,8 +41,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function localidad()
     {
-        return $this->belogsTo('App\Localidad');
+        return $this->belongsTo('App\Localidad');
     }
 
+    public function roles(){
+        return $this->belongsToMany('App\Permisos\Models\Role')->withTimesTamps();
+    }
   
 }

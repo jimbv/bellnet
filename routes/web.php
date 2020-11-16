@@ -51,7 +51,7 @@ Route::resource('admin/product','Admin\AdminProductController')->names('admin.pr
 
 
 Route::resource('admin/role','Admin\RoleController')->names('admin.role');
-Route::resource('admin/user','Admin\UserController')->names('admin.user');
+Route::resource('admin/user','Admin\UserController',['except'=>['create','store']])->names('admin.user');
 
 Route::get('cancelar/{ruta}',function($ruta){
     return redirect()->route($ruta)->with('cancelar','Acción cancelada');

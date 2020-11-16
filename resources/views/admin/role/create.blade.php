@@ -49,7 +49,7 @@
 
                     <div class="form-group">
 
-                        <label for="nombre">Nombre</label>
+                      <label for="nombre">Nombre</label>
 
                       <input v-model='nombre'
                       @blur='getRole' 
@@ -57,6 +57,8 @@
                       class="form-control" type="text" name="nombre" id="nombre"
                       value="{{old('nombre')}}"
                       >
+    	              </div>
+                    <div class="form-group">
 
 
 
@@ -67,8 +69,8 @@
                       class="form-control" type="text" name="slug" id="slug" 
                       value="{{old('slug')}}"
                       >
-
-  
+                    </div>
+                    <div class="form-group">
 
                       <label for="nombre">Descripción</label>
 

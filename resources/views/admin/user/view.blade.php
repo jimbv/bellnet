@@ -55,10 +55,10 @@
                       @blur='getRole' 
                       @focus='div_aparecer=false' 
                       class="form-control" type="text" name="nombre" id="nombre"
-                      value="{{old('nombre',$role->nombre)}}"
+                      value="{{old('nombre',$role->nombre)}}" 
+                      readonly
                       >
-                      </div>
-                      <div class="form-group">
+
 
 
                       <label for="slug">Slug</label>
@@ -67,19 +67,22 @@
                       v-model='generarSlug' 
                       class="form-control" type="text" name="slug" id="slug" 
                       value="{{old('slug',$role->slug)}}"
+                      readonly
                       >
-                      </div>
-                      <div class="form-group">
+
   
 
                       <label for="nombre">Descripción</label>
 
-                      <textarea class="form-control" name="descripcion" id="descripcion" cols='30' 
+                      <textarea class="form-control" name="descripcion" id="descripcion" cols='30'  
+                      readonly
                       rows='5'>{{old('descripcion',$role->descripcion)}}</textarea>
                         <hr>
                         <h3>Acceso total</h3> <br>
                         <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="acceso-total-si" name="acceso-total" class="custom-control-input"  value='si'
+                        <input 
+                        disabled 
+                        type="radio" id="acceso-total-si" name="acceso-total" class="custom-control-input"  value='si'
                         @if($role['acceso-total']=="si")
                           checked 
                         @elseif(old('acceso-total')=="si")
@@ -89,7 +92,9 @@
                         <label class="custom-control-label" for="acceso-total-si">Si</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="acceso-total-no" name="acceso-total" class="custom-control-input" value='no' 
+                        <input 
+                        disabled
+                        type="radio" id="acceso-total-no" name="acceso-total" class="custom-control-input" value='no' 
                         
                         @if($role['acceso-total']=="no")
                           checked 
@@ -107,6 +112,7 @@
                         @foreach($permisos as $permiso)
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" 
+                                    disabled
                                     id="permiso_{{$permiso->id}}"
                                     value="{{$permiso->id}}"
                                     name="permisos[]" 
@@ -143,11 +149,12 @@
 
         <div class="card-footer">
 
-        <a href="{{ route('cancelar','admin.role.index')}}" class='btn btn-danger'>Cancelar</a>
+        <a href="{{ route('cancelar','admin.role.index')}}" class='btn btn-danger'>Volver</a>
 
 
 
-        <input :disabled="deshabilitar_boton==1"  type="submit" value="Actualizar" class='btn btn-primary float-right'>
+        <a class='btn btn-success' href='{{route('admin.role.edit',$role->id)}}'> Editar </a>
+
 
                
 

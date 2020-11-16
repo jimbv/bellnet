@@ -14881,6 +14881,56 @@ var apiproduct = new Vue({
 
 /***/ }),
 
+/***/ "./resources/js/admin/apiuser.js":
+/*!***************************************!*\
+  !*** ./resources/js/admin/apiuser.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    Axios = _require["default"];
+
+var app = new Vue({
+  el: '#apiuser',
+  data: {
+    selected_provincia: '6',
+    selected_localidad: '',
+    localidades: [] //conyuge: ''
+
+  },
+  mounted: function mounted() {
+    //document.getElementById('localidad').disabled=true;
+    //this.conyuge =  document.getElementById('conyuge').getAttribute('data-old'); 
+    //this.showDatosConyuge();
+    this.selected_provincia = document.getElementById('provincia').getAttribute('data-old');
+
+    if (this.selected_provincia != '') {
+      this.loadLocalidades();
+    }
+
+    this.selected_localidad = document.getElementById('localidad').getAttribute('data-old');
+  },
+  methods: {
+    loadLocalidades: function loadLocalidades() {
+      var _this = this;
+
+      if (this.selected_provincia != '') {
+        axios.get('/localidades', {
+          params: {
+            provincia_id: this.selected_provincia
+          }
+        }).then(function (response) {
+          _this.localidades = response.data;
+          document.getElementById('localidad').disabled = false;
+        });
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/app_admin.js":
 /*!***********************************!*\
   !*** ./resources/js/app_admin.js ***!
@@ -14994,6 +15044,10 @@ if (document.getElementById('apiespecialidad')) {
 
 if (document.getElementById('confirmareliminar')) {
   __webpack_require__(/*! ./confirmareliminar */ "./resources/js/confirmareliminar.js");
+}
+
+if (document.getElementById('apiuser')) {
+  __webpack_require__(/*! ./admin/apiuser */ "./resources/js/admin/apiuser.js");
 }
 
 /***/ }),

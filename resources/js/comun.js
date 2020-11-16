@@ -62,3 +62,13 @@ if(document.getElementById('confirmareliminar')){
 
 }
 
+
+
+
+
+if(document.getElementById('apiuser')){
+
+    require('./admin/apiuser');   
+
+}
+
