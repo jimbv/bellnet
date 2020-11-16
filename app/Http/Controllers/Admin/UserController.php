@@ -119,6 +119,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        //Gate::authorize('haveaccess','admin.role.destroy');
+        $user = User::findOrFail($id); 
+        $user->delete();
+        return redirect()->route('admin.user.index')->with('datos','Registro eliminado correctamente');
     }
 }

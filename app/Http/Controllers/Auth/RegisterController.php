@@ -70,7 +70,8 @@ class RegisterController extends Controller
             'direccion' => ['required', 'string', 'max:255'],
             'telefono' => ['required', 'numeric', 'min:10'],
             'cuit' => ['required', 'numeric', 'min:11'], 
-            'localidad' => ['required', 'numeric']
+            'localidad' => ['required', 'numeric'],
+            'g-recaptcha-response' => 'recaptcha'
         ]);
     }
 
