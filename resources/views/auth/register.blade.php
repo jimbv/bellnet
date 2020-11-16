@@ -168,8 +168,7 @@
 
                         <div class="form-group row pt-10">
                         <!-- ReCaptcha -->
-                        
-                        <label for="captcha" class="col-md-4 col-form-label text-md-right">Captcha</label>
+                         
                         {!! htmlFormSnippet() !!}
 
                         </div>
