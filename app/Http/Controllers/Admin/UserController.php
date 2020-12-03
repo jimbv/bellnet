@@ -8,6 +8,7 @@ use App\Permisos\Models\Role;
 use App\User;
 use App\Provincia;
 use App\Localidad;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -22,8 +23,8 @@ class UserController extends Controller
         //Gate::authorize('haveaccess','admin.user.index');
 
         $buscar = $request->get('nombre'); 
-        $users = User::with('roles')->where('name','like',"%$buscar%")->orWhere('cuit','like',"%$buscar%")
-                    ->orderBy('name')->paginate(5);   
+        $users = User::with('roles')->where('apellido','like',"%$buscar%")->orWhere('nombres','like',"%$buscar%")->orWhere('cuit','like',"%$buscar%")
+                    ->orderBy('apellido')->paginate(5);   
         return view('admin.user.index',compact('users'));
     }
 
@@ -34,7 +35,18 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+       
+        $prov  =  new Provincia();
+        $provincias =  $prov->all()->sortBy('nombre');
+
+        $localidades = $prov::find(6)->localidades; 
+
+
+        $roles = Role::orderBy('nombre')->get(); 
+
+        $localidad = 1271;
+        
+        return view('admin.user.create',compact('roles', 'localidades','provincias','localidad'));
     }
 
     /**
@@ -43,9 +55,39 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request  )
     {
-         
+
+        $request->validate([
+            'apellido' => 'required',
+            'nombres' => 'required',
+            'email' => 'required',
+            'cuit' => 'required|unique:users,cuit',
+            'email' => 'required|unique:users,email'
+        ]);
+   
+        User::create([
+            'apellido' => $request['apellido'],
+            'nombres' => $request['nombres'],
+            'email' => $request['email'],
+            'nacimiento' => $request['nacimiento'],
+            'password' => Hash::make($request['password']),
+            'calle' => $request['calle'],
+            'numero' => $request['numero'],
+            'depto' => $request['depto'],
+            'telefono' => $request['telefono'],
+            'cuit' => $request['cuit'],
+            'localidad_id' => $request['localidad_id']
+        ]);
+        //$user = User::create($request->all());
+
+        
+        if($request->get('roles')){
+            $user->roles()->sync($request->get('roles'));
+        }
+ 
+        return redirect()->route('admin.user.index')
+            ->with('datos','Usuario guardado correctamente');   
     }
     /**
      * Display the specified resource.
@@ -96,7 +138,9 @@ class UserController extends Controller
     {
         //Gate::authorize('haveaccess','admin.user.edit');
         $request->validate([
-            'name' => 'required',
+            'nombres' => 'required',
+            'apellido' => 'required',
+            'email' => 'required',
             //'cuit' => 'required|max:50|unique:users,cuit,'.$user->cuit
         ]);
  

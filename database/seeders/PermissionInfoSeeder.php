@@ -37,12 +37,15 @@ class PermissionInfoSeeder extends Seeder
         }
 
         $useradmin = User::create([
-            'name' =>  'admin',
+            'apellido' =>  'Administrador',
+            'nombres' =>  'Bellnet',
             'email' =>  'admin@admin.com', 
             'password' => Hash::make('admin'),
-            'direccion' =>  'direccion',
+            'calle' =>  'Calle',
+            'numero' =>  123,
             'telefono' => '3537000000',
-            'cuit' => '00000000000',
+            'nacimiento' => '1987-06-23',
+            'cuit' => '20123456789',
             'localidad_id'=> 926
         ]);
 

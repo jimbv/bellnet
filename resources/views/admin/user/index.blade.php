@@ -69,6 +69,10 @@
               <div class="card-body table-responsive p-0" style="height: 500px;">
 
               @include('custom.mensaje')
+              
+
+              <a class='m-2 float-right btn btn-primary' href="{{ route('admin.user.create')}}">Nuevo Usuario</a>
+
 
               <table class="table table-head-fixed text-nowrap table-hover">
 
@@ -107,7 +111,7 @@
 
                       <td> {{$user->id}}</td>
 
-                      <td> {{$user->name}}</td>
+                      <td> {{$user->apellido}} {{$user->nombres}}</td>
 
                       <td> {{$user->cuit}}</td>
 

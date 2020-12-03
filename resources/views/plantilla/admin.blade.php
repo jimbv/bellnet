@@ -2,7 +2,13 @@
 
 <html>
 
-<head>
+<head> 
+
+
+<link href="/img/icono.png" rel="icon">
+
+<link href="/img/icono.png" rel="apple-touch-icon">
+
 
   <meta charset="utf-8">
 
@@ -101,7 +107,7 @@
       </li>
       <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              {{ Auth::user()->name }} <span class="caret"></span>
+              {{ Auth::user()->nombres }} <span class="caret"></span>
           </a>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -219,7 +225,7 @@
           <!-- Categorias -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-list-alt"></i>
+              <i class="nav-icon fas fa-list"></i>
               <p>
                 Categorías
                 <i class="right fas fa-angle-left"></i>
@@ -244,7 +250,7 @@
           <!-- Productos -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-list-alt"></i>
+              <i class="nav-icon fas fa-box"></i>
               <p>
                 Productos
                 <i class="right fas fa-angle-left"></i>
