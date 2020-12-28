@@ -271,6 +271,31 @@
               </li> 
             </ul>
           </li> 
+
+          <!-- Noticias -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-circle"></i>
+              <p>
+                Noticias
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.noticia.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Noticias</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.noticia.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Nueva Noticia</p>
+                </a>
+              </li> 
+            </ul>
+          </li> 
       </nav>
 
       <!-- /.sidebar-menu -->
@@ -453,7 +478,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 <!-- Scripts -->
-<script src="{{ asset('js/app_admin.js') }}?v=10" defer></script> 
+<script src="{{ asset('js/app_admin.js') }}?v=120" defer></script> 
 
 @yield('scripts')
 

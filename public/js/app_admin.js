@@ -14737,6 +14737,112 @@ var apiespecialidad = new Vue({
 
 /***/ }),
 
+/***/ "./resources/js/admin/apinoticia.js":
+/*!******************************************!*\
+  !*** ./resources/js/admin/apinoticia.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var apinoticia = new Vue({
+  el: "#apinoticia",
+  data: {
+    titulo: '',
+    slug: '',
+    div_mensajeslug: 'Slug Existe',
+    div_clase_slug: 'badge badge-danger',
+    div_aparecer: false,
+    deshabilitar_boton: 0
+  },
+  computed: {
+    generarSlug: function generarSlug() {
+      var _char = {
+        "á": "a",
+        "é": "e",
+        "í": "i",
+        "ó": "o",
+        "ú": "u",
+        "Á": "A",
+        "É": "E",
+        "Í": "I",
+        "Ó": "O",
+        "Ú": "U",
+        "ñ": "n",
+        "Ñ": "N",
+        " ": "-",
+        "_": "-"
+      };
+      var expr = /[á,Á,É,é,Í,í,Ó,ó,Ú,ú,Ñ,ñ,_, ]/g;
+      this.slug = this.titulo.trim().replace(expr, function (e) {
+        return _char[e];
+      }).toLowerCase();
+      return this.slug;
+    }
+  },
+  methods: {
+    eliminarimagen: function eliminarimagen(imagen) {
+      console.log(imagen);
+      Swal.fire({
+        title: 'Confirma desea eliminar la imágen ' + imagen.id,
+        text: "No podras revertir esto",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar',
+        cancelButtonText: 'Cancelar'
+      }).then(function (result) {
+        if (result.value) {
+          var url = '/api/eliminarimagen/' + imagen.id;
+          axios["delete"](url).then(function (response) {
+            console.log(response.data);
+          }); //console.log(elemento);
+          // Eliminar el elemento
+
+          var elemento = document.getElementById('idimagen-' + imagen.id);
+          elemento.parentNode.removeChild(elemento);
+          Swal.fire('Eliminado', 'Tu archivo ha sido eliminado', 'success');
+        }
+      });
+    },
+    getNoticia: function getNoticia() {
+      var _this = this;
+
+      if (this.slug) {
+        var url = '/api/noticia/' + this.slug;
+        axios.get(url).then(function (response) {
+          _this.div_mensajeslug = response.data;
+
+          if (_this.div_mensajeslug == 'Slug disponible') {
+            _this.div_clase_slug = 'badge badge-success';
+            _this.deshabilitar_boton = 0;
+          } else {
+            _this.div_clase_slug = 'badge badge-danger';
+            _this.deshabilitar_boton = 1;
+          }
+
+          _this.div_aparecer = true;
+        });
+      } else {
+        this.div_clase_slug = 'badge badge-danger';
+        this.div_mensajeslug = "Ingresar un nombre";
+        this.deshabilitar_boton = 1;
+        this.div_aparecer = true;
+      }
+    }
+  },
+  mounted: function mounted() {
+    if (data.editar == 'Si') {
+      this.titulo = data.datos.titulo;
+      this.deshabilitar_boton = 0;
+    }
+
+    console.log(data);
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/admin/apiproduct.js":
 /*!******************************************!*\
   !*** ./resources/js/admin/apiproduct.js ***!
@@ -15036,6 +15142,10 @@ if (document.getElementById('apicategory')) {
 
 if (document.getElementById('apiproduct')) {
   __webpack_require__(/*! ./admin/apiproduct */ "./resources/js/admin/apiproduct.js");
+}
+
+if (document.getElementById('apinoticia')) {
+  __webpack_require__(/*! ./admin/apinoticia */ "./resources/js/admin/apinoticia.js");
 }
 
 if (document.getElementById('apiespecialidad')) {

@@ -10,8 +10,13 @@
 
 @endsection
 
-@section('contenido')
 
+@section('estilos')
+  @livewireStyles   
+@endsection
+
+@section('contenido')
+  @livewireScripts
 
 <style>
   .nav-tabs .nav-link {
@@ -215,6 +220,9 @@
         </div>
         <div class="tab-pane fade" id="productos_usuario" role="tabpanel" aria-labelledby="productos_usuario">
         
+
+        @livewire('productos-usuario')
+
         </div>
       </div> <!-- Final al contenido de los tabs --> 
     </div> <!-- Final del cuerpo de la tarjeta -->
@@ -227,7 +235,4 @@
   </form> 
   </div>  
  
-
-  
-
 @endsection

@@ -3,6 +3,7 @@ use App\Product;
 use App\Category;
 use App\Image;
 use App\User;
+use App\ProductUser;
 use App\Permisos\Models\Role;
 use App\Permisos\Models\Permission;
 use Illuminate\Support\Facades\Gate;
@@ -48,6 +49,7 @@ Route::get('/admin', 'Admin\AdminController@index')->name('admin');
 
 Route::resource('admin/category','Admin\AdminCategoryController')->names('admin.category');
 Route::resource('admin/product','Admin\AdminProductController')->names('admin.product');
+Route::resource('admin/noticia','Admin\AdminNoticiaController')->names('admin.noticia');
 
 
 Route::resource('admin/role','Admin\RoleController')->names('admin.role');
@@ -94,5 +96,11 @@ Route::get('/test', function () {
 
 });
 
+Route::get('/test2', function () { 
+    $prod = ProductUser::all();
+    return $prod; // Solo los roles 1 y 3 
+    
+
+});
 
 

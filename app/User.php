@@ -47,5 +47,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function roles(){
         return $this->belongsToMany('App\Permisos\Models\Role')->withTimesTamps();
     }
+
+    public function product_user(){
+        return $this->belongsToMany('App\ProductUser');
+    }
+
   
 }

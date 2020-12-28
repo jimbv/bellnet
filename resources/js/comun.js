@@ -44,6 +44,12 @@ if(document.getElementById('apiproduct')){
  
 
 
+if(document.getElementById('apinoticia')){
+
+    require('./admin/apinoticia');   
+
+}
+ 
 
 
 

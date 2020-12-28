@@ -17,7 +17,8 @@ class CreateProductUserTable extends Migration
             $table->id();
             $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');  
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');  
-            $table->date('vencimiento');
+            $table->date('desde');
+            $table->date('hasta'); 
             $table->timestamps();
         });
     }
