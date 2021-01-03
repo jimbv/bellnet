@@ -11,91 +11,98 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
+                        
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Apellido y Nombre</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                            <div class="col-6 py-2"> 
+                                <label for="apellido">Apellido</label>
+                                <input  
+                                class="form-control @error('apellido') is-invalid @enderror" type="text" name="apellido" id="apellido" required autofocus
+                                value="{{old('apellido')}}" /> 
+                                @error('apellido')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                 @enderror
                             </div>
-                        </div>
+                            <div class="col-6 py-2"> 
+                                <label for="nombres">Nombres</label> 
+                                <input  
+                                class="form-control @error('nombres') is-invalid @enderror" type="text" name="nombres" id="nombres"
+                                value="{{old('nombres')}}" /> 
+                                @error('nombres')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+                            </div>
+                           
 
-                        <div class="form-group row">
-                            <label for="cuit" class="col-md-4 col-form-label text-md-right">CUIL/CUIT</label>
 
-                            <div class="col-md-6">
-                                <input id="cuit" type="number" size='11' class="form-control @error('cuit') is-invalid @enderror" name="cuit" value="{{ old('cuit') }}" required autocomplete="cuit" autofocus>
-
+                            <div class="col-6 py-2">
+                                <label for="cuit">CUIT</label>
+                                <input 
+                                v class="form-control @error('cuit') is-invalid @enderror" type="text" name="cuit" id="cuit"
+                                value="{{old('cuit')}}" />
+                                
                                 @error('cuit')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div> 
+                            <div class="col-6 py-2">
+                                <label for="nacimiento">Fecha de Nacimiento</label>
+                                <input 
+                                v class="form-control" type="date" name="nacimiento" id="nacimiento"
+                                value="{{old('nacimiento')}}" />
+                            </div> 
+                            <div class="col-6 py-2">
+                                <label for="email">Email</label>
+                                <input  
+                                class="form-control" type="email" name="email" id="email"
+                                value="{{old('email')}}" />
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="telefono" class="col-md-4 col-form-label text-md-right">Teléfono</label>
-
-                            <div class="col-md-6">
-                                <input id="telefono" type="number" size='10' class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono" autofocus>
-
-                                @error('telefono')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row">
-                            <label for="provincias" class="col-md-4 col-form-label text-md-right">Provincia</label>
-                             
-  
-  
-                            <div class="col-md-6">
-
- 
-                                            <SELECT v-model='selected_provincia'  @change='loadLocalidades' style='width: 100%;
-                                            height: 44px;
-                                            border: 2px solid gray;
-                                            padding-left: 12px;
-                                            padding-right: 12px;
-                                            border-radius:5px;
-                                            position: relative;
-                                            font-size: 16px;   color: #6c6c6c;' id='provincia' name='provincia' data-old="{{old('provincia')}}"> 
-                                            @foreach($provincias as $prov)
-                                                <option value="{{$prov->id}}" >
-                                                {{$prov->nombre}}
-                                                </option>
-                                            @endforeach
-                                            </SELECT>
-                                            <i class="lni lni-card"></i>
-                                        
-
-
                                 
+                            <div class="col-6 py-2">
+                                <label for="telefono">Teléfono</label>
+                                <input  
+                                class="form-control" type="number" name="telefono" id="telefono"
+                                value="{{old('telefono')}}" />
+                            </div>
+                             
+                            
+                            <div class="col-6 py-2">
+
+                            <label for="provincias" >Provincia </label>
+                            
+                            <SELECT v-model='selected_provincia'  @change='loadLocalidades' style='width: 100%;
+                                height: 44px;
+                                border: 2px solid gray;
+                                padding-left: 12px;
+                                padding-right: 12px;
+                                border-radius:5px;
+                                position: relative;
+                                font-size: 16px;   color: #6c6c6c;' id='provincia' name='provincia' data-old="{{old('provincia')}}"> 
+                                @foreach($provincias as $prov)
+                                    <option value="{{$prov->id}}" >
+                                    {{$prov->nombre}}
+                                    </option>
+                                @endforeach
+                                </SELECT>
+                            <i class="lni lni-card"></i>
+                                                
+
 
                                 @error('provincia')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                @enderror 
+
                             </div>
-                        </div>
+                            <div class="col-6 py-2">
+                            <label for="localidades" >Localidad </label>
 
-
-                        <div class="form-group row">
-                            <label for="localidades" class="col-md-4 col-form-label text-md-right">Localidad</label>
-
-                            <div class="col-md-6">
                                 <SELECT v-model='selected_localidad' style='width: 100%;
                                             height: 44px;
                                             border: 2px solid gray;
@@ -103,7 +110,7 @@
                                             padding-left: 12px;
                                             padding-right: 12px;
                                             position: relative;
-                                            font-size: 16px;   color: #6c6c6c;' id='localidad' name='localidad' data-old="{{old('localidad')}}">
+                                            font-size: 16px;   color: #6c6c6c;' id='localidad_id' name='localidad_id' data-old="{{old('localidad_id')}}">
                                                 <option v-for='localidad in localidades' v-bind:value='localidad.id'>   
                                                 @{{localidad.nombre}}
                                                 </option>  
@@ -114,62 +121,64 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                            <div class="col-6 py-2">
+                            <label for="calle" >Calle</label>
 
-                        <div class="form-group row">
-                            <label for="direccion" class="col-md-4 col-form-label text-md-right">Dirección</label>
+                                <input id="calle" type="text" class="form-control @error('calle') is-invalid @enderror" name="calle" value="{{ old('calle') }}" required autocomplete="calle">
 
-                            <div class="col-md-6">
-                                <input id="direccion" type="text" class="form-control @error('direccion') is-invalid @enderror" name="direccion" value="{{ old('direccion') }}" required autocomplete="direccion" autofocus>
-
-                                @error('direccion')
+                                @error('calle')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
+                            </div> 
+                            <div class="col-3 py-2">
+                            <label for="numero" >Número</label>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                <input id="numero" type="number" class="form-control @error('numero') is-invalid @enderror" name="numero" value="{{ old('numero') }}" required autocomplete="numero">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
+                                @error('numero')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
+                            </div> 
+                            <div class="col-3 py-2">
+                            <label for="depto" >Piso y Depto.</label>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                <input id="depto" type="text" class="form-control @error('depto') is-invalid @enderror" name="depto" value="{{ old('depto') }}" >
 
-                            <div class="col-md-6">
+                                @error('depto')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div> 
+
+
+
+                            <div class="col-6  py-2">
+                            <label for="password" >{{ __('Password') }}</label> 
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                @enderror 
+                            </div> 
+                            <div class="col-6 py-2">
+                            <label for="password-confirm" >{{ __('Confirm Password') }}</label> 
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"> 
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row pt-10">
-                        <!-- ReCaptcha -->
+                        <div class="col-12 py-2" style='padding-bottom:30px;'>
+                        <label for="captcha" >Confirma para saber que eres una persona</label> 
+                        <!-- ReCaptcha --> 
+                          {!! htmlFormSnippet() !!}  
                          
-                        {!! htmlFormSnippet() !!}
+                       <br>
 
                         </div>
 

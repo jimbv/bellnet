@@ -101,7 +101,7 @@
             <div class="col-6 py-2">
             </div>
            
-          <div class="col-6 py-2">
+            <div class="col-6 py-2">
 
             <label for="provincias" >Provincia </label>
             
@@ -129,8 +129,8 @@
                   </span>
               @enderror 
 
-          </div>
-          <div class="col-6 py-2">
+            </div>
+            <div class="col-6 py-2">
             <label for="localidades" >Localidad </label>
 
                 <SELECT v-model='selected_localidad' style='width: 100%;
