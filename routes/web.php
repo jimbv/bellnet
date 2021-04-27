@@ -42,7 +42,8 @@ Route::get('/producto/{slug}/','Pagina\IndexController@producto');
 
 Route::get('/home', 'HomeController@index')->name('home'); 
 
-
+Route::get('/noticia/{slug}/', 'Pagina\ControladorNoticia@noticia'); 
+Route::get('/noticias','Pagina\ControladorNoticia@noticias')->name('noticias');
  
 
 Route::get('/admin', 'Admin\AdminController@index')->name('admin');
@@ -61,6 +62,8 @@ Route::get('cancelar/{ruta}',function($ruta){
 })->name('cancelar');
 
 
+Route::get('/cambiarclave','Admin\CambiarClave@index')->name('cambiarclaveindex');
+Route::post('/cambiarclave','Admin\CambiarClave@cambiarclave')->name('cambiarclave');
 
 
 

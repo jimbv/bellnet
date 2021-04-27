@@ -221,7 +221,7 @@
         <div class="tab-pane fade" id="productos_usuario" role="tabpanel" aria-labelledby="productos_usuario">
         
 
-        @livewire('productos-usuario')
+        @livewire('productos-usuario',['user' => $user])
 
         </div>
       </div> <!-- Final al contenido de los tabs --> 

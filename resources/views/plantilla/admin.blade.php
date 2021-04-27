@@ -274,8 +274,8 @@
 
           <!-- Noticias -->
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
+            <a href="#" class="nav-link"> 
+              <i class="nav-icon fa fa-newspaper"></i>
               <p>
                 Noticias
                 <i class="right fas fa-angle-left"></i>

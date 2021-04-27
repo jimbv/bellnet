@@ -3,19 +3,30 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Product as Productos;
+use App\Product as Productos; 
 use App\ProductUser as ProductUser;
 
 class ProductosUsuario extends Component
 {  
     public $data, $product_id, $user_id, $desde, $hasta, $tipo_facturacion, $selected_id;
-    public $updateMode = false;
-    
-    public function render()
+    public $updateMode = false; 
+
+    public $user; 
+ 
+    public function mount()
     {
-        $productos = Productos::all();
-        $this->data = ProductUser::all();
-        return view('livewire.productos_usuario.productos-usuario',compact('productos'));
+        $this->user_id = $this->user->id;
+    }
+
+    public function render()
+    {   
+        $user_id= $this->user_id;
+       $productos = Productos::all();
+        
+       //$this->data = ProductUser::with('producto');
+       $datos = ProductUser::with('producto')->where('user_id',$user_id)->get();
+        
+        return view('livewire.productos_usuario.productos-usuario',compact('productos','datos'));
     }
  
     private function resetInput()
@@ -27,10 +38,10 @@ class ProductosUsuario extends Component
     public function store()
     {
         $this->validate([
-            'product_id' => 'required|min:5',
+            'product_id' => 'required',
             'desde' => 'required', 
         ]);
-        Contactos::create([
+        ProductUser::create([
             'product_id' => $this->product_id,
             'desde' => $this->desde,
             'hasta' => $this->hasta, 
@@ -41,10 +52,11 @@ class ProductosUsuario extends Component
 
     public function edit($id)
     {
-        $record = Contactos::findOrFail($id);
+        $record = ProductUser::findOrFail($id);
         $this->selected_id = $id;
-        $this->name = $record->name;
-        $this->email = $record->email;
+        $this->product_id = $record->product_id;
+        $this->desde = $record->desde;
+        $this->hasta = $record->hasta;
         $this->updateMode = true;
 
         
@@ -72,11 +84,11 @@ class ProductosUsuario extends Component
     public function destroy($id)
     {
         if ($id) {
-            $record = Prestadores::where('id', $id);
+            $record = ProductUser::where('id', $id);
             $record->delete();
 
             $this->updateMode = false;
-            if(Prestadores::count()==0){
+            if(ProductUser::count()==0){
                 $this->render();
             }
         }

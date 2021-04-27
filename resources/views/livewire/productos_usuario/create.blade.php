@@ -3,7 +3,7 @@
     <div class="col-md-3">
       <div class="form-group" >
         <label>Producto</label>
-        <select wire:model="especialidad_id"  class="form-control"  style="width: 100%;" >
+        <select wire:model="product_id"  class="form-control"  style="width: 100%;" >
           @foreach($productos as $producto)
              
              
@@ -40,7 +40,7 @@
       
       <label>&nbsp;</label>
       <br> 
-        <a wire:click="store()" class="btn btn-primary"  @click='agregarespecialidad' style='width:100%;color:white;cursor:pointer;' >
+        <a wire:click="store()" class="btn btn-primary"  @click='agregarproducto' style='width:100%;color:white;cursor:pointer;' >
         <i class="fas fa-plus-circle"></i>&nbsp;&nbsp; Agregar producto
         </a>
       </div> 

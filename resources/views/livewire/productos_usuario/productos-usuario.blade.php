@@ -6,7 +6,10 @@
         @include('livewire.productos_usuario.create')
     @endif
 
-
+    <div class="alert alert-secondary" role="alert">
+        Servicios y/o productos activos,  se generará un comprobante de venta mientras no haya llegado a la <strong>Fecha Hasta</strong> y una vez que llegue a la <strong>Fecha Desde</strong>. <br>
+        Al llegar, de ser un producto mensual, se actualizará la <strong>Fecha Desde</strong>  para el siguiente mes, de la misma forma anualmente. 
+      </div>
     <table class="table">
             <thead>
             <tr>
@@ -16,11 +19,12 @@
                 <th scope="col">Acciones</th>
             </tr>
             </thead>
-            <tbody>
-            @forelse ($data as $item)
+            <tbody> 
+            <br> 
+            @forelse ($datos as $item)
                 <tr>
-                    <th scope="row"> 
-                        {{ $item->desde}}
+                    <th scope="row">
+                        {{$item->producto->nombre}} 
                     </th>
                     <td> 
                         {{ $item->desde}}

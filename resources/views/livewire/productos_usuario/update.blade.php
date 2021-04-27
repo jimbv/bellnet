@@ -1,41 +1,36 @@
 <div class="row">
   <div class="col-md-3">
-      <div class="form-group">
-        <label>Matricula</label>
-        <input    class="form-control" wire:model="matricula"  type="text" id="matricula" name="matricula">
-        @error('matricula')
-              <span class="text-red-500 text-xs italic py-1">{{ $message }}</span>
-        @enderror
-      </div> 
-    </div> 
-    <div class="col-md-3">
-      <div class="form-group">
-        <label>Especialidad</label>
-        <select name="especialidad_id" id="especialidad_id" class="form-control" style="width: 100%;" v-model='especialidad_id'>
-          @foreach($especialidades as $especialidad)
-            @if ($loop->first)
-              <option value="{{ $especialidad->id }}" selected="selected">{{ $especialidad->nombre }}</option>
-            @else
-              <option value="{{ $especialidad->id }}">{{ $especialidad->nombre }}</option>
-            @endif
-          @endforeach
-        </select>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="form-group">
-      <label>Tipo Prestador</label>
-        <select name="tipoprestador" id="tipoprestador"  class="form-control" style="width: 100%;">
-        @foreach($tiposprestadores as $tipoprestador)
-            @if ($loop->first)
-              <option value="{{ $tipoprestador->id }}" selected="selected">{{ $tipoprestador->nombre }}</option>
-            @else
-              <option value="{{ $tipoprestador->id }}">{{ $tipoprestador->nombre }}</option>
-            @endif
+    <div class="form-group" >
+      <label>Producto</label>
+      <select wire:model="product_id"  class="form-control"  style="width: 100%;" >
+        @foreach($productos as $producto)
+           
+           
+            <option value="{{ $producto->id }}">{{ $producto->nombre }}</option>
+           
         @endforeach
-        </select>
-      </div>
+      </select>
     </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Fecha desde</label>
+      <input    class="form-control" wire:model="desde"  type="date" id="desde" name="desde">
+      @error('matricula')
+            <span class="text-red-500 text-xs italic py-1">{{ $message }}</span>
+      @enderror
+    </div> 
+  </div> 
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Fecha hasta</label>
+      <input    class="form-control" wire:model="hasta"  type="date" id="hasta" name="hasta">
+      @error('matricula')
+            <span class="text-red-500 text-xs italic py-1">{{ $message }}</span>
+      @enderror
+    </div> 
+  </div> 
+   
     <div class="col-md-3">
       <div class="form-group">
       

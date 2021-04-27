@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product; 
+use App\Noticia; 
 use App\Permisos\Models\Role; 
 use App\Mail\ContactoMail;
 use Illuminate\Support\Facades\Mail;
@@ -15,9 +16,9 @@ class IndexController extends Controller
     
     public function index()
     { 
-        
+        $noticias =  Noticia::with('images')->orderBy('fecha','desc')->paginate(4);
         $resultado = '';
-        return view('pagina.index',compact('resultado'));
+        return view('pagina.index',compact('resultado','noticias'));
     }
     public function empresa(){
         $categorias = Category::all();

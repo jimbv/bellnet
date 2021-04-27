@@ -17,7 +17,8 @@ class ProductUser extends Model
     
     public function producto()
     {
-        return $this->belogsTo('App\Product');
+        //return $this->belongsTo('App\Product');
+        return $this->belongsTo(Product::class,'product_id');
     }
 
 }

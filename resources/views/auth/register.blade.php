@@ -110,12 +110,12 @@
                                             padding-left: 12px;
                                             padding-right: 12px;
                                             position: relative;
-                                            font-size: 16px;   color: #6c6c6c;' id='localidad_id' name='localidad_id' data-old="{{old('localidad_id')}}">
+                                            font-size: 16px;   color: #6c6c6c;' class="@error('localidad_id') is-invalid @enderror" id='localidad_id' name='localidad_id' data-old="{{old('localidad_id')}}">
                                                 <option v-for='localidad in localidades' v-bind:value='localidad.id'>   
                                                 @{{localidad.nombre}}
                                                 </option>  
                                             </SELECT>
-                                @error('localidad')
+                                 @error('localidad_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -177,7 +177,7 @@
                         <label for="captcha" >Confirma para saber que eres una persona</label> 
                         <!-- ReCaptcha --> 
                           {!! htmlFormSnippet() !!}  
-                         
+                          
                        <br>
 
                         </div>
@@ -197,3 +197,69 @@
 </div>
 </div>
 @endsection
+
+
+
+
+ <!--
+                        <div class="form-group row">
+                            <label for="provincias" class="col-md-4 col-form-label text-md-right">Provincia</label>
+                             
+  
+  
+                            <div class="col-md-6">
+
+ 
+                                            <SELECT v-model='selected_provincia'  @change='loadLocalidades' style='width: 100%;
+                                            height: 44px;
+                                            border: 2px solid gray;
+                                            padding-left: 12px;
+                                            padding-right: 12px;
+                                            border-radius:5px;
+                                            position: relative;
+                                            font-size: 16px;   color: #6c6c6c;' id='provincia' name='provincia' data-old="{{old('provincia')}}"> 
+                                            @foreach($provincias as $prov)
+                                                <option value="{{$prov->id}}" >
+                                                {{$prov->nombre}}
+                                                </option>
+                                            @endforeach
+                                            </SELECT>
+                                            <i class="lni lni-card"></i>
+                                        
+
+
+                                
+
+                                @error('provincia')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="localidades" class="col-md-4 col-form-label text-md-right">Localidad</label>
+
+                            <div class="col-md-6">
+                                <SELECT v-model='selected_localidad' style='width: 100%;
+                                            height: 44px;
+                                            border: 2px solid gray;
+                                            border-radius:5px;
+                                            padding-left: 12px;
+                                            padding-right: 12px;
+                                            position: relative;
+                                            font-size: 16px;   color: #6c6c6c;' id='localidad' name='localidad' data-old="{{old('localidad')}}">
+                                                <option v-for='localidad in localidades' v-bind:value='localidad.id'>   
+                                                @{{localidad.nombre}}
+                                                </option>  
+                                            </SELECT>
+                                @error('localidad')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+-->

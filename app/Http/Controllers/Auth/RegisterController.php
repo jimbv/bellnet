@@ -64,15 +64,17 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'apellido' => ['required', 'string', 'max:255'],
+            'nombres' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'direccion' => ['required', 'string', 'max:255'],
             'telefono' => ['required', 'numeric', 'min:10'],
             'cuit' => ['required', 'numeric', 'min:11'], 
-            'localidad' => ['required', 'numeric'],
+            'localidad_id' => ['required', 'numeric'],
             'g-recaptcha-response' => 'recaptcha'
         ]);
+ 
+    
     }
 
     /**
@@ -84,13 +86,17 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'apellido' => $data['apellido'],
+            'nombres' => $data['nombres'],
             'email' => $data['email'],
+            'nacimiento' => $data['nacimiento'],
             'password' => Hash::make($data['password']),
-            'direccion' => $data['direccion'],
+            'calle' => $data['calle'],
+            'numero' => $data['numero'],
+            'depto' => $data['depto'],
             'telefono' => $data['telefono'],
             'cuit' => $data['cuit'],
-            'localidad_id' => $data['localidad']
+            'localidad_id' => $data['localidad_id'] 
         ]);
     }
 }
