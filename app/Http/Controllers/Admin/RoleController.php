@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Gate;
 
 class RoleController extends Controller
 {
-    public function __construct(){
-
+    public function __construct()
+    {
         $this->middleware('auth');
     }
     /**
@@ -22,12 +22,12 @@ class RoleController extends Controller
      */
     public function index(Request $request)
     {
-        
-        Gate::authorize('haveaccess','admin.role.index');
 
-        $nombre = $request->get('nombre'); 
-        $roles = Role::where('nombre','like',"%$nombre%")->orderBy('nombre')->paginate(5);   
-        return view('admin.role.index',compact('roles'));
+        Gate::authorize('haveaccess', 'admin.role.index');
+
+        $nombre = $request->get('nombre');
+        $roles = Role::where('nombre', 'like', "%$nombre%")->orderBy('nombre')->paginate(5);
+        return view('admin.role.index', compact('roles'));
     }
 
     /**
@@ -36,10 +36,10 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {        
-        Gate::authorize('haveaccess','admin.role.create');
-        $permisos = Permission::get(); 
-        return view('admin.role.create',compact('permisos'));
+    {
+        Gate::authorize('haveaccess', 'admin.role.create');
+        $permisos = Permission::get();
+        return view('admin.role.create', compact('permisos'));
     }
 
     /**
@@ -50,7 +50,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize('haveaccess','admin.role.create');
+        Gate::authorize('haveaccess', 'admin.role.create');
         $request->validate([
             'nombre' => 'required|max:50|unique:roles,nombre',
             'slug' => 'required|max:50|unique:roles,slug',
@@ -60,14 +60,14 @@ class RoleController extends Controller
 
         $role = Role::create($request->all());
 
-        if($request->get('permisos')){
+        if ($request->get('permisos')) {
             $role->permissions()->sync($request->get('permisos'));
         }
 
 
         //return $request->all();
         return redirect()->route('admin.role.index')
-            ->with('datos','Rol guardado correctamente');
+            ->with('datos', 'Rol guardado correctamente');
     }
 
     /**
@@ -77,15 +77,15 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Role $role)
-    { 
-        Gate::authorize('haveaccess','admin.role.show');
+    {
+        Gate::authorize('haveaccess', 'admin.role.show');
         $permission_role = [];
-        foreach($role->permissions as $permission){
-            $permission_role[] = $permission->id; 
+        foreach ($role->permissions as $permission) {
+            $permission_role[] = $permission->id;
         }
-        
-        $permisos = Permission::get(); 
-        return view('admin.role.view',compact('permisos','role','permission_role'));
+
+        $permisos = Permission::get();
+        return view('admin.role.view', compact('permisos', 'role', 'permission_role'));
     }
 
     /**
@@ -96,14 +96,14 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        Gate::authorize('haveaccess','admin.role.edit');
+        Gate::authorize('haveaccess', 'admin.role.edit');
         $permission_role = [];
-        foreach($role->permissions as $permission){
-            $permission_role[] = $permission->id; 
+        foreach ($role->permissions as $permission) {
+            $permission_role[] = $permission->id;
         }
- 
-        $permisos = Permission::get(); 
-        return view('admin.role.edit',compact('permisos','role','permission_role'));
+
+        $permisos = Permission::get();
+        return view('admin.role.edit', compact('permisos', 'role', 'permission_role'));
     }
 
     /**
@@ -114,33 +114,29 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Role $role)
-    { 
-        Gate::authorize('haveaccess','admin.role.edit');
+    {
+        Gate::authorize('haveaccess', 'admin.role.edit');
         $request->validate([
-            'nombre' => 'required|max:50|unique:roles,nombre,'.$role->id,
-            'slug' => 'required|max:50|unique:roles,slug,'.$role->id,
+            'nombre' => 'required|max:50|unique:roles,nombre,' . $role->id,
+            'slug' => 'required|max:50|unique:roles,slug,' . $role->id,
             'descripcion' => 'required|max:50',
             'acceso-total' => 'required|in:si,no'
         ]);
 
-        
-        
-
- 
         $role->fill($request->all())->save();
 
         /*$role = Role::update(
             
             $request->all());
 */
-        if($request->get('permisos')){
+        if ($request->get('permisos')) {
             $role->permissions()->sync($request->get('permisos'));
         }
 
 
         //return $request->all();
         return redirect()->route('admin.role.index')
-            ->with('datos','Rol editado correctamente');
+            ->with('datos', 'Rol editado correctamente');
     }
 
     /**
@@ -151,9 +147,9 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        Gate::authorize('haveaccess','admin.role.destroy');
-        $rol = Role::findOrFail($id); 
+        Gate::authorize('haveaccess', 'admin.role.destroy');
+        $rol = Role::findOrFail($id);
         $rol->delete();
-        return redirect()->route('admin.role.index')->with('datos','Registro eliminado correctamente');
+        return redirect()->route('admin.role.index')->with('datos', 'Registro eliminado correctamente');
     }
 }

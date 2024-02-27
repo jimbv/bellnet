@@ -100,10 +100,6 @@
 
     <ul class="navbar-nav ml-auto">
 
-       
-
-      
-
       </li>
       <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -122,39 +118,12 @@
               </form>
           </div>
       </li>
-      <li class="nav-item">
- 
-
-      <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-
-<i class="fas fa-th-large"></i>
-
-</a>
-
-        <!--
-
-          Barra para editar los colores del menu
-
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-
-          <i class="fas fa-th-large"></i>
-
-        </a>
-
-
-
-        -->
-
-      </li>
 
     </ul>
 
   </nav>
 
   <!-- /.navbar -->
-
-
-
   <!-- Main Sidebar Container (le quite estilo elevation-4 de sombra)-->
 
   <aside class="main-sidebar sidebar-dark-primary ">
@@ -173,8 +142,6 @@
 
     </a>
 
-
-
     <!-- Sidebar -->
 
     <div class="sidebar">
@@ -190,8 +157,6 @@
           <!-- Add icons to the links using the .nav-icon class
 
                with font-awesome or any other icon font library -->
-
-           
 
 
           <!-- Administración de usuarios, roles y permisos -->
@@ -225,7 +190,7 @@
           <!-- Categorias -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-list"></i>
+              <i class="nav-icon fas fa-tags"></i>
               <p>
                 Categorías
                 <i class="right fas fa-angle-left"></i>
@@ -234,13 +199,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('admin.category.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-list"></i>
                   <p>Listado de categorías</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.category.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon  fas fa-tag"></i>
                   <p>Nueva categoría</p>
                 </a>
               </li> 
@@ -250,7 +215,7 @@
           <!-- Productos -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-box"></i>
+              <i class="nav-icon fas fa-boxes"></i> 
               <p>
                 Productos
                 <i class="right fas fa-angle-left"></i>
@@ -259,13 +224,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('admin.product.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-list"></i>
                   <p>Listado de productos</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.product.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-box"></i> 
                   <p>Nuevo producto</p>
                 </a>
               </li> 
@@ -284,13 +249,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('admin.noticia.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-list"></i>
                   <p>Listado de Noticias</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.noticia.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-plus-square"></i>
                   <p>Nueva Noticia</p>
                 </a>
               </li> 
@@ -478,7 +443,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 <!-- Scripts -->
-<script src="{{ asset('js/app_admin.js') }}?v=120" defer></script> 
+<script src="{{ asset('js/app_admin.js') }}?v=125" defer></script> 
 
 @yield('scripts')
 

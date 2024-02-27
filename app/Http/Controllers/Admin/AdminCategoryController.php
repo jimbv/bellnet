@@ -8,8 +8,8 @@ use App\Category;
 
 class AdminCategoryController extends Controller
 {
-    public function __construct(){
-
+    public function __construct()
+    {
         $this->middleware('auth');
     }
     /**
@@ -21,8 +21,8 @@ class AdminCategoryController extends Controller
     {
         $nombre = $request->get('nombre');
         //dd($nombre);
-        $categorias = Category::where('nombre','like',"%$nombre%")->orderBy('nombre')->paginate(5);
-        return view('admin.category.index',compact('categorias'));
+        $categorias = Category::where('nombre', 'like', "%$nombre%")->orderBy('nombre')->paginate(5);
+        return view('admin.category.index', compact('categorias'));
     }
 
     /**
@@ -54,12 +54,12 @@ class AdminCategoryController extends Controller
         //return Category::create($request->all());
 
         $request->validate([
-            'nombre'=> 'required|max:50|unique:categories,nombre',
-            'slug'=> 'required|max:50|unique:categories,slug' 
+            'nombre' => 'required|max:50|unique:categories,nombre',
+            'slug' => 'required|max:50|unique:categories,slug'
         ]);
 
         Category::create($request->all());
-        return redirect()->route('admin.category.index')->with('datos','Registro creado correctamente');
+        return redirect()->route('admin.category.index')->with('datos', 'Registro creado correctamente');
     }
 
     /**
@@ -70,10 +70,10 @@ class AdminCategoryController extends Controller
      */
     public function show($slug)
     {
-        $cat = Category::where('slug',$slug)->firstOrFail();
+        $cat = Category::where('slug', $slug)->firstOrFail();
         $editar = "Si";
 
-        return view('admin.category.show',compact('cat','editar'));
+        return view('admin.category.show', compact('cat', 'editar'));
     }
 
     /**
@@ -84,10 +84,10 @@ class AdminCategoryController extends Controller
      */
     public function edit($slug)
     {
-        $cat = Category::where('slug',$slug)->firstOrFail();
+        $cat = Category::where('slug', $slug)->firstOrFail();
         $editar = "Si";
 
-        return view('admin.category.edit',compact('cat','editar'));
+        return view('admin.category.edit', compact('cat', 'editar'));
     }
 
     /**
@@ -99,14 +99,12 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cat = Category::findOrFail($id); 
+        $cat = Category::findOrFail($id);
 
-
-        
         $request->validate([
-            // Con eel $cat->id del final ignora el del mismo id
-            'nombre'=> 'required|max:50|unique:categories,nombre,'.$cat->id,
-            'slug'=> 'required|max:50|unique:categories,slug,'.$cat->id 
+            // Con el $cat->id del final ignora el del mismo id
+            'nombre' => 'required|max:50|unique:categories,nombre,' . $cat->id,
+            'slug' => 'required|max:50|unique:categories,slug,' . $cat->id
         ]);
         /*$cat->nombre = $request->nombre;
         $cat->slug = $request->slug;
@@ -116,7 +114,7 @@ class AdminCategoryController extends Controller
         */
         $cat->fill($request->all())->save();
         //return $cat;
-        return redirect()->route('admin.category.index')->with('datos','Registro actualizado correctamente');
+        return redirect()->route('admin.category.index')->with('datos', 'Registro actualizado correctamente');
     }
 
     /**
@@ -127,8 +125,8 @@ class AdminCategoryController extends Controller
      */
     public function destroy($id)
     {
-        $cat = Category::findOrFail($id); 
+        $cat = Category::findOrFail($id);
         $cat->delete();
-        return redirect()->route('admin.category.index')->with('datos','Registro eliminado correctamente');
+        return redirect()->route('admin.category.index')->with('datos', 'Registro eliminado correctamente');
     }
 }

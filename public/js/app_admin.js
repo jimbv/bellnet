@@ -14863,7 +14863,7 @@ var apiproduct = new Vue({
     precioactual: 0,
     descuento: 0,
     porcentajededescuento: 0,
-    descuento_mensaje: '0'
+    descuento_mensaje: ''
   },
   computed: {
     generarSlug: function generarSlug() {
@@ -14977,6 +14977,7 @@ var apiproduct = new Vue({
     if (data.editar == 'Si') {
       this.nombre = data.datos.nombre;
       this.precioanterior = data.datos.precioanterior;
+      this.precioactual = data.datos.precioactual;
       this.porcentajededescuento = data.datos.porcentajededescuento;
       this.deshabilitar_boton = 0;
     }

@@ -1,6 +1,6 @@
 @extends ('plantilla.admin')
 
-@section('titulo','Administración de Roles')
+@section('titulo','Administración de Usuarios')
 
 @section('breadcrumb')
 

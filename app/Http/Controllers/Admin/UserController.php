@@ -19,13 +19,11 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-         
         //Gate::authorize('haveaccess','admin.user.index');
-
-        $buscar = $request->get('nombre'); 
-        $users = User::with('roles')->where('apellido','like',"%$buscar%")->orWhere('nombres','like',"%$buscar%")->orWhere('cuit','like',"%$buscar%")
-                    ->orderBy('apellido')->paginate(5);   
-        return view('admin.user.index',compact('users'));
+        $buscar = $request->get('nombre');
+        $users = User::with('roles')->where('apellido', 'like', "%$buscar%")->orWhere('nombres', 'like', "%$buscar%")->orWhere('cuit', 'like', "%$buscar%")
+            ->orderBy('apellido')->paginate(5);
+        return view('admin.user.index', compact('users'));
     }
 
     /**
@@ -35,18 +33,12 @@ class UserController extends Controller
      */
     public function create()
     {
-       
         $prov  =  new Provincia();
         $provincias =  $prov->all()->sortBy('nombre');
-
-        $localidades = $prov::find(6)->localidades; 
-
-
-        $roles = Role::orderBy('nombre')->get(); 
-
+        $localidades = $prov::find(6)->localidades;
+        $roles = Role::orderBy('nombre')->get();
         $localidad = 1271;
-        
-        return view('admin.user.create',compact('roles', 'localidades','provincias','localidad'));
+        return view('admin.user.create', compact('roles', 'localidades', 'provincias', 'localidad'));
     }
 
     /**
@@ -55,7 +47,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request  )
+    public function store(Request $request)
     {
 
         $request->validate([
@@ -65,7 +57,7 @@ class UserController extends Controller
             'cuit' => 'required|unique:users,cuit',
             'email' => 'required|unique:users,email'
         ]);
-   
+
         User::create([
             'apellido' => $request['apellido'],
             'nombres' => $request['nombres'],
@@ -81,13 +73,13 @@ class UserController extends Controller
         ]);
         //$user = User::create($request->all());
 
-        
-        if($request->get('roles')){
+
+        if ($request->get('roles')) {
             $user->roles()->sync($request->get('roles'));
         }
- 
+
         return redirect()->route('admin.user.index')
-            ->with('datos','Usuario guardado correctamente');   
+            ->with('datos', 'Usuario guardado correctamente');
     }
     /**
      * Display the specified resource.
@@ -110,21 +102,21 @@ class UserController extends Controller
     {
         //Gate::authorize('haveaccess','admin.user.edit');
         $role_user = [];
-        foreach($user->roles as $rol){
-            $role_user[] = $rol->id; 
-        } 
+        foreach ($user->roles as $rol) {
+            $role_user[] = $rol->id;
+        }
 
         $prov  =  new Provincia();
         $provincias =  $prov->all()->sortBy('nombre');
 
-        $localidades = $prov::find(6)->localidades; 
+        $localidades = $prov::find(6)->localidades;
 
 
-        $roles = Role::orderBy('nombre')->get(); 
+        $roles = Role::orderBy('nombre')->get();
 
         $localidad = $user->localidad;
-        
-        return view('admin.user.edit',compact('roles','user','role_user','localidades','provincias','localidad'));
+
+        return view('admin.user.edit', compact('roles', 'user', 'role_user', 'localidades', 'provincias', 'localidad'));
     }
 
     /**
@@ -143,16 +135,16 @@ class UserController extends Controller
             'email' => 'required',
             //'cuit' => 'required|max:50|unique:users,cuit,'.$user->cuit
         ]);
- 
+
         $user->fill($request->all())->save();
 
-        
-        if($request->get('roles')){
+
+        if ($request->get('roles')) {
             $user->roles()->sync($request->get('roles'));
         }
- 
+
         return redirect()->route('admin.user.index')
-            ->with('datos','Usuario editado correctamente');
+            ->with('datos', 'Usuario editado correctamente');
     }
 
     /**
@@ -163,10 +155,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        
+
         //Gate::authorize('haveaccess','admin.role.destroy');
-        $user = User::findOrFail($id); 
+        $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('admin.user.index')->with('datos','Registro eliminado correctamente');
+        return redirect()->route('admin.user.index')->with('datos', 'Registro eliminado correctamente');
     }
 }

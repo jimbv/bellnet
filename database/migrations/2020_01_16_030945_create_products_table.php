@@ -25,12 +25,12 @@ class CreateProductsTable extends Migration
             $table->text('descripcion_corta')->nullable();
             $table->text('descripcion_larga')->nullable();
             $table->text('especificaciones')->nullable();
-            $table->text('datos_de_interes')->nullable();
-            $table->unsignedBigInteger('visitas')->default(0);
-            $table->unsignedBigInteger('ventas')->default(0);
-            $table->string('estado');
-            $table->char('activo',2);
-            $table->char('slider_principal',2);
+            $table->text('datos_de_interes')->nullable(); 
+            $table->string('estado')->nullable();
+            $table->char('activo',2)->default('Si');
+            $table->char('slider_principal',2)->default('No');
+            $table->integer('periodo')->nullable(); 
+            
             $table->timestamps();
         
             $table->foreign('category_id')->references('id')->on('categories');

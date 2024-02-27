@@ -62,8 +62,6 @@
 
           <li><a href="/#novedades">Novedades</a></li>
 
-          <li><a href="/#portfolio">Productos</a></li>
-
           <!--<li class="drop-down"><a href="">Servicios</a>
 
             <ul>
@@ -108,8 +106,6 @@
 
       </nav><!-- .nav-menu -->
 
-
-
     </div>
 
   </header><!-- End Header -->
@@ -145,7 +141,7 @@
 
             <p>
 
-              Villa María (5900) - Córdoba<br>
+              Bell Ville (2550) - Córdoba<br>
 
               Argentina<br><br>
 
@@ -173,8 +169,6 @@
 
               <li><i class="bx bx-chevron-right"></i> <a href="/#compromiso">Compromiso</a></li>
 
-              <li><i class="bx bx-chevron-right"></i> <a href="/#clients">Clientes</a></li>
-
             </ul>
 
           </div>
@@ -183,15 +177,12 @@
 
           <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="300">
 
-            <h4>Servicios</h4>
+            <h4>Productos y Servicios</h4>
 
             <ul>
 
-              <li><i class="bx bx-chevron-right"></i> <a href="/#services">Desarrollo web</a></li>
-
-              <li><i class="bx bx-chevron-right"></i> <a href="/#services">Hosting</a></li>
-
-              <li><i class="bx bx-chevron-right"></i> <a href="/#services">Turneros</a></li> 
+              <li><i class="bx bx-chevron-right"></i> <a href="/#services">Turneros digitales</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/#services">Desarrollo de sistemas</a></li>
 
             </ul>
 
@@ -219,8 +210,6 @@
 
           </div>
 
-
-
         </div>
 
       </div>
@@ -232,14 +221,10 @@
     <div class="container py-4">
 
       <div class="copyright">
-
          <strong><span><img src="/img/bellnet_icon.png" alt="Bellnet" style='width:25px;'></span></strong> 
 
       </div>
-
       <div class="credits">
-
-       
 
       </div>
 
@@ -271,8 +256,6 @@
 
   <script src="/ninestars/assets/vendor/aos/aos.js"></script>
 
-
-
   <!-- Template Main JS File -->
 
   <script src="/ninestars/assets/js/main.js"></script>
@@ -280,7 +263,4 @@
 
 
 </body>
-
-
-
 </html>

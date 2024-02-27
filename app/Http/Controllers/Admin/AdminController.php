@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Category; 
+use App\Category;
 
 class AdminController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->middleware('auth');
     }
@@ -19,7 +20,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('plantilla.admin');
+        return view('admin.index');
     }
 
     /**
@@ -29,7 +30,6 @@ class AdminController extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -40,7 +40,6 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        
     }
 
     /**
@@ -62,7 +61,6 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        
     }
 
     /**
@@ -74,8 +72,6 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-       
     }
 
     /**

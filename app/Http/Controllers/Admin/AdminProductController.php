@@ -88,6 +88,7 @@ class AdminProductController extends Controller
         $prod->precio_anterior = $request->precioanterior;	 
         $prod->precio_actual = $request->precioactual;	 
         $prod->porcentaje_descuento = $request->porcentajededescuento;	 
+        $prod->periodo = $request->periodo;	 
         $prod->descripcion_corta = $request->descripcion_corta;	 
         $prod->descripcion_larga = $request->descripcion_larga;	 
         $prod->especificaciones = $request->especificaciones;	 
@@ -188,7 +189,8 @@ class AdminProductController extends Controller
         $prod->cantidad = $request->cantidad;
         $prod->precio_anterior = $request->precioanterior;	 
         $prod->precio_actual = $request->precioactual;	 
-        $prod->porcentaje_descuento = $request->porcentajededescuento;	 
+        $prod->porcentaje_descuento = $request->porcentajededescuento;	
+        $prod->periodo = $request->periodo;	 
         $prod->descripcion_corta = $request->descripcion_corta;	 
         $prod->descripcion_larga = $request->descripcion_larga;	 
         $prod->especificaciones = $request->especificaciones;	 

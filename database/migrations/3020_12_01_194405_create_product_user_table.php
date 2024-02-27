@@ -15,10 +15,12 @@ class CreateProductUserTable extends Migration
     {
         Schema::create('product_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');  
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');  
-            $table->date('desde');
-            $table->date('hasta'); 
+            $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->date('proxima');
+            $table->date('hasta')->nullable();
+            $table->decimal('precio_particular', 12, 2)->default(0);
+            $table->text('observaciones')->nullable();
             $table->timestamps();
         });
     }

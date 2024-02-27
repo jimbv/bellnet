@@ -8,20 +8,21 @@ use App\ProductUser as ProductUser;
 
 class ProductosUsuario extends Component
 {  
-    public $data, $product_id, $user_id, $desde, $hasta, $tipo_facturacion, $selected_id;
+    public $data, $producto, $user_id, $proxima, $hasta, $precio_particular, $selected_id;
     public $updateMode = false; 
 
     public $user; 
  
     public function mount()
     {
-        $this->user_id = $this->user->id;
+        $this->user_id = $this->user->id; 
     }
 
     public function render()
     {   
-        $user_id= $this->user_id;
-       $productos = Productos::all();
+       $user_id= $this->user_id;
+       //Traigo todos los productos que pueden ser facturados periodicamente
+       $productos = Productos::all()->where('periodo','>',0);
         
        //$this->data = ProductUser::with('producto');
        $datos = ProductUser::with('producto')->where('user_id',$user_id)->get();
@@ -31,20 +32,21 @@ class ProductosUsuario extends Component
  
     private function resetInput()
     {
-        $this->desde = null;
+        $this->proxima = null;
         $this->hasta = null;
+        $this->producto = null;
     }
     
     public function store()
     {
         $this->validate([
-            'product_id' => 'required',
-            'desde' => 'required', 
+            'producto' => 'required',
+            'proxima' => 'required', 
         ]);
         ProductUser::create([
-            'product_id' => $this->product_id,
-            'desde' => $this->desde,
-            'hasta' => $this->hasta, 
+            'product_id' => $this->producto,
+            'proxima' => $this->proxima,
+            'hasta' => $this->hasta,  
             'user_id' => $this->user_id
         ]);
         $this->resetInput();
@@ -54,11 +56,10 @@ class ProductosUsuario extends Component
     {
         $record = ProductUser::findOrFail($id);
         $this->selected_id = $id;
-        $this->product_id = $record->product_id;
-        $this->desde = $record->desde;
+        $this->producto = $record->product_id;
+        $this->proxima = $record->proxima;
         $this->hasta = $record->hasta;
         $this->updateMode = true;
-
         
     }
 
@@ -66,14 +67,15 @@ class ProductosUsuario extends Component
     {
         $this->validate([
             'selected_id' => 'required|numeric',
-            'name' => 'required|min:5',
-            'email' => 'required|email:rfc,dns'
+            'product_id' => 'required',
+            'proxima' => 'required'
         ]);
         if ($this->selected_id) {
-            $record = Contactos::find($this->selected_id);
+            $record = ProductUser::find($this->selected_id);
             $record->update([
-                'name' => $this->name,
-                'email' => $this->email
+                'product_id' => $this->producto,
+                'proxima' => $this->proxima,
+                'hasta' => $this->hasta
             ]);
             $this->resetInput();
             $this->updateMode = false;
@@ -91,6 +93,8 @@ class ProductosUsuario extends Component
             if(ProductUser::count()==0){
                 $this->render();
             }
+            
+            $this->resetInput();
         }
     }
 }
