@@ -20,10 +20,16 @@ body {
             startColorstr='#0000ff00', endColorstr='#0000ff00');
     border-bottom: 1px solid gray;
     color: white;
-    --bs-navbar-toggler-icon-bg: url('/imgs/menu.png') !important;
     font-family: 'Dosis' !important;
     font-size:18px;
     letter-spacing: 0.1em;
+    a {
+        color: white;
+        i {
+            font-size: 30px;
+            margin: 0 5px;
+        }
+    }
 }
 
 .nav-link {
@@ -40,7 +46,7 @@ body {
 }
 
 .navbar-toggler {
-    --bs-navbar-toggler-focus-width: 0px !important;
+    --bs-navbar-toggler-focus-width: 0x !important;
     border: 0px !important;
 }
 
@@ -53,7 +59,8 @@ body {
     font-family: 'Dosis' !important;
     width: 100%;
     padding: 10px;
-
+    color: white;
+    line-height: 1.8em;
     img {
         width: 100%;
         max-width: 300px;
@@ -63,6 +70,8 @@ body {
 .copyright {
     width: 100%;
     background-color: black;
-    padding: 10px;
+    padding: 12px;
     min-height: 20px;
+    text-align: center;
+    font-weight: bold;
 }

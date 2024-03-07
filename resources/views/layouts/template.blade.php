@@ -13,7 +13,7 @@
 
     <title>{{ config('app.name', 'Enertech') }}</title>
 
-    <link href="/css/style.css?v=10" rel="stylesheet">
+    <link href="/css/style.css?v=11" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -26,7 +26,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="/"> <img src="/imgs/enertech.png" alt="Enertech"> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <i class="fa-solid fa-bars" style="color: white;font-size:22px;box-shadow:1px solid black;"></i>
             </button>
 
             <div class=" collapse navbar-collapse" id="navbarNavDropdown">
@@ -52,12 +52,9 @@
                 </ul>
                 <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
                     <li class="nav-item mx-2">
-                        Google
                         <a target="_blank" class="redesMenu" href="https://www.instagram.com/enertech.iluminacionled/"><i class="fab fa-instagram"></i></a>
-
                     </li>
                     <li class="nav-item mx-2">
-
                         <a target="_blank" class="redesMenu" href="https://www.facebook.com/enertechiluminacionled/"><i class="fab fa-facebook"></i></a>
                     </li>
                     <li class="nav-item mx-2">
@@ -68,17 +65,23 @@
         </div>
     </nav>
 
-
-
     @yield('content')
 
     <footer>
         <div class="footer">
-            Hola estoe s una prueba
-            <img src="imgs/pie.png" alt="Enertech - Ilumninación">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="imgs/pie.png" alt="Enertech - Ilumninación">
+                    </div>
+                    <div class="col-md-6 p-4">
+                        <strong> CONTACTO</strong> <p>Hola</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="copyright" style="color:white;">
-            Hola estoe s una prueba
+            &copy; enertech <?= date('Y') ?>
         </div>
     </footer>
 
