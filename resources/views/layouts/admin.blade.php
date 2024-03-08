@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link href="/sb-admin/css/styles.css" rel="stylesheet" /> 
-        @vite(['resources/sass/app.scss', 'resources/js/admin/app.js'])
+        @vite(['resources/sass/app.scss'])
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -39,7 +39,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading"></div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="/admin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Inicio
                             </a>
@@ -51,8 +51,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/admin/products/new">Nuevo Producto</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Listado</a>
+                                    <a class="nav-link" href="/admin/products/create">Nuevo Producto</a>
+                                    <a class="nav-link" href="/admin/products">Listado</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -113,6 +113,7 @@
                 </footer>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="/sb-admin/js/scripts.js"></script>
     </body>
 </html>

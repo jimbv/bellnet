@@ -13,15 +13,14 @@
 
     <title>{{ config('app.name', 'Enertech') }}</title>
 
-    <link href="/css/style.css?v=13" rel="stylesheet">
+    <link href="/css/style.css?v=14" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 </head>
-
 <body>
-
+    @yield('header')
     <nav class="navbar navbar-expand-lg navbar-light p-3">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"> <img src="/imgs/enertech.png" alt="Enertech"> </a>
