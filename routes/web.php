@@ -15,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+/* ADMIN ROUTES */
+Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'home'])->name('home');
+Route::get('/admin/home', [App\Http\Controllers\Admin\HomeController::class, 'home'])->name('home');
+Route::get('/admin/products/new', [App\Http\Controllers\Admin\ProductsController::class, 'create'])->name('create-product');
+
+Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
