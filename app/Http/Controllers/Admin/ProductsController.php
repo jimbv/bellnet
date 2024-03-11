@@ -5,21 +5,21 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class ProductsController extends Controller
 {
+
+    public function list(){
+        return view('admin.products.list');
+    }
+
     public function create(){
         return view('admin.products.create');
     }
 
     public function save(Request $request)
     {
-/*
-        var_dump($request->name);
-        var_dump($request->name);
-        var_dump($request->name);
-        var_dump($request->name);
-        dd($request->all());*/
         try {
             $validatedData = $request->validate([
                 'name' => 'required|string',
@@ -35,19 +35,25 @@ class ProductsController extends Controller
                 'images.*.max' => 'La imagen no debe superar los 2048 KB.',
             ]);
 
+            
+            $images = isset($validatedData['images'])?$validatedData['images']:[]; 
+            unset($validatedData['images']);
+
             $product = Product::create($validatedData);
- 
-            foreach ($request->file('images') as $image) {
+            
+            foreach ($images as $image) {
                 $path = $image->store('product_images', 'public');
                 $product->images()->create(['image_path' => $path]);
             }
 
             // Limpiar campos del formulario e imágenes después de guardar
             return redirect()->back()->with('success', 'Producto guardado correctamente.');
-        } catch (\Exception $e) {
-            dd($e);
+        } catch (Exception $e) {
+            // Manejar la excepción de validación
+            $errors = $e->validator->errors()->all();
+            //dd($e);
             // Manejar la excepción, por ejemplo, mostrar un mensaje de error
-            return redirect()->back()->with('error', 'Error al guardar el producto. Por favor, inténtalo de nuevo.');
+            return redirect()->back()->with($errors);
         }
     }
 }
