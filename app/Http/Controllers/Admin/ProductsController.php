@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -15,7 +16,8 @@ class ProductsController extends Controller
     }
 
     public function create(){
-        return view('admin.products.create');
+        $categories = Category::all();
+        return view('admin.products.create',compact('categories')); 
     }
 
     public function save(Request $request)
@@ -23,11 +25,16 @@ class ProductsController extends Controller
         try {
             $validatedData = $request->validate([
                 'name' => 'required|string',
+                'slug' => 'required|string',
+                'category_id' => 'required',
+                'technical_notes' => '',
                 'description' => 'required|string',
                 'price' => 'required|numeric',
                 'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ], [
                 'name.required' => 'El campo Nombre es obligatorio.',
+                'slug.required' => 'El campo Nombre es obligatorio.',
+                'category_id.required' => 'Seleccione una categoría',
                 'description.required' => 'El campo Descripción es obligatorio.',
                 'price.required' => 'El campo Precio es obligatorio.',
                 'images.*.image' => 'El archivo debe ser una imagen.',

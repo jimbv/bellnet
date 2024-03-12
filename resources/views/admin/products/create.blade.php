@@ -1,5 +1,17 @@
 @extends('layouts.admin')
 
+@section('scripts')
+<script> 
+    function slugGenerate() {
+        var nombreInput = document.getElementById('name');
+        var slugInput = document.getElementById('slug'); 
+        var name = nombreInput.value;
+        var slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        slugInput.value=slug; 
+    }
+</script>
+@endsection
+
 @section('content')
     <div class="container-fluid px-4">
         <h1 class="mt-4">Nuevo Producto</h1>
@@ -22,7 +34,7 @@
                         <label for="name" class="col-md-4 col-form-label text-md-end">Nombre</label>
 
                         <div class="col-md-6">
-                            <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus />
+                            <input id="name" name="name" type="text" oninput="slugGenerate();" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus />
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -31,7 +43,34 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <label for="slug" class="col-md-4 col-form-label text-md-end">Slug</label>
+                        <div class="col-md-6">
+                            <input id="slug" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug') }}" required autocomplete="slug" autofocus />
 
+                            @error('slug')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="category_id" class="col-md-4 col-form-label text-md-end">Categoría</label>
+                        <div class="col-md-6">
+                            <select id="category_id" name="category_id" class="form-control @error('category_id') is-invalid @enderror" value="{{ old('category_id') }}"  autocomplete="category_id" autofocus>
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                            </select>
+
+                            @error('category_id')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="row mb-3">
                         <label for="description" class="col-md-4 col-form-label text-md-end">Descripcion</label>
 
@@ -45,7 +84,19 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <label for="technical_notes" class="col-md-4 col-form-label text-md-end">Detalles técnicos</label>
 
+                        <div class="col-md-6">
+                            <textarea id="technical_notes" class="form-control @error('technical_notes') is-invalid @enderror" name="technical_notes" value="{{ old('technical_notes') }}" required autocomplete="technical_notes" autofocus></textarea>
+
+                            @error('technical_notes')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="row mb-3">
                         <label for="price" class="col-md-4 col-form-label text-md-end">Precio</label>
 

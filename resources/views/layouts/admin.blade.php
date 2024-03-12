@@ -10,6 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link href="/sb-admin/css/styles.css" rel="stylesheet" />
     @vite(['resources/sass/app.scss'])
+    @yield('scripts')
 </head>
 
 <body class="sb-nav-fixed">

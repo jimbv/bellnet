@@ -22,9 +22,11 @@ class CategoriesController extends Controller
         try {
             $validatedData = $request->validate([
                 'name' => 'required|string',
+                'slug' => 'required|string',
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ], [
                 'name.required' => 'El campo Nombre es obligatorio.',
+                'slug.required' => 'El campo Nombre es obligatorio.',
                 'image.image' => 'El archivo debe ser una imagen.',
                 'image.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
                 'image.max' => 'La imagen no debe superar los 2048 KB.',

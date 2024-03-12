@@ -11,20 +11,40 @@
 </section>
 <!-- Mozaico productos destacados -->
 <section>
-  <div class="products">
+  <div class="products" style="width: 100%;background:red;">
     <h1>NUESTROS PRODUCTOS</h1>
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+<style>
+.grid-item {
+  float: left;
+  width: 400px;
+  height: 300px;
+  border: 2px solid hsla(0, 0%, 0%, 0.5);
+}
 
-    <p></p>
-
+.grid-item--width2 { width: 600px; }
+.grid-item--height2 { height: 200px; }
+</style>
+  <div class="grid">
+  
     @foreach($categories as $cat)
 
-    <img src="/{{ $cat->image }}" alt="{{$cat->name}}">
-    {{$cat->name}}
-
+    <div class="grid-item">
+      <div class="card">
+        <text x="50%" y="50%" fill="#dee2e6" dy=".3em">{{$cat->name}}</text>
+        <img src="/{{ $cat->image }}" alt="{{$cat->name}}">
+      </div>
+    </div>
+    <div class="grid-item grid-item--width2"></div>
+    <div class="grid-item grid-item--height2"></div>
     @endforeach
-
-    <br>
+    <div class="grid-item grid-item--width2"></div>
+    <div class="grid-item grid-item--height2"></div>
+   
   </div>
+  </div> 
+  
+    <br> 
 </section>
 
 <!-- Contact form -->
