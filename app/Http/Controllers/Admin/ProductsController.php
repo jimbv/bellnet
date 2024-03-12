@@ -42,7 +42,7 @@ class ProductsController extends Controller
             $product = Product::create($validatedData);
             
             foreach ($images as $image) {
-                $path = $image->store('product_images', 'public');
+                $path = $image->store('imgs/product_images', 'publico');
                 $product->images()->create(['image_path' => $path]);
             }
 

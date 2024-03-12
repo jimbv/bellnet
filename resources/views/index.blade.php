@@ -13,6 +13,17 @@
 <section>
   <div class="products">
     <h1>NUESTROS PRODUCTOS</h1>
+
+    <p></p>
+
+    @foreach($categories as $cat)
+
+    <img src="/{{ $cat->image }}" alt="{{$cat->name}}">
+    {{$cat->name}}
+
+    @endforeach
+
+    <br>
   </div>
 </section>
 

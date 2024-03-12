@@ -35,7 +35,7 @@ class CategoriesController extends Controller
             $category = Category::create($validatedData);
             
             if ($image) {
-                $path = $image->store('category_images', 'public');
+                $path = $image->store('imgs/category_images', 'publico');
                 $category->update(['image' => $path]);
             }
             
