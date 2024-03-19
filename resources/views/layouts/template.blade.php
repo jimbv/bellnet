@@ -13,15 +13,16 @@
 
     <title>{{ config('app.name', 'Enertech') }}</title>
 
-    <link href="/css/style.css?v=14" rel="stylesheet">
+    <link href="/css/style.css?v=18" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 </head>
+
 <body>
     @yield('header')
-    <nav class="navbar navbar-expand-lg navbar-light p-3">
+    <nav class="navbar navbar-expand-lg navbar-light p-3" style="z-index: 10;">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"> <img src="/imgs/enertech.png" alt="Enertech"> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,11 +71,24 @@
         <div class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <img src="imgs/pie.png" alt="Enertech - Ilumninación">
+
+                    <div class="col-md-4">
+
+
                     </div>
-                    <div class="col-md-6 p-4">
-                        <strong> CONTACTO</strong> <p>Hola</p>
+                    <div class="col-md-4 text-center">
+                        <img src="imgs/piecompleto.png" style="margin: 10px;" alt="Enertech - Ilumninación">
+                    </div>
+                    <div class="col-md-4 p-4 mt-2 ml-3 text-end"> 
+                            <div style="font-size: 20px;letter-spacing: 0.1em;">  &nbsp; </div>
+                            <p></p>
+                            Ruta 9 KM. 501 - Bell Ville - Córdoba <br> 
+                            <i class="fa fa-phone"></i> &nbsp;&nbsp;
+                            (03537) 415780 <br>
+                            <a href="https://wa.me/5493537595618?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
+                                +54 9 3537 595618</a> <br>
+                            <a href="mailto:info@ener-tech.com.ar" style="color:white;text-decoration:none;"><i class="fa fa-envelope"></i> &nbsp;&nbsp;info@ener-tech.com.ar</a>
+                              
                     </div>
                 </div>
             </div>

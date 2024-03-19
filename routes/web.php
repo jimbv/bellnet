@@ -33,3 +33,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 /* WEB */
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
 
+Route::post('/contacto/enviar', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');

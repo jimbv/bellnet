@@ -74,7 +74,6 @@ body {
     padding: 12px;
     min-height: 20px;
     text-align: center;
-    font-weight: bold;
 }
 
 .products{
@@ -82,12 +81,12 @@ body {
     font-family: 'Dosis' !important;
     line-height: 1.8em;
     width: 100%;
-    background-color: rgb(190, 190, 190);
+    background: linear-gradient(60deg, #29323c 0%, #485563 100%);
     text-shadow:
       0 0 7px #fff,
       0 0 10px #fff,
       0 0 21px #fff;
-    z-index:2;
+    z-index:-2;
 }
 
 .contact{
