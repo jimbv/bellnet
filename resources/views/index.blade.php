@@ -4,10 +4,53 @@
 @endsection
 @section('content')
 
+<style>
+  .carousel-item {
+    height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+</style>
+
 <!-- Carrousel casos de exito -->
 <section>
-  <div style='height:900px;padding:10px;'></div>
+  <!-- <div style='height:900px;padding:10px;'></div>
   <img src="/imgs/slider/infinito.png" alt="slider" style="position: absolute;z-index:-10; top:0px;left:0xp; width:100%;" />
+-->
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="background-image: url('/imgs/slider/infinito.png')">
+        <div class="carousel-caption">
+          <h5>Lámpara de pié infinito</h5>
+          <p>Diseño para tus espacios</p>
+        </div>
+      </div>
+      <div class="carousel-item" style="background-image: url('/imgs/slider/colgante.png')">
+        <div class="carousel-caption">
+          <h5>Colgante</h5>
+          <p>Da un toque especial a tus lugares.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
 </section>
 <!-- Mozaico productos destacados -->
 <section>
@@ -113,23 +156,27 @@
     </div>
 
     <br>
-    <div class="container text-center" style="font-size: 16px;color:white;">
-      <a href="/productos" style="text-decoration:none;">
-        <div style="color:white;border: 1px solid gray;  border-radius: 3px 0 0 3px; width:40px; display:inline-block;">
-          <i class="fa fa-plus" aria-hidden="true"></i>
-        </div>
-        <div style="color:white;border: 1px solid gray; border-radius: 0 3px 3px 0;  width:150px; display:inline-block;">
-          Ver más productos
-        </div>
+
+    <div id="contacto">
+      <div class="container text-center" style="font-size: 16px;color:white;">
+        <a href="/productos" style="text-decoration:none;">
+          <div style="color:white;border: 1px solid gray;  border-radius: 3px 0 0 3px; width:40px; display:inline-block;">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </div>
+          <div style="color:white;border: 1px solid gray; border-radius: 0 3px 3px 0;  width:150px; display:inline-block;">
+            Ver más productos
+          </div>
+      </div>
+      <br>
+      </a><br>
     </div>
-    <br>
-    </a>
 </section>
 
 <!-- Contact form -->
 <section style="background: radial-gradient(circle at 10% 20%, rgb(90, 92, 106) 0%, rgb(32, 45, 58) 81.3%);">
   <div class="container contacto p-3">
     <br>
+    <p></p>
     <div class="row">
       <div class="col-4 p-0">
         <iframe src="https://www.google.com/maps/d/embed?mid=1IEP1pDTwKtUda_zQ7KtH2T7qAMzb9S8&ehbc=2E312F&noprof=1" height="480" style="max-width: 640px;width:100%;"></iframe>
@@ -172,7 +219,7 @@
               <span class="text-danger">{{ $errors->first('message') }}</span>
               @endif
             </div>
-            <div class="form-group"> 
+            <div class="form-group">
               <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
               @if ($errors->has('g-recaptcha-response'))
               <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>

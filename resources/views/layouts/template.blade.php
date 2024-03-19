@@ -47,7 +47,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2" href="#">CONTACTO</a>
+                        <a class="nav-link mx-2" href="#contacto">CONTACTO</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
