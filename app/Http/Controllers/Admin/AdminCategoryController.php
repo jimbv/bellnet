@@ -42,17 +42,7 @@ class AdminCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        /*
-        $cat = new Category();
-        $cat->nombre = $request->nombre;
-        $cat->slug = $request->slug;
-        $cat->descripcion = $request->descripcion;
-        $cat->save();
-        return $cat;*/
-
-        //return Category::create($request->all());
-
+    { 
         $request->validate([
             'nombre' => 'required|max:50|unique:categories,nombre',
             'slug' => 'required|max:50|unique:categories,slug'

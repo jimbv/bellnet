@@ -69,6 +69,7 @@ class UserController extends Controller
             'depto' => $request['depto'],
             'telefono' => $request['telefono'],
             'cuit' => $request['cuit'],
+            'observaciones' => $request['observaciones'],
             'localidad_id' => $request['localidad_id']
         ]);
         //$user = User::create($request->all());
@@ -108,7 +109,6 @@ class UserController extends Controller
 
         $prov  =  new Provincia();
         $provincias =  $prov->all()->sortBy('nombre');
-
         $localidades = $prov::find(6)->localidades;
 
 
@@ -129,15 +129,19 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         //Gate::authorize('haveaccess','admin.user.edit');
+        
         $request->validate([
             'nombres' => 'required',
             'apellido' => 'required',
             'email' => 'required',
-            //'cuit' => 'required|max:50|unique:users,cuit,'.$user->cuit
+            'cuit' => [
+                'required',
+                'max:50',
+                'unique:users,cuit,'.$request->cuit.',cuit' // Aquí se utiliza exclude_if
+            ],
         ]);
 
         $user->fill($request->all())->save();
-
 
         if ($request->get('roles')) {
             $user->roles()->sync($request->get('roles'));
