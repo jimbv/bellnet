@@ -4,6 +4,175 @@
 @endsection
 @section('content')
 
+
+<!-- ANIMACIONES -->
+<script>
+  // esta funcion comprueba si un elemento esta visible en pantalla
+  function isVisible(elm) {
+    var rect = elm.getBoundingClientRect();
+    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+  }
+
+  // cuando se carga la página...
+  window.addEventListener('DOMContentLoaded', (ev0) => {
+    // asignamos un evento scroll...
+    window.addEventListener('scroll', (ev1) => {
+      // y a todos los elementos con la clase paused...
+      document.querySelectorAll(".paused").forEach(elm => {
+        if (isVisible(elm)) // que sean visibles...
+          elm.classList.remove("paused"); // les quitamos la clase paused
+      })
+    });
+  });
+</script>
+<style>
+  /* primero un poco de CSS muy básico */
+
+  body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+    /* para que nada sobresalga en horizontal */
+  }
+
+  .wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+
+  /* a partir de aqui el CSS de las animaciones */
+
+  @keyframes anim-fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes anim-up {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes anim-down {
+    from {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes anim-left {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes anim-right {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  .anim-up,
+  .anim-down,
+  .anim-left,
+  .anim-right,
+  .anim-fade-in {
+    animation-duration: 1s;
+    /* la animacion dura X segundos */
+    animation-delay: 0.5s;
+    /* esperamos X segundos antes de hacer la animacion */
+    animation-fill-mode: both;
+    /* aplica estilos de la animacion antes y despues de reproducirla */
+  }
+
+  .anim-up {
+    animation-name: anim-up;
+  }
+
+  .anim-down {
+    animation-name: anim-down;
+  }
+
+  .anim-left {
+    animation-name: anim-left;
+  }
+
+  .anim-right {
+    animation-name: anim-right;
+  }
+
+  .anim-fade-in {
+    animation-name: anim-fade-in;
+  }
+
+  .anim-pause-0 {
+    animation-delay: 0s;
+  }
+
+  /* la animacion empieza en 2 seg. */
+  .anim-pause-1 {
+    animation-delay: 0.5s;
+  }
+
+  /* la animacion empieza en 2 seg. */
+  .anim-pause-2 {
+    animation-delay: 1s;
+  }
+
+  /* la animacion empieza en 2 seg. */
+  .anim-pause-3 {
+    animation-delay: 1.5s;
+  }
+
+  /* la animacion empieza en 3 seg. */
+  .anim-pause-4 {
+    animation-delay: 2s;
+  }
+
+  /* la animacion empieza en 4 seg. */
+  .anim-pause-5 {
+    animation-delay: 2.5s;
+  }
+
+  /* la animacion empieza en 5 seg. */
+
+  /* todas las animaciones pausadas */
+  .paused * {
+    animation-play-state: paused;
+  }
+</style>
+<!-- FIN DE LAS ANIMACIONES -->
+
+
 <style>
   .carousel-item {
     height: 100vh;
@@ -142,9 +311,9 @@
         text-decoration: none;
       }
     </style>
-    <div id="galeria">
+    <div id="galeria" class="paused">
       @foreach($categories as $cat)
-      <a class="tituloCategoria" href="../shop/espejos.html">
+      <a class="tituloCategoria anim-fade-in anim-pause-{{rand(0, 5)}}" href="../shop/espejos.html">
         <div class="itemCategoria">
           <div class="image">
             <img src="/{{ $cat->image }}" alt="{{$cat->name}}" style='max-width:300px;'>
@@ -157,8 +326,8 @@
 
     <br>
 
-    <div id="contacto">
-      <div class="container text-center" style="font-size: 16px;color:white;">
+    <div id="contacto" class="paused">
+      <div class="container text-center anim-up" style="font-size: 16px;color:white;">
         <a href="/productos" style="text-decoration:none;">
           <div style="color:white;border: 1px solid gray;  border-radius: 3px 0 0 3px; width:40px; display:inline-block;">
             <i class="fa fa-plus" aria-hidden="true"></i>
@@ -173,7 +342,7 @@
 </section>
 
 <!-- Contact form -->
-<section style="background: radial-gradient(circle at 10% 20%, rgb(90, 92, 106) 0%, rgb(32, 45, 58) 81.3%);">
+<section style="background: radial-gradient(circle at 10% 20%, rgb(90, 92, 106) 0%, rgb(32, 45, 58) 81.3%);" class="paused">
   <div class="container contacto p-3">
     <br>
     <p></p>
@@ -182,53 +351,58 @@
         <iframe src="https://www.google.com/maps/d/embed?mid=1IEP1pDTwKtUda_zQ7KtH2T7qAMzb9S8&ehbc=2E312F&noprof=1" height="480" style="max-width: 640px;width:100%;"></iframe>
       </div>
       <div class="col-8">
-        <div style="background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%);margin-left:10px;margin-right:10px;color:white;padding:20px;height:100%;">
+        <div class="anim-left" style="background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%);margin-left:10px;margin-right:10px;color:white;padding:20px;height:100%;">
           <h1>CONTACTO</h1>
           <hr>
 
           <form action="{{ route('contact.submit') }}" method="POST">
             @csrf
-            <div class="form-group">
-              <label for="name">Nombre:</label>
-              <input type="text" name="name" id="name" class="form-control" required>
+            <div class="form-group anim-pause-1 anim-left">
+              <label for="name">Nombre y Apellido:</label>
+              <input type="text" name="name" id="name" class="form-control" value="{{old('name')}}" required>
               @if ($errors->has('name'))
               <span class="text-danger">{{ $errors->first('name') }}</span>
               @endif
             </div>
 
-            <div class="form-group">
+            <div class="form-group  anim-pause-2 anim-left">
               <label for="email">Correo electrónico:</label>
-              <input type="email" name="email" id="email" class="form-control" required>
+              <input type="email" name="email" id="email" class="form-control" value="{{old('email')}}" required>
               @if ($errors->has('email'))
               <span class="text-danger">{{ $errors->first('email') }}</span>
               @endif
             </div>
 
-            <div class="form-group">
+            <div class="form-group  anim-pause-3 anim-left">
               <label for="email">Teléfono / Celular:</label>
-              <input type="text" name="phone" id="phone" class="form-control" required>
+              <input type="text" name="phone" id="phone" class="form-control" value="{{old('phone')}}" required>
               @if ($errors->has('phone'))
               <span class="text-danger">{{ $errors->first('phone') }}</span>
               @endif
             </div>
 
-            <div class="form-group">
+            <div class="form-group anim-pause-4 anim-left">
               <label for="message">Mensaje:</label>
-              <textarea name="message" id="message" rows="5" class="form-control" required></textarea>
+              <textarea name="message" id="message" rows="5" class="form-control" required>{{old('message')}}</textarea>
               @if ($errors->has('message'))
               <span class="text-danger">{{ $errors->first('message') }}</span>
               @endif
             </div>
-            <div class="form-group">
+            <div class="form-group anim-left">
               <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
               @if ($errors->has('g-recaptcha-response'))
               <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
               @endif
             </div>
             <br>
-            <button type="submit" class="btn btn-dark">Enviar mensaje</button>
+            <button type="submit" class="btn btn-dark  anim-pause-5 anim-left">Enviar mensaje</button>
           </form>
-
+          @if(session('success'))
+          <br>
+          <div class="alert alert-success anim-left">
+            {{ session('success') }}
+          </div>
+          @endif
         </div>
       </div>
     </div>
