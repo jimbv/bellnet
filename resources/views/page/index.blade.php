@@ -2,176 +2,16 @@
 @section('header')
 
 @endsection
+
+
+@section('scripts')
+<script src="/js/animations.js"></script>
+@endsection
+@section('styles')
+<link href="/css/animations.css?v=1" rel="stylesheet">
+<link href="/css/galeria.css?v=1" rel="stylesheet">
+@endsection
 @section('content')
-
-
-<!-- ANIMACIONES -->
-<script>
-  // esta funcion comprueba si un elemento esta visible en pantalla
-  function isVisible(elm) {
-    var rect = elm.getBoundingClientRect();
-    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
-  }
-
-  // cuando se carga la página...
-  window.addEventListener('DOMContentLoaded', (ev0) => {
-    // asignamos un evento scroll...
-    window.addEventListener('scroll', (ev1) => {
-      // y a todos los elementos con la clase paused...
-      document.querySelectorAll(".paused").forEach(elm => {
-        if (isVisible(elm)) // que sean visibles...
-          elm.classList.remove("paused"); // les quitamos la clase paused
-      })
-    });
-  });
-</script>
-<style>
-  /* primero un poco de CSS muy básico */
-
-  body {
-    font-family: sans-serif;
-    overflow-x: hidden;
-    /* para que nada sobresalga en horizontal */
-  }
-
-  .wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 32px;
-  }
-
-  /* a partir de aqui el CSS de las animaciones */
-
-  @keyframes anim-fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1
-    }
-  }
-
-  @keyframes anim-up {
-    from {
-      opacity: 0;
-      transform: translateY(100px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-  }
-
-  @keyframes anim-down {
-    from {
-      opacity: 0;
-      transform: translateY(-100px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-  }
-
-  @keyframes anim-left {
-    from {
-      opacity: 0;
-      transform: translateX(100px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateX(0px);
-    }
-  }
-
-  @keyframes anim-right {
-    from {
-      opacity: 0;
-      transform: translateX(-100px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateX(0px);
-    }
-  }
-
-  .anim-up,
-  .anim-down,
-  .anim-left,
-  .anim-right,
-  .anim-fade-in {
-    animation-duration: 1s;
-    /* la animacion dura X segundos */
-    animation-delay: 0.5s;
-    /* esperamos X segundos antes de hacer la animacion */
-    animation-fill-mode: both;
-    /* aplica estilos de la animacion antes y despues de reproducirla */
-  }
-
-  .anim-up {
-    animation-name: anim-up;
-  }
-
-  .anim-down {
-    animation-name: anim-down;
-  }
-
-  .anim-left {
-    animation-name: anim-left;
-  }
-
-  .anim-right {
-    animation-name: anim-right;
-  }
-
-  .anim-fade-in {
-    animation-name: anim-fade-in;
-  }
-
-  .anim-pause-0 {
-    animation-delay: 0s;
-  }
-
-  /* la animacion empieza en 2 seg. */
-  .anim-pause-1 {
-    animation-delay: 0.5s;
-  }
-
-  /* la animacion empieza en 2 seg. */
-  .anim-pause-2 {
-    animation-delay: 1s;
-  }
-
-  /* la animacion empieza en 2 seg. */
-  .anim-pause-3 {
-    animation-delay: 1.5s;
-  }
-
-  /* la animacion empieza en 3 seg. */
-  .anim-pause-4 {
-    animation-delay: 2s;
-  }
-
-  /* la animacion empieza en 4 seg. */
-  .anim-pause-5 {
-    animation-delay: 2.5s;
-  }
-
-  /* la animacion empieza en 5 seg. */
-
-  /* todas las animaciones pausadas */
-  .paused * {
-    animation-play-state: paused;
-  }
-</style>
-<!-- FIN DE LAS ANIMACIONES -->
-
 
 <style>
   .carousel-item {
@@ -184,12 +24,7 @@
     background-size: cover;
   }
 </style>
-
-<!-- Carrousel casos de exito -->
 <section>
-  <!-- <div style='height:900px;padding:10px;'></div>
-  <img src="/imgs/slider/infinito.png" alt="slider" style="position: absolute;z-index:-10; top:0px;left:0xp; width:100%;" />
--->
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -221,99 +56,14 @@
   </div>
 
 </section>
-<!-- Mozaico productos destacados -->
+
 <section>
   <div class="products">
     <h1>NUESTROS PRODUCTOS</h1>
 
-    <style>
-      #galeria {
-        margin: 1rem auto;
-        width: 100%;
-        max-width: 1600px;
-        column-count: 5;
-
-      }
-
-      @media (max-width: 1140px) {
-        #galeria {
-          columns: 3;
-        }
-
-      }
-
-      /* Móviles en horizontal o tablets en vertical */
-
-      @media (max-width: 920px) {
-        #galeria {
-          columns: 2;
-        }
-
-      }
-
-      /* Móviles en vertical */
-
-      @media (max-width: 680px) {
-        #galeria {
-          columns: 1;
-        }
-      }
-
-      .itemCategoria {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        padding: 4px;
-      }
-
-      .itemCategoria .image {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      }
-
-      .itemCategoria .image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: 50% 50%;
-        cursor: pointer;
-        transition: .5s ease-in-out;
-      }
-
-      .itemCategoria:hover .image img {
-        transform: scale(1.03);
-      }
-
-      .img-overlay {
-        align-items: center;
-        background: rgba(0, 0, 0, 0.6);
-        display: flex;
-        height: 100%;
-        justify-content: center;
-        left: 0;
-        position: absolute;
-        opacity: 0;
-        top: 0;
-        transition: opacity 0.50s;
-        width: 100%;
-      }
-
-      .img-overlay:hover {
-        opacity: 1;
-      }
-
-      .tituloCategoria {
-        color: rgb(238, 238, 238);
-        font-weight: 600;
-        font-size: 40px;
-        text-align: center;
-        text-decoration: none;
-      }
-    </style>
     <div id="galeria" class="paused">
       @foreach($categories as $cat)
-      <a class="tituloCategoria anim-fade-in anim-pause-{{rand(0, 5)}}" href="../shop/espejos.html">
+      <a class="tituloCategoria anim-fade-in anim-pause-{{rand(0, 5)}}" href="/categorias/{{$cat->slug}}/">
         <div class="itemCategoria">
           <div class="image">
             <img src="/{{ $cat->image }}" alt="{{$cat->name}}" style='max-width:300px;'>

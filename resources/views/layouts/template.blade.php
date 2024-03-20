@@ -13,14 +13,17 @@
 
     <title>{{ config('app.name', 'Enertech') }}</title>
 
-    <link href="/css/style.css?v=18" rel="stylesheet">
+    <link href="/css/style.css?v=1" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    
+    @yield('scripts')
+    @yield('styles')
 
 </head>
 
-<body>
+<body id="inicio">
     @yield('header')
     <nav class="navbar navbar-expand-lg navbar-light p-3" style="z-index: 10;">
         <div class="container-fluid">
@@ -32,17 +35,17 @@
             <div class=" collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto ">
                     <li class="nav-item">
-                        <a class="nav-link mx-2 active" aria-current="page" href="#">INICIO</a>
+                        <a class="nav-link mx-2 active" aria-current="page" href="/#inicio">INICIO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2" href="#">PRODUCTOS</a>
+                        <a class="nav-link mx-2" href="/productos">PRODUCTOS</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             EMPRESA
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">NOTICIAS</a></li>
+                            <li><a class="dropdown-item" href="#">ACERCA DE NOSOTROS</a></li>
                             <li><a class="dropdown-item" href="#">GLOSARIO</a></li>
                         </ul>
                     </li>
@@ -77,12 +80,12 @@
 
                     </div>
                     <div class="col-md-4 text-center">
-                        <img src="imgs/piecompleto.png" style="margin: 10px;" alt="Enertech - Ilumninación">
+                        <img src="/imgs/piecompleto.png" style="margin: 10px;" alt="Enertech - Ilumninación">
                     </div>
                     <div class="col-md-4 p-4 mt-2 ml-3 text-end"> 
                             <div style="font-size: 20px;letter-spacing: 0.1em;">  &nbsp; </div>
                             <p></p>
-                            Ruta 9 KM. 501 - Bell Ville - Córdoba <br> 
+                            Ruta 9 KM. 500 - Bell Ville - Córdoba <br> 
                             <i class="fa fa-phone"></i> &nbsp;&nbsp;
                             (03537) 415780 <br>
                             <a href="https://wa.me/5493537595618?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;

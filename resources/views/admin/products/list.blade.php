@@ -1,14 +1,12 @@
-@yield('layouts.admin')
+@extends('layouts.admin')
 
 @section('content')
 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 <div class="container-fluid px-4">
-
-<p></p>
-    <h1 class="mt-4">Nuevo Producto</h1>
+    <h1 class="mt-4">Listado de productos</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item">Productos</li>
-        <li class="breadcrumb-item active">Nuevo Producto</li>
+        <li class="breadcrumb-item active">Productos</li>
     </ol>
     <div class="card mb-4">
         <div class="card-body">
@@ -22,52 +20,42 @@
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
-            @endif
+            @endif 
 
 
-
-            <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Donna Snider</td>
-                                            <td>Customer Support</td>
-                                            <td>New York</td>
-                                            <td>27</td>
-                                            <td>2011/01/25</td>
-                                            <td>$112,000</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($products as $prod)
+                    <tr>
+                        <td>{{$prod->name}}</td>
+                        <td>{{$prod->category->name}}</td>
+                        <td>{{$prod->price}}</td>
+                        <td><a href="/admin/products/{{$prod->id}}/edit">Editar</a></td>
+                        <td>
+                            <form action="/admin/products/{{$prod->id}}" method="DELETE"><input type="submit" value="Eliminar" class="btn btn-primary"></form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
 
         </div>
     </div>
 </div>
- @extends('layouts.admin')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+    </script>
+@endsection

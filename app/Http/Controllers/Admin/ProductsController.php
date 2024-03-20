@@ -11,13 +11,16 @@ use Illuminate\Validation\ValidationException;
 class ProductsController extends Controller
 {
 
-    public function list(){
-        return view('admin.products.list');
+    public function list()
+    {
+        $products = Product::with('category')->get();
+        return view('admin.products.list', compact('products'));
     }
 
-    public function create(){
+    public function create()
+    {
         $categories = Category::all();
-        return view('admin.products.create',compact('categories')); 
+        return view('admin.products.create', compact('categories'));
     }
 
     public function save(Request $request)
@@ -42,12 +45,12 @@ class ProductsController extends Controller
                 'images.*.max' => 'La imagen no debe superar los 2048 KB.',
             ]);
 
-            
-            $images = isset($validatedData['images'])?$validatedData['images']:[]; 
+
+            $images = isset($validatedData['images']) ? $validatedData['images'] : [];
             unset($validatedData['images']);
 
             $product = Product::create($validatedData);
-            
+
             foreach ($images as $image) {
                 $path = $image->store('imgs/product_images', 'publico');
                 $product->images()->create(['image_path' => $path]);
@@ -62,5 +65,12 @@ class ProductsController extends Controller
             // Manejar la excepción, por ejemplo, mostrar un mensaje de error
             return redirect()->back()->with($errors);
         }
+    }
+
+    public function delete($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->back();
     }
 }

@@ -22,6 +22,7 @@ Route::get('/admin/home', [App\Http\Controllers\Admin\HomeController::class, 'ho
 Route::get('/admin/products/create', [App\Http\Controllers\Admin\ProductsController::class, 'create'])->name('create-product');
 Route::post('/admin/products', [App\Http\Controllers\Admin\ProductsController::class, 'save'])->name('products');
 Route::get('/admin/products', [App\Http\Controllers\Admin\ProductsController::class, 'list'])->name('products');
+Route::get('/admin/products/{id}',  [App\Http\Controllers\Admin\ProductsController::class, 'delete'])->name('productos.delete');
 
 Route::get('/admin/categories/create', [App\Http\Controllers\Admin\CategoriesController::class, 'create'])->name('create-category');
 Route::post('/admin/categories', [App\Http\Controllers\Admin\CategoriesController::class, 'save'])->name('categories');
@@ -32,6 +33,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 /* WEB */
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
+Route::get('/productos', [App\Http\Controllers\ProductsController::class, 'index'])->name('products.index');
 
 Route::post('/contacto/enviar', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
-Route::get('/send-mail', [App\Http\Controllers\SendMailController::class, 'contact']);
+Route::get('/send-mail', [App\Http\Controllers\SendMailController::class, 'contact']); //  Test
+
+Route::get('/categorias/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarCategoria'])->name('productos.categoria');
+Route::get('/productos/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarProducto'])->name('productos.producto');
+

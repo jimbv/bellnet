@@ -97,3 +97,7 @@ body {
     color: white;
     z-index:2;
 }
+
+.dropdown-item{
+    color: #111!important;
+}

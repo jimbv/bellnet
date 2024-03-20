@@ -28,7 +28,7 @@ class ContactController extends Controller
             'message.required' => 'El campo mensaje es obligatorio.',
             //  'g-recaptcha-response.required' => 'Por favor, completa la verificación reCAPTCHA.'
         ]);
-        
+
         $content = [
             'subject' => 'Nuevo contacto desde web',
             'name' => $request->name,
@@ -39,6 +39,6 @@ class ContactController extends Controller
 
         Mail::to(env('MAIL_TO_ADDRESS'))->send(new TemplateMail($content));
 
-        return redirect('/')->with(['success' => 'Formulario enviado correctamente']);
+        return redirect('/#contacto')->with(['success' => 'Formulario enviado correctamente']);
     }
 }

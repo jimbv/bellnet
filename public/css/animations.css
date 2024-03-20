@@ -1,0 +1,137 @@
+body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+    /* para que nada sobresalga en horizontal */
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+/* a partir de aqui el CSS de las animaciones */
+
+@keyframes anim-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes anim-up {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes anim-down {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes anim-left {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes anim-right {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.anim-up,
+.anim-down,
+.anim-left,
+.anim-right,
+.anim-fade-in {
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: both;
+}
+
+.anim-up {
+    animation-name: anim-up;
+}
+
+.anim-down {
+    animation-name: anim-down;
+}
+
+.anim-left {
+    animation-name: anim-left;
+}
+
+.anim-right {
+    animation-name: anim-right;
+}
+
+.anim-fade-in {
+    animation-name: anim-fade-in;
+}
+
+.anim-pause-0 {
+    animation-delay: 0s;
+}
+
+/* la animacion empieza en 2 seg. */
+.anim-pause-1 {
+    animation-delay: 0.5s;
+}
+
+/* la animacion empieza en 2 seg. */
+.anim-pause-2 {
+    animation-delay: 1s;
+}
+
+/* la animacion empieza en 2 seg. */
+.anim-pause-3 {
+    animation-delay: 1.5s;
+}
+
+/* la animacion empieza en 3 seg. */
+.anim-pause-4 {
+    animation-delay: 2s;
+}
+
+/* la animacion empieza en 4 seg. */
+.anim-pause-5 {
+    animation-delay: 2.5s;
+}
+
+/* la animacion empieza en 5 seg. */
+
+/* todas las animaciones pausadas */
+.paused * {
+    animation-play-state: paused;
+}

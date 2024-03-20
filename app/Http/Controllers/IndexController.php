@@ -10,6 +10,6 @@ class IndexController extends Controller
     public function index()
     {
         $categories = Category::all(); 
-        return view('index',compact('categories')); 
+        return view('page.index',compact('categories')); 
     }
 }

@@ -8,9 +8,13 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link href="/sb-admin/css/styles.css" rel="stylesheet" />
-    @vite(['resources/sass/app.scss'])
+
+    <!-- Styles -->
+    <link href="/sb-admin/css/styles.css" rel="stylesheet" /> 
+    
+    <!-- Scripts -->
     @yield('scripts')
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body class="sb-nav-fixed">
