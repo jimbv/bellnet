@@ -8,7 +8,7 @@
 <script src="/js/animations.js"></script>
 @endsection
 @section('styles')
-<link href="/css/animations.css?v=1" rel="stylesheet">
+<link href="/css/animations.css?v=2" rel="stylesheet">
 <link href="/css/galeria.css?v=1" rel="stylesheet">
 @endsection
 @section('content')

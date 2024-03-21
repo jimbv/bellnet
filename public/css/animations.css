@@ -104,34 +104,66 @@ body {
     animation-delay: 0s;
 }
 
-/* la animacion empieza en 2 seg. */
 .anim-pause-1 {
-    animation-delay: 0.5s;
+    animation-delay: 0.4s;
 }
 
-/* la animacion empieza en 2 seg. */
 .anim-pause-2 {
-    animation-delay: 1s;
+    animation-delay: 0.8s;
 }
 
-/* la animacion empieza en 2 seg. */
 .anim-pause-3 {
-    animation-delay: 1.5s;
+    animation-delay: 1.2s;
 }
 
-/* la animacion empieza en 3 seg. */
 .anim-pause-4 {
+    animation-delay: 1.6s;
+}
+
+.anim-pause-5 {
     animation-delay: 2s;
 }
 
-/* la animacion empieza en 4 seg. */
-.anim-pause-5 {
-    animation-delay: 2.5s;
+.anim-pause-6 {
+    animation-delay: 2.4s;
 }
 
-/* la animacion empieza en 5 seg. */
+.anim-pause-7 {
+    animation-delay: 2.8s;
+}
 
-/* todas las animaciones pausadas */
+.anim-pause-8 {
+    animation-delay: 3.2s;
+}
+
+.anim-pause-9 {
+    animation-delay: 3.6s;
+}
+
+.anim-pause-10 {
+    animation-delay: 4s;
+}
+
+.anim-pause-11 {
+    animation-delay: 4.4s;
+}
+
+.anim-pause-12 {
+    animation-delay: 4.8s;
+}
+
+.anim-pause-13 {
+    animation-delay: 5.2s;
+}
+
+.anim-pause-14 {
+    animation-delay: 5.6s;
+}
+.anim-pause-15 {
+    animation-delay: 6s;
+}
+
+
 .paused * {
     animation-play-state: paused;
 }

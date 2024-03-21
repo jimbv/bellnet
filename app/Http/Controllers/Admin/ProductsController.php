@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Ramsey\Uuid\Uuid;
 
 class ProductsController extends Controller
 {
@@ -19,10 +21,13 @@ class ProductsController extends Controller
 
     public function create()
     {
+        $product_id_temporal = Uuid::uuid4()->toString(); 
         $categories = Category::all();
-        return view('admin.products.create', compact('categories'));
+        return view('admin.products.create', compact('categories', 'product_id_temporal'));
     }
 
+
+    
     public function save(Request $request)
     {
         try {
@@ -33,35 +38,30 @@ class ProductsController extends Controller
                 'technical_notes' => '',
                 'description' => 'required|string',
                 'price' => 'required|numeric',
-                'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'product_id_temporal' => 'required',
             ], [
                 'name.required' => 'El campo Nombre es obligatorio.',
                 'slug.required' => 'El campo Nombre es obligatorio.',
                 'category_id.required' => 'Seleccione una categoría',
                 'description.required' => 'El campo Descripción es obligatorio.',
                 'price.required' => 'El campo Precio es obligatorio.',
-                'images.*.image' => 'El archivo debe ser una imagen.',
-                'images.*.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
-                'images.*.max' => 'La imagen no debe superar los 2048 KB.',
             ]);
-
-
-            $images = isset($validatedData['images']) ? $validatedData['images'] : [];
+    
+            $id_temporal = $validatedData['product_id_temporal'];
             unset($validatedData['images']);
-
+            unset($validatedData['product_id_temporal']);
+    
             $product = Product::create($validatedData);
 
-            foreach ($images as $image) {
-                $path = $image->store('imgs/product_images', 'publico');
-                $product->images()->create(['image_path' => $path]);
-            }
-
-            // Limpiar campos del formulario e imágenes después de guardar
+            ProductImage::where('product_id_temporal', $id_temporal)
+            ->update(['product_id' => $product->id]);
+            
+ 
             return redirect()->back()->with('success', 'Producto guardado correctamente.');
         } catch (Exception $e) {
             // Manejar la excepción de validación
             $errors = $e->validator->errors()->all();
-            //dd($e);
+            dd($e);
             // Manejar la excepción, por ejemplo, mostrar un mensaje de error
             return redirect()->back()->with($errors);
         }

@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        
-        Schema::create('product_images', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('product_id')->nullable()->constrained();
-            $table->string('image_path');
-            $table->timestamps();
+        Schema::table('product_images', function (Blueprint $table) {
+            $table->integer('order')->nullable()->after('id');
+            $table->string('product_id_temporal')->nullable()->after('product_id');
         });
     }
 
@@ -25,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-         
+        Schema::table('product_images', function (Blueprint $table) {
+            $table->dropColumn('order');
+        });
     }
 };

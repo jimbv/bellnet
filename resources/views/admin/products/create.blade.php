@@ -10,6 +10,41 @@
         slugInput.value=slug; 
     }
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#description').summernote({
+            height: 100, // Altura del editor
+            placeholder: 'Escribe aquí...', // Texto de marcador de posición
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['view', ['fullscreen', 'codeview']],
+            ]
+        });
+        $('#technical_notes').summernote({
+            height: 100, // Altura del editor
+            placeholder: 'Escribe aquí...', // Texto de marcador de posición
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['view', ['fullscreen', 'codeview']],
+            ]
+        });
+    });
+</script>
 @endsection
 
 @section('content')
@@ -27,9 +62,14 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('products') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('products') }}">
                     @csrf
-
+                    <input id="product_id_temporal" name="product_id_temporal" type="text"  value="{{ old('product_id_temporal') ?? $product_id_temporal }}" autocomplete="product_id_temporal" />
+                    @error('id_temporal')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                     <div class="row mb-3">
                         <label for="name" class="col-md-4 col-form-label text-md-end">Nombre</label>
 
@@ -72,10 +112,10 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="description" class="col-md-4 col-form-label text-md-end">Descripcion</label>
+                        <label for="description" class="col-md-4 col-form-label text-md-end">Descripción</label>
 
                         <div class="col-md-6">
-                            <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus></textarea>
+                            <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="description" autofocus>{{ old('description') }}</textarea>
 
                             @error('description')
                             <span class="invalid-feedback" role="alert">
@@ -88,7 +128,7 @@
                         <label for="technical_notes" class="col-md-4 col-form-label text-md-end">Detalles técnicos</label>
 
                         <div class="col-md-6">
-                            <textarea id="technical_notes" class="form-control @error('technical_notes') is-invalid @enderror" name="technical_notes" value="{{ old('technical_notes') }}" required autocomplete="technical_notes" autofocus></textarea>
+                            <textarea id="technical_notes" class="form-control @error('technical_notes') is-invalid @enderror" name="technical_notes" required autocomplete="technical_notes" autofocus>{{ old('technical_notes') }}</textarea>
 
                             @error('technical_notes')
                             <span class="invalid-feedback" role="alert">
@@ -115,14 +155,14 @@
                         <label for="images" class="col-md-4 col-form-label text-md-end">Imágenes</label>
 
                         <div class="col-md-6">
-                            <input id="images" type="file" multiple class="form-control @error('images') is-invalid @enderror" name="images[]" value="{{ old('images') }}" autocomplete="images" autofocus>
-
-                            @error('images')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                            
+                            @livewire('admin.product-image-uploader', ['product_id_temporal' => $product_id_temporal]) 
+                            
                         </div>
+                    </div>
+
+                    <div class="row mb-3">
+                     
                     </div>
                     <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">

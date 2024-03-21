@@ -5,19 +5,62 @@
 @section('scripts')
 <script src="/js/animations.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="jquery.jfMagnify.js"></script>
+
 <script type="text/javascript">
-    
 
 
-			
+
+
 </script>
 @endsection
 @section('styles')
-<link href="/css/animations.css?v=1" rel="stylesheet">
+<link href="/css/animations.css?v=2" rel="stylesheet">
 <style>
-   
+    .contenedor {
+
+        background-color: gray;
+        width: 400px;
+        /* Ancho deseado */
+        height: 400px;
+        /* Altura deseada */
+        overflow: hidden;
+        /* Oculta el contenido que desborda */
+        position: relative;
+        /* Necesario para centrar verticalmente */
+    }
+
+    .contenedor_min {
+
+        background-color: gray;
+        width: 100px;
+        /* Ancho deseado */
+        height: 100px;
+        /* Altura deseada */
+        overflow: hidden;
+        /* Oculta el contenido que desborda */
+        position: relative;
+        /* Necesario para centrar verticalmente */
+    }
+
+    .contenedor img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .contenedor_min img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 </style>
 @endsection
 @section('content')
@@ -28,40 +71,43 @@
         <p></p>&nbsp;
         <br>
         <div class="container">
-        <div class="row">
-            <div class="col-12" style="color:white;text-shadow:none;">
+            <div class="row">
+                <div class="col-12" style="color:white;text-shadow:none;">
 
-            <h1>{{$product->name}}</h1> 
+                    <h1>{{$product->name}}</h1>
 
-            Productos /  <a href="/categoria/{{$product->category->slug}}" style="color: white;text-decoration:none;">{{$product->category->name}}</a> <br> <br>
+                    Productos / <a href="/categorias/{{$product->category->slug}}" style="color: white;text-decoration:none;">{{$product->category->name}}</a> <br> <br>
 
+                </div>
             </div>
-        </div>
-        <div class="row">
-                
+            <div class="row">
+
 
                 <div class="col-1">
                     @foreach($product->images as $img)
-                    <img src="/{{$img->image_path}}" alt="{{$product->name}}" height="100px;" style="box-shadow: 5px 5px 10px;margin-bottom:4px;">
+                    <div class="contenedor_min">
+                        <img src="/{{$img->image_path}}" alt="{{$product->name}}" height="100px;" style="box-shadow: 5px 5px 10px;margin-bottom:4px;">
+                    </div>
                     @endforeach
                 </div>
                 <div class="col-4">
-                    <div class="magnify">
-                        <div class="magnify_glass"></div>
-                        <div class="element_to_magnify">
-                            <img src="/{{$product->images[0]->image_path}}" draggable="false" height="400px;" />
-                        </div>
+                    <div class="contenedor">
+                        <img src="/{{$product->images[0]->image_path}}" height="400px;" draggable="false" />
                     </div>
-                    <!-- <img id="imagen" src="/{{$product->images[0]->image_path}}"  height="300px;" alt="Imagen" class="imagen" data-big="/{{$product->images[0]->image_path}}" />-->
-
- 
-
-
                 </div>
                 <div class="col-7" style="text-shadow: none; color:white;">
-                    {{$product->description}}
+                    {!!$product->description!!}
 
                 </div>
+                @if($product->technical_notes!=null)
+                <div class="col-12" style="text-shadow: none; color:white;">
+                <br>
+                    <h2 style="font-weight: bold;">DATOS TECNICOS</h2>
+                    <hr>
+                    {!!$product->technical_notes!!}
+
+                </div>
+                @endif
 
 
             </div>
