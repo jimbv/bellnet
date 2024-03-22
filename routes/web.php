@@ -23,6 +23,8 @@ Route::get('/admin/products/create', [App\Http\Controllers\Admin\ProductsControl
 Route::post('/admin/products', [App\Http\Controllers\Admin\ProductsController::class, 'save'])->name('products');
 Route::get('/admin/products', [App\Http\Controllers\Admin\ProductsController::class, 'list'])->name('products');
 Route::get('/admin/products/{id}',  [App\Http\Controllers\Admin\ProductsController::class, 'delete'])->name('productos.delete');
+Route::get('/admin/products/{id}/edit',  [App\Http\Controllers\Admin\ProductsController::class, 'edit'])->name('productos.edit');
+Route::post('/admin/products', [App\Http\Controllers\Admin\ProductsController::class, 'update'])->name('products.update');
 
 Route::get('/admin/categories/create', [App\Http\Controllers\Admin\CategoriesController::class, 'create'])->name('create-category');
 Route::post('/admin/categories', [App\Http\Controllers\Admin\CategoriesController::class, 'save'])->name('categories');

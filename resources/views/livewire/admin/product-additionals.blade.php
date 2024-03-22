@@ -40,7 +40,8 @@
                 <td>{{$add->name}}</td>
                 <td>{{$add->price}}</td>
                 <td>
-                    <button class="btn" wire:click="delete({{$add->id}})">Eliminar</button>
+                    <div style="cursor:pointer;" wire:click="delete({{$add->id}})"><i class="fa fa-trash" aria-hidden="true"></i>
+</div>
                 </td>
             </tr>
             @endforeach

@@ -13,14 +13,24 @@ class ProductImageUploader extends Component
 
     public $images = [];
     public $product_id_temporal;
+    public $product_id;
     public $product_images = [];
 
     
 
     public function render()
     {
-        $product_images = ProductImage::where('product_id_temporal', $this->product_id_temporal)->orderBy('order')->get();
-        return view('livewire.admin.product-image-uploader', compact('product_images'));
+        if ($this->product_id_temporal !== null) {
+            $this->product_images = ProductImage::where('product_id_temporal', $this->product_id_temporal)
+                ->orderBy('order')
+                ->get();
+        } else {
+            $this->product_images = ProductImage::where('product_id', $this->product_id)
+                ->orderBy('order')
+                ->get();
+        }
+         
+        return view('livewire.admin.product-image-uploader');
     }
 
     public function updatedImages()
@@ -33,7 +43,11 @@ class ProductImageUploader extends Component
     {
         foreach ($this->images as $image) {
             $path = $image->store('imgs/product_images', 'publico');
-            ProductImage::create(['image_path' => $path, 'product_id_temporal' => $this->product_id_temporal]);
+            if ($this->product_id_temporal !== null) {
+                ProductImage::create(['image_path' => $path, 'product_id_temporal' => $this->product_id_temporal]);
+            } else {
+                ProductImage::create(['image_path' => $path, 'product_id' => $this->product_id]);
+            }
         }
         $this->product_images = ProductImage::where('product_id_temporal', $this->product_id_temporal)->orderBy('order')->get();
         $this->images = [];
@@ -51,6 +65,14 @@ class ProductImageUploader extends Component
         $productImage = ProductImage::findOrFail($id);
         Storage::delete($productImage->image_path);
         $productImage->delete();
-        $this->product_images = ProductImage::where('product_id_temporal', $this->product_id_temporal)->orderBy('order')->get();
+        if ($this->product_id_temporal !== null) {
+            $this->product_images = ProductImage::where('product_id_temporal', $this->product_id_temporal)
+                ->orderBy('order')
+                ->get();
+        } else {
+            $this->product_images = ProductImage::where('product_id', $this->product_id)
+                ->orderBy('order')
+                ->get();
+        }
     }
 }

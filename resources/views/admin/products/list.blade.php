@@ -39,7 +39,7 @@
                         <td>{{$prod->name}}</td>
                         <td>{{$prod->category->name}}</td>
                         <td>{{$prod->price}}</td>
-                        <td><a href="/admin/products/{{$prod->id}}/edit">Editar</a></td>
+                        <td><a class="btn btn-secondary"  href="/admin/products/{{$prod->id}}/edit"> Editar </a></td>
                         <td>
                             <form action="/admin/products/{{$prod->id}}" method="DELETE"><input type="submit" value="Eliminar" class="btn btn-primary"></form>
                         </td>

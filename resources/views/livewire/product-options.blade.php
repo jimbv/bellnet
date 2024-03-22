@@ -1,4 +1,5 @@
-<div>
+<div>  
+
 @if(count($adicionalesAgrupados)>0)
 <strong>Opciones</strong> <br>
 @endif

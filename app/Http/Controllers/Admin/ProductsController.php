@@ -55,10 +55,10 @@ class ProductsController extends Controller
             $product = Product::create($validatedData);
 
             ProductImage::where('product_id_temporal', $id_temporal)
-            ->update(['product_id' => $product->id]);
+            ->update(['product_id' => $product->id, 'product_id_temporal' => null]);
 
             ProductAdditional::where('product_id_temporal', $id_temporal)
-            ->update(['product_id' => $product->id]);
+            ->update(['product_id' => $product->id,'product_id_temporal' => null]);
  
             return redirect()->back()->with('success', 'Producto guardado correctamente.');
         } catch (Exception $e) {
@@ -75,4 +75,46 @@ class ProductsController extends Controller
         $product->delete();
         return redirect()->back();
     }
+
+    public function edit($id){
+        $product = Product::find($id);
+        $categories = Category::all();
+        return view('admin.products.edit', compact('categories', 'product'));
+    }
+
+    public function update(Request $request)
+    {
+        try {
+            $validatedData = $request->validate([
+                'name' => 'required|string',
+                'slug' => 'required|string',
+                'category_id' => 'required',
+                'technical_notes' => '',
+                'description' => 'required|string',
+                'price' => 'required|numeric',
+                'product_id' => 'required',
+            ], [
+                'name.required' => 'El campo Nombre es obligatorio.',
+                'slug.required' => 'El campo Nombre es obligatorio.',
+                'category_id.required' => 'Seleccione una categoría',
+                'description.required' => 'El campo Descripción es obligatorio.',
+                'price.required' => 'El campo Precio es obligatorio.',
+            ]);
+    
+            $id = $validatedData['product_id'];  
+            unset($validatedData['images']);
+            unset($validatedData['product_id']);
+            
+            $product = Product::findOrFail($id);
+            $product->update($validatedData);
+ 
+            return redirect()->back()->with('success', 'Producto guardado correctamente.');
+        } catch (Exception $e) {
+            // Manejar la excepción de validación
+            $errors = $e->validator->errors()->all();
+            // Manejar la excepción, por ejemplo, mostrar un mensaje de error
+            return redirect()->back()->with($errors);
+        }
+    }
+
 }
