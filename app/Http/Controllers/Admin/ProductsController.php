@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Category;
+use App\Models\ProductAdditional;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Ramsey\Uuid\Uuid;
@@ -55,13 +56,14 @@ class ProductsController extends Controller
 
             ProductImage::where('product_id_temporal', $id_temporal)
             ->update(['product_id' => $product->id]);
-            
+
+            ProductAdditional::where('product_id_temporal', $id_temporal)
+            ->update(['product_id' => $product->id]);
  
             return redirect()->back()->with('success', 'Producto guardado correctamente.');
         } catch (Exception $e) {
             // Manejar la excepción de validación
             $errors = $e->validator->errors()->all();
-            dd($e);
             // Manejar la excepción, por ejemplo, mostrar un mensaje de error
             return redirect()->back()->with($errors);
         }

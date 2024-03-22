@@ -5,13 +5,6 @@
 @section('scripts')
 <script src="/js/animations.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-<script type="text/javascript">
-
-
-
-
-</script>
 @endsection
 @section('styles')
 <link href="/css/animations.css?v=2" rel="stylesheet">
@@ -95,9 +88,14 @@
                         <img src="/{{$product->images[0]->image_path}}" height="400px;" draggable="false" />
                     </div>
                 </div>
-                <div class="col-7" style="text-shadow: none; color:white;">
+                <div class="col-4" style="text-shadow: none; color:white;">
                     {!!$product->description!!}
 
+                </div>
+                <div class="col-3" style="text-shadow: none; color:white;">
+                    
+                    @livewire('product-options', ['id' => $product->id]) 
+                            
                 </div>
                 @if($product->technical_notes!=null)
                 <div class="col-12" style="text-shadow: none; color:white;">
@@ -108,11 +106,7 @@
 
                 </div>
                 @endif
-
-
             </div>
-
-
         </div>
         <br>
     </div>

@@ -64,7 +64,7 @@
 
                 <form method="POST" action="{{ route('products') }}">
                     @csrf
-                    <input id="product_id_temporal" name="product_id_temporal" type="text"  value="{{ old('product_id_temporal') ?? $product_id_temporal }}" autocomplete="product_id_temporal" />
+                    <input id="product_id_temporal" name="product_id_temporal" type="hidden"  value="{{ old('product_id_temporal') ?? $product_id_temporal }}" autocomplete="product_id_temporal" />
                     @error('id_temporal')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -162,8 +162,15 @@
                     </div>
 
                     <div class="row mb-3">
-                     
+                        <label for="images" class="col-md-4 col-form-label text-md-end">Opciones</label>
+
+                        <div class="col-md-6">
+                            
+                            @livewire('admin.product-additionals', ['product_id_temporal' => $product_id_temporal]) 
+                            
+                        </div>
                     </div>
+                    <br>
                     <div class="row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">
