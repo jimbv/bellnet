@@ -1,17 +1,23 @@
 <div>  
 
 @if(count($adicionalesAgrupados)>0)
-<strong>Opciones</strong> <br>
+<strong>OPCIONALES</strong> <br> <P></P>
 @endif
 @foreach($adicionalesAgrupados as $tipo => $opciones)
 
     @if(count($opciones)>1)
-        <select>
-            <option value="">{{$tipo}}</option>
-            @foreach($opciones as $opcion)
-                <option value="{{$opcion->name}}" price="{{$opcion->price}}">{{$opcion->name}}</option>
+    {{$tipo}}
+       <br>
+    
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+   
+  @foreach($opciones as $opcion)
+                
+  <label class="btn btn-secondary btn-sm">
+    <input type="radio" name="options" id="option2" autocomplete="off"> {{$opcion->name}}
+  </label> 
             @endforeach
-        </select>
+</div> 
         <br>
     @else
         {{$tipo}}:  {{$opciones[0]->name}}

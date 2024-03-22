@@ -69,7 +69,8 @@
 
                     <h1>{{$product->name}}</h1>
 
-                    Productos / <a href="/categorias/{{$product->category->slug}}" style="color: white;text-decoration:none;">{{$product->category->name}}</a> <br> <br>
+                    <a href="/productos/" style="color: white;text-decoration:none;"> Productos </a> / 
+                    <a href="/categorias/{{$product->category->slug}}" style="color: white;text-decoration:none;">{{$product->category->name}}</a> <br> <br>
 
                 </div>
             </div>

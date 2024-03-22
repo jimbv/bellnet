@@ -32,7 +32,14 @@
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active" style="background-image: url('/imgs/slider/infinito.png')">
+    <div class="carousel-item active" style="background-image: url('/imgs/slider/slider1.jpg')">
+        <div class="carousel-caption">
+          <h5>Lámpara de pié infinito</h5>
+          <p>Diseño para tus espacios</p>
+        </div>
+      </div>
+
+      <div class="carousel-item active" style="background-image: url('/imgs/slider/slider2.jpg')">
         <div class="carousel-caption">
           <h5>Lámpara de pié infinito</h5>
           <p>Diseño para tus espacios</p>
@@ -97,10 +104,8 @@
     <br>
     <p></p>
     <div class="row">
-      <div class="col-4 p-0">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1IEP1pDTwKtUda_zQ7KtH2T7qAMzb9S8&ehbc=2E312F&noprof=1" height="480" style="max-width: 640px;width:100%;"></iframe>
-      </div>
-      <div class="col-8">
+     
+      <div class="col-lg-8 col-md-6 col-sm-12 mb-3">
         <div class="anim-left" style="background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%);margin-left:10px;margin-right:10px;color:white;padding:20px;height:100%;">
           <h1>CONTACTO</h1>
           <hr>
@@ -155,9 +160,10 @@
           @endif
         </div>
       </div>
-    </div>
-
-    <p></p> <br>
+      <div class="col-lg-4 col-md-6 col-sm-12 p-0">
+        <iframe src="https://www.google.com/maps/d/embed?mid=1IEP1pDTwKtUda_zQ7KtH2T7qAMzb9S8&ehbc=2E312F&noprof=1" height="480" style="max-width: 640px;width:100%;"></iframe>
+      </div>
+    </div> 
   </div>
 
 </section>

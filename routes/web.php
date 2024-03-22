@@ -24,7 +24,7 @@ Route::post('/admin/products', [App\Http\Controllers\Admin\ProductsController::c
 Route::get('/admin/products', [App\Http\Controllers\Admin\ProductsController::class, 'list'])->name('products');
 Route::get('/admin/products/{id}',  [App\Http\Controllers\Admin\ProductsController::class, 'delete'])->name('productos.delete');
 Route::get('/admin/products/{id}/edit',  [App\Http\Controllers\Admin\ProductsController::class, 'edit'])->name('productos.edit');
-Route::post('/admin/products', [App\Http\Controllers\Admin\ProductsController::class, 'update'])->name('products.update');
+Route::put('/admin/products', [App\Http\Controllers\Admin\ProductsController::class, 'update'])->name('products.update');
 
 Route::get('/admin/categories/create', [App\Http\Controllers\Admin\CategoriesController::class, 'create'])->name('create-category');
 Route::post('/admin/categories', [App\Http\Controllers\Admin\CategoriesController::class, 'save'])->name('categories');
@@ -35,6 +35,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 /* WEB */
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
+Route::get('/empresa', [App\Http\Controllers\IndexController::class, 'empresa'])->name('index');
+Route::get('/glosario', [App\Http\Controllers\IndexController::class, 'glosario'])->name('index');
 Route::get('/productos', [App\Http\Controllers\ProductsController::class, 'index'])->name('products.index');
 
 Route::post('/contacto/enviar', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');

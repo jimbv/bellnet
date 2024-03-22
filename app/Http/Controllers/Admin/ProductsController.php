@@ -30,7 +30,7 @@ class ProductsController extends Controller
 
     
     public function save(Request $request)
-    {
+    { 
         try {
             $validatedData = $request->validate([
                 'name' => 'required|string',
@@ -48,8 +48,7 @@ class ProductsController extends Controller
                 'price.required' => 'El campo Precio es obligatorio.',
             ]);
     
-            $id_temporal = $validatedData['product_id_temporal'];
-            unset($validatedData['images']);
+            $id_temporal = $validatedData['product_id_temporal']; 
             unset($validatedData['product_id_temporal']);
     
             $product = Product::create($validatedData);

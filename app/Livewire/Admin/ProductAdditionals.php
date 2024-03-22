@@ -9,6 +9,7 @@ use App\Models\ProductAdditional;
 class ProductAdditionals extends Component
 {
     public $types;
+    public $product_id;
     public $product_id_temporal;
     public $additional_name;
     public $additional_type;
@@ -23,7 +24,12 @@ class ProductAdditionals extends Component
     }
     public function render()
     {
-        $this->product_additionals = ProductAdditional::where('product_id_temporal', $this->product_id_temporal)->orderBy('type')->get();
+        if ($this->product_id_temporal !== null) {
+            $this->product_additionals = ProductAdditional::where('product_id_temporal', $this->product_id_temporal)->orderBy('type')->get();
+        } else {
+            $this->product_additionals = ProductAdditional::where('product_id', $this->product_id)->orderBy('type')->get();
+        }
+
         return view('livewire.admin.product-additionals');
     }
 
@@ -42,10 +48,15 @@ class ProductAdditionals extends Component
         $this->product_additionals = ProductAdditional::where('product_id_temporal', $this->product_id_temporal)->orderBy('type')->get();
     }
 
-    
-    public function delete($id){
-        $productAdditional = ProductAdditional::findOrFail($id); 
+
+    public function delete($id)
+    {
+        $productAdditional = ProductAdditional::findOrFail($id);
         $productAdditional->delete();
-        $this->product_additionals = ProductAdditional::where('product_id_temporal', $this->product_id_temporal)->orderBy('type')->get();
+        if ($this->product_id_temporal !== null) {
+            $this->product_additionals = ProductAdditional::where('product_id_temporal', $this->product_id_temporal)->orderBy('type')->get();
+        } else {
+            $this->product_additionals = ProductAdditional::where('product_id', $this->product_id)->orderBy('type')->get();
+        }
     }
 }

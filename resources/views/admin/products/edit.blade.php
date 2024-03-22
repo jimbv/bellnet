@@ -51,7 +51,7 @@
     <div class="container-fluid px-4">
         <h1 class="mt-4">Editar Producto</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item">Productos</li>
+        <li class="breadcrumb-item"><a href="/admin/products/" class="text-secondary">Productos</a></li>
             <li class="breadcrumb-item active">Editar Producto</li>
         </ol>
         <div class="card mb-4">
@@ -61,9 +61,16 @@
                         {{ session('error') }}
                     </div>
                 @endif
+                @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+                @endif
+
 
                 <form method="POST" action="{{ route('products.update') }}">
                     @csrf 
+                    @method('PUT')
                     <input id="product_id" name="product_id" type="hidden" value="{{ $product->id }}" />
                     <div class="row mb-3">
                         <label for="name" class="col-md-4 col-form-label text-md-end">Nombre</label>
