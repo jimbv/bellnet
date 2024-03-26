@@ -10,29 +10,20 @@
 <link href="/css/animations.css?v=2" rel="stylesheet">
 <style>
     .contenedor {
-
         background-color: gray;
-        width: 400px;
-        /* Ancho deseado */
-        height: 400px;
-        /* Altura deseada */
+        width: 380px;
+        min-height: 380px;
         overflow: hidden;
-        /* Oculta el contenido que desborda */
         position: relative;
-        /* Necesario para centrar verticalmente */
     }
 
     .contenedor_min {
-
+        display: inline-block;
         background-color: gray;
-        width: 100px;
-        /* Ancho deseado */
-        height: 100px;
-        /* Altura deseada */
-        overflow: hidden;
-        /* Oculta el contenido que desborda */
-        position: relative;
-        /* Necesario para centrar verticalmente */
+        width: 100px; 
+        height: 100px; 
+        overflow: hidden; 
+        position: relative; 
     }
 
     .contenedor img {
@@ -65,46 +56,33 @@
         <br>
         <div class="container">
             <div class="row">
-                <div class="col-12" style="color:white;text-shadow:none;">
+                <div class="col-md-12" style="color:white;text-shadow:none;">
 
                     <h1>{{$product->name}}</h1>
 
-                    <a href="/productos/" style="color: white;text-decoration:none;"> Productos </a> / 
+                    <a href="/productos/" style="color: white;text-decoration:none;"> Productos </a> /
                     <a href="/categorias/{{$product->category->slug}}" style="color: white;text-decoration:none;">{{$product->category->name}}</a> <br> <br>
 
                 </div>
             </div>
             <div class="row">
-
-
-                <div class="col-1">
-                    @foreach($product->images as $img)
-                    <div class="contenedor_min">
-                        <img src="/{{$img->image_path}}" alt="{{$product->name}}" height="100px;" style="box-shadow: 5px 5px 10px;margin-bottom:4px;">
-                    </div>
-                    @endforeach
+                <div class="col-md-5">
+                    @livewire('product-images',['images' => $product->images])
                 </div>
-                <div class="col-4">
-                    <div class="contenedor">
-                        <img src="/{{$product->images[0]->image_path}}" height="400px;" draggable="false" />
-                    </div>
-                </div>
-                <div class="col-4" style="text-shadow: none; color:white;">
+                <div class="col-md-4" style="text-shadow: none; color:white;padding-left:30px;">
                     {!!$product->description!!}
-
                 </div>
-                <div class="col-3" style="text-shadow: none; color:white;">
-                    
-                    @livewire('product-options', ['id' => $product->id]) 
-                            
+                <div class="col-md-3" style="text-shadow: none; color:white;padding-left:30px;">
+
+                    @livewire('product-options', ['id' => $product->id])
+
                 </div>
                 @if($product->technical_notes!=null)
-                <div class="col-12" style="text-shadow: none; color:white;">
-                <br>
+                <div class="col-md-12" style="text-shadow: none; color:white;padding:30px;">
+                    <br>
                     <h2 style="font-weight: bold;">DATOS TECNICOS</h2>
                     <hr>
                     {!!$product->technical_notes!!}
-
                 </div>
                 @endif
             </div>

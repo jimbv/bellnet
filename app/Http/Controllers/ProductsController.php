@@ -19,12 +19,12 @@ class ProductsController extends Controller
         $category = Category::where('slug', $slug)->first();
         $categories = Category::all();
         $products = Product::where('category_id', $category->id)->get();
-        return view('page.products', compact('products','category','categories'));
+        return view('page.products', compact('products', 'category', 'categories'));
     }
 
     public function mostrarProducto($slug)
     {
-        $product = Product::where('slug', $slug)->first(); 
+        $product = Product::where('slug', $slug)->first();
         return view('page.product', compact('product'));
     }
 }
