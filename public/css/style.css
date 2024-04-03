@@ -145,11 +145,10 @@ h6{
     color: #111!important;
 }
 
-.about-text{
-    font-family: ;
-    color:white;
-    text-shadow:none;
-    font-size:18px;
+.about-text{ 
+    font-family: 'RegencieLight'!important;
+    text-shadow: none;
+    color: white;
     line-height:30px;
     padding-left:20px;
 }

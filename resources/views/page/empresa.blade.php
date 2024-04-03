@@ -24,7 +24,7 @@
                 <div class="col-md-3 pt-3">
                     <img src="/imgs/kyra_bg_empresa.jpg" alt="Fondo empresa" style="width: 100%;">
                 </div>
-                <div class="col-md-9" class="about-text">
+                <div class="col-md-9 about-text">
                     <div class="text-center">
                     </div> <br>
                     <p>
