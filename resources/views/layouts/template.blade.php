@@ -13,7 +13,7 @@
 
     <title>{{ config('app.name', 'Enertech') }}</title>
 
-    <link href="/css/style.css?v=10" rel="stylesheet">
+    <link href="/css/style.css?v=11" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])

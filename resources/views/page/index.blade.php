@@ -35,30 +35,30 @@
     <div class="carousel-item active" style="background-image: url('/imgs/slider/slider1.jpg')">
         <div class="carousel-caption">
           <h5>Lámpara de pié infinito</h5>
-          <p>Diseño para tus espacios</p>
+          <h6>Diseño para tus espacios</h6>
         </div>
       </div>
 
       <div class="carousel-item active" style="background-image: url('/imgs/slider/slider2.jpg')">
         <div class="carousel-caption">
           <h5>Lámpara de pié infinito</h5>
-          <p>Diseño para tus espacios</p>
+          <h6>Diseño para tus espacios</h6>
         </div>
       </div>
       <div class="carousel-item" style="background-image: url('/imgs/slider/colgante.png')">
         <div class="carousel-caption">
           <h5>Colgante</h5>
-          <p>Da un toque especial a tus lugares.</p>
+          <h6>Diseño para tus espacios</h6>
         </div>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+      <span class="visually-hidden">Anterior</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
+      <span class="visually-hidden">Siguiente</span>
     </button>
   </div>
 
@@ -66,7 +66,7 @@
 
 <section>
   <div class="products">
-    <h1>NUESTROS PRODUCTOS</h1>
+    <h2 style="color:white;text-shadow:none;">NUESTROS PRODUCTOS</h2>
 
     <div id="galeria" class="paused">
       @foreach($categories as $cat)
@@ -86,10 +86,10 @@
     <div id="contacto" class="paused">
       <div class="container text-center anim-up" style="font-size: 16px;color:white;">
         <a href="/productos" style="text-decoration:none;">
-          <div style="color:white;border: 1px solid gray;  border-radius: 3px 0 0 3px; width:40px; display:inline-block;">
+          <div style="color:white; border-radius: 3px 0 0 3px; width:40px; display:inline-block;">
             <i class="fa fa-plus" aria-hidden="true"></i>
           </div>
-          <div style="color:white;border: 1px solid gray; border-radius: 0 3px 3px 0;  width:150px; display:inline-block;">
+          <div style="color:white;border-radius: 0 3px 3px 0;  width:150px; display:inline-block;">
             Ver más productos
           </div>
       </div>
@@ -107,7 +107,7 @@
      
       <div class="col-lg-8 col-md-6 col-sm-12 mb-3">
         <div class="anim-left" style="background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%);margin-left:10px;margin-right:10px;color:white;padding:20px;height:100%;">
-          <h1>CONTACTO</h1>
+          <h2>CONTACTO</h2>
           <hr>
 
           <form action="{{ route('contact.submit') }}" method="POST">
@@ -150,7 +150,7 @@
               @endif
             </div>
             <br>
-            <button type="submit" class="btn btn-dark  anim-pause-5 anim-left">Enviar mensaje</button>
+            <button type="submit" class="btn btn-dark regencie anim-pause-5 anim-left">Enviar mensaje</button>
           </form>
           @if(session('success'))
           <br>
@@ -161,7 +161,7 @@
         </div>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12 p-0">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1IEP1pDTwKtUda_zQ7KtH2T7qAMzb9S8&ehbc=2E312F&noprof=1" height="480" style="max-width: 640px;width:100%;"></iframe>
+        <iframe src="https://www.google.com/maps/d/embed?mid=1IEP1pDTwKtUda_zQ7KtH2T7qAMzb9S8&ehbc=2E312F&noprof=1" height="580" style="max-width: 640px;width:100%;"></iframe>
       </div>
     </div> 
   </div>

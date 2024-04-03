@@ -38,18 +38,18 @@
         <div class="row">
             <div class="col-12 text-center" style='z-index:10;'>
                 <br>
-                <h1 style="color:white;text-shadow:0px 2px 7px #111;">GALERÍA DE PRODUCTOS</h1> <br>
+                <h2 style="color:white;text-shadow:0px 2px 7px #111;">GALERÍA DE PRODUCTOS</h2> <br>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6  mb-3">
                 <div style=" padding:0px 20px; font-size:22px; ">
                     @foreach($categories as $cat)
-                    <div style="background: #757F9A;
+                    <div style="background: #d2c2a8;
                         background: linear-gradient(
                             to right,
-                            #757F9A,#D7DDE8
-                        ); padding:10px 20px; margin:4px; box-shadow: 5px 5px 40px black;cursor:pointer;text-shadow:none;color:white; "
+                            #d2c2a8,#D7DDE8
+                        ); padding:10px 30px; margin:10px 5px; box-shadow: 2px 2px 20px #111;cursor:pointer;text-shadow:none;color:black;font-size:20px; "
                          wire:click="filtrar({{$cat->id}})" class="anim-pause-1 anim-left">
                         {{$cat->name}}
 
@@ -67,10 +67,10 @@
                 @if(isset($prod->images[0]))
                 <a href="/productos/{{$prod->slug}}/" style="text-decoration:none;">
 
-                    <div style="display:inline-block;margin-left:10px;margin-bottom:10px; color: black;line-height:30px;font-size:22px;background:white ;box-shadow: 5px 5px 10px; ">
+                    <div style="display:inline-block;margin-left:15px;margin-bottom:15px;line-height:30px;font-size:22px;background:#a77757;box-shadow: 0px 0px 5px #DDD;text-shadow:0 0 1px #111;">
                         <img src="/{{$prod->images[0]->image_path}}" alt="{{$prod->name}}" height="250px;"> <br>
                        
-                       <div style="padding: 10px;" class="text-center"> {{$prod->name}}</div>
+                       <div style="padding: 10px;font-family:'Roboto_Slab';color:white;" class="text-center"> {{$prod->name}}</div>
                     </div>
                 </a>
 
