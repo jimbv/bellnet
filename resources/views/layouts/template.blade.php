@@ -80,17 +80,17 @@
 
                     </div>
                     <div class="col-md-4 text-center">
-                        <img src="/imgs/piecompleto.png" style="margin: 10px;" alt="Enertech - Ilumninación">
+                        <img src="/imgs/pie_blanco.png" style="margin: 10px;" alt="Enertech - Ilumninación">
                     </div>
                     <div class="col-md-4 p-4 mt-2 ml-3 text-end"> 
                             <div style="font-size: 20px;letter-spacing: 0.1em;">  &nbsp; </div>
                             <p></p>
                             Ruta 9 KM. 500 - Bell Ville - Córdoba <br> 
                             <i class="fa fa-phone"></i> &nbsp;&nbsp;
-                            (03537) 415780 <br>
+                            (03537) 450176 <br>
                             <a href="https://wa.me/5493537595618?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
                                 +54 9 3537 595618</a> <br>
-                            <a href="mailto:info@ener-tech.com.ar" style="color:white;text-decoration:none;"><i class="fa fa-envelope"></i> &nbsp;&nbsp;info@ener-tech.com.ar</a>
+                            <a href="mailto:enertechventas@gmail.com" style="color:white;text-decoration:none;"><i class="fa fa-envelope"></i> &nbsp;&nbsp;enertechventas@gmail.com</a>
                               
                     </div>
                 </div>
@@ -100,7 +100,11 @@
             &copy; enertech <?= date('Y') ?>
         </div>
     </footer>
-
+<a href="#">
+    <div alt="Comuncarse por WhatsApp" style="background:#07b018;position:fixed;bottom:20px;right:20px;height: 70px;width: 70px;font-size:45px;padding-top:2px;line-height:70px; color:white; overflow:hidden;border-radius:100px;box-shadow: 0px 0px 5px #111;text-align:center;">
+    <i class="fab fa-whatsapp"></i>
+    </div>
+</a>
 </body>
 
 </html>

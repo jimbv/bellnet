@@ -7,8 +7,12 @@ use Livewire\WithFileUploads;
 use App\Models\ProductImage;
 use Illuminate\Support\Facades\Storage;
 
+use Intervention\Image\Laravel\Facades\Image; 
+use Intervention\Image\ImageManager;
+
 class ProductImageUploader extends Component
 {
+     
     use WithFileUploads;
 
     public $images = [];
@@ -43,6 +47,17 @@ class ProductImageUploader extends Component
     {
         foreach ($this->images as $image) {
             $path = $image->store('imgs/product_images', 'publico');
+ 
+
+            
+            $image = ImageManager::imagick()->read($path);
+
+            // resize to 300 x 200 pixel
+            $image->resize(300, 200);
+
+
+
+
             if ($this->product_id_temporal !== null) {
                 ProductImage::create(['image_path' => $path, 'product_id_temporal' => $this->product_id_temporal]);
             } else {

@@ -4,9 +4,18 @@
 @endsection
 @section('scripts')
 <script src="/js/animations.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+
+<!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+<script type="text/javascript" src="/imgs/wmzoom/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="/imgs/wmzoom/jquery.wm-zoom-1.0.min.js"></script>
+
 @endsection
 @section('styles')
+<link rel="stylesheet" href="/imgs/wmzoom/jquery.wm-zoom-1.0.min.css">
+
+
 <link href="/css/animations.css?v=2" rel="stylesheet">
 <style>
     .contenedor {
@@ -20,10 +29,10 @@
     .contenedor_min {
         display: inline-block;
         background-color: gray;
-        width: 100px; 
-        height: 100px; 
-        overflow: hidden; 
-        position: relative; 
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        position: relative;
     }
 
     .contenedor img {
@@ -52,6 +61,13 @@
     <div class="products ">
         <p></p>&nbsp;
         <p></p>&nbsp;
+
+
+
+
+
+
+
         <p></p>&nbsp;
         <br>
         <div class="container">
@@ -61,13 +77,33 @@
                     <h1>{{$product->name}}</h1>
 
                     <a href="/productos/" style="color: white;text-decoration:none;"> Productos </a> /
-                    <a href="/categorias/{{$product->category->slug}}" style="color: white;text-decoration:none;">{{$product->category->name}}</a> <br> <br>
+                    <a href="/categorias/{{$product->category->slug}}" style="color: white;text-decoration:none;">{{$product->category->name}}</a> <br><br>
 
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-5">
                     @livewire('product-images',['images' => $product->images])
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+
+                            $('.my-zoom').WMZoom({
+                                config: {
+                                    inner: false
+                                }
+                            });
+                            
+                            $('.imagen').click(function() {
+                                var id = $(this).attr("id");
+                                $('.imagen_grande').hide();
+                                $("#big_" + id).show();
+                                $('.my-zoom-0').WMZoom();
+                                $('.my-zoom-1').WMZoom();
+                            });
+
+                        });
+                    </script>
+
                 </div>
                 <div class="col-md-4" style="text-shadow: none; color:white;padding-left:30px;">
                     {!!$product->description!!}
