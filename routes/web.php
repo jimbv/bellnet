@@ -43,7 +43,7 @@ Route::get('/glosario', [App\Http\Controllers\IndexController::class, 'glosario'
 Route::get('/productos', [App\Http\Controllers\ProductsController::class, 'index'])->name('products.index');
 
 Route::post('/contacto/enviar', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
-Route::get('/send-mail', [App\Http\Controllers\SendMailController::class, 'contact']); //  Test
+Route::get('/send-mail', [App\Http\Controllers\SendMailController::class, 'contact']);
 
 Route::get('/categorias/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarCategoria'])->name('productos.categoria');
 Route::get('/productos/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarProducto'])->name('productos.producto');

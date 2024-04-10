@@ -15,10 +15,13 @@ class Products extends Component
     public function mount()
     {
         $this->products = Product::all();  
+        if($this->category!=null){
+            $this->filtrar($this->category->id);
+        }
     }
 
     public function render()
-    {
+    { 
         $categories= Category::all();
         return view('livewire.products',compact('categories'));
     }
