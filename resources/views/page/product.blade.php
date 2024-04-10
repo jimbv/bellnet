@@ -59,6 +59,7 @@
 @section('content')
 <section>
     <div class="products ">
+    
         <p></p>&nbsp;
         <p></p>&nbsp;
 
@@ -74,7 +75,7 @@
             <div class="row">
                 <div class="col-md-12" style="color:white;text-shadow:none;">
 
-                    <h1>{{$product->name}}</h1>
+                    <h1 class="anim-pause-1 anim-right" >{{$product->name}}</h1>
 
                     <a href="/productos/" style="color: white;text-decoration:none;"> Productos </a> /
                     <a href="/categorias/{{$product->category->slug}}" style="color: white;text-decoration:none;">{{$product->category->name}}</a> <br><br>
@@ -106,9 +107,12 @@
 
                 </div>
                 <div class="col-md-4" style="text-shadow: none; color:white;padding-left:30px;">
+                <div class="anim-pause-1 anim-up" style="background-color: rgba(255, 255, 255, 0.5); border-radius:3px;box-shadow:0px 0px 2px #444; padding: 20px 30px;font-size:18px;">
                     {!!$product->description!!}
+                    
+    </div>
                 </div>
-                <div class="col-md-3" style="text-shadow: none; color:white;padding-left:30px;">
+                <div class="col-md-3" style="text-shadow: none; color:white;padding-left:30px;padding-top:15px;">
 
                     @livewire('product-options', ['id' => $product->id])
 
