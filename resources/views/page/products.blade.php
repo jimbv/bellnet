@@ -9,7 +9,7 @@
 @endsection
 @section('content')
 <section>
-    <div class="products ">
+    <div class="product">
         <p></p>&nbsp;
         <p></p>&nbsp;
         <p></p>&nbsp; 

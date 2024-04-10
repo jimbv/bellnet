@@ -9,7 +9,7 @@
 @endsection
 @section('styles')
 <link href="/css/animations.css?v=2" rel="stylesheet">
-<link href="/css/galeria.css?v=1" rel="stylesheet">
+<link href="/css/galeria.css?v=2" rel="stylesheet">
 @endsection
 @section('content')
 
@@ -32,7 +32,7 @@
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-    <div class="carousel-item active" style="background-image: url('/imgs/slider/slider1.jpg')">
+      <div class="carousel-item active" style="background-image: url('/imgs/slider/slider1.jpg')">
         <div class="carousel-caption">
           <h5>Lámpara de pié infinito</h5>
           <h6>Diseño para tus espacios</h6>
@@ -65,37 +65,52 @@
 </section>
 
 <section>
-  <div class="products">
-    <h2 style="color:white;text-shadow:none;">NUESTROS PRODUCTOS</h2>
+  <div class="products text-center">
+    <h2 style="color:white;text-shadow:none;">PRODUCTOS</h2>
 
-    <div id="galeria" class="paused">
-      @foreach($categories as $cat)
-      <a class="tituloCategoria anim-fade-in anim-pause-{{rand(0, 5)}}" href="/categorias/{{$cat->slug}}/">
-        <div class="itemCategoria">
+<div id="galeria" class="paused">
+  @foreach($categories as $key => $cat)
+  <a class="anim-fade-in " href="/categorias/{{$cat->slug}}/" style="float:left">
+      <div class="categoria">
+        <div class="marco_imagen">
+
           <div class="image">
-            <img src="/{{ $cat->image }}" alt="{{$cat->name}}" style='max-width:300px;'>
+            <img src="/{{ $cat->image }}" alt="{{$cat->name}}" style='width:100%;'>
           </div>
-          <div class="img-overlay">{{$cat->name}}</div>
         </div>
-      </a>
-      @endforeach
-    </div>
+        <div class="degradado_imagen">
+ 
 
-    <br>
+        </div>
 
-    <div id="contacto" class="paused">
-      <div class="container text-center anim-up" style="font-size: 16px;color:white;">
-        <a href="/productos" style="text-decoration:none;">
-          <div style="color:white; border-radius: 3px 0 0 3px; width:40px; display:inline-block;">
-            <i class="fa fa-plus" aria-hidden="true"></i>
+        <div class="marco_titulo">
+          <div style="color:white;letter-spacing: 0.2em">
+
+            {{strtoupper($cat->name)}}
+
           </div>
-          <div style="color:white;border-radius: 0 3px 3px 0;  width:150px; display:inline-block;">
-            Ver más productos
-          </div>
+        </div>
       </div>
-      <br>
-      </a><br>
-    </div>
+    </a>
+  @endforeach
+</div>
+
+<br>
+
+<div id="contacto" class="paused">
+  <div class="container text-center anim-up" style="font-size: 16px;color:white;">
+    <a href="/productos" style="text-decoration:none;">
+      <div style="color:white; border-radius: 3px 0 0 3px; width:40px; display:inline-block;">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </div>
+      <div style="color:white;border-radius: 0 3px 3px 0;  width:150px; display:inline-block;">
+        Ver más productos
+      </div>
+  </div>
+  <br>
+  </a><br>
+</div>
+</div>
 </section>
 
 <!-- Contact form -->
@@ -104,7 +119,7 @@
     <br>
     <p></p>
     <div class="row">
-     
+
       <div class="col-lg-8 col-md-6 col-sm-12 mb-3">
         <div class="anim-left" style="background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%);margin-left:10px;margin-right:10px;color:white;padding:20px;height:100%;">
           <h2>CONTACTO</h2>
@@ -163,7 +178,7 @@
       <div class="col-lg-4 col-md-6 col-sm-12 p-0">
         <iframe src="https://www.google.com/maps/d/embed?mid=1IEP1pDTwKtUda_zQ7KtH2T7qAMzb9S8&ehbc=2E312F&noprof=1" height="580" style="max-width: 640px;width:100%;"></iframe>
       </div>
-    </div> 
+    </div>
   </div>
 
 </section>
