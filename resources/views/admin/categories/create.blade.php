@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="images" class="col-md-4 col-form-label text-md-end">Imágenes</label>
+                        <label for="images" class="col-md-4 col-form-label text-md-end">Imagen</label>
 
                         <div class="col-md-6">
                             <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" autocomplete="image" autofocus>

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+*/ 
 
 Auth::routes();
 
@@ -29,6 +29,9 @@ Route::put('/admin/products', [App\Http\Controllers\Admin\ProductsController::cl
 Route::get('/admin/categories/create', [App\Http\Controllers\Admin\CategoriesController::class, 'create'])->name('create-category');
 Route::post('/admin/categories', [App\Http\Controllers\Admin\CategoriesController::class, 'save'])->name('categories');
 Route::get('/admin/categories', [App\Http\Controllers\Admin\CategoriesController::class, 'list'])->name('categories');
+Route::get('/admin/categories/{id}',  [App\Http\Controllers\Admin\CategoriesController::class, 'delete'])->name('categories.delete');
+Route::get('/admin/categories/{id}/edit',  [App\Http\Controllers\Admin\CategoriesController::class, 'edit'])->name('categories.edit');
+Route::put('/admin/categories', [App\Http\Controllers\Admin\CategoriesController::class, 'update'])->name('categories.update');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
