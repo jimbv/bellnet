@@ -10,8 +10,9 @@
 @section('content')
 <section>
     <div class="product">
+        &nbsp;
         <p></p>&nbsp;
-        <p></p>&nbsp;
+        <p></p>&nbsp; 
         <p></p>&nbsp; 
         @if(isset($category))
         @livewire('products',['category' => $category])

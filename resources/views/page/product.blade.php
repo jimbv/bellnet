@@ -59,6 +59,7 @@
 @section('content')
 <section>
     <div class="product">
+        &nbsp;
         <p></p>&nbsp;
         <p></p>&nbsp;
         <p></p>&nbsp;

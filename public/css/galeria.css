@@ -33,6 +33,15 @@
     }
 }
 
+@media (max-width: 400px) {
+    #galeria {
+        columns: 1;
+        width: 300px;
+    }
+}
+
+
+
 
 .categoria {
     width: 500px;

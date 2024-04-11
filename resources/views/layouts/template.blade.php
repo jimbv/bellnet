@@ -13,11 +13,11 @@
 
     <title>{{ config('app.name', 'Enertech') }}</title>
 
-    <link href="/css/style.css?v=15" rel="stylesheet">
+    <link href="/css/style.css?v=16" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    
+
     @yield('scripts')
     @yield('styles')
 
@@ -55,10 +55,13 @@
                 </ul>
                 <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
                     <li class="nav-item mx-2">
-                        <a target="_blank" class="redesMenu" href="https://www.instagram.com/enertech.iluminacionled/"><i class="fab fa-instagram"></i></a>
+                        <a target="_blank" class="redesMenu" href="https://www.youtube.com/@enertechingenieria-disenod7088"><i class="fab fa-youtube"></i></a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a target="_blank" class="redesMenu" href="https://www.facebook.com/enertechiluminacionled/"><i class="fab fa-facebook"></i></a>
+                        <a target="_blank" class="redesMenu" href="https://www.instagram.com/enertechiluminacion/"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a target="_blank" class="redesMenu" href="https://www.facebook.com/enertechiluminacion/"><i class="fab fa-facebook"></i></a>
                     </li>
                     <li class="nav-item mx-2">
                         <a target="_blank" class="redesMenu" href="https://wa.me/5493537595618?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios"><i class="fab fa-whatsapp"></i></a>
@@ -75,36 +78,44 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 pt-5">
 
-
+                        <ul class="navbar-nav ms-auto d-none d-lg-inline-flex  pt-2">
+                            <li class="nav-item mx-2">
+                                <a target="_blank" class="bottomSocial" href="https://www.youtube.com/@enertechingenieria-disenod7088"><i class="fab fa-youtube"></i> enertechingenieria</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a target="_blank" class="bottomSocial" href="https://www.instagram.com/enertechiluminacion/"><i class="fab fa-instagram"></i> enertechiluminacion</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a target="_blank" class="bottomSocial" href="https://www.facebook.com/enertechiluminacion/"><i class="fab fa-facebook"></i> enertechiluminacion</a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="col-md-4 text-center">
                         <img src="/imgs/pie_blanco.png" style="margin: 10px;" alt="Enertech - Ilumninación">
                     </div>
-                    <div class="col-md-4 p-4 mt-2 ml-3 text-end"> 
-                            <div style="font-size: 20px;letter-spacing: 0.1em;">  &nbsp; </div>
-                            <p></p>
-                            Ruta 9 KM. 500 - Bell Ville - Córdoba <br> 
-                            <i class="fa fa-phone"></i> &nbsp;&nbsp;
-                            (03537) 450176 <br>
-                            <a href="https://wa.me/5493537595618?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
-                                +54 9 3537 595618</a> <br>
-                            <a href="mailto:enertechventas@gmail.com" style="color:white;text-decoration:none;"><i class="fa fa-envelope"></i> &nbsp;&nbsp;enertechventas@gmail.com</a>
-                              
+                    <div class="col-md-4 p-4 mt-2 ml-3 text-end pt-5">
+                        Ruta 9 KM. 500 - Bell Ville - Córdoba <br>
+                        <i class="fa fa-phone"></i> &nbsp;&nbsp;
+                        (03537) 450176 <br>
+                        <a href="https://wa.me/5493537595618?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
+                            +54 9 3537 595618</a> <br>
+                        <a href="mailto:enertechventas@gmail.com" style="color:white;text-decoration:none;"><i class="fa fa-envelope"></i> &nbsp;&nbsp;enertechventas@gmail.com</a>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="copyright" style="color:white;">
+        <div class="copyright" style="color:white; background-image: linear-gradient(to right,#111, #555, #111);">
             &copy; enertech <?= date('Y') ?>
         </div>
     </footer>
-<a href="#">
-    <div alt="Comuncarse por WhatsApp" style="background:#07b018;position:fixed;bottom:20px;right:20px;height: 70px;width: 70px;font-size:45px;padding-top:2px;line-height:70px; color:white; overflow:hidden;border-radius:100px;box-shadow: 0px 0px 5px #111;text-align:center;">
-    <i class="fab fa-whatsapp"></i>
-    </div>
-</a>
+    <a href="#">
+        <div alt="Comuncarse por WhatsApp" style="background:#07b018;position:fixed;bottom:20px;right:20px;height: 70px;width: 70px;font-size:45px;padding-top:2px;line-height:70px; color:white; overflow:hidden;border-radius:100px;box-shadow: 0px 0px 5px #111;text-align:center;">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+    </a>
 </body>
 
 </html>

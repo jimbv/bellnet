@@ -8,7 +8,7 @@
                 </div>
                 @endforeach
             </div>
-            <div class="col-md-7 text-center" style="position: relative;height:450px;">
+            <div class="col-md-7 text-center" style="position: relative;height:450px;z-index: 1;">
 
                 @foreach($images as $key=>$image)
                 <div  id="big_imagen_{{$key}}" class="imagen_grande" 

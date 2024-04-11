@@ -169,3 +169,12 @@ h6 {
     line-height: 30px;
     padding-left: 20px;
 }
+
+.bottomSocial{
+    color:white;
+    font-family: 'RegencieLight' !important;
+    text-shadow: none;
+    text-decoration: none;
+    line-height: 30px;
+    padding-left: 5px;
+}

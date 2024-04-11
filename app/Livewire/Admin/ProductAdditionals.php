@@ -36,16 +36,27 @@ class ProductAdditionals extends Component
 
     public function save()
     {
-        ProductAdditional::create([
-            'name' => $this->additional_name,
-            'price' =>  $this->additional_price,
-            'type' =>  $this->additional_type,
-            'product_id_temporal' => $this->product_id_temporal
-        ]);
+        if ($this->product_id_temporal !== null) {
+            ProductAdditional::create([
+                'name' => $this->additional_name,
+                'price' =>  $this->additional_price,
+                'type' =>  $this->additional_type,
+                'product_id_temporal' => $this->product_id_temporal
+            ]);
+            $this->product_additionals = ProductAdditional::where('product_id_temporal', $this->product_id_temporal)->orderBy('type')->get();
+        }else{
+            ProductAdditional::create([
+                'name' => $this->additional_name,
+                'price' =>  $this->additional_price,
+                'type' =>  $this->additional_type,
+                'product_id' => $this->product_id
+            ]);
+            $this->product_additionals = ProductAdditional::where('product_id', $this->product_id)->orderBy('type')->get();
+        }
 
         $this->additional_name = '';
         $this->additional_price = '';
-        $this->product_additionals = ProductAdditional::where('product_id_temporal', $this->product_id_temporal)->orderBy('type')->get();
+        
     }
 
 
