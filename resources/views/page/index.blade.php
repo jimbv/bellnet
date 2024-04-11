@@ -9,7 +9,7 @@
 @endsection
 @section('styles')
 <link href="/css/animations.css?v=2" rel="stylesheet">
-<link href="/css/galeria.css?v=2" rel="stylesheet">
+<link href="/css/galeria.css?v=3" rel="stylesheet">
 @endsection
 @section('content')
 
@@ -23,36 +23,35 @@
     -o-background-size: cover;
     background-size: cover;
   }
+/*
+  .carousel-inner{
+    position: relative;
+    top:130px;
+    height: 100%;
+  }*/
 </style>
 <section>
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" style="background-image: url('/imgs/slider/slider1.jpg')">
-        <div class="carousel-caption">
+        <!--  <div class="carousel-caption">
           <h5>Lámpara de pié infinito</h5>
           <h6>Diseño para tus espacios</h6>
-        </div>
-      </div>
-
-      <div class="carousel-item active" style="background-image: url('/imgs/slider/slider2.jpg')">
-        <div class="carousel-caption">
-          <h5>Lámpara de pié infinito</h5>
-          <h6>Diseño para tus espacios</h6>
-        </div>
+        </div> -->
       </div>
       <div class="carousel-item" style="background-image: url('/imgs/slider/colgante.png')">
-        <div class="carousel-caption">
-          <h5>Colgante</h5>
+       <!--  <div class="carousel-caption">
+          <h5>Lámpara de pié infinito</h5>
           <h6>Diseño para tus espacios</h6>
-        </div>
-      </div>
+        </div> -->
+      </div> 
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Anterior</span>
     </button>
@@ -60,17 +59,16 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Siguiente</span>
     </button>
-  </div>
-
+  </div> 
 </section>
 
 <section>
-  <div class="products text-center">
-    <h2 style="color:white;text-shadow:none;">PRODUCTOS</h2>
+  <div class="products text-center f-width" >
+    <h2 style="position:relative;color:white;text-shadow:none;width: 100%;">PRODUCTOS</h2>
 
-<div id="galeria" class="paused">
+<div id="galeria" style="margin: auto;">
   @foreach($categories as $key => $cat)
-  <a class="anim-fade-in " href="/categorias/{{$cat->slug}}/" style="float:left">
+  <a class="anim-fade-in " href="/categorias/{{$cat->slug}}/" style="float:left;">
       <div class="categoria">
         <div class="marco_imagen">
 

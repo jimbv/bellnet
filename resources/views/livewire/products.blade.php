@@ -54,6 +54,25 @@
                 display: block;
             }
         }
+
+        .button_category {
+            background: #111;
+            letter-spacing: 0.2em;
+            font-family: 'RegencieLight';
+            border-radius: 3px;
+            padding: 15px 25px;
+            margin: 10px 5px;
+            box-shadow: 2px 2px 20px #555;
+            cursor: pointer;
+            text-shadow: 0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff !important;
+            color: white;
+            font-size: 16px !important;
+        }
+        .button_category:hover{
+            box-shadow:0px 0px 5px white;
+        }
     </style>
     <div class="portada">
         <div class="fondo"></div>
@@ -73,28 +92,22 @@
                     <select wire:model="category" class="form-select" wire:change="filtrar($event.target.value)">
                         <option value="">Seleccionar categoría</option>
                         @foreach($categories as $cat)
-                        <option value="{{$cat->id}}">{{$cat->name}}</option>
+                        <option value="{{$cat->id}}">{{strtoupper($cat->name)}}</option>
                         @endforeach
                     </select>
                 </div>
 
-                <div id="categories-buttons" style="padding:0px 20px; font-size:22px; ">
-                    @foreach($categories as $cat)
-                    <div style="background: #d2c2a8;
-                    border-radius:3px;
-                        background: linear-gradient(
-                            to right,
-                            #d2d2d2,#D7DDE8
-                        ); padding:10px 30px; margin:10px 5px; box-shadow: 2px 2px 20px #555;cursor:pointer;text-shadow:none;color:black;font-size:20px;" 
-                        wire:click="filtrar({{$cat->id}})" class="anim-pause-1 anim-right">
-                        {{$cat->name}}
+                <div id="categories-buttons" style="padding:0px 10px; ">
+                    @foreach($categories as $cat) 
+                    <div wire:click="filtrar({{$cat->id}})" class="button_category anim-pause-1 anim-right">
+                        {{strtoupper($cat->name)}}
                     </div>
                     @endforeach
                 </div>
 
             </div>
             <div class="col-lg-9 col-md-6 col-sm-6" style="z-index:2;text-shadow:0px 0px 5px white;">
-                <div class="anim-pause-1 anim-left" style=" background-color: rgba(255, 255, 255, 0.5); border-radius:3px;box-shadow:0px 0px 2px #444; padding: 10px 30px;font-size:18px;">
+                <div class="anim-pause-1 anim-left" style="text-align:center;background-color: rgba(255, 255, 255, 0.5); border-radius:3px;box-shadow:0px 0px 2px #444; padding: 10px 30px;font-size:18px;">
                     @if(isset($category))
                     <h3 class="anim-pause-1 anim-left" style="display: inline-block;padding-left:15px;">Categoría </h3>
                     <h2 class="anim-pause-1 anim-left" style="display: inline-block;padding-left:0px;">{{ $category->name }}</h2>
@@ -111,9 +124,9 @@
 
                         <div style="display:inline-block;margin-left:25px;margin-bottom:25px;line-height:30px;font-size:22px;background:#222;box-shadow: 0px 0px 5px #DDD;text-shadow:0 0 1px #111;">
                             <div style="overflow: hidden;height:260px;width:260px;display:flex;margin-bottom:0px;">
-                            <img src="/{{$prod->images[0]->image_path}}" alt="{{$prod->name}}" width="260px;">
+                                <img src="/{{$prod->images[0]->image_path}}" alt="{{$prod->name}}" width="260px;">
                             </div>
-                            
+
 
                             <div style="padding: 10px;font-family:'Roboto_Slab';color:white;" class="text-center"> {{$prod->name}}</div>
                         </div>
