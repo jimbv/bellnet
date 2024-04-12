@@ -9,7 +9,7 @@
 @endsection
 @section('styles')
 <link href="/css/animations.css?v=2" rel="stylesheet">
-<link href="/css/galeria.css?v=3" rel="stylesheet">
+<link href="/css/galeria.css?v=4" rel="stylesheet">
 @endsection
 @section('content')
 

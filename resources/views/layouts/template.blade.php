@@ -111,7 +111,7 @@
             &copy; enertech <?= date('Y') ?>
         </div>
     </footer>
-    <a href="#">
+    <a href="https://wa.me/5493537595618?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="z-index=5;">
         <div alt="Comuncarse por WhatsApp" style="background:#07b018;position:fixed;bottom:20px;right:20px;height: 70px;width: 70px;font-size:45px;padding-top:2px;line-height:70px; color:white; overflow:hidden;border-radius:100px;box-shadow: 0px 0px 5px #111;text-align:center;">
             <i class="fab fa-whatsapp"></i>
         </div>

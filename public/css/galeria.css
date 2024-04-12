@@ -7,6 +7,11 @@
 }
 
 @media (max-width: 1600px) {
+    .categoria{
+        width: 500px;
+    }
+    
+
     #galeria {
         columns: 2;
         width: 1100px;
@@ -17,6 +22,11 @@
 /* Móviles en horizontal o tablets en vertical */
 
 @media (max-width: 1100px) {
+    .categoria{
+        width: 500px;
+    }
+    
+    
     #galeria {
         columns: 1;
         width: 500px;
@@ -27,13 +37,29 @@
 /* Móviles en vertical */
 
 @media (max-width: 680px) {
+     
     #galeria {
         columns: 1;
         width: 500px;
     }
 }
+@media (max-width: 520px) {
+    .categoria{
+        width: 395px;
+    }
+
+    #galeria {
+        columns: 1;
+        width: 395px;
+    }
+}
+
 
 @media (max-width: 400px) {
+    .categoria{
+        width: 300px;
+    }
+
     #galeria {
         columns: 1;
         width: 300px;
@@ -41,10 +67,7 @@
 }
 
 
-
-
-.categoria {
-    width: 500px;
+.categoria { 
     border-radius: 10px;
     background: #111;
     margin: 10px;
