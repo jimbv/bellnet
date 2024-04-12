@@ -46,7 +46,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="/empresa">ACERCA DE NOSOTROS</a></li>
-                            <li><a class="dropdown-item" href="/glosario">GLOSARIO</a></li>
+                            <li><a class="dropdown-item" href="/glosario">PREGUNTAS FRECUENTES</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
