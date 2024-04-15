@@ -8,6 +8,10 @@
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Categorías</li>
     </ol>
+    <a href="/admin/categories/create">
+    <button class="btn btn-primary">Nueva Categoría</button>
+    </a>
+    <p></p>
     <div class="card mb-4">
         <div class="card-body">
             @if(session('error'))

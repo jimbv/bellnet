@@ -2,7 +2,7 @@
 
 @section('scripts')
 <script>
-    function slugGenerate() {
+    function slugRegenerate() {
         var nombreInput = document.getElementById('name');
         var slugInput = document.getElementById('slug');
         var name = nombreInput.value;
@@ -46,8 +46,14 @@
                 <div class="row mb-3">
                     <label for="slug" class="col-md-4 col-form-label text-md-end">Slug</label>
                     <div class="col-md-6">
-                        <input id="slug" name="slug" type="text" value="{{ $category->slug }}" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug') }}" required autocomplete="slug" autofocus />
-
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input id="slug" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug') ?? $category->slug }}" required autocomplete="slug" autofocus />
+                                <div class="input-group-append">
+                                    <div class="btn btn-secondary" onclick="slugRegenerate();"> Regenerar </div>
+                                </div>
+                            </div>
+                        </div>
                         @error('slug')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

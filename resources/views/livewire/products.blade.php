@@ -70,8 +70,30 @@
             color: white;
             font-size: 16px !important;
         }
-        .button_category:hover{
-            box-shadow:0px 0px 5px white;
+
+        .button_category:hover {
+            box-shadow: 0px 0px 5px white;
+        }
+
+        .card {
+            display: inline-block;
+            margin-left: 25px;
+            margin-bottom: 25px;
+            line-height: 30px;
+            font-size: 22px;
+            background: #222;
+            box-shadow: 0px 0px 5px #DDD;
+            text-shadow: 0 0 1px #111;
+        }
+
+        .text-card {
+            padding: 10px;
+            font-family: 'Roboto_Slab';
+            color: white;
+            width: 260px;
+            height: 46px;
+            overflow: hidden;
+            padding-bottom: 5px;
         }
     </style>
     <div class="portada">
@@ -98,7 +120,7 @@
                 </div>
 
                 <div id="categories-buttons" style="padding:0px 10px; ">
-                    @foreach($categories as $cat) 
+                    @foreach($categories as $cat)
                     <div wire:click="filtrar({{$cat->id}})" class="button_category anim-pause-1 anim-right">
                         {{strtoupper($cat->name)}}
                     </div>
@@ -122,13 +144,11 @@
                     @if(isset($prod->images[0]))
                     <a href="/productos/{{$prod->slug}}/" style="text-decoration:none;" class="anim-pause-1 anim-left">
 
-                        <div style="display:inline-block;margin-left:25px;margin-bottom:25px;line-height:30px;font-size:22px;background:#222;box-shadow: 0px 0px 5px #DDD;text-shadow:0 0 1px #111;">
+                        <div class="card">
                             <div style="overflow: hidden;height:260px;width:260px;display:flex;margin-bottom:0px;">
                                 <img src="/{{$prod->images[0]->image_path}}" alt="{{$prod->name}}" width="260px;">
                             </div>
-
-
-                            <div style="padding: 10px;font-family:'Roboto_Slab';color:white;" class="text-center"> {{$prod->name}}</div>
+                            <div class="text-card text-center">{{$prod->name}}</div>
                         </div>
                     </a>
 
