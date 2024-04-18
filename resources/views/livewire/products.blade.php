@@ -144,14 +144,13 @@
                     @if(isset($prod->images[0]))
                     <a href="/productos/{{$prod->slug}}/" style="text-decoration:none;" class="anim-pause-1 anim-left">
 
-                        <div class="card">
-                            <div style="overflow: hidden;height:260px;width:260px;display:flex;margin-bottom:0px;">
-                                <img src="/{{$prod->images[0]->image_path}}" alt="{{$prod->name}}" width="260px;">
+                        <div class="card" style="border-radius: 4px;border: 0px;overflow:hidden;">
+                            <div style="overflow:hidden;height:260px;width:260px;margin-bottom:0px;">
+                                <img src="/{{$prod->images[0]->image_path}}" alt="{{$prod->name}}"  style="height: auto;max-height: 260px;" />
                             </div>
-                            <div class="text-card text-center">{{$prod->name}}</div>
+                            <div class="text-card text-center" style="font-family:'RegencieLight';">{{$prod->name}}</div>
                         </div>
                     </a>
-
                     @endif
                     @endforeach
                     <br>

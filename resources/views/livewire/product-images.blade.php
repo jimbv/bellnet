@@ -11,14 +11,10 @@
             <div class="col-md-7 text-center" style="position: relative;height:450px;z-index: 1;">
 
                 @foreach($images as $key=>$image)
-                <div  id="big_imagen_{{$key}}" class="imagen_grande" 
-                @if($key==0)
-                style="z-index: 20;"
-                @endif
-                >
-                    <div class="wm-zoom-container my-zoom">
-                        <div class="wm-zoom-box">
-                            <img src="/mthumb.php?src={{$image->image_path}}&w=400&h=400" class="wm-zoom-default-img" alt="alternative text" data-hight-src="/{{$image->image_path}}" data-loader-src="/imgs/loader.gif">
+                <div id="big_imagen_{{$key}}" class="imagen_grande" @if($key==0) style="z-index: 20;" @endif>
+                    <div class="wm-zoom-container my-zoom" >
+                        <div class="wm-zoom-box"> 
+                                <img src="/mthumb.php?src={{$image->image_path}}&h=400"  class="wm-zoom-default-img" alt="alternative text" data-hight-src="/{{$image->image_path}}" data-loader-src="/imgs/loader.gif">
                         </div>
                     </div>
                 </div>
@@ -27,19 +23,22 @@
             </div>
         </div>
     </div>
- 
+
     <style>
-        .imagen_grande{
+        .imagen_grande {
             position: absolute;
-            top:0px;
-            left:0px;
+            top: 0px;
+            left: 0px;
+            height: 400px;
+            width: 400px;
+            text-align: center;
+            background-color: #3e4a57;
         }
-        .oculto{
+
+        .oculto {
             height: 0px;
             width: 0px;
             overflow: hidden;
         }
-        
-
     </style>
 </div>
