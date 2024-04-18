@@ -80,7 +80,7 @@ if (!defined('ALLOW_EXTERNAL')) {
 	/**
 	 *  Allow image fetching from external websites. Will check against ALLOWED_SITES always.     *
 	 */
-	define('ALLOW_EXTERNAL', FALSE);
+	define('ALLOW_EXTERNAL', TRUE);
 }
 
 if (!isset($ALLOWED_SITES)) {
@@ -102,7 +102,7 @@ if (!defined('FILE_CACHE_ENABLED')) {
 	/**
 	 * Should we store resized/modified images on disk to speed things up?
 	 */
-	define('FILE_CACHE_ENABLED', TRUE);
+	define('FILE_CACHE_ENABLED', FALSE);
 }
 
 if (!defined('DAY_IN_SECONDS')) {
