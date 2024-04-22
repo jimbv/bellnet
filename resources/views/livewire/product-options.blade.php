@@ -27,7 +27,7 @@
 
     <p></p>
 @endforeach
-
+{{--
 <h2>Precio: $ {{ $price }}</h2>
-
+--}}
 </div>
