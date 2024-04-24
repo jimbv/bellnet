@@ -32,11 +32,13 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Cambiar clave</a></li>
+                    <li><a class="dropdown-item" href="#!">Settings</a></li> 
                     <li>
-                        <hr class="dropdown-divider" />
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <input type="submit" class="dropdown-item" onclick="this.submit();alert('sss')" style="cursor: pointer;" value="Cerrar Sesión">
+                        </form>
                     </li>
-                    <li><a class="dropdown-item" href="#!">Cerrar sesión</a></li>
                 </ul>
             </li>
         </ul>
@@ -100,9 +102,9 @@
                 </div>
             </footer>
         </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    </div>  
     <script src="/sb-admin/js/scripts.js"></script>
+
 </body>
 
 </html>

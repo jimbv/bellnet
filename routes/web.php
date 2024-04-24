@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::redirect('/register', '/'); // Deshabilitar registro
+
+Route::middleware('auth')->group(function () {
 /* ADMIN */
 Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'home'])->name('home');
 Route::get('/admin/home', [App\Http\Controllers\Admin\HomeController::class, 'home'])->name('home');
@@ -32,7 +35,7 @@ Route::get('/admin/categories', [App\Http\Controllers\Admin\CategoriesController
 Route::get('/admin/categories/{id}',  [App\Http\Controllers\Admin\CategoriesController::class, 'delete'])->name('categories.delete');
 Route::get('/admin/categories/{id}/edit',  [App\Http\Controllers\Admin\CategoriesController::class, 'edit'])->name('categories.edit');
 Route::put('/admin/categories', [App\Http\Controllers\Admin\CategoriesController::class, 'update'])->name('categories.update');
-
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
