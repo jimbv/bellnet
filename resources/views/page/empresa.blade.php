@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <img src="/imgs/pie_blanco.png" alt="Nuestra empresa, Enertech" >
+                    <img src="/imgs/pie_blanco.png" alt="Nuestra empresa, Enertech" style="max-width: 100%;">
                 </div>
                 <div class="col-md-3 pt-3">
                     <img src="/imgs/kyra_bg_empresa.jpg" alt="Fondo empresa" style="width: 100%;">
