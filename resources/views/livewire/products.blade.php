@@ -129,10 +129,10 @@
 
             </div>
             <div class="col-lg-9 col-md-6 col-sm-6" style="z-index:2;text-shadow:0px 0px 5px white;">
-                <div class="anim-pause-1 anim-left" style="text-align:center;background-color: rgba(255, 255, 255, 0.5); border-radius:3px;box-shadow:0px 0px 2px #444; padding: 10px 30px;font-size:18px;">
+                <div class="anim-pause-1 anim-up" style="text-align:center;background-color: rgba(255, 255, 255, 0.5); border-radius:3px;box-shadow:0px 0px 2px #444; padding: 10px 30px;font-size:18px;">
                     @if(isset($category))
-                    <h3 class="anim-pause-1 anim-left" style="display: inline-block;padding-left:15px;">Categoría </h3>
-                    <h2 class="anim-pause-1 anim-left" style="display: inline-block;padding-left:0px;">{{ $category->name }}</h2>
+                    <h3 class="anim-pause-1 anim-up" style="display: inline-block;padding-left:15px;">Categoría </h3>
+                    <h2 class="anim-pause-1 anim-up" style="display: inline-block;padding-left:0px;">{{ $category->name }}</h2>
                     <br>
                     @else
 
@@ -142,7 +142,7 @@
 
                     @foreach($products as $prod)
                     @if(isset($prod->images[0]))
-                    <a href="/productos/{{$prod->slug}}/" style="text-decoration:none;" class="anim-pause-1 anim-left">
+                    <a href="/productos/{{$prod->slug}}/" style="text-decoration:none;" class="anim-pause-1 anim-up">
 
                         <div class="card" style="border-radius: 4px;border: 0px;overflow:hidden;">
                             <div style="overflow:hidden;height:260px;width:260px;margin-bottom:0px;">

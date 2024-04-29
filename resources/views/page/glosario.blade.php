@@ -45,7 +45,7 @@
                         <p>Otro indicador del tipo de luz LED es el índice de rendimiento cromático (C.R.I. también llamado RA). Va desde 0 a 100, siendo 100 la luz similar a la luz diurna un día soleado. Los mejores LED consiguen un C.R.I = 90.</p>
 
                         <div style="text-align: center;">
-                            <img src="/imgs/rgb.jpg" alt="Colores RGB">
+                            <img src="/imgs/rgb.jpg" alt="Colores RGB" style="max-width: 100%;">
                         </div>
 
                         <p></p>

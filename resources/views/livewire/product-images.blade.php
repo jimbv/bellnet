@@ -8,13 +8,13 @@
                 </div>
                 @endforeach
             </div>
-            <div class="col-md-7 text-center" style="position: relative;height:450px;z-index: 1;">
+            <div class="col-md-7 text-center" style="position: relative;height:450px;z-index: 1;max-width:100%;">
 
                 @foreach($images as $key=>$image)
                 <div id="big_imagen_{{$key}}" class="imagen_grande" @if($key==0) style="z-index: 20;" @endif>
                     <div class="wm-zoom-container my-zoom" >
                         <div class="wm-zoom-box"> 
-                                <img src="/mthumb.php?src={{$image->image_path}}&h=400"  class="wm-zoom-default-img" alt="alternative text" data-hight-src="/{{$image->image_path}}" data-loader-src="/imgs/loader.gif">
+                                <img src="/mthumb.php?src={{$image->image_path}}&h=400" style="max-width:100%;" class="wm-zoom-default-img" alt="alternative text" data-hight-src="/{{$image->image_path}}" data-loader-src="/imgs/loader.gif">
                         </div>
                     </div>
                 </div>
@@ -31,6 +31,7 @@
             left: 0px;
             height: 400px;
             width: 400px;
+            max-width: 100%;
             text-align: center;
             background-color: #3e4a57;
         }
