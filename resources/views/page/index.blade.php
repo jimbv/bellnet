@@ -119,13 +119,13 @@
     <div class="row">
 
       <div class="col-lg-8 col-md-6 col-sm-12 mb-3">
-        <div class="anim-left" style="background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%);margin-left:10px;margin-right:10px;color:white;padding:20px;height:100%;">
+        <div class="anim-up" style="background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%);margin-left:10px;margin-right:10px;color:white;padding:20px;height:100%;">
           <h2>CONTACTO</h2>
           <hr>
 
           <form action="{{ route('contact.submit') }}" method="POST">
             @csrf
-            <div class="form-group anim-pause-1 anim-left">
+            <div class="form-group anim-pause-1 anim-up">
               <label for="name">Nombre y Apellido:</label>
               <input type="text" name="name" id="name" class="form-control" value="{{old('name')}}" required>
               @if ($errors->has('name'))
@@ -133,7 +133,7 @@
               @endif
             </div>
 
-            <div class="form-group  anim-pause-2 anim-left">
+            <div class="form-group  anim-pause-2 anim-up">
               <label for="email">Correo electrónico:</label>
               <input type="email" name="email" id="email" class="form-control" value="{{old('email')}}" required>
               @if ($errors->has('email'))
@@ -141,7 +141,7 @@
               @endif
             </div>
 
-            <div class="form-group  anim-pause-3 anim-left">
+            <div class="form-group  anim-pause-3 anim-up">
               <label for="email">Teléfono / Celular:</label>
               <input type="text" name="phone" id="phone" class="form-control" value="{{old('phone')}}" required>
               @if ($errors->has('phone'))
@@ -149,25 +149,25 @@
               @endif
             </div>
 
-            <div class="form-group anim-pause-4 anim-left">
+            <div class="form-group anim-pause-4 anim-up">
               <label for="message">Mensaje:</label>
               <textarea name="message" id="message" rows="5" class="form-control" required>{{old('message')}}</textarea>
               @if ($errors->has('message'))
               <span class="text-danger">{{ $errors->first('message') }}</span>
               @endif
             </div>
-            <div class="form-group anim-left">
+            <div class="form-group anim-up">
               <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
               @if ($errors->has('g-recaptcha-response'))
               <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
               @endif
             </div>
             <br>
-            <button type="submit" class="btn btn-dark regencie anim-pause-5 anim-left">Enviar mensaje</button>
+            <button type="submit" class="btn btn-dark regencie anim-pause-5 anim-up">Enviar mensaje</button>
           </form>
           @if(session('success'))
           <br>
-          <div class="alert alert-success anim-left">
+          <div class="alert alert-success anim-up">
             {{ session('success') }}
           </div>
           @endif
