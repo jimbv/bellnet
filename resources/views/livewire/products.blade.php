@@ -111,7 +111,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6  mb-3" style="z-index:4;">
 
                 <div id="categories-select" style="z-index:2;">
-                    <select wire:model="category" class="form-select" wire:change="filtrar($event.target.value)">
+                    <select wire:model="category" class="form-select" wire:change="redireccionar($event.target.value);">
                         <option value="">Seleccionar categoría</option>
                         @foreach($categories as $cat)
                         <option value="{{$cat->id}}">{{strtoupper($cat->name)}}</option>
@@ -121,7 +121,7 @@
 
                 <div id="categories-buttons" style="padding:0px 10px; ">
                     @foreach($categories as $cat)
-                    <div wire:click="filtrar({{$cat->id}})" class="button_category anim-pause-1 anim-right">
+                    <div wire:click="redireccionar({{$cat->id}});" class="button_category anim-pause-1 anim-right">
                         {{strtoupper($cat->name)}}
                     </div>
                     @endforeach
@@ -140,13 +140,13 @@
                     <br>
                     @endif
 
-                    @foreach($products as $prod)
+                    @foreach($productos as $prod)
                     @if(isset($prod->images[0]))
                     <a href="/productos/{{$prod->slug}}/" style="text-decoration:none;" class="anim-pause-1 anim-up">
 
                         <div class="card" style="border-radius: 4px;border: 0px;overflow:hidden;">
                             <div style="overflow:hidden;height:260px;width:260px;margin-bottom:0px;">
-                                <img src="/{{$prod->images[0]->image_path}}" alt="{{$prod->name}}"  style="height: auto;max-height: 260px;" />
+                                <img src="/{{$prod->images[0]->image_path}}" alt="{{$prod->name}}" style="height: auto;max-height: 260px;" />
                             </div>
                             <div class="text-card text-center" style="font-family:'RegencieLight';">{{$prod->name}}</div>
                         </div>
@@ -154,6 +154,36 @@
                     @endif
                     @endforeach
                     <br>
+                    <div style="text-align:center;width: 100%;">
+                        <div style="display:inline-block;width:auto;">
+                            @if ($productos->hasPages())
+                            <ul class="pagination">
+                                {{-- Anterior --}}
+                                @if ($productos->onFirstPage())
+                                <li class="page-item disabled"><span class="page-link">Anterior</span></li>
+                                @else
+                                <li class="page-item"><a class="page-link" wire:click="previousPage" href="#" style="color: black;">Anterior</a></li>
+                                @endif
+
+                                {{-- Páginas --}}
+                                @foreach ($productos->links() as $page => $url)
+                                @if ($page == $productos->currentPage())
+                                <li class="page-item active"><span class="page-link">{{ $page }}</span></li>
+                                @else
+                                <li class="page-item"><a class="page-link" wire:click="gotoPage({{ $page }})" href="#">{{ $page }}</a></li>
+                                @endif
+                                @endforeach
+
+                                {{-- Siguiente --}}
+                                @if ($productos->hasMorePages())
+                                <li class="page-item"><a class="page-link" wire:click="nextPage" href="#" style="color: black;">Siguiente</a></li>
+                                @else
+                                <li class="page-item disabled"><span class="page-link">Siguiente</span></li>
+                                @endif
+                            </ul>
+                            @endif
+                        </div>
+                    </div>
                     <p></p>
                 </div>
 
