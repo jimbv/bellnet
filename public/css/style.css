@@ -135,6 +135,19 @@ h6 {
     z-index: -2;
 }
 
+.empresa {
+    padding-top: 40px;
+    font-family: 'RegencieLight';
+    line-height: 1.8em;
+    width: 100%; 
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff;
+    z-index: -2;
+}
+
+
 .product {
     padding-top: 40px 10px 20px 40px;
     font-family: 'RegencieLight';

@@ -8,21 +8,66 @@
 @endsection
 @section('styles')
 <link href="/css/animations.css?v=2" rel="stylesheet">
+<style>
+    .portada {
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        height: 800px;
+        top: 0px;
+        left: 0px;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .fondo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/imgs/fabrica.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.9;
+    }
+
+    .degradado2 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 800px;
+        background: linear-gradient(to bottom, rgba(81, 85, 99, 0), rgba(81, 85, 99, 255));
+    }
+</style>
+
 @endsection
 @section('content')
+
 <section>
-    <div class="products ">
+<div class="portada">
+        <div class="fondo">
+        </div>
+        <div class="degradado2"></div>
+    </div>
+
+    <div style="background-color: rgb(81,85,99);" class="empresa">
+
+   
         <p></p>&nbsp;
         <p></p>&nbsp;
         <p></p>&nbsp;
         <br>
-        <div class="container">
+        <div class="container" style="z-index:2;position:relative;">
             <div class="row">
+
                 <div class="col-md-12 text-center">
                     <img src="/imgs/pie_blanco.png" alt="Nuestra empresa, Enertech" style="max-width: 100%;">
                 </div>
-                <div class="col-md-3 pt-3">
-                    <img src="/imgs/kyra_bg_empresa.jpg" alt="Fondo empresa" style="width: 100%;">
+                <div class="col-md-3 pt-3" style="font-size: 10px;"> 
+                    <img src="/imgs/sucursal.jpg" alt="Fondo empresa" style="width: 100%;"><br>
+                    Sucursal Buenos Aires
                 </div>
                 <div class="col-md-9 about-text mb-5">
                     <div class="text-center">
@@ -63,9 +108,8 @@
                     <br>
                 </div>
             </div>
-            <div class="row">
-
-            </div>
+            
         </div>
     </div>
+</section>
     @endsection

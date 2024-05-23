@@ -23,19 +23,52 @@
     -o-background-size: cover;
     background-size: cover;
   }
-/*
-  .carousel-inner{
+
+  .portada {
+    text-align: center;
     position: relative;
-    top:130px;
+    width: 100%;
+    height: 400px;
+    top: 0px;
+    left: 0px;
+    overflow-y: hidden; 
+  }
+
+  .fondo {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-  }*/
+    background-image: url('/imgs/dentro.jpg');
+    background-size: cover;
+    background-position: center; 
+    opacity: 1;
+  }
+
+  .degradado { 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    height: 400px;
+    background: radial-gradient(circle, rgba(81, 85, 99,0) , rgba(81, 85, 99, 255));
+  }
+  .degradado2 { 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    height: 400px;
+    background: linear-gradient(to bottom, rgba(81, 85, 99,0) , rgba(81, 85, 99, 255));
+  }
 </style>
 <section>
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      
+
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" style="background-image: url('/imgs/slider/slider1.jpg')">
@@ -45,13 +78,13 @@
         </div> -->
       </div>
       <div class="carousel-item" style="background-image: url('/imgs/slider/colgante.png')">
-       <!--  <div class="carousel-caption">
+        <!--  <div class="carousel-caption">
           <h5>Lámpara de pié infinito</h5>
           <h6>Diseño para tus espacios</h6>
         </div> -->
-      </div> 
+      </div>
     </div>
-   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Anterior</span>
     </button>
@@ -59,68 +92,74 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Siguiente</span>
     </button>
-  </div> 
+  </div>
 </section>
 
 <section>
-  <div class="products text-center f-width" >
+  <div class="products text-center f-width">
     <h2 style="position:relative;color:white;text-shadow:none;width: 100%;">PRODUCTOS</h2>
 
-<div id="galeria" style="margin: auto;">
-  @foreach($categories as $key => $cat)
-  <a class="anim-fade-in " href="/categorias/{{$cat->slug}}/" style="float:left;">
-      <div class="categoria">
-        <div class="marco_imagen">
+    <div id="galeria" style="margin: auto;">
+      @foreach($categories as $key => $cat)
+      <a class="anim-fade-in " href="/categorias/{{$cat->slug}}/" style="float:left;">
+        <div class="categoria">
+          <div class="marco_imagen">
 
-          <div class="image">
-            <img src="/{{ $cat->image }}" alt="{{$cat->name}}" style='width:100%;'>
+            <div class="image">
+              <img src="/{{ $cat->image }}" alt="{{$cat->name}}" style='width:100%;'>
+            </div>
           </div>
-        </div>
-        <div class="degradado_imagen">
- 
+          <div class="degradado_imagen">
 
-        </div>
-
-        <div class="marco_titulo">
-          <div style="color:white;letter-spacing: 0.2em">
-
-            {{strtoupper($cat->name)}}
 
           </div>
+
+          <div class="marco_titulo">
+            <div style="color:white;letter-spacing: 0.2em">
+
+              {{strtoupper($cat->name)}}
+
+            </div>
+          </div>
         </div>
-      </div>
-    </a>
-  @endforeach
-</div>
+      </a>
+      @endforeach
+    </div>
 
-<br>
+    <br>
 
-<div id="contacto" class="paused">
-  <div class="container text-center anim-up" style="font-size: 16px;color:white;">
-    <a href="/productos" style="text-decoration:none;">
-      <div style="color:white; border-radius: 3px 0 0 3px; width:40px; display:inline-block;">
-        <i class="fa fa-plus" aria-hidden="true"></i>
+    <div id="contacto" class="paused">
+      <div class="container text-center anim-up" style="font-size: 16px;color:white;">
+        <a href="/productos" style="text-decoration:none;">
+          <div style="color:white; border-radius: 3px 0 0 3px; width:40px; display:inline-block;">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </div>
+          <div style="color:white;border-radius: 0 3px 3px 0;  width:150px; display:inline-block;">
+            Ver más productos
+          </div>
       </div>
-      <div style="color:white;border-radius: 0 3px 3px 0;  width:150px; display:inline-block;">
-        Ver más productos
-      </div>
+      <br>
+      </a><br>
+    </div>
   </div>
-  <br>
-  </a><br>
-</div>
-</div>
 </section>
 
 <!-- Contact form -->
-<section style="background: radial-gradient(circle at 10% 20%, rgb(90, 92, 106) 0%, rgb(32, 45, 58) 81.3%);" class="paused">
-  <div class="container contacto p-3">
-    <br>
-    <p></p>
-    <div class="row">
+<section style="background: rgb(81, 85, 99);" class="paused">
+  <div class="container contacto">
+    <div class="portada">
+      <div class="fondo">
+      </div>
+      <div class="degradado"></div>
+      <div class="degradado2"></div>
+      <div style="position: absolute;top:0px;width:100%;padding-top:70px;"><h2 style="color:white;">CONTACTO</h2></div>
+      
+    </div> 
+    <div class="row" style="position: relative;top:-100px;"> 
 
       <div class="col-lg-8 col-md-6 col-sm-12 mb-3">
-        <div class="anim-up" style="background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%);margin-left:10px;margin-right:10px;color:white;padding:20px;height:100%;">
-          <h2>CONTACTO</h2>
+        <div class="anim-up" style="background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(85, 88, 102) 131%);margin-left:10px;margin-right:10px;color:white;padding:20px;height:100%;">
+          <h3>Dejanos tu consulta</h3>
           <hr>
 
           <form action="{{ route('contact.submit') }}" method="POST">
@@ -174,7 +213,7 @@
         </div>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12 p-0">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1IEP1pDTwKtUda_zQ7KtH2T7qAMzb9S8&ehbc=2E312F&noprof=1" height="580" style="max-width: 640px;width:100%;"></iframe>
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1IEP1pDTwKtUda_zQ7KtH2T7qAMzb9S8&ehbc=2E312F&noprof=1" height="580" style="max-width: 640px;width:100%;"></iframe>
       </div>
     </div>
   </div>

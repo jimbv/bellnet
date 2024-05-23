@@ -13,7 +13,7 @@
 
     <title>{{ config('app.name', 'Enertech') }}</title>
 
-    <link href="/css/style.css?v=16" rel="stylesheet">
+    <link href="/css/style.css?v=17" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -95,8 +95,12 @@
                     <div class="col-md-4 text-center">
                         <img src="/imgs/pie_blanco.png" style="margin: 10px;" alt="Enertech - Ilumninación">
                     </div>
-                    <div class="col-md-4 p-4 mt-2 ml-3 text-end pt-5">
+                    <div class="col-md-4 p-4 ml-3 text-end pt-5">
+                        <strong >Planta industrial</strong> <br>
                         Ruta 9 KM. 500 - Bell Ville - Córdoba <br>
+                        <strong>Sucursal Buenos Aires</strong> <br>
+                        Av. Cabildo 3230 - Belgrano - Buenos Aires
+                         <br>
                         <i class="fa fa-phone"></i> &nbsp;&nbsp;
                         (03537) 450176 <br>
                         <a href="https://wa.me/5493537667250?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
