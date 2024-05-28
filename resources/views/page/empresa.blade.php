@@ -97,8 +97,6 @@
                     <p>
                     <ul>
                         <li><strong>INTEGRACIÓN IOT</strong><br>Nuestro productos poseen la integración de Internet de las cosas (IoT) en nuestras luminarias, permitiendo el control remoto y la personalización a través de dispositivos inteligentes. <br></li>
-                        <li><strong>TECNOLOGÍA LI-FI</strong><br>Investigamos el uso de tecnología Li-Fi para la transmisión de datos a través de la iluminación, abriendo nuevas posibilidades para la conectividad en entornos iluminados. <br></li>
-                        <li><strong>DISEÑO BIOFÍLICO</strong><br>Nos enfocamos en el desarrollo de luminarias que incorporen elementos naturales para mejorar la conexión con la naturaleza en espacios interiores. <br></li>
                     </ul>
                     </p>
                     <p>
