@@ -7,9 +7,6 @@ use Livewire\WithFileUploads;
 use App\Models\ProductImage;
 use Illuminate\Support\Facades\Storage;
 
-use Intervention\Image\Laravel\Facades\Image; 
-use Intervention\Image\ImageManager;
-
 class ProductImageUploader extends Component
 {
      

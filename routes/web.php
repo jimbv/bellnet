@@ -35,6 +35,14 @@ Route::get('/admin/categories', [App\Http\Controllers\Admin\CategoriesController
 Route::get('/admin/categories/{id}',  [App\Http\Controllers\Admin\CategoriesController::class, 'delete'])->name('categories.delete');
 Route::get('/admin/categories/{id}/edit',  [App\Http\Controllers\Admin\CategoriesController::class, 'edit'])->name('categories.edit');
 Route::put('/admin/categories', [App\Http\Controllers\Admin\CategoriesController::class, 'update'])->name('categories.update');
+
+Route::get('/admin/posts', [App\Http\Controllers\Admin\PostsController::class, 'list'])->name('posts');
+Route::get('/admin/posts/create', [App\Http\Controllers\Admin\PostsController::class, 'create'])->name('create-post');
+Route::post('/admin/posts', [App\Http\Controllers\Admin\PostsController::class, 'save'])->name('posts');
+Route::get('/admin/posts/{id}',  [App\Http\Controllers\Admin\PostsController::class, 'delete'])->name('posts.delete');
+Route::get('/admin/posts/{id}/edit',  [App\Http\Controllers\Admin\PostsController::class, 'edit'])->name('posts.edit');
+Route::put('/admin/posts', [App\Http\Controllers\Admin\PostsController::class, 'update'])->name('posts.update');
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
