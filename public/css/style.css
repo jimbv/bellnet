@@ -135,6 +135,20 @@ h6 {
     z-index: -2;
 }
 
+.posts {
+    padding-top: 40px;
+    font-family: 'RegencieLight';
+    line-height: 1.8em;
+    width: 100%;
+    background-image: linear-gradient(315deg, #cdd7e4 0%, #5e5e5e 74%);
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff;
+    z-index: -2;
+}
+
+
 .empresa {
     padding-top: 40px;
     font-family: 'RegencieLight';

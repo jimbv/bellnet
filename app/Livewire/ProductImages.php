@@ -13,9 +13,9 @@ class ProductImages extends Component
     {
         $this->selected_image = $this->images[0]->image_path;
     }
+    
     public function render()
     {
-
         return view('livewire.product-images');
     }
 

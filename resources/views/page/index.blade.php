@@ -78,10 +78,6 @@
         </div> -->
       </div>
       <div class="carousel-item" style="background-image: url('/imgs/slider/colgante.png')">
-        <!--  <div class="carousel-caption">
-          <h5>Lámpara de pié infinito</h5>
-          <h6>Diseño para tus espacios</h6>
-        </div> -->
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">

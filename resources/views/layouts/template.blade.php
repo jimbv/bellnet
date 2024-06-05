@@ -23,7 +23,7 @@
 
     <title>{{ config('app.name', 'Enertech') }}</title>
 
-    <link href="/css/style.css?v=17" rel="stylesheet">
+    <link href="/css/style.css?v=18" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -56,6 +56,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="/empresa">ACERCA DE NOSOTROS</a></li>
+                            <li><a class="dropdown-item" href="/noticias">NOTICIAS</a></li>
                             <li><a class="dropdown-item" href="/glosario">PREGUNTAS FRECUENTES</a></li>
                         </ul>
                     </li>

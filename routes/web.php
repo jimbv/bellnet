@@ -52,10 +52,12 @@ Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('i
 Route::get('/empresa', [App\Http\Controllers\IndexController::class, 'empresa'])->name('index');
 Route::get('/glosario', [App\Http\Controllers\IndexController::class, 'glosario'])->name('index');
 Route::get('/productos', [App\Http\Controllers\ProductsController::class, 'index'])->name('products.index');
+Route::get('/noticias', [App\Http\Controllers\PostsController::class, 'index'])->name('noticias.index');
 
 Route::post('/contacto/enviar', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
 Route::get('/send-mail', [App\Http\Controllers\SendMailController::class, 'contact']);
 
 Route::get('/categorias/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarCategoria'])->name('productos.categoria');
 Route::get('/productos/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarProducto'])->name('productos.producto');
+Route::get('/noticias/{slug}',  [App\Http\Controllers\PostsController::class, 'mostrarPost'])->name('noticias.noticia');
 
