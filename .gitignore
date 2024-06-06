@@ -19,3 +19,4 @@ yarn-error.log
 /.vscode
 /public/imgs/category_images
 /public/imgs/product_images
+.htaccess
