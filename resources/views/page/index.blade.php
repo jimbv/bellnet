@@ -32,36 +32,37 @@
     height: 400px;
     top: 0px;
     left: 0px;
-    overflow-y: hidden; 
+    overflow-y: hidden;
   }
 
   .fondo {
-    position: absolute; 
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-image: url('/imgs/dentro.jpg');
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     opacity: 1;
   }
 
-  .degradado { 
+  .degradado {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%; 
+    width: 100%;
     height: 400px;
-    background: radial-gradient(circle, rgba(81, 85, 99,0) , rgba(81, 85, 99, 255));
+    background: radial-gradient(circle, rgba(81, 85, 99, 0), rgba(81, 85, 99, 255));
   }
-  .degradado2 { 
+
+  .degradado2 {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%; 
+    width: 100%;
     height: 400px;
-    background: linear-gradient(to bottom, rgba(81, 85, 99,0) , rgba(81, 85, 99, 255));
+    background: linear-gradient(to bottom, rgba(81, 85, 99, 0), rgba(81, 85, 99, 255));
   }
 </style>
 <section>
@@ -149,16 +150,23 @@
       </div>
       <div class="degradado"></div>
       <div class="degradado2"></div>
-      <div style="position: absolute;top:0px;width:100%;padding-top:70px;"><h2 style="color:white;">CONTACTO</h2></div>
-      
-    </div> 
-    <div class="row" style="position: relative;top:-100px;"> 
+      <div style="position: absolute;top:0px;width:100%;padding-top:70px;">
+        <h2 style="color:white;">CONTACTO</h2>
+      </div>
+
+    </div>
+    <div class="row" style="position: relative;top:-100px;">
 
       <div class="col-lg-8 col-md-6 col-sm-12 mb-3">
         <div class="anim-up" style="background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(85, 88, 102) 131%);margin-left:10px;margin-right:10px;color:white;padding:20px;height:100%;">
           <h3>Dejanos tu consulta</h3>
           <hr>
-
+          @if(session('success'))
+          <br>
+          <div class="alert alert-success anim-up">
+            {{ session('success') }}
+          </div>
+          @else
           <form action="{{ route('contact.submit') }}" method="POST">
             @csrf
             <div class="form-group anim-pause-1 anim-up">
@@ -201,11 +209,6 @@
             <br>
             <button type="submit" class="btn btn-dark regencie anim-pause-5 anim-up">Enviar mensaje</button>
           </form>
-          @if(session('success'))
-          <br>
-          <div class="alert alert-success anim-up">
-            {{ session('success') }}
-          </div>
           @endif
         </div>
       </div>
