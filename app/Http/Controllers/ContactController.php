@@ -18,7 +18,7 @@ class ContactController extends Controller
             'email' => 'required|email',
             'phone' => 'required|numeric',
             'message' => 'required',
-            // 'g-recaptcha-response' => ['required', new ReCaptcha]
+            'g-recaptcha-response' => ['required', new ReCaptcha]
         ], [
             'name.required' => 'El campo nombre es obligatorio.',
             'email.required' => 'El campo email es obligatorio.',
@@ -26,7 +26,7 @@ class ContactController extends Controller
             'phone.required' => 'El campo teléfono es obligatorio.',
             'phone.numeric' => 'El teléfono debe ser numérico.',
             'message.required' => 'El campo mensaje es obligatorio.',
-            //  'g-recaptcha-response.required' => 'Por favor, completa la verificación reCAPTCHA.'
+            'g-recaptcha-response.required' => 'Por favor, completa la verificación reCAPTCHA.'
         ]);
 
         $content = [
