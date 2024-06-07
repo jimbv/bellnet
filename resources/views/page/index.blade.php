@@ -3,9 +3,10 @@
 
 @endsection
 
-
 @section('scripts')
 <script src="/js/animations.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 @endsection
 @section('styles')
 <link href="/css/animations.css?v=2" rel="stylesheet">
