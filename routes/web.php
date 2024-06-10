@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,31 @@ Route::get('/categorias/{slug}',  [App\Http\Controllers\ProductsController::clas
 Route::get('/productos/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarProducto'])->name('productos.producto');
 Route::get('/noticias/{slug}',  [App\Http\Controllers\PostsController::class, 'mostrarPost'])->name('noticias.noticia');
 
+Route::get('/callback', function (Request $request) {
+    $authorizationCode = $request->query('code');
+    // Ahora, intercambia el código por tokens
+    $response = Http::asForm()->post('https://api.mercadolibre.com/oauth/token', [
+        'grant_type' => 'authorization_code',
+        'client_id' => '5612319285683210',
+        'client_secret' => 'rxPVejT7U48zyBeeT4Np1WzQNBW6HVqU',
+        'code' => $authorizationCode,
+        'redirect_uri' => 'https://ener-tech.com.ar/callback',
+    ]);
+
+    $data = $response->json();
+
+    // Guarda los tokens (por ejemplo, en la base de datos)
+    $accessToken = $data['access_token'];
+    $refreshToken = $data['refresh_token'];
+    
+    // Redirige o muestra una vista con los tokens
+    return view('tokens', compact('accessToken', 'refreshToken'));
+});
+
+
+
+Route::get('/token', function () { 
+    
+    // Redirige o muestra una vista con los tokens
+    return view('tokens');
+});
