@@ -112,7 +112,7 @@
                     @livewire('product-options', ['id' => $product->id])
 
                 </div>
-                @if($product->technical_notes!=null)
+                @if($product->technical_notes != null || $product->technical_notes != '')
                 <div class="col-md-12" style="text-shadow: none; color:white;padding:30px;">
                     <br>
                     <h2 style="font-weight: bold;">DATOS TECNICOS</h2>
