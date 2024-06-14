@@ -37,6 +37,13 @@ Route::get('/admin/categories/{id}',  [App\Http\Controllers\Admin\CategoriesCont
 Route::get('/admin/categories/{id}/edit',  [App\Http\Controllers\Admin\CategoriesController::class, 'edit'])->name('categories.edit');
 Route::put('/admin/categories', [App\Http\Controllers\Admin\CategoriesController::class, 'update'])->name('categories.update');
 
+Route::get('/admin/work_images/create', [App\Http\Controllers\Admin\WorkImagesController::class, 'create'])->name('create-category');
+Route::post('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'save'])->name('work_images');
+Route::get('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'list'])->name('work_images');
+Route::get('/admin/work_images/{id}',  [App\Http\Controllers\Admin\WorkImagesController::class, 'delete'])->name('work_images.delete');
+Route::get('/admin/work_images/{id}/edit',  [App\Http\Controllers\Admin\WorkImagesController::class, 'edit'])->name('work_images.edit');
+Route::put('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'update'])->name('work_images.update');
+
 Route::get('/admin/posts', [App\Http\Controllers\Admin\PostsController::class, 'list'])->name('posts');
 Route::get('/admin/posts/create', [App\Http\Controllers\Admin\PostsController::class, 'create'])->name('create-post');
 Route::post('/admin/posts', [App\Http\Controllers\Admin\PostsController::class, 'save'])->name('posts');
@@ -62,31 +69,7 @@ Route::get('/categorias/{slug}',  [App\Http\Controllers\ProductsController::clas
 Route::get('/productos/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarProducto'])->name('productos.producto');
 Route::get('/noticias/{slug}',  [App\Http\Controllers\PostsController::class, 'mostrarPost'])->name('noticias.noticia');
 
-Route::get('/callback', function (Request $request) {
-    $authorizationCode = $request->query('code');
-    // Ahora, intercambia el código por tokens
-    $response = Http::asForm()->post('https://api.mercadolibre.com/oauth/token', [
-        'grant_type' => 'authorization_code',
-        'client_id' => '5612319285683210',
-        'client_secret' => 'rxPVejT7U48zyBeeT4Np1WzQNBW6HVqU',
-        'code' => $authorizationCode,
-        'redirect_uri' => 'https://ener-tech.com.ar/callback',
-    ]);
 
-    $data = $response->json();
+Auth::routes();
 
-    // Guarda los tokens (por ejemplo, en la base de datos)
-    $accessToken = $data['access_token'];
-    $refreshToken = $data['refresh_token'];
-    
-    // Redirige o muestra una vista con los tokens
-    return view('tokens', compact('accessToken', 'refreshToken'));
-});
-
-
-
-Route::get('/token', function () { 
-    
-    // Redirige o muestra una vista con los tokens
-    return view('tokens');
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

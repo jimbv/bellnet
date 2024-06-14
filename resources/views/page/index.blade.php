@@ -7,6 +7,63 @@
 <script src="/js/animations.js"></script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
+
+<!-- Carrousel-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.full-screen-carousel').slick({
+    arrows: false, 
+    infinite: true,
+    dots: false,  
+    autoplay: true, 
+    autoplaySpeed: 3000, 
+    fade: true, 
+    cssEase: 'linear',
+    pauseOnHover: false,
+  });
+
+    $(".carousel").slick({
+        slidesToShow: 3, 
+        slidesToScroll: 1, 
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: false,
+        dataVariableWidth: true,
+        dots: false,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true, 
+                }
+            }, 
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
+    $('.carousel img').on('click', function() {
+        var src = $(this).attr('src');
+        var title = $(this).attr('data-title');
+        $('#modalImage').attr('src', src);
+        $('#imageModalLabel').text(title);
+        $('#imageModal').modal('show');
+    });
+});
+</script>
+
 @endsection
 @section('styles')
 <link href="/css/animations.css?v=2" rel="stylesheet">
@@ -15,6 +72,27 @@
 @section('content')
 
 <style>
+
+
+
+  .full-screen-carousel {
+  height: 100%;
+  } 
+
+  .full-screen-carousel .slick-slide {
+  height: 100vh; /* Ajuste la altura al 100% de la vista */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .full-screen-carousel .slick-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  }
+
+
   .carousel-item {
     height: 100vh;
     min-height: 350px;
@@ -66,31 +144,14 @@
   }
 </style>
 <section>
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" style="background-image: url('/imgs/slider/slider1.jpg')">
-        <!--  <div class="carousel-caption">
-          <h5>Lámpara de pié infinito</h5>
-          <h6>Diseño para tus espacios</h6>
-        </div> -->
+  
+    <div class="full-screen-carousel">
+      <div> <img src="/imgs/slider/slider.jpg">
       </div>
-      <div class="carousel-item" style="background-image: url('/imgs/slider/colgante.png')">
+      <div><img src="/imgs/slider/colgante.png">
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Anterior</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Siguiente</span>
-    </button>
-  </div>
+      
 </section>
 
 <section>
@@ -126,7 +187,7 @@
 
     <br>
 
-    <div id="contacto" class="paused">
+    <div id="obras" class="paused">
       <div class="container text-center anim-up" style="font-size: 16px;color:white;">
         <a href="/productos" style="text-decoration:none;">
           <div style="color:white; border-radius: 3px 0 0 3px; width:40px; display:inline-block;">
@@ -140,6 +201,46 @@
       </a><br>
     </div>
   </div>
+</section>
+
+<!-- Trabajos realizados -->
+<section style="background: rgb(2, 2, 2);" class="p-3">
+  <div class="container text-center anim-down mt-5"> <br>
+    <h2 style="color:white;">OBRAS REALIZADAS</h2>
+    <p></p> <br>
+  </div>
+
+  <div class="container">
+    <div class="carousel">
+      @foreach($work_images as $work)
+      <div class="item" style="text-align: center; ">
+        <img src="{{$work->image}}" alt="{{$work->title}}" data-title="{{$work->title}}" style='display:inline-block;max-height:200px;width:auto;border: 1px solid white; border-radius:3px; box-shadow:0px 0px 8px white;'>
+      </div>
+      @endforeach
+    </div>
+    <div id="contacto" style="height: 90px;width:100%;"></div> 
+  </div>
+
+
+
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" >
+    <div class="modal-content" style="box-shadow: 0px 0px 10px white;overflow:hidden;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabel" style="padding: 0px;">Image Title</h5>
+        <button type="button" class="close" data-dismiss="modal" onclick="
+        $('#imageModal').modal('hide');" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 0px;">
+        <img src="" alt="" id="modalImage" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </section>
 
 <!-- Contact form -->

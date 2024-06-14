@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\WorkImages;
 
 class IndexController extends Controller
 {
     public function index()
     {
         $categories = Category::all(); 
-        return view('page.index',compact('categories')); 
+        $work_images = WorkImages::all();
+        return view('page.index',compact('categories','work_images')); 
     }
 
     public function empresa()
