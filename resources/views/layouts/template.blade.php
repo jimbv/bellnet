@@ -86,14 +86,12 @@
     </nav>
 
     @yield('content')
-
+    
     <footer>
         <div class="footer">
             <div class="container">
                 <div class="row">
-
                     <div class="col-md-4 pt-5">
-
                         <ul class="navbar-nav ms-auto d-none d-lg-inline-flex  pt-2">
                             <li class="nav-item mx-2">
                                 <a target="_blank" class="bottomSocial" href="https://www.youtube.com/@enertechingenieria-disenod7088"><i class="fab fa-youtube"></i> enertechingenieria</a>
@@ -109,7 +107,7 @@
                     <div class="col-md-4 text-center">
                         <img src="/imgs/pie_blanco.png" style="margin: 10px;" alt="Enertech - Ilumninación">
                     </div>
-                    <div class="col-md-4 p-4 ml-3 text-end pt-5">
+                    <div class="col-md-4 text-end pt-5">
                         <strong >Planta industrial</strong> <br>
                         Ruta 9 KM. 500 - Bell Ville - Córdoba <br>
                         <strong>Sucursal Buenos Aires</strong> <br>
