@@ -1,76 +1,27 @@
-@extends('layouts.admin')
+@extends('adminlte::page')
 
-@section('scripts')
-<script>
-    function slugRegenerate() {
-        var nombreInput = document.getElementById('name');
-        var slugInput = document.getElementById('slug');
-        var name = nombreInput.value;
-        var slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-        slugInput.value = slug;
-    }
-</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+@section('title', 'Inicio')
 
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-
-<script>
-    $(document).ready(function() {
-        $('#description').summernote({
-            height: 100, // Altura del editor
-            placeholder: 'Escribe aquí...', // Texto de marcador de posición
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['view', ['fullscreen', 'codeview']],
-            ]
-        });
-        $('#technical_notes').summernote({
-            height: 100, // Altura del editor
-            placeholder: 'Escribe aquí...', // Texto de marcador de posición
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['view', ['fullscreen', 'codeview']],
-            ]
-        });
-    });
-</script>
-@endsection
+@section('content_header')
+<h1 class="mt-4">Editar Producto</h1>
+@stop
 
 @section('content')
-<div class="container-fluid px-4">
-    <h1 class="mt-4">Editar Producto</h1>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="/admin/products/" class="text-secondary">Productos</a></li>
-        <li class="breadcrumb-item active">Editar Producto</li>
-    </ol>
-    <div class="card mb-4">
-        <div class="card-body">
-            @if(session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-            @endif
-            @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-            @endif
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/admin/products/" class="text-secondary">Productos</a></li>
+    <li class="breadcrumb-item active">Editar Producto</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-body">
+        @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+        @endif
 
-
-            <form method="POST" action="{{ route('products.update') }}">
-                @csrf
-                @method('PUT')
+        <form method="POST" action="{{ route('products.update') }}">
+            @csrf
+            @method('PUT')
                 <input id="product_id" name="product_id" type="hidden" value="{{ $product->id }}" />
                 <div class="row mb-3">
                     <label for="name" class="col-md-4 col-form-label text-md-end">Nombre</label>
@@ -158,37 +109,77 @@
                         </span>
                         @enderror
                     </div>
+                </div> 
+            <div class="row mb-3">
+                <label for="images" class="col-md-4 col-form-label text-md-end">Imágenes</label>
+                <div class="col-md-6">
+                    @livewire('admin.product-image-uploader', ['product_id' => $product->id])
                 </div>
+            </div>
 
-                <div class="row mb-3">
-                    <label for="images" class="col-md-4 col-form-label text-md-end">Imágenes</label>
+            <div class="row mb-3">
+                <label for="images" class="col-md-4 col-form-label text-md-end">Opciones</label>
 
-                    <div class="col-md-6">
-
-                        @livewire('admin.product-image-uploader', ['product_id' => $product->id])
-
-                    </div>
+                <div class="col-md-6">
+                    @livewire('admin.product-additionals', ['product_id' => $product->id])
                 </div>
-
-                <div class="row mb-3">
-                    <label for="images" class="col-md-4 col-form-label text-md-end">Opciones</label>
-
-                    <div class="col-md-6">
-
-                        @livewire('admin.product-additionals', ['product_id' => $product->id])
-
-                    </div>
+            </div>
+            <br>
+            <div class="row mb-0">
+                <div class="col-md-6 offset-md-4">
+                    <button type="submit" class="btn btn-primary">
+                        Guardar producto
+                    </button>
                 </div>
-                <br>
-                <div class="row mb-0">
-                    <div class="col-md-6 offset-md-4">
-                        <button type="submit" class="btn btn-primary">
-                            Guardar producto
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
-@endsection
+@stop
+
+@section('css')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+@stop
+
+@section('js')
+<script>
+    function slugRegenerate() {
+        var nombreInput = document.getElementById('name');
+        var slugInput = document.getElementById('slug');
+        var name = nombreInput.value;
+        var slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        slugInput.value = slug;
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#description').summernote({
+            height: 100, // Altura del editor
+            placeholder: 'Escribe aquí...', // Texto de marcador de posición
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['view', ['fullscreen', 'codeview']],
+            ]
+        });
+        $('#technical_notes').summernote({
+            height: 100, // Altura del editor
+            placeholder: 'Escribe aquí...', // Texto de marcador de posición
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['view', ['fullscreen', 'codeview']],
+            ]
+        });
+    });
+</script>
+@stop

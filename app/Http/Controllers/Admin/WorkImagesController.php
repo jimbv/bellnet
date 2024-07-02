@@ -60,8 +60,8 @@ class WorkImagesController extends Controller
 
     public function edit($id)
     {
-        $work_images = WorkImages::find($id);
-        return view('admin.work_images.edit', compact('work_images'));
+        $work_image = WorkImages::find($id);
+        return view('admin.work_images.edit', compact('work_image'));
     }
 
     public function update(Request $request)
