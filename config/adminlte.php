@@ -381,7 +381,11 @@ return [
                 ]
             ],
         ],
-        
+        [
+            'text' => ' Configuración',
+            'icon' => 'fa fa-cog',
+            'url' => '/admin/configuration'
+        ],
          
     ],
 

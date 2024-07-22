@@ -51,12 +51,16 @@ Route::get('/admin/posts/{id}',  [App\Http\Controllers\Admin\PostsController::cl
 Route::get('/admin/posts/{id}/edit',  [App\Http\Controllers\Admin\PostsController::class, 'edit'])->name('posts.edit');
 Route::put('/admin/posts', [App\Http\Controllers\Admin\PostsController::class, 'update'])->name('posts.update');
 
+Route::get('/admin/configuration', [App\Http\Controllers\Admin\ConfigurationsController::class, 'index'])->name('admin.configuration.index');
+Route::put('/admin/configuration', [App\Http\Controllers\Admin\ConfigurationsController::class, 'update'])->name('admin.configuration.update');
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /* WEB */
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
+Route::get('/catalogo', [App\Http\Controllers\IndexController::class, 'catalogo'])->name('catalogo');
 Route::get('/empresa', [App\Http\Controllers\IndexController::class, 'empresa'])->name('index');
 Route::get('/glosario', [App\Http\Controllers\IndexController::class, 'glosario'])->name('index');
 Route::get('/productos', [App\Http\Controllers\ProductsController::class, 'index'])->name('products.index');
