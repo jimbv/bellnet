@@ -21,7 +21,7 @@
     infinite: true,
     dots: false,  
     autoplay: true, 
-    autoplaySpeed: 3000, 
+    autoplaySpeed: 3000,  
     fade: true, 
     cssEase: 'linear',
     pauseOnHover: false,
@@ -33,7 +33,7 @@
         autoplay: true,
         autoplaySpeed: 2000,
         arrows: false,
-        dataVariableWidth: true,
+        dataVariableWidth: false,
         dots: false,
         responsive: [
             {
@@ -76,11 +76,12 @@
 
 
   .full-screen-carousel {
-  height: 100%;
+    background-color: black;
+  /*height: 100%;*/
   } 
 
   .full-screen-carousel .slick-slide {
-  height: 100vh; /* Ajuste la altura al 100% de la vista */
+  /*height: 100vh; /* Ajuste la altura al 100% de la vista */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,6 +154,18 @@
     </div>
       
 </section>
+@php
+    $fecha_actual = \Carbon\Carbon::now();
+    $fecha_actual_mas_3_dias = \Carbon\Carbon::now()->addDays(3);
+@endphp
+
+@if ($fecha_actual->lessThan($fecha_actual_mas_3_dias))
+<section>
+  <div class="products text-center f-width pb-5">
+    <img src="imgs/promociones/descuento.jpg" style="max-width: 100%;">
+  </div>
+</section>
+@endif
 
 <section>
   <div class="products text-center f-width">
