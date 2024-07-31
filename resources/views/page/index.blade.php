@@ -160,11 +160,12 @@
 @endphp
 
 @if ($fecha_actual->lessThan($fecha_actual_mas_3_dias))
+{{--
 <section>
   <div class="products text-center f-width pb-5">
     <img src="imgs/promociones/descuento.jpg" style="max-width: 100%;">
   </div>
-</section>
+</section> --}}
 @endif
 
 <section>
