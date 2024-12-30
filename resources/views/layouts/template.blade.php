@@ -82,7 +82,7 @@
                 </ul>
                 <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
                     <li class="nav-item mx-2">
-                        <a target="_blank" class="redesMenu" href="https://www.youtube.com/@enertechingenieria-disenod7088"><i class="fab fa-youtube"></i></a>
+                        <a target="_blank" class="redesMenu" href="https://www.youtube.com/@enertechiluminacionydise%C3%B1o"><i class="fab fa-youtube"></i></a>
                     </li>
                     <li class="nav-item mx-2">
                         <a target="_blank" class="redesMenu" href="https://www.instagram.com/enertechiluminacion/"><i class="fab fa-instagram"></i></a>
@@ -107,13 +107,13 @@
                     <div class="col-md-4 pt-5">
                         <ul class="navbar-nav ms-auto d-none d-lg-inline-flex  pt-2">
                             <li class="nav-item mx-2">
-                                <a target="_blank" class="bottomSocial" href="https://www.youtube.com/@enertechingenieria-disenod7088"><i class="fab fa-youtube"></i> enertechingenieria</a>
+                                <a target="_blank" class="bottomSocial" href="https://www.youtube.com/@enertechiluminacionydise%C3%B1o"><i class="fab fa-youtube"></i> Youtube</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a target="_blank" class="bottomSocial" href="https://www.instagram.com/enertechiluminacion/"><i class="fab fa-instagram"></i> enertechiluminacion</a>
+                                <a target="_blank" class="bottomSocial" href="https://www.instagram.com/enertechiluminacion/"><i class="fab fa-instagram"></i> Instagram</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a target="_blank" class="bottomSocial" href="https://www.facebook.com/enertechiluminacion/"><i class="fab fa-facebook"></i> enertechiluminacion</a>
+                                <a target="_blank" class="bottomSocial" href="https://www.facebook.com/enertechiluminacion/"><i class="fab fa-facebook"></i> Facebook</a>
                             </li>
                         </ul>
                     </div>
@@ -123,13 +123,14 @@
                     <div class="col-md-4 text-end pt-5">
                         <strong >Planta industrial</strong> <br>
                         Ruta 9 KM. 500 - Bell Ville - Córdoba <br>
-                        <strong>Sucursal Buenos Aires</strong> <br>
-                        Av. Cabildo 3230 - Belgrano - Buenos Aires
-                         <br>
                         <i class="fa fa-phone"></i> &nbsp;&nbsp;
                         (03537) 450176 <br>
                         <a href="https://wa.me/5493537667250?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
                             +54 9 3537 667250</a> <br>
+                        <strong>Sucursal Buenos Aires</strong> <br>
+                        Av. Cabildo 3230 - Belgrano - Buenos Aires<br> 
+                        <a href="https://wa.me/5491162563230?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
+                            +54 9 11 6256-3230</a> <br>
                         <a href="mailto:enertechventas@gmail.com" style="color:white;text-decoration:none;"><i class="fa fa-envelope"></i> &nbsp;&nbsp;enertechventas@gmail.com</a>
 
                     </div>
