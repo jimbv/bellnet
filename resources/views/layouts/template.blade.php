@@ -50,16 +50,14 @@
     @yield('header')
     <nav class="navbar navbar-expand-lg navbar-light p-3" style="z-index: 10;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"> <img src="/imgs/enertech.png" alt="Enertech"> </a>
+            <a class="navbar-brand" href="/#inicio"> <img src="/imgs/enertech.png" alt="Enertech"> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars" style="color: white;font-size:22px;box-shadow:1px solid black;"></i>
             </button>
 
             <div class=" collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto ">
-                    <li class="nav-item">
-                        <a class="nav-link mx-2 active" aria-current="page" href="/#inicio">INICIO</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link mx-2" href="/productos">PRODUCTOS</a>
                     </li>
@@ -78,6 +76,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mx-2" href="/#contacto">CONTACTO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="https://www.enertech.com.ar" style="background:brown;color:white;border-radius:5px;">TIENDA</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
