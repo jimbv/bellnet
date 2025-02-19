@@ -22,6 +22,12 @@ class IndexController extends Controller
         return redirect()->away($url_catalogo);
     }
 
+    public function devolucion()
+    {
+        $url_devoluvion = Configuration::first()->url_devolucion; 
+        return redirect()->away($url_devoluvion);
+    }
+
     public function empresa()
     {
         $categories = Category::all(); 

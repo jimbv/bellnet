@@ -34,7 +34,17 @@
                     @enderror
                 </div>
             </div>
-            
+            <div class="row mb-3">
+                <label for="title" class="col-md-4 col-form-label text-md-end">URL Devolución ML</label>
+                <div class="col-md-6">
+                    <input id="url_devolucion" name="url_devolucion" type="text" class="form-control @error('url_devolucion') is-invalid @enderror" value="{{ old('url_devolucion')??$configuration->url_devolucion }}" required autocomplete="url_devolucion" autofocus />
+                    @error('title')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
 
             <br>
             <div class="row mb-0">
