@@ -24,8 +24,8 @@ class IndexController extends Controller
 
     public function devolucion()
     {
-        $url_devoluvion = Configuration::first()->url_devolucion; 
-        return redirect()->away($url_devoluvion);
+        $url_devolucion = Configuration::first()->url_devolucion; 
+        return redirect()->away($url_devolucion);
     }
 
     public function empresa()
