@@ -19,6 +19,7 @@ class ConfigurationsController extends Controller
         $configuration = Configuration::first();
         $configuration->url_catalogo = $request->url_catalogo;
         $configuration->url_devolucion = $request->url_devolucion;
+        $configuration->url_lista = $request->url_lista;
         $configuration->save();
         return view('admin.configuration', compact('configuration'));
     }
