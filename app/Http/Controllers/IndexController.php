@@ -27,6 +27,12 @@ class IndexController extends Controller
         $url_devolucion = Configuration::first()->url_devolucion; 
         return redirect()->away($url_devolucion);
     }
+    
+    public function lista()
+    {
+        $url_lista = Configuration::first()->url_lista; 
+        return redirect()->away($url_lista);
+    }
 
     public function empresa()
     {
