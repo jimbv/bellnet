@@ -1,31 +1,22 @@
 @extends('plantilla.web')
 @section('cabecera')
-<title>Bellnet | Turneros Digitales </title>
-<meta name="description" content="Bellnet es una empresa que se dedica al desarrollo de sistemas de turnos." />
+<title>Bellnet | Turneros Digitales y sistemas de gestión </title>
+<meta name="description" content="Bellnet es una empresa que se dedica al desarrollo de sistemas de turnos y de gestión web" />
 @endsection
 @section('contenido')
 
 <!-- ======= Hero Section ======= -->
-
 <section id="hero" class="d-flex align-items-center">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1">
-
-                <h1>Turneros digitales</h1>
-
-                <h2>Administrá tus colas de turnos para distintos trámites de manera sencilla.</h2>
-
+                <h1>Innovación para que su empresa despegue</h1>
+                <h2>Desarrollamos sistemas para el manejo de información ante una mirada de las posibilidades que brindan las tecnologías basadas en Web.</h2>
                 <a href="#contact" class="btn-get-started scrollto">Contactanos</a>
-
             </div>
-
             <div class="col-lg-6 order-1 order-lg-2 hero-img">
-
-                <img src="img/turnero.png" class="img-fluid" alt="">
-
+                <img src="ninestars/assets/img/hero-img.svg" class="img-fluid animated" alt="">
             </div>
-
         </div>
     </div>
 </section><!-- End Hero -->
@@ -42,14 +33,16 @@
         <div class="row justify-content-between">
 
             <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
-                <img src="ninestars/assets/img/hero-img.svg" class="img-fluid" alt="" data-aos="zoom-in">
+                <img src="ninestars/assets/img/about-img.svg" class="img-fluid" alt="" data-aos="zoom-in">
             </div>
 
             <div class="col-lg-6 pt-5 pt-lg-0">
-                <h3 data-aos="fade-up">Innovación para que su empresa despegue</h3>
+                <h3 data-aos="fade-up">Soluciones basadas en web</h3>
+
                 <p data-aos="fade-up" data-aos-delay="100">
-                    Desarrollamos sistemas para el manejo de información ante una mirada de las posibilidades que brindan las
-                    tecnologías basadas en Web.
+    
+                Más de 15 años ofreciendo sistemas con las mejores tecnologías.
+    
                 </p>
 
                 <div class="row">
@@ -792,23 +785,16 @@
                         <p>+549 3537 609004</p>
                     </div>
 
-                    <!--
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-
-                -->
+                
+                    <iframe src="https://www.google.com/maps/d/embed?mid=1zgyZCy1R7sJ8NKkOEGL1ZSuqtTsH64Q&ehbc=2E312F&noprof=1" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
 
                 </div>
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-
                 <form id="contact-form" action="{{ route('Contacto') }}#contact" method="post" role="form" class="php-email-form">
-
                     @csrf
-
                     @method('POST')
-
 
                     <h2 style='color:#EB5D1E;width:100%;'>
                         {!! $resultado ?? '' !!}
@@ -817,25 +803,17 @@
                     <div class="form-row">
 
                         <div class="form-group col-md-6">
-
                             <label for="name">Nombre y Apellido</label>
-
                             <input type="text" name="nombre" class="form-control" id="nombre" data-rule="minlen:4" data-msg="Por favor ingresa al menos cuatro letras" />
-
                             <div class="validate"></div>{!!$errors->first('nombre','<br />
                             <div style="color:red;">:message</div><br />')!!}
-
                         </div>
 
                         <div class="form-group col-md-6">
-
                             <label for="name">Email</label>
-
                             <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Ingresa una dirección de email válida" />
-
                             <div class="validate"></div>{!!$errors->first('email','<br />
                             <div style="color:red;">:message</div><br />')!!}
-
                         </div>
 
                     </div>
@@ -893,10 +871,7 @@
                         <div class="loading">Cargando</div>
 
                         <div class="error-message"></div>
-
                         <div class="sent-message">
-
-
 
                             @if($errors->any())
                             <div style='color:red;'>No se pudo enviar el formulario, por favor revise los errores.</div>
@@ -915,13 +890,7 @@
                 </form>
 
             </div>
-
-
-
         </div>
-
-
-
     </div>
 </section><!-- End Contact Us Section -->
 

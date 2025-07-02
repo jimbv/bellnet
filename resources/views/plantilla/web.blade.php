@@ -207,6 +207,7 @@
               <a href="https://wa.me/5493537609004" class="linkedin"><i class="bx bxl-whatsapp"></i></a>
 
             </div>
+            <a href="http://qr.afip.gob.ar/?qr=riUNFrGsUiEEARhn-Vxv3A,," target="_F960AFIPInfo"><img src="/imagenes/DATAWEB.jpg" border="0" style="height: 100px;padding:10px;"></a>
 
           </div>
 
