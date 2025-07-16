@@ -78,7 +78,7 @@
                         <a class="nav-link mx-2" href="/#contacto">CONTACTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2" href="https://www.enertech.com.ar" style="background:brown;color:white;border-radius:5px;padding-left:10px;">TIENDA</a>
+                        <a class="nav-link mx-2" href="https://enertech.com.ar" style="background:brown;color:white;border-radius:5px;padding-left:10px;">TIENDA</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
