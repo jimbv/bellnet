@@ -63,7 +63,7 @@
             <div class="row">
 
                 <div class="col-md-12 text-center">
-                    <img src="/imgs/pie_blanco.png" alt="Nuestra empresa, Enertech" style="max-width: 100%;">
+                    <img src="/imgs/pie_blanco.png" alt="Nuestra empresa, Click Comunicación" style="max-width: 100%;">
                 </div>
                 <div class="col-md-3 pt-3" style="font-size: 10px;"> 
                     <img src="/imgs/sucursal.jpg" alt="Fondo empresa" style="width: 100%;"><br>

@@ -34,7 +34,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Enertech') }}</title>
+    <title>{{ config('app.name', 'Click Comunicación') }}</title>
 
     <link href="/css/style.css?v=19" rel="stylesheet">
 
@@ -50,7 +50,7 @@
     @yield('header')
     <nav class="navbar navbar-expand-lg navbar-light p-3" style="z-index: 10;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/#inicio"> <img src="/imgs/enertech.png" alt="Enertech"> </a>
+            <a class="navbar-brand" href="/#inicio"> <img src="/imgs/altavoz.png" alt="Click comunicación"> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars" style="color: white;font-size:22px;box-shadow:1px solid black;"></i>
             </button>
