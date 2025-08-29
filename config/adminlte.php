@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Click',
+    'title' => 'Click Comunicación',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,10 +63,10 @@ return [
     |
     */
 
-    'logo' => 'Click',
-    'logo_img' => '/imgs/altavoz.png',
+    'logo' => '',
+    'logo_img' => '/imgs/logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
-    'logo_img_xl' => null,
+    'logo_img_xl' => '/imgs/logo.png',
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Click Comunicación',
 
@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => '/imgs/pie_blanco.png',
+            'path' => '/imgs/logo.png',
             'alt' => 'Click comunicación',
             'class' => '',
             'width' => 50,
@@ -113,7 +113,7 @@ return [
         'enabled' => false,
         'mode' => 'fullscreen',
         'img' => [
-            'path' => '/imgs/pie_blanco.png',
+            'path' => '/imgs/logo.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,

@@ -10,153 +10,104 @@
 
 <!-- Carrousel-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 <script>
   $(document).ready(function() {
     $('.full-screen-carousel').slick({
-    arrows: false, 
-    infinite: true,
-    dots: false,  
-    autoplay: true, 
-    autoplaySpeed: 3000,  
-    fade: true, 
-    cssEase: 'linear',
-    pauseOnHover: false,
-  });
+      arrows: false,
+      infinite: true,
+      dots: false,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      fade: true,
+      cssEase: 'linear',
+      pauseOnHover: false,
+    });
 
     $(".carousel").slick({
-        slidesToShow: 3, 
-        slidesToScroll: 1, 
-        autoplay: true,
-        autoplaySpeed: 2000,
-        arrows: false,
-        dataVariableWidth: false,
-        dots: false,
-        responsive: [
-            {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true, 
-                }
-            }, 
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      arrows: false,
+      dataVariableWidth: false,
+      dots: false,
+      responsive: [{
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
     });
 
     $('.carousel img').on('click', function() {
-        var src = $(this).attr('src');
-        var title = $(this).attr('data-title');
-        $('#modalImage').attr('src', src);
-        $('#imageModalLabel').text(title);
-        $('#imageModal').modal('show');
+      var src = $(this).attr('src');
+      var title = $(this).attr('data-title');
+      $('#modalImage').attr('src', src);
+      $('#imageModalLabel').text(title);
+      $('#imageModal').modal('show');
     });
-});
+  });
 </script>
 
 @endsection
 @section('styles')
 <link href="/css/animations.css?v=2" rel="stylesheet">
 <link href="/css/galeria.css?v=4" rel="stylesheet">
+<style>
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+  }
+
+  .video-container {
+    width: 100vw;
+    height: 100vh;
+    /* ocupa todo lo que se ve */
+    overflow: hidden;
+    position: relative;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* se ajusta al tamaño del contenedor */
+  }
+</style>
 @endsection
 @section('content')
 
-<style>
-
-
-
-  .full-screen-carousel {
-    background-color: black;
-  /*height: 100%;*/
-  } 
-
-  .full-screen-carousel .slick-slide {
-  /*height: 100vh; /* Ajuste la altura al 100% de la vista */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  }
-
-  .full-screen-carousel .slick-slide img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  }
-
-
-  .carousel-item {
-    height: 100vh;
-    min-height: 350px;
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-
-  .portada {
-    text-align: center;
-    position: relative;
-    width: 100%;
-    height: 400px;
-    top: 0px;
-    left: 0px;
-    overflow-y: hidden;
-  }
-
-  .fondo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/imgs/dentro.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 1;
-  }
-
-  .degradado {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 400px;
-    background: radial-gradient(circle, rgba(81, 85, 99, 0), rgba(81, 85, 99, 255));
-  }
-
-  .degradado2 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 400px;
-    background: linear-gradient(to bottom, rgba(81, 85, 99, 0), rgba(81, 85, 99, 255));
-  }
-</style>
 <section>
+
   
-    <div class="full-screen-carousel">
-      <div> <img src="/imgs/slider/slider.jpg">
-      </div>
-      <div><img src="/imgs/slider/colgante.png">
-      </div>
-    </div>
-      
+  <div class="video-container">
+    <video autoplay muted loop playsinline>
+      <source src="/videos/video.mp4" type="video/mp4">
+      <source src="/videos/video.webm" type="video/webm">
+      Tu navegador no soporta la reproducción de video.
+    </video>
+  </div>
+
+
 </section>
 @php
-    $fecha_actual = \Carbon\Carbon::now();
-    $fecha_actual_mas_3_dias = \Carbon\Carbon::now()->addDays(3);
+$fecha_actual = \Carbon\Carbon::now();
+$fecha_actual_mas_3_dias = \Carbon\Carbon::now()->addDays(3);
 @endphp
 
 @if ($fecha_actual->lessThan($fecha_actual_mas_3_dias))
@@ -217,10 +168,10 @@
   </div>
 </section>
 
-<!-- Trabajos realizados -->
+
 <section style="background: rgb(2, 2, 2);" class="p-3">
   <div class="container text-center anim-down mt-5"> <br>
-    <h2 style="color:white;">OBRAS REALIZADAS</h2>
+    <h2 style="color:white;">SERVICIOS</h2>
     <p></p> <br>
   </div>
 
@@ -232,27 +183,27 @@
       </div>
       @endforeach
     </div>
-    <div id="contacto" style="height: 90px;width:100%;"></div> 
+    <div id="contacto" style="height: 90px;width:100%;"></div>
   </div>
 
 
 
   <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" >
-    <div class="modal-content" style="box-shadow: 0px 0px 10px white;overflow:hidden;">
-      <div class="modal-header">
-        <h5 class="modal-title" id="imageModalLabel" style="padding: 0px;">Image Title</h5>
-        <button type="button" class="close" data-dismiss="modal" onclick="
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="box-shadow: 0px 0px 10px white;overflow:hidden;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel" style="padding: 0px;">Image Title</h5>
+          <button type="button" class="close" data-dismiss="modal" onclick="
         $('#imageModal').modal('hide');" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="padding: 0px;">
-        <img src="" alt="" id="modalImage" class="img-fluid">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="padding: 0px;">
+          <img src="" alt="" id="modalImage" class="img-fluid">
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
 </section>
@@ -270,10 +221,9 @@
       </div>
 
     </div>
-    <div class="row" style="position: relative;top:-100px;">
-
-      <div class="col-lg-8 col-md-6 col-sm-12 mb-3">
-        <div class="anim-up" style="background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(85, 88, 102) 131%);margin-left:10px;margin-right:10px;color:white;padding:20px;height:100%;">
+    <div class="row" style="position: relative; top:-100px;">
+      <div class="col-lg-8 col-md-6 col-sm-12 offset-lg-2 offset-md-3">
+        <div class="anim-up" style="background: white;margin-left:10px;margin-right:10px;color:black;padding:20px;height:100%;">
           <h3>Dejanos tu consulta</h3>
           <hr>
           @if(session('success'))
@@ -326,9 +276,6 @@
           </form>
           @endif
         </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 p-0">
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1IEP1pDTwKtUda_zQ7KtH2T7qAMzb9S8&ehbc=2E312F&noprof=1" height="580" style="max-width: 640px;width:100%;"></iframe>
       </div>
     </div>
   </div>

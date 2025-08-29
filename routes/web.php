@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 | be assigned to the "web" middleware group. Make something great!
 |
 */ 
-
-Auth::routes();
+ 
+Auth::routes(['register' => false]);
 
 Route::redirect('/register', '/'); // Deshabilitar registro
 
@@ -75,7 +75,5 @@ Route::get('/categorias/{slug}',  [App\Http\Controllers\ProductsController::clas
 Route::get('/productos/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarProducto'])->name('productos.producto');
 Route::get('/noticias/{slug}',  [App\Http\Controllers\PostsController::class, 'mostrarPost'])->name('noticias.noticia');
 
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
