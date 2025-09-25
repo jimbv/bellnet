@@ -15,6 +15,12 @@ class IndexController extends Controller
         $work_images = WorkImages::all();
         return view('page.index',compact('categories','work_images')); 
     }
+    
+    public function prueba()
+    {
+        $categories = Category::all();
+        return view('index',compact('categories')); 
+    }
 
     public function catalogo()
     {

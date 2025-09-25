@@ -38,24 +38,39 @@
                 </div>
             </div>
             <div class="row mb-3">
-                    <label for="slug" class="col-md-4 col-form-label text-md-end">Slug</label>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input id="slug" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug') ?? $category->slug }}" required autocomplete="slug" autofocus />
-                                <div class="input-group-append">
-                                    <div class="btn btn-secondary" onclick="slugRegenerate();"> Regenerar </div>
-                                </div>
+                <label for="slug" class="col-md-4 col-form-label text-md-end">Slug</label>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input id="slug" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug') ?? $category->slug }}" required autocomplete="slug" autofocus />
+                            <div class="input-group-append">
+                                <div class="btn btn-secondary" onclick="slugRegenerate();"> Regenerar </div>
                             </div>
                         </div>
-                        @error('slug')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
                     </div>
+                    @error('slug')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
+            </div>
+            <div class="row mb-3">
+                <label for="color" class="col-md-4 col-form-label text-md-end">Color</label>
+                <div class="col-md-6">
+                    <input id="color" name="color" type="color"
+                        class="form-control @error('color') is-invalid @enderror"
+                        value="{{ old('color') ?? $category->color }}"
+                        required autofocus />
 
+
+                    @error('color')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
 
             <div class="row mb-3">
                 <label for="images" class="col-md-4 col-form-label text-md-end">Imagen</label>
@@ -89,9 +104,9 @@
             <button type="submit" class="btn btn-primary">
                 Guardar categoría
             </button>
-            
-        <br>
-        <p> <br></p>
+
+            <br>
+            <p> <br></p>
         </div>
     </div>
     </form>
@@ -112,13 +127,14 @@
         var name = nombreInput.value;
         var slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         slugInput.value = slug;
-    } 
+    }
+
     function slugRegenerate() {
         var nombreInput = document.getElementById('name');
         var slugInput = document.getElementById('slug');
         var name = nombreInput.value;
         var slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         slugInput.value = slug;
-    } 
+    }
 </script>
 @stop

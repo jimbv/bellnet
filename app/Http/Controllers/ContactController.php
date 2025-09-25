@@ -11,6 +11,11 @@ use App\Mail\TemplateMail;
 
 class ContactController extends Controller
 {
+    public function showForm()
+    {
+        return view('contacto');
+    }
+
     public function submit(Request $request)
     {
         $request->validate([
@@ -39,6 +44,6 @@ class ContactController extends Controller
 
         Mail::to(env('MAIL_TO_ADDRESS'))->send(new TemplateMail($content));
 
-        return redirect('/#contacto')->with(['success' => 'Formulario enviado correctamente']);
+        return redirect('/contacto')->with(['success' => 'Formulario enviado correctamente']);
     }
 }

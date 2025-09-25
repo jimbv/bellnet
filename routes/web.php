@@ -60,6 +60,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 /* WEB */
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
+Route::get('/prueba', [App\Http\Controllers\IndexController::class, 'prueba'])->name('prueba');
+Route::get('/contacto', [App\Http\Controllers\ContactController::class, 'showForm'])->name('contacto');
 Route::get('/catalogo', [App\Http\Controllers\IndexController::class, 'catalogo'])->name('catalogo');
 Route::get('/devolucion', [App\Http\Controllers\IndexController::class, 'devolucion'])->name('devolucion');
 Route::get('/lista', [App\Http\Controllers\IndexController::class, 'lista'])->name('lista');
@@ -75,5 +77,5 @@ Route::get('/categorias/{slug}',  [App\Http\Controllers\ProductsController::clas
 Route::get('/productos/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarProducto'])->name('productos.producto');
 Route::get('/noticias/{slug}',  [App\Http\Controllers\PostsController::class, 'mostrarPost'])->name('noticias.noticia');
 
-
+ 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

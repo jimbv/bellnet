@@ -27,6 +27,7 @@ class CategoriesController extends Controller
             $validatedData = $request->validate([
                 'name' => 'required|string',
                 'slug' => 'required|string',
+                'color' => '',
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ], [
                 'name.required' => 'El campo Nombre es obligatorio.',
