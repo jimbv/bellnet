@@ -37,12 +37,51 @@ Route::get('/admin/categories/{id}',  [App\Http\Controllers\Admin\CategoriesCont
 Route::get('/admin/categories/{id}/edit',  [App\Http\Controllers\Admin\CategoriesController::class, 'edit'])->name('categories.edit');
 Route::put('/admin/categories', [App\Http\Controllers\Admin\CategoriesController::class, 'update'])->name('categories.update');
 
+Route::get('/admin/work_images/create', [App\Http\Controllers\Admin\WorkImagesController::class, 'create'])->name('create-work_image');
+Route::post('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'save'])->name('work_images');
+Route::get('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'list'])->name('work_images');
+Route::get('/admin/work_images/{id}',  [App\Http\Controllers\Admin\WorkImagesController::class, 'delete'])->name('work_images.delete');
+Route::get('/admin/work_images/{id}/edit',  [App\Http\Controllers\Admin\WorkImagesController::class, 'edit'])->name('work_images.edit');
+Route::put('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'update'])->name('work_images.update');
+
+
+Route::get('/admin/pages/create', [App\Http\Controllers\Admin\PagesController::class, 'create'])->name('create-page');
+Route::post('/admin/pages', [App\Http\Controllers\Admin\PagesController::class, 'save'])->name('pages');
+Route::get('/admin/pages', [App\Http\Controllers\Admin\PagesController::class, 'list'])->name('pages');
+Route::get('/admin/pages/{id}',  [App\Http\Controllers\Admin\PagesController::class, 'delete'])->name('pages.delete');
+Route::get('/admin/pages/{id}/edit',  [App\Http\Controllers\Admin\PagesController::class, 'edit'])->name('pages.edit');
+Route::put('/admin/pages', [App\Http\Controllers\Admin\PagesController::class, 'update'])->name('pages.update');
+
+Route::get('/admin/services/create', [App\Http\Controllers\Admin\ServicesController::class, 'create'])->name('create-page');
+Route::post('/admin/services', [App\Http\Controllers\Admin\ServicesController::class, 'save'])->name('pages');
+Route::get('/admin/services', [App\Http\Controllers\Admin\ServicesController::class, 'list'])->name('pages');
+Route::get('/admin/services/{id}',  [App\Http\Controllers\Admin\ServicesController::class, 'delete'])->name('pages.delete');
+Route::get('/admin/services/{id}/edit',  [App\Http\Controllers\Admin\ServicesController::class, 'edit'])->name('pages.edit');
+Route::put('/admin/services', [App\Http\Controllers\Admin\ServicesController::class, 'update'])->name('pages.update');
+
+Route::get('/admin/testimonials/create', [App\Http\Controllers\Admin\TestimonialsController::class, 'create'])->name('create-page');
+Route::post('/admin/testimonials', [App\Http\Controllers\Admin\TestimonialsController::class, 'save'])->name('testimonials');
+Route::get('/admin/testimonials', [App\Http\Controllers\Admin\TestimonialsController::class, 'list'])->name('testimonials');
+Route::get('/admin/testimonials/{id}',  [App\Http\Controllers\Admin\TestimonialsController::class, 'delete'])->name('pages.delete');
+Route::get('/admin/testimonials/{id}/edit',  [App\Http\Controllers\Admin\TestimonialsController::class, 'edit'])->name('pages.edit');
+Route::put('/admin/testimonials', [App\Http\Controllers\Admin\TestimonialsController::class, 'update'])->name('testimonials.update');
+
+Route::get('/admin/subscriptions/create', [App\Http\Controllers\Admin\SubscriptionsController::class, 'create'])->name('create-page');
+Route::post('/admin/subscriptions', [App\Http\Controllers\Admin\SubscriptionsController::class, 'save'])->name('pages');
+Route::get('/admin/subscriptions', [App\Http\Controllers\Admin\SubscriptionsController::class, 'list'])->name('pages');
+Route::get('/admin/subscriptions/{id}',  [App\Http\Controllers\Admin\SubscriptionsController::class, 'delete'])->name('pages.delete');
+Route::get('/admin/subscriptions/{id}/edit',  [App\Http\Controllers\Admin\SubscriptionsController::class, 'edit'])->name('pages.edit');
+Route::put('/admin/subscriptions', [App\Http\Controllers\Admin\SubscriptionsController::class, 'update'])->name('pages.update');
+
+
+
 Route::get('/admin/work_images/create', [App\Http\Controllers\Admin\WorkImagesController::class, 'create'])->name('create-category');
 Route::post('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'save'])->name('work_images');
 Route::get('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'list'])->name('work_images');
 Route::get('/admin/work_images/{id}',  [App\Http\Controllers\Admin\WorkImagesController::class, 'delete'])->name('work_images.delete');
 Route::get('/admin/work_images/{id}/edit',  [App\Http\Controllers\Admin\WorkImagesController::class, 'edit'])->name('work_images.edit');
 Route::put('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'update'])->name('work_images.update');
+
 
 Route::get('/admin/posts', [App\Http\Controllers\Admin\PostsController::class, 'list'])->name('posts');
 Route::get('/admin/posts/create', [App\Http\Controllers\Admin\PostsController::class, 'create'])->name('create-post');

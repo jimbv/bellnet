@@ -366,6 +366,22 @@ return [
 
         ['header' => 'WEB'],
         [
+            'text' => 'Testimonios',
+            'icon' => 'fa fa-tags',
+            'submenu' => [
+                [
+                    'text' => 'Nuevo testimonio',
+                    'icon' => 'fa fa-tag',
+                    'url' => '/admin/testimonials/create',
+                ],
+                [
+                    'text' => 'Listado',
+                    'icon' => 'fa fa-list',
+                    'url' => '/admin/testimonials',
+                ]
+            ],
+        ],
+        [
             'text' => ' Noticias',
             'icon' => 'fa fa-newspaper',
             'submenu' => [
