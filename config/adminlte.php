@@ -381,6 +381,24 @@ return [
                 ]
             ],
         ],
+
+        [
+            'text' => 'Servicios',
+            'icon' => 'fa fa-tags',
+            'submenu' => [
+                [
+                    'text' => 'Nuevo servicio',
+                    'icon' => 'fa fa-tag',
+                    'url' => '/admin/services/create',
+                ],
+                [
+                    'text' => 'Listado',
+                    'icon' => 'fa fa-list',
+                    'url' => '/admin/services',
+                ]
+            ],
+        ],
+
         [
             'text' => ' Noticias',
             'icon' => 'fa fa-newspaper',

@@ -57,9 +57,9 @@ class ProductsController extends Controller
                 ->update(['product_id' => $product->id, 'product_id_temporal' => null]);
 
             return redirect()->back()->with('success', 'Producto guardado correctamente.');
-        } catch (Exception $e) {
+        } catch (ValidationException $e) {
             $errors = $e->validator->errors()->all();
-            return redirect()->back()->with($errors);
+            return redirect()->back()->withErrors($errors);
         }
     }
 
@@ -104,11 +104,11 @@ class ProductsController extends Controller
             $product->update($validatedData);
 
             return redirect()->back()->with('success', 'Producto guardado correctamente.');
-        } catch (Exception $e) {
+        } catch (ValidationException $e) {
             // Manejar la excepción de validación
             $errors = $e->validator->errors()->all();
             // Manejar la excepción, por ejemplo, mostrar un mensaje de error
-            return redirect()->back()->with($errors);
+            return redirect()->back()->withErrors($errors);
         }
     }
 }

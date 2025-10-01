@@ -3,14 +3,14 @@
 @section('title', 'Inicio')
 
 @section('content_header') 
-    <h1>Nuevo Testimonio</h1> 
+    <h1>Nuevo Servicio</h1> 
 @stop
 
 @section('content')
 
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item">Testimonios</li>
-    <li class="breadcrumb-item active">Nuevo Testimonio</li>
+    <li class="breadcrumb-item">Servicios</li>
+    <li class="breadcrumb-item active">Nuevo servicio</li>
 </ol>
 <div class="card mb-4">
     <div class="card-body">
@@ -20,15 +20,15 @@
         </div>
         @endif
 
-        <form method="POST" action="{{ route('testimonials') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('services') }}" enctype="multipart/form-data">
             @csrf
 
             <div class="row mb-3">
-                <label for="client" class="col-md-4 col-form-label text-md-end">Cliente</label>
+                <label for="name" class="col-md-4 col-form-label text-md-end">Nombre</label>
                 <div class="col-md-6">
-                    <input id="client" name="client"  type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('client') }}" required autocomplete="client" autofocus />
+                    <input id="name" name="name"  type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus />
 
-                    @error('client')
+                    @error('name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -37,11 +37,11 @@
             </div>
 
             <div class="row mb-3">
-                <label for="review" class="col-md-4 col-form-label text-md-end">Mensaje</label>
+                <label for="description" class="col-md-4 col-form-label text-md-end">Descripción</label>
                 <div class="col-md-6">
-                    <textarea id="review" name="review" class="form-control @error('review') is-invalid @enderror">{{ old('review') }}</textarea>
+                    <textarea id="description" name="description" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
 
-                    @error('review')
+                    @error('description')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -64,7 +64,7 @@
             <div class="row mb-0">
                 <div class="col-md-6 offset-md-4">
                     <button type="submit" class="btn btn-primary">
-                        Guardar Testimonio
+                        Guardar Servicio
                     </button>
                 </div>
             </div>

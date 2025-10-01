@@ -3,14 +3,14 @@
 @section('title', 'Inicio')
 
 @section('content_header')
-<h1>Editar testimonio {{ $testimony->name }}</h1>
+<h1>Editar servicio {{ $service->name }}</h1>
 @stop
 
 @section('content')
 
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item">Testimonios</li>
-    <li class="breadcrumb-item active">Editar testimonio</li>
+    <li class="breadcrumb-item">Servicios</li>
+    <li class="breadcrumb-item active">Editar servicio</li>
 </ol>
 <div class="card mb-4">
     <div class="card-body">
@@ -20,17 +20,17 @@
         </div>
         @endif
 
-        <form method="POST" action="{{ route('testimonials') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('services') }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
-            <input id="testimony_id" name="testimony_id" type="hidden" value="{{ $testimony->id }}" />
+            <input id="service_id" name="service_id" type="hidden" value="{{ $service->id }}" />
             <div class="row mb-3">
-                <label for="client" class="col-md-4 col-form-label text-md-end">Cliente</label>
+                <label for="name" class="col-md-4 col-form-label text-md-end">Nombre</label>
                 <div class="col-md-6">
-                    <input id="client" name="client"  type="text" value="{{ $testimony->client }}" class="form-control @error('client') is-invalid @enderror" value="{{ old('client') }}" required autocomplete="client" autofocus />
+                    <input id="name" name="name"  type="text" value="{{ $service->name }}" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus />
 
-                    @error('client')
+                    @error('name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -38,11 +38,11 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="review" class="col-md-4 col-form-label text-md-end">Mensaje</label>
+                <label for="description" class="col-md-4 col-form-label text-md-end">Descripción</label>
                 <div class="col-md-6">
-                    <textarea id="review" name="review" class="form-control @error('review') is-invalid @enderror">{{ $testimony->review }}</textarea>
+                    <textarea id="description" name="description" class="form-control @error('description') is-invalid @enderror">{{ $service->description }}</textarea>
 
-                    @error('review')
+                    @error('description')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -53,9 +53,9 @@
                 <label for="images" class="col-md-4 col-form-label text-md-end">Imagen</label>
 
                 <div class="col-md-6">
-                    @if($testimony->image!='')
+                    @if($service->image!='')
 
-                    <img src="/{{$testimony->image}}" alt="{{$testimony->name}}" width="200px;" id="imagen">
+                    <img src="/{{$service->image}}" alt="{{$service->name}}" width="200px;" id="imagen">
                     <input type="hidden" name="deleteImg" id="deleteImg" value="0">
                     <input type="button" onclick="document.getElementById('deleteImg').value='1'; 
                             document.getElementById('imagen').setAttribute('style','display:none;');

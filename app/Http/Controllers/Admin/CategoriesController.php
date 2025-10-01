@@ -48,9 +48,9 @@ class CategoriesController extends Controller
 
 
             return redirect()->back()->with('success', 'Categoría guardada correctamente.');
-        } catch (Exception $e) {
+        } catch (ValidationException $e) {
             $errors = $e->validator->errors()->all();
-            return redirect()->back()->with($errors);
+            return redirect()->back()->withErrors($errors);
         }
     }
 
@@ -103,11 +103,11 @@ class CategoriesController extends Controller
 
 
             return redirect()->back()->with('success', 'Categoría guardada correctamente.');
-        } catch (Exception $e) {
+        } catch (ValidationException $e) {
             // Manejar la excepción de validación
             $errors = $e->validator->errors()->all();
             // Manejar la excepción, por ejemplo, mostrar un mensaje de error
-            return redirect()->back()->with($errors);
+            return redirect()->back()->withErrors($errors);
         }
     }
 }
