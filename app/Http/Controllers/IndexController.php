@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Post;
+use App\Models\Testimony;
 use App\Models\WorkImages;
 use App\Models\Configuration;
 
@@ -19,7 +21,12 @@ class IndexController extends Controller
     public function prueba()
     {
         $categories = Category::all();
-        return view('index',compact('categories')); 
+        $testimonials = Testimony::all();
+        $posts = Post::with('images')
+                 ->latest()
+                 ->take(9) // últimas 9
+                 ->get();
+        return view('index',compact('categories','testimonials','posts')); 
     }
 
     public function catalogo()

@@ -66,14 +66,8 @@ Route::get('/admin/testimonials/{id}',  [App\Http\Controllers\Admin\Testimonials
 Route::get('/admin/testimonials/{id}/edit',  [App\Http\Controllers\Admin\TestimonialsController::class, 'edit'])->name('pages.edit');
 Route::put('/admin/testimonials', [App\Http\Controllers\Admin\TestimonialsController::class, 'update'])->name('testimonials.update');
 
-Route::get('/admin/subscriptions/create', [App\Http\Controllers\Admin\SubscriptionsController::class, 'create'])->name('create-subscription');
-Route::post('/admin/subscriptions', [App\Http\Controllers\Admin\SubscriptionsController::class, 'save'])->name('subscriptions');
 Route::get('/admin/subscriptions', [App\Http\Controllers\Admin\SubscriptionsController::class, 'list'])->name('subscriptions');
 Route::get('/admin/subscriptions/{id}',  [App\Http\Controllers\Admin\SubscriptionsController::class, 'delete'])->name('subscriptions.delete');
-Route::get('/admin/subscriptions/{id}/edit',  [App\Http\Controllers\Admin\SubscriptionsController::class, 'edit'])->name('subscriptions.edit');
-Route::put('/admin/subscriptions', [App\Http\Controllers\Admin\SubscriptionsController::class, 'update'])->name('subscriptions.update');
-
-
 
 Route::get('/admin/work_images/create', [App\Http\Controllers\Admin\WorkImagesController::class, 'create'])->name('create-category');
 Route::post('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'save'])->name('work_images');
@@ -101,6 +95,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
 Route::get('/prueba', [App\Http\Controllers\IndexController::class, 'prueba'])->name('prueba');
 Route::get('/contacto', [App\Http\Controllers\ContactController::class, 'showForm'])->name('contacto');
+Route::Post('/subscribe', [App\Http\Controllers\Admin\SubscriptionsController::class, 'save'])->name('subscribe');
 Route::get('/catalogo', [App\Http\Controllers\IndexController::class, 'catalogo'])->name('catalogo');
 Route::get('/devolucion', [App\Http\Controllers\IndexController::class, 'devolucion'])->name('devolucion');
 Route::get('/lista', [App\Http\Controllers\IndexController::class, 'lista'])->name('lista');

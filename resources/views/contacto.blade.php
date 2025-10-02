@@ -80,3 +80,5 @@
 
         </section> 
 @endsection
+
+@extends('layouts.whatsapp')

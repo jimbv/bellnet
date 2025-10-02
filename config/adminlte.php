@@ -416,6 +416,11 @@ return [
             ],
         ],
         [
+            'text' => 'Subscripciones',
+            'icon' => 'fa fa-list',
+            'url' => '/admin/subscriptions/', 
+        ],
+        [
             'text' => ' Configuración',
             'icon' => 'fa fa-cog',
             'url' => '/admin/configuration'
