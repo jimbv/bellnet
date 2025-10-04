@@ -38,6 +38,18 @@
                 </div>
             </div>
             <div class="row mb-3">
+                <label for="slug" class="col-md-4 col-form-label text-md-end">Slug</label>
+                <div class="col-md-6">
+                    <input id="slug" name="slug"  type="text" value="{{ $service->slug }}" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus />
+
+                    @error('slug')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+            <div class="row mb-3">
                 <label for="description" class="col-md-4 col-form-label text-md-end">Descripción</label>
                 <div class="col-md-6">
                     <textarea id="description" name="description" class="form-control @error('description') is-invalid @enderror">{{ $service->description }}</textarea>
@@ -78,7 +90,7 @@
     <div class="row mb-0">
         <div class="col-md-6 offset-md-4">
             <button type="submit" class="btn btn-primary">
-                Guardar testimonio
+                Guardar servicio
             </button>
 
             <br>

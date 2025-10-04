@@ -73,7 +73,16 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-family:Cloudsters;">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link mx-2" href="/productos">PRODUCTOS</a></li>
-                        <li class="nav-item"><a class="nav-link mx-2" href="/#obras">SERVICIOS</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">SERVICIOS</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                @foreach($services as $service)
+                                <li><a class="dropdown-item" href="/servicio/{{$service->slug}}">{{$service->name}}</a></li> 
+                                @endforeach
+                            </ul>
+                        </li>
+                        
                         <li class="nav-item dropdown">
                             <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">EMPRESA</a>
@@ -85,12 +94,20 @@
                         </li>
                         <li class="nav-item"><a class="nav-link mx-2" href="/contacto">CONTACTO</a></li>
                     </ul>
-                    <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
-                        <li class="nav-item mx-2">
-                            <a target="_blank" href="https://www.instagram.com/clickcomunicacionvm/" style="text-decoration:none;color:#f74e04">
-                                <i class="fab fa-instagram"></i> clickcomunicacionvm
-                            </a>
-                        </li>
+                    <ul class="navbar-nav ms-auto d-lg-inline-flex">
+                        <form action=" " method="GET" class="mt-3">
+                            <div class="input-group">
+                                <input type="text"
+                                    name="q"
+                                    class="form-control rounded-start"
+                                    placeholder="Buscar productos"
+                                    style="font-family: 'Courier New', Courier, monospace;"
+                                    required>
+                                <button class="btn btn-primary rounded-end" type="submit" style="background-color: #f74e04; border-color:#f74e04">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -98,7 +115,7 @@
     </header>
 
     <main>
-            @yield('contenido')
+        @yield('contenido')
     </main>
 
 
@@ -110,26 +127,26 @@
             <div class="pt-5">
                 <div class="flex flex-col sm:flex-row justify-center sm:justify-between items-center mb-10">
                     <img src="/imgs/logoblanco.png" alt="Click comunicación" class="h-14 w-auto mb-5 sm:mb-0">
-                    
-                    
-                    <form action="{{ route('subscribe') }}" method="POST" class="sm:w-50 max-w-md text-white">
-    @csrf
-    <label for="email" class="form-label mb-2">
-        Sumate a nuestra lista y recibí novedades
-    </label>
 
-    <div class="input-group">
-        <input type="email" 
-               id="email"
-               name="email" 
-               placeholder="Ingresá tu email"
-               class="form-control rounded-start" 
-               required>
-        <button type="submit" class="btn btn-danger rounded-end">
-            Suscribirme
-        </button>
-    </div>
-</form>
+
+                    <form action="{{ route('subscribe') }}" method="POST" class="sm:w-50 max-w-md text-white">
+                        @csrf
+                        <label for="email" class="form-label mb-2">
+                            Sumate a nuestra lista y recibí novedades
+                        </label>
+
+                        <div class="input-group">
+                            <input type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Ingresá tu email"
+                                class="form-control rounded-start"
+                                required>
+                            <button type="submit" class="btn btn-danger rounded-end">
+                                Suscribirme
+                            </button>
+                        </div>
+                    </form>
 
 
 
@@ -188,13 +205,13 @@
                     </a>
                 </div>
                 <div class="text-center pb-10 text-xs " style="color: white;text-decoration: none;">
-                    © {{ date('Y') }} Click Comunicación
+                    © {{ date('Y') }} Click comunicación & publicidad
                 </div>
 
             </div>
         </div>
     </footer>
-    
+
 
 
 

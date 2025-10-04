@@ -26,10 +26,12 @@ class servicesController extends Controller
         try {
             $validatedData = $request->validate([
                 'name' => 'required|string',
+                'slug' => 'required|string',
                 'description' => 'required|string',
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ], [
                 'name.required' => 'El campo Nombre es obligatorio.',
+                'slug.required' => 'El campo Slug es obligatorio.',
                 'description.required' => 'El campo Descripción es obligatorio.',
                 'image.image' => 'El archivo debe ser una imagen.',
                 'image.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
@@ -69,43 +71,41 @@ class servicesController extends Controller
 
     public function update(Request $request)
     {
+        
         try {
             $validatedData = $request->validate([
                 'name' => 'required|string',
+                'slug' => 'required|string',
                 'description' => 'required|string',
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ], [
                 'name.required' => 'El campo Nombre es obligatorio.',
+                'slug.required' => 'El campo Slug es obligatorio.',
                 'description.required' => 'El campo Description es obligatorio.',
                 'image.image' => 'El archivo debe ser una imagen.',
                 'image.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
                 'image.max' => 'La imagen no debe superar los 2048 KB.',
             ]);
-
             $image = $request->file('image');
 
-            $id = $request->testimony_id;
+            $id = $request->service_id;
             $service = Service::findOrFail($id);
 
             if ($request->deleteImg == 1) {
                 Storage::disk('publico')->delete($service->image);
                 $service->update(['image' => '']);
-            } 
+            }
 
             if ($image) {
-                $path = $image->store('imgs/testimony_images', 'publico');
+                $path = $image->store('imgs/service_images', 'publico');
                 $service->update(['image' => $path]);
                 unset($validatedData['image']);
-            }  
+            }
 
             $service->update($validatedData);
-
-
             return redirect()->back()->with('success', 'Servicio guardado correctamente.');
         } catch (ValidationException $e) {
-            // Manejar la excepción de validación
             $errors = $e->validator->errors()->all();
-            // Manejar la excepción, por ejemplo, mostrar un mensaje de error
             return redirect()->back()->withErrors($errors);
         }
     }

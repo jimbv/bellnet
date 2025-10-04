@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Testimony;
+use App\Models\Service;
 use App\Models\WorkImages;
 use App\Models\Configuration;
 
@@ -20,13 +21,14 @@ class IndexController extends Controller
     
     public function prueba()
     {
+        $services = Service::select('name', 'slug')->orderBy('name')->get();
         $categories = Category::all();
         $testimonials = Testimony::all();
         $posts = Post::with('images')
                  ->latest()
                  ->take(9) // últimas 9
                  ->get();
-        return view('index',compact('categories','testimonials','posts')); 
+        return view('index',compact('categories','testimonials','posts','services')); 
     }
 
     public function catalogo()

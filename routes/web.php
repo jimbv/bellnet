@@ -110,6 +110,6 @@ Route::get('/send-mail', [App\Http\Controllers\SendMailController::class, 'conta
 Route::get('/categorias/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarCategoria'])->name('productos.categoria');
 Route::get('/productos/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarProducto'])->name('productos.producto');
 Route::get('/noticias/{slug}',  [App\Http\Controllers\PostsController::class, 'mostrarPost'])->name('noticias.noticia');
-
+Route::get('/servicio/{slug}',  [App\Http\Controllers\ServicesController::class, 'showService'])->name('servicios.servicio');
  
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
