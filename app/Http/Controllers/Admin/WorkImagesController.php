@@ -68,7 +68,7 @@ class WorkImagesController extends Controller
     }
 
     public function update(Request $request)
-    { 
+    {
         try {
             $validatedData = $request->validate([
                 'title' => 'required|string',
@@ -84,7 +84,7 @@ class WorkImagesController extends Controller
 
             $image = $request->file('image');
  
-            $id = $request->work_images_id;
+            $id = $request->work_image_id;
             $work_images = WorkImages::findOrFail($id);
 
             if ($request->deleteImg == 1) {
@@ -97,7 +97,7 @@ class WorkImagesController extends Controller
                 $work_images->update(['image' => $path]);
                 unset($validatedData['image']);
             }
-
+ 
             $work_images->update($validatedData); 
 
 
