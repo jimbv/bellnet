@@ -158,11 +158,11 @@
             <!-- Controles -->
             @if($work_images->count() > 1)
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="prev" style="left: -50px;">
-                <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                <span class="carousel-control-prev-icon  rounded-circle p-3" aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="next" style="right: -50px;">
-                <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                <span class="carousel-control-next-icon rounded-circle p-3" aria-hidden="true"></span>
                 <span class="visually-hidden">Siguiente</span>
             </button>
             @endif
