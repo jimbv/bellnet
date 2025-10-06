@@ -30,8 +30,8 @@
 
         @php
             $wi_data = [];
-            foreach($pages as $serv){
-                $wi_data[] = [ $serv->id,$serv->name,  $serv->image,'<div class="form-group d-flex"><a class="btn btn-secondary"  href="/admin/pages/'.$serv->id.'/edit"> Editar </a><form class="d-inline" action="/admin/pages/'.$serv->id.'" method="DELETE"><input type="submit" value="Eliminar" class="btn btn-primary"></form></div>'];
+            foreach($pages as $page){
+                $wi_data[] = [ $page->id,$page->name,  $page->image,'<div class="form-group d-flex"><a class="btn btn-secondary"  href="/admin/pages/'.$serv->id.'/edit"> Editar </a><form class="d-inline" action="/admin/pages/'.$serv->id.'" method="DELETE"><input type="submit" value="Eliminar" class="btn btn-primary"></form></div>'];
             }
 
             $heads = [
