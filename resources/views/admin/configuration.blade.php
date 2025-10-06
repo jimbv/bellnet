@@ -19,7 +19,7 @@
         </div>
         @endif
 
-        <form method="POST" action="{{ route('admin.configuration.update') }}">
+        <form method="POST" action="{{ route('admin.configuration.update') }}" style="display: none;">
             @csrf
             @method('PUT')
             <input id="id" name="id" type="hidden" value="{{ $configuration->id }}" />
