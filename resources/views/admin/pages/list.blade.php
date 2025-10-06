@@ -3,12 +3,12 @@
 @section('title', 'Inicio')
 
 @section('content_header')
-<h1 class="mt-4">Listado de Servicios</h1>
+<h1 class="mt-4">Listado de Páginas</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">Servicios</li>
+        <li class="breadcrumb-item active">Páginas</li>
     </ol>
-    <a href="/admin/services/create">
-    <button class="btn btn-primary">Nuevo Servicio</button>
+    <a href="/admin/pages/create">
+    <button class="btn btn-primary">Nueva página</button>
     </a>
     <p></p>
 @stop
@@ -30,14 +30,13 @@
 
         @php
             $wi_data = [];
-            foreach($services as $serv){
-                $wi_data[] = [ $serv->id,$serv->name, $serv->description, $serv->image,'<div class="form-group d-flex"><a class="btn btn-secondary"  href="/admin/services/'.$serv->id.'/edit"> Editar </a><form class="d-inline" action="/admin/services/'.$serv->id.'" method="DELETE"><input type="submit" value="Eliminar" class="btn btn-primary"></form></div>'];
+            foreach($pages as $serv){
+                $wi_data[] = [ $serv->id,$serv->name,  $serv->image,'<div class="form-group d-flex"><a class="btn btn-secondary"  href="/admin/pages/'.$serv->id.'/edit"> Editar </a><form class="d-inline" action="/admin/pages/'.$serv->id.'" method="DELETE"><input type="submit" value="Eliminar" class="btn btn-primary"></form></div>'];
             }
 
             $heads = [
             'ID',
-            'Nombre',
-            'Descripción',
+            'Nombre', 
             ['label' => 'Imágen', 'width' => 40],
             ['label' => 'Acciones', 'no-export' => true, 'width' => 5],
             ];

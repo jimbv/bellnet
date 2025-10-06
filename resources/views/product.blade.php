@@ -3,7 +3,7 @@
 <section class="bg-white" style="background-color: white;">
     <div class="container my-5">
 
-         
+
 
         <div class="row">
 
@@ -82,12 +82,39 @@
 
                         <p class="card-text small text-muted">{!! $product->description !!}</p>
 
+                        <br>
+
                         @if($product->price)
                         <p class="fw-bold text-success fs-4 mt-4">
                             ${{ number_format($product->price, 2, ',', '.') }}
                         </p>
                         @endif
- 
+
+                    </div>
+
+                    <div>@if($product->technical_notes)
+                        <strong>Detalles técnicos</strong>
+                        <p class="card-text small text-muted">{!! $product->technical_notes !!}</p>
+                        @endif
+
+
+                        @if($product->latitude && $product->longitude)
+                        <div class="mt-4">
+                            <h5 class="fw-bold mb-2">Ubicación</h5>
+                            <div style="border-radius:12px; overflow:hidden;">
+                                <iframe
+                                    width="100%"
+                                    height="300"
+                                    style="border:0;"
+                                    loading="lazy"
+                                    allowfullscreen
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    src="https://www.google.com/maps?q={{ $product->latitude }},{{ $product->longitude }}&z=15&output=embed">
+                                </iframe>
+                            </div>
+                        </div>
+                        @endif
+
                     </div>
                 </div>
             </section>

@@ -35,14 +35,17 @@ class ProductsController extends Controller
                 'category_id' => 'required',
                 'technical_notes' => '',
                 'description' => 'required|string',
-                'price' => 'required|numeric',
+                'price' => 'nullable|numeric',
                 'product_id_temporal' => 'required',
+                'latitude' => 'nullable|numeric',
+                'longitude' => 'nullable|numeric',
             ], [
                 'name.required' => 'El campo Nombre es obligatorio.',
                 'slug.required' => 'El campo Nombre es obligatorio.',
                 'category_id.required' => 'Seleccione una categoría',
                 'description.required' => 'El campo Descripción es obligatorio.',
-                'price.required' => 'El campo Precio es obligatorio.',
+                'latitude.numeric' => 'El campo Latitud debe ser un número válido.',
+                'longitude.numeric' => 'El campo Longitud debe ser un número válido.',
             ]);
 
             $id_temporal = $validatedData['product_id_temporal'];
@@ -86,14 +89,18 @@ class ProductsController extends Controller
                 'category_id' => 'required',
                 'technical_notes' => '',
                 'description' => 'required|string',
-                'price' => 'required|numeric',
+                'price' => 'nullable|numeric',
                 'product_id' => 'required',
+                'latitude' => 'nullable|numeric',
+                'longitude' => 'nullable|numeric',
             ], [
                 'name.required' => 'El campo Nombre es obligatorio.',
                 'slug.required' => 'El campo Nombre es obligatorio.',
                 'category_id.required' => 'Seleccione una categoría',
                 'description.required' => 'El campo Descripción es obligatorio.',
-                'price.required' => 'El campo Precio es obligatorio.',
+                'latitude.numeric' => 'El campo Latitud debe ser un número válido.',
+                'longitude.numeric' => 'El campo Longitud debe ser un número válido.',
+
             ]);
 
             $id = $validatedData['product_id'];

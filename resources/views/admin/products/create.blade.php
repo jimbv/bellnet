@@ -120,13 +120,48 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
+            <div class="row mb-3 d-none">
                 <label for="images" class="col-md-4 col-form-label text-md-end">Opciones</label>
 
                 <div class="col-md-6">
                     @livewire('admin.product-additionals', ['product_id_temporal' => $product_id_temporal])
                 </div>
             </div>
+
+            <div class="row mb-3">
+                <label for="latitude" class="col-md-4 col-form-label text-md-end">Latitud</label>
+
+                <div class="col-md-6">
+                    <input id="latitude" type="text"
+                        class="form-control @error('latitude') is-invalid @enderror"
+                        name="latitude" value="{{ old('latitude') }}"
+                        placeholder="-34.603722">
+
+                    @error('latitude')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="longitude" class="col-md-4 col-form-label text-md-end">Longitud</label>
+
+                <div class="col-md-6">
+                    <input id="longitude" type="text"
+                        class="form-control @error('longitude') is-invalid @enderror"
+                        name="longitude" value="{{ old('longitude') }}"
+                        placeholder="-58.381592">
+
+                    @error('longitude')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
             <br>
             <div class="row mb-0">
                 <div class="col-md-6 offset-md-4">

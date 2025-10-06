@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<a href="/admin/categories/create">
+<a href="/admin/work_images/create">
     <button class="btn btn-primary">Nueva Imágen</button>
 </a> <br> <br>
 

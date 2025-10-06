@@ -122,6 +122,91 @@
     </div>
 
 </section>
+<section class="py-5" style="background: linear-gradient(to bottom, #ffffff, #ffbe80);">
+    <div class="container">
+        <h2 class="text-center text-uppercase fw-bold mb-5" style="color:#111!important;font-family:Logomark;">
+            Trabajos Realizados
+        </h2>
+
+        @if($work_images->count() > 0)
+        <div id="carouselTrabajos" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                @foreach($work_images as $index => $work)
+                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                    <div class="row justify-content-center align-items-center g-4">
+                        
+                        <!-- Imagen -->
+                        <div class="col-md-5 text-center">
+                            <img src="/{{ $work->image }}" 
+                                 class="img-fluid rounded-4 shadow"
+                                 alt="{{ $work->title }}" 
+                                 style="max-height: 300px; object-fit: cover; margin: 0 auto;">
+                        </div>
+
+                        <!-- Texto -->
+                        <div class="col-md-6">
+                            <h4 class="fw-bold mt-3 mt-md-0">{{ $work->title }}</h4>
+                            <p class="text-muted">{{ $work->text }}</p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+
+            </div>
+
+            <!-- Controles -->
+            @if($work_images->count() > 1)
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="prev" style="left: -50px;">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="next" style="right: -50px;">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+            @endif
+
+            <!-- Indicadores -->
+            @if($work_images->count() > 1)
+            <div class="carousel-indicators mt-4">
+                @foreach($work_images as $index => $work)
+                    <button type="button"
+                            data-bs-target="#carouselTrabajos"
+                            data-bs-slide-to="{{ $index }}"
+                            class="{{ $index === 0 ? 'active' : '' }}"
+                            aria-label="Trabajo {{ $index + 1 }}"></button>
+                @endforeach
+            </div>
+            @endif
+        </div>
+        @else
+            <p class="text-center text-muted">Aún no hay trabajos cargados.</p>
+        @endif
+    </div>
+</section>
+
+<style>
+    /* Centrar mejor la imagen y separar flechas */
+    #carouselTrabajos .carousel-item img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Mueve las flechas hacia afuera del contenedor */
+    #carouselTrabajos .carousel-control-prev,
+    #carouselTrabajos .carousel-control-next {
+        width: auto;
+    }
+
+    /* Indicadores más visibles */
+    #carouselTrabajos .carousel-indicators [data-bs-target] {
+        background-color: #f74e04;
+    }
+</style>
+
+
 <section class="py-5 ">
     <div class="container">
         <div class="text-center mb-5">

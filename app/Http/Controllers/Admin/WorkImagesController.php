@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\WorkImages;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,9 +26,11 @@ class WorkImagesController extends Controller
         try {
             $validatedData = $request->validate([
                 'title' => 'required|string',
+                'text' => 'required|string',
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ], [
                 'title.required' => 'El campo Título es obligatorio.',
+                'text.required' => 'El campo Texto es obligatorio.',
                 'image.image' => 'El archivo debe ser una imagen.',
                 'image.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
                 'image.max' => 'La imagen no debe superar los 2048 KB.',
@@ -44,7 +47,7 @@ class WorkImagesController extends Controller
 
 
             return redirect()->back()->with('success', 'Imagen de trabajo guardada correctamente.');
-        } catch (Exception $e) {
+        } catch (ValidationException $e) {
             $errors = $e->validator->errors()->all();
             return redirect()->back()->with($errors);
         }
@@ -65,43 +68,45 @@ class WorkImagesController extends Controller
     }
 
     public function update(Request $request)
-    {
+    { 
         try {
             $validatedData = $request->validate([
                 'title' => 'required|string',
+                'text' => 'required|string',
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ], [
-                'titulo.required' => 'El campo Título es obligatorio.',
+                'title.required' => 'El campo Título es obligatorio.',
+                'text.required' => 'El campo Texto es obligatorio.',
                 'image.image' => 'El archivo debe ser una imagen.',
                 'image.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
                 'image.max' => 'La imagen no debe superar los 2048 KB.',
             ]);
 
             $image = $request->file('image');
-
+ 
             $id = $request->work_images_id;
             $work_images = WorkImages::findOrFail($id);
 
             if ($request->deleteImg == 1) {
                 Storage::disk('publico')->delete($work_images->image);
                 $work_images->update(['image' => '']);
-            } 
+            }
 
             if ($image) {
                 $path = $image->store('imgs/work_images', 'publico');
                 $work_images->update(['image' => $path]);
                 unset($validatedData['image']);
-            }  
+            }
 
-            $work_images->update($validatedData);
+            $work_images->update($validatedData); 
 
 
-            return redirect()->back()->with('success', 'Imágen guardada correctamente.');
-        } catch (Exception $e) {
+            return redirect()->back()->with('success', 'Trabajo guardado correctamente.');
+        } catch (ValidationException $e) {
             // Manejar la excepción de validación
             $errors = $e->validator->errors()->all();
             // Manejar la excepción, por ejemplo, mostrar un mensaje de error
-            return redirect()->back()->with($errors);
+            return redirect()->back()->withErrors($errors);
         }
     }
 }

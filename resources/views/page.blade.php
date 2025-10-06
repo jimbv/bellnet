@@ -8,13 +8,13 @@
         <div class="row">
             <div class="col-md-6">
                 @if($page->image!='')
-                <img src="/{{$service->image}}" alt="{{$service->name}}" style="width:100%; border-radius:8px; box-shadow:0px 0px 8px #f74e04;">
+                <img src="/{{$page->image}}" alt="{{$page->name}}" style="width:100%; border-radius:8px; box-shadow:0px 0px 8px #f74e04;">
                 @else
-                <img src="https://via.placeholder.com/600x400?text=Sin+Imagen" alt="{{$service->name}}" style="width:100%; border-radius:8px; box-shadow:0px 0px 8px #f74e04;">
+                <img src="https://via.placeholder.com/600x400?text=Sin+Imagen" alt="{{$page->name}}" style="width:100%; border-radius:8px; box-shadow:0px 0px 8px #f74e04;">
                 @endif
             </div>
             <div class="col-md-6">
-                <p style="text-align: justify;">{!! $page->text !!}</p>
+                <p style="text-align: justify;">{!! $page->description !!}</p>
             </div>
         </div>
 </section>

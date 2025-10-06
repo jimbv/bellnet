@@ -347,22 +347,7 @@ return [
                 ]
             ],
         ],
-        [
-            'text' => 'Trabajos realizados',
-            'icon' => 'fa fa-file-image',
-            'submenu' => [
-                [
-                    'text' => 'Nueva Imágen',
-                    'icon' => 'fa fa-file-image',
-                    'url' => '/admin/work_images/create',
-                ],
-                [
-                    'text' => 'Listado',
-                    'icon' => 'fa fa-list',
-                    'url' => '/admin/work_images',
-                ]
-            ],
-        ],
+        
 
         ['header' => 'WEB'],
         [
@@ -395,6 +380,38 @@ return [
                     'text' => 'Listado',
                     'icon' => 'fa fa-list',
                     'url' => '/admin/services',
+                ]
+            ],
+        ],
+        [
+            'text' => 'Trabajos realizados',
+            'icon' => 'fa fa-file-image',
+            'submenu' => [
+                [
+                    'text' => 'Nueva Imágen',
+                    'icon' => 'fa fa-file-image',
+                    'url' => '/admin/work_images/create',
+                ],
+                [
+                    'text' => 'Listado',
+                    'icon' => 'fa fa-list',
+                    'url' => '/admin/work_images',
+                ]
+            ],
+        ],
+        [
+            'text' => 'Páginas',
+            'icon' => 'fa fa-file-image',
+            'submenu' => [
+                [
+                    'text' => 'Nueva página',
+                    'icon' => 'fa fa-file-image',
+                    'url' => '/admin/pages/create',
+                ],
+                [
+                    'text' => 'Listado',
+                    'icon' => 'fa fa-list',
+                    'url' => '/admin/pages',
                 ]
             ],
         ],

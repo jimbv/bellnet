@@ -69,14 +69,6 @@ Route::put('/admin/testimonials', [App\Http\Controllers\Admin\TestimonialsContro
 Route::get('/admin/subscriptions', [App\Http\Controllers\Admin\SubscriptionsController::class, 'list'])->name('subscriptions');
 Route::get('/admin/subscriptions/{id}',  [App\Http\Controllers\Admin\SubscriptionsController::class, 'delete'])->name('subscriptions.delete');
 
-Route::get('/admin/work_images/create', [App\Http\Controllers\Admin\WorkImagesController::class, 'create'])->name('create-category');
-Route::post('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'save'])->name('work_images');
-Route::get('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'list'])->name('work_images');
-Route::get('/admin/work_images/{id}',  [App\Http\Controllers\Admin\WorkImagesController::class, 'delete'])->name('work_images.delete');
-Route::get('/admin/work_images/{id}/edit',  [App\Http\Controllers\Admin\WorkImagesController::class, 'edit'])->name('work_images.edit');
-Route::put('/admin/work_images', [App\Http\Controllers\Admin\WorkImagesController::class, 'update'])->name('work_images.update');
-
-
 Route::get('/admin/posts', [App\Http\Controllers\Admin\PostsController::class, 'list'])->name('posts');
 Route::get('/admin/posts/create', [App\Http\Controllers\Admin\PostsController::class, 'create'])->name('create-post');
 Route::post('/admin/posts', [App\Http\Controllers\Admin\PostsController::class, 'save'])->name('posts');
@@ -99,7 +91,7 @@ Route::Post('/subscribe', [App\Http\Controllers\Admin\SubscriptionsController::c
 Route::get('/catalogo', [App\Http\Controllers\IndexController::class, 'catalogo'])->name('catalogo');
 Route::get('/devolucion', [App\Http\Controllers\IndexController::class, 'devolucion'])->name('devolucion');
 Route::get('/lista', [App\Http\Controllers\IndexController::class, 'lista'])->name('lista');
-Route::get('/empresa', [App\Http\Controllers\IndexController::class, 'empresa'])->name('index');
+Route::get('/page/{slug}', [App\Http\Controllers\IndexController::class, 'page'])->name('page');
 Route::get('/glosario', [App\Http\Controllers\IndexController::class, 'glosario'])->name('index');
 Route::get('/productos', [App\Http\Controllers\ProductsController::class, 'index'])->name('products.index');
 
