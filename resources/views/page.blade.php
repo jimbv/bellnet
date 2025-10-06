@@ -3,7 +3,7 @@
 <section class="bg-white">
     <div class="max-w-screen-xl mx-auto px-5 py-10">
         <h2 class="text-2xl md:text-3xl font-black text-primary uppercase text-center mb-10" style="color:#f74e04!important;font-family:Logomark;">
-            {{$page->title}}
+            {{$page->name}}
         </h2>
         <div class="row">
             <div class="col-md-6">
