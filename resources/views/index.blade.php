@@ -25,16 +25,30 @@
             </h1>
         </div>
     </div>
-</section>
 
-<section class="bg-white">
+
+
+
+</section>
+<section style="background: linear-gradient(to bottom, #d3d3d3, #ffffff);">
+    <div class="container py-3" style="position: relative; top: -70px;z-index:9;background:white;">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-10 text-center">
+                Ayudamos a potenciar tu marca, trabajando las herramientas de comunicación adecuadas y posicionándola a través de distintos espacios de publicidad y difusión.
+                <br>
+                Contamos con un amplio abanico de medios en todos los formatos publicitarios y producimos campañas efectivas para llevar estratégicamente tu marca a todas partes y a otro nivel.
+                </p>
+            </div>
+        </div>
+</section>
+<section id="productos" class="bg-white">
     <div class="max-w-screen-xl mx-auto px-5 py-10">
         <h2 class="text-2xl md:text-3xl font-black text-primary uppercase text-center mb-10" style="color:#f74e04!important;font-family:Logomark;">Nuestros Productos</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5 place-items-center">
 
             @foreach($categories as $category)
-            <a href="/category/{{$category->id}}" target="_blank"
+            <a href="/categorias/{{$category->slug}}/"
                 style="background-color: {{$category->color}}!important; text-decoration:none;"
                 class="bg-tertiary-2 rounded-xl p-5 flex xl:flex-col justify-start xl:justify-center items-center hover:scale-[1.02] focus:outline-none focus:ring-4 focus:transform-none transition-all w-full xl:w-48 xl:h-48 relative">
                 @if($category->image)
@@ -51,7 +65,7 @@
         </div>
     </div>
 </section>
-<section class="mb-5">
+<section class="mb-5 bg-gray-200 p-5">
     <div id="postsCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <p></p>
@@ -64,27 +78,29 @@
 
                     @foreach($chunk as $post)
                     <div class="col-md-4">
-                        <div class="card h-100 shadow-sm border-0">
+                        <a href="/novedad/{{$post->slug}}" style="text-decoration:none; color:black;">
+                            <div class="card h-100 shadow-sm border-0">
 
-                            {{-- Imagen destacada (primera del post) --}}
-                            @if($post->images->isNotEmpty())
-                            <img src="{{ asset($post->images->first()->image_path) }}"
-                                class="card-img-top"
-                                alt="{{ $post->images->first()->alt_text ?? $post->title }}">
-                            @else
-                            <img src="https://via.placeholder.com/600x400?text=Sin+Imagen"
-                                class="card-img-top"
-                                alt="{{ $post->title }}">
-                            @endif
+                                {{-- Imagen destacada (primera del post) --}}
+                                @if($post->images->isNotEmpty())
+                                <img src="{{ asset($post->images->first()->image_path) }}"
+                                    class="card-img-top"
+                                    alt="{{ $post->images->first()->alt_text ?? $post->title }}">
+                                @else
+                                <img src="https://via.placeholder.com/600x400?text=Sin+Imagen"
+                                    class="card-img-top"
+                                    alt="{{ $post->title }}">
+                                @endif
 
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $post->title }}</h5>
-                                <p class="card-text">{!! Str::limit($post->short_text, 100) !!}</p>
-                                <a href="{{ url('/posts/'.$post->slug) }}" class="btn btn-primary btn-sm">
-                                    Leer más
-                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $post->title }}</h5>
+                                    <p class="card-text">{!! Str::limit($post->short_text, 100) !!}</p>
+                                    <a href="{{ url('/posts/'.$post->slug) }}" class="btn btn-primary btn-sm">
+                                        Leer más
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     @endforeach
 
@@ -106,7 +122,7 @@
     </div>
 
 </section>
-<section class="py-5 bg-light">
+<section class="py-5 ">
     <div class="container">
         <div class="text-center mb-5">
             <p></p>
@@ -195,7 +211,7 @@
     <a href="mailto:info@clickcomunicacion.com.ar" target="_blank" class="  mb-2 btn btn-primary">
         <i class="fa-solid fa-envelope"></i>
     </a>
-    <a href="/contacto" target="_blank" class="btn btn-light">
+    <a href="/contacto" class="btn btn-light">
         <i class="fa-solid fa-map-marker-alt"></i>
     </a>
 </div>

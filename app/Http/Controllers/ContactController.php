@@ -8,12 +8,14 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\SendMailController;
 use Mail;
 use App\Mail\TemplateMail;
+use App\Models\Service;
 
 class ContactController extends Controller
 {
     public function showForm()
     {
-        return view('contacto');
+        $services = Service::select('name', 'slug')->orderBy('name')->get();
+        return view('contacto',compact('services'));
     }
 
     public function submit(Request $request)

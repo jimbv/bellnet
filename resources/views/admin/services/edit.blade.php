@@ -28,7 +28,7 @@
             <div class="row mb-3">
                 <label for="name" class="col-md-4 col-form-label text-md-end">Nombre</label>
                 <div class="col-md-6">
-                    <input id="name" name="name"  type="text" value="{{ $service->name }}" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus />
+                    <input id="name" oninput="slugGenerate();" name="name"  type="text" value="{{ $service->name }}" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus />
 
                     @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -103,20 +103,13 @@
 
 @stop
 
+
 @section('css')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 @stop
 
 @section('js')
-
 <script>
-    function slugGenerate() {
-        var nombreInput = document.getElementById('name');
-        var slugInput = document.getElementById('slug');
-        var name = nombreInput.value;
-        var slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-        slugInput.value = slug;
-    }
-
     function slugRegenerate() {
         var nombreInput = document.getElementById('name');
         var slugInput = document.getElementById('slug');
@@ -124,5 +117,22 @@
         var slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         slugInput.value = slug;
     }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#description').summernote({
+            height: 100, // Altura del editor
+            placeholder: 'Escribe aquí...', // Texto de marcador de posición
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['view', ['fullscreen', 'codeview']],
+            ]
+        }); 
 </script>
 @stop

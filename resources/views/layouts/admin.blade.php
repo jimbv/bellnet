@@ -10,7 +10,6 @@
     <title>{{ config('app.name', 'Bellnet') }}</title>
     <!-- Styles -->
     <link href="/sb-admin/css/styles.css" rel="stylesheet" /> 
-    
     <!-- Scripts -->
     @yield('scripts')
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])

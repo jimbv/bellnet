@@ -4,26 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Service;
 
 class ProductsController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
-        return view('page.products', compact('categories'));
+        $services = Service::select('name', 'slug')->orderBy('name')->get();
+        $category = Category::where('slug', $slug)->first();
+        $categories = Category::orderBy('name')->get();
+        $products = Product::paginate();
+        return view('products', compact('products', 'category', 'categories','services'));
     }
 
     public function mostrarCategoria($slug)
     {
+
+        $services = Service::select('name', 'slug')->orderBy('name')->get();
         $category = Category::where('slug', $slug)->first();
-        $categories = Category::all();
-        $products = Product::where('category_id', $category->id)->get();
-        return view('page.products', compact('products', 'category', 'categories'));
+        $categories = Category::orderBy('name')->get();
+        $products = Product::where('category_id', $category->id)->paginate();
+        return view('products', compact('products', 'category', 'categories','services'));
     }
 
     public function mostrarProducto($slug)
     {
+        $categories = Category::orderBy('name')->get();
+        $services = Service::select('name', 'slug')->orderBy('name')->get();
         $product = Product::where('slug', $slug)->first();
-        return view('page.product', compact('product'));
+        return view('product', compact('product','services','categories'));
     }
 }

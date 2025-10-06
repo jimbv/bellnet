@@ -102,14 +102,14 @@ Route::get('/lista', [App\Http\Controllers\IndexController::class, 'lista'])->na
 Route::get('/empresa', [App\Http\Controllers\IndexController::class, 'empresa'])->name('index');
 Route::get('/glosario', [App\Http\Controllers\IndexController::class, 'glosario'])->name('index');
 Route::get('/productos', [App\Http\Controllers\ProductsController::class, 'index'])->name('products.index');
-Route::get('/noticias', [App\Http\Controllers\PostsController::class, 'index'])->name('noticias.index');
 
 Route::post('/contacto/enviar', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
 Route::get('/send-mail', [App\Http\Controllers\SendMailController::class, 'contact']);
 
+Route::get('/novedades', [App\Http\Controllers\PostsController::class, 'index'])->name('novedades.index');
+Route::get('/novedad/{slug}',  [App\Http\Controllers\PostsController::class, 'mostrarPost'])->name('novedad');
 Route::get('/categorias/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarCategoria'])->name('productos.categoria');
 Route::get('/productos/{slug}',  [App\Http\Controllers\ProductsController::class, 'mostrarProducto'])->name('productos.producto');
-Route::get('/noticias/{slug}',  [App\Http\Controllers\PostsController::class, 'mostrarPost'])->name('noticias.noticia');
 Route::get('/servicio/{slug}',  [App\Http\Controllers\ServicesController::class, 'showService'])->name('servicios.servicio');
  
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

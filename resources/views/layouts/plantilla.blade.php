@@ -53,7 +53,7 @@
     @yield('styles')
 </head>
 
-<body class="bg-gray-200 flex flex-col min-h-screen justify-start min-w-[390px]">
+<body class="bg-white flex flex-col min-h-screen justify-start min-w-[390px]">
 
 
 
@@ -72,7 +72,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-family:Cloudsters;">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link mx-2" href="/productos">PRODUCTOS</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2" href="/DockerfileAnterior">PRODUCTOS</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">SERVICIOS</a>
@@ -88,7 +88,7 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">EMPRESA</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="/empresa">ACERCA DE NOSOTROS</a></li>
-                                <li><a class="dropdown-item" href="/noticias">NOTICIAS</a></li>
+                                <li><a class="dropdown-item" href="/novedades">NOTICIAS</a></li>
                                 <li><a class="dropdown-item" href="/glosario">PREGUNTAS FRECUENTES</a></li>
                             </ul>
                         </li>

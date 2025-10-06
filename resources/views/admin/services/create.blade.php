@@ -2,8 +2,8 @@
 
 @section('title', 'Inicio')
 
-@section('content_header') 
-    <h1>Nuevo Servicio</h1> 
+@section('content_header')
+<h1>Nuevo Servicio</h1>
 @stop
 
 @section('content')
@@ -26,7 +26,7 @@
             <div class="row mb-3">
                 <label for="name" class="col-md-4 col-form-label text-md-end">Nombre</label>
                 <div class="col-md-6">
-                    <input id="name" name="name"  type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus />
+                    <input id="name" oninput="slugGenerate();" name="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus />
 
                     @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -35,7 +35,18 @@
                     @enderror
                 </div>
             </div>
+            <div class="row mb-3">
+                <label for="slug" class="col-md-4 col-form-label text-md-end">Slug</label>
+                <div class="col-md-6">
+                    <input id="slug" name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug') }}" required autocomplete="slug" autofocus />
 
+                    @error('slug')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
             <div class="row mb-3">
                 <label for="description" class="col-md-4 col-form-label text-md-end">Descripción</label>
                 <div class="col-md-6">
@@ -75,7 +86,35 @@
 @stop
 
 @section('css')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 @stop
 
 @section('js')
+<script>
+    function slugGenerate() {
+        var nombreInput = document.getElementById('name');
+        var slugInput = document.getElementById('slug');
+        var name = nombreInput.value;
+        var slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        slugInput.value = slug;
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#description').summernote({
+            height: 100, // Altura del editor
+            placeholder: 'Escribe aquí...', // Texto de marcador de posición
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['view', ['fullscreen', 'codeview']],
+            ]
+        });
+    });
+</script>
 @stop
