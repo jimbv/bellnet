@@ -117,7 +117,7 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
+            <div class="row mb-3 d-none">
                 <label for="images" class="col-md-4 col-form-label text-md-end">Opciones</label>
 
                 <div class="col-md-6">

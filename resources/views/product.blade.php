@@ -3,23 +3,7 @@
 <section class="bg-white" style="background-color: white;">
     <div class="container my-5">
 
-        <!-- Encabezado -->
-        <div class="text-center mb-4">
-            <h2 class="text-center text-uppercase fw-bold mb-5 display-5"
-                style="color: black !important; font-family: Cloudsters;">
-                {{ $product->name }}
-            </h2>
-        </div>
-
-        <!-- Breadcrumb -->
-        <nav aria-label="breadcrumb" class="mb-4">
-            <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-                <li class="breadcrumb-item">Categorías</li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $product->category->name }}</li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
-            </ol>
-        </nav>
+         
 
         <div class="row">
 
@@ -61,15 +45,53 @@
             </style>
             <!-- Principal: Productos -->
             <section class="col-md-9">
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
+                <div class="row g-4 align-items-start">
+                    <!-- Columna izquierda: imágenes -->
+                    <div class="col-md-6">
+                        <div id="carousel{{ $product->id }}" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner mb-3">
+                                @foreach($product->images as $index => $img)
+                                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                    <img src="/{{ $img->image_path }}"
+                                        class="d-block w-100 rounded-4 shadow"
+                                        alt="{{ $product->name }}"
+                                        style="object-fit: cover; max-height: 500px;">
+                                </div>
+                                @endforeach
+                            </div>
+
+                            {{-- Solo mostrar miniaturas si hay más de una imagen --}}
+                            @if($product->images->count() > 1)
+                            <div class="d-flex justify-content-center gap-2 mt-2 flex-wrap">
+                                @foreach($product->images as $index => $img)
+                                <img src="/{{ $img->image_path }}"
+                                    class="img-thumbnail"
+                                    style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;"
+                                    data-bs-target="#carousel{{ $product->id }}"
+                                    data-bs-slide-to="{{ $index }}"
+                                    aria-label="Imagen {{ $index + 1 }}">
+                                @endforeach
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+
+                    <!-- Columna derecha: texto y precio -->
+                    <div class="col-md-6">
+                        <h2 class="fw-bold mb-3">{{ $product->name }}</h2>
+
                         <p class="card-text small text-muted">{!! $product->description !!}</p>
+
                         @if($product->price)
-                        <p class="fw-bold text-success mb-0">${{ number_format($product->price, 2, ',', '.') }}</p>
+                        <p class="fw-bold text-success fs-4 mt-4">
+                            ${{ number_format($product->price, 2, ',', '.') }}
+                        </p>
                         @endif
-                    </div> 
+ 
+                    </div>
                 </div>
             </section>
+
         </div>
     </div>
 

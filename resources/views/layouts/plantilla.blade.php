@@ -72,7 +72,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown" style="font-family:Cloudsters;">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link mx-2" href="/DockerfileAnterior">PRODUCTOS</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2" href="/#productos">PRODUCTOS</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">SERVICIOS</a>
@@ -95,7 +95,7 @@
                         <li class="nav-item"><a class="nav-link mx-2" href="/contacto">CONTACTO</a></li>
                     </ul>
                     <ul class="navbar-nav ms-auto d-lg-inline-flex">
-                        <form action=" " method="GET" class="mt-3">
+                        <form action="{{ route('productosbuscar') }}" method="GET" class="mt-3">
                             <div class="input-group">
                                 <input type="text"
                                     name="q"

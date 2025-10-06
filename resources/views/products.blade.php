@@ -4,10 +4,12 @@
     <div class="container my-5">
 
         <!-- Encabezado -->
+        @if($category)
         <div class="text-center mb-4">
             <h2 class="text-center text-uppercase fw-bold mb-5 display-5"
-    style="color: {{ $category->color }} !important; font-family: Logomark;">
-            {{ $category->name }}</h2>
+                style="color: {{ $category->color }} !important; font-family: Logomark;">
+                {{ $category->name }}
+            </h2>
         </div>
 
         <!-- Breadcrumb -->
@@ -18,6 +20,13 @@
                 <li class="breadcrumb-item active" aria-current="page">{{ $category->name }}</li>
             </ol>
         </nav>
+        @else 
+        <div class="text-center mb-4">
+            <h2 class="text-center text-uppercase fw-bold mb-5 display-5"
+                style="color: #0d6efd !important; font-family: Logomark;">
+                Resultados de la búsqueda: "{{ $query }}"</h2>
+        </div>
+        @endif
 
         <div class="row">
 
@@ -25,7 +34,9 @@
                 <div class="list-group shadow-sm">
                     @foreach($categories as $cat)
                     @php
+                    if(isset($category))
                     $isActive = $cat->id == $category->id;
+                    else $isActive = false;
                     @endphp
                     <a
                         href="{{ route('productos.categoria', $cat->slug) }}"
@@ -62,14 +73,14 @@
                 <div class="row g-4">
                     @forelse($products as $producto)
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
+                        <div class="card h-100 shadow-sm" style="overflow:hidden;">
                             <!-- Carrusel de imágenes -->
                             @if($producto->images->count() > 0)
                             <div id="carousel{{ $producto->id }}" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     @foreach($producto->images as $index => $img)
                                     <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                        <img src="{{ asset('storage/'.$img->path) }}" class="d-block w-100" alt="{{ $producto->name }}">
+                                        <img src="/{{ $img->image_path }}" class="d-block w-100" alt="{{ $producto->name }}">
                                     </div>
                                     @endforeach
                                 </div>
@@ -86,13 +97,13 @@
 
                             <!-- Contenido del producto -->
                             <a href="/productos/{{ $producto->slug }}" style="text-decoration:none; color:black;">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">{{ $producto->name }}</h5>
-                                <p class="card-text small text-muted">{!! $producto->description !!}</p>
-                                @if($producto->price)
-                                <p class="fw-bold text-success mb-0">${{ number_format($producto->price, 2, ',', '.') }}</p>
-                                @endif
-                            </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ $producto->name }}</h5>
+                                    <p class="card-text small text-muted">{!! $producto->description !!}</p>
+                                    @if($producto->price)
+                                    <p class="fw-bold text-success mb-0">${{ number_format($producto->price, 2, ',', '.') }}</p>
+                                    @endif
+                                </div>
                         </div>
                         </a>
                     </div>
