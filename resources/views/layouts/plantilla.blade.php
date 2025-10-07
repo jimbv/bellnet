@@ -51,6 +51,10 @@
 
     @yield('scripts')
     @yield('styles')
+
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 
 <body class="bg-white flex flex-col min-h-screen justify-start">
@@ -146,6 +150,11 @@
                                 Suscribirme
                             </button>
                         </div>
+
+                            <div class="mb-1">
+                                <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
+                                @error('g-recaptcha-response') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
                     </form>
 
 
@@ -219,4 +228,4 @@
 
 </body>
 
-</html>
+</html
