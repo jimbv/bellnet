@@ -26,34 +26,30 @@ class PostsController extends Controller
 
     public function save(Request $request)
     {
-        try {
-            $validatedData = $request->validate([
-                'title' => 'required|string',
-                'slug' => 'required|string',
-                'short_text' => 'required|string',
-                'text' => 'required|string',
-                'post_id_temporal' => 'required'
-            ], [
-                'title.required' => 'El campo título es obligatorio.',
-                'slug.required' => 'El campo título es obligatorio.',
-                'short_text.required' => 'El campo texto corto es obligatorio.',
-                'text.required' => 'El campo texto es obligatorio.',
-            ]);
+
+        $validatedData = $request->validate([
+            'title' => 'required|string',
+            'slug' => 'required|string',
+            'short_text' => 'required|string',
+            'text' => 'required|string',
+            'post_id_temporal' => 'required'
+        ], [
+            'title.required' => 'El campo título es obligatorio.',
+            'slug.required' => 'El campo título es obligatorio.',
+            'short_text.required' => 'El campo texto corto es obligatorio.',
+            'text.required' => 'El campo texto es obligatorio.',
+        ]);
 
 
-            $id_temporal = $validatedData['post_id_temporal'];
-            unset($validatedData['post_id_temporal']);
+        $id_temporal = $validatedData['post_id_temporal'];
+        unset($validatedData['post_id_temporal']);
 
-            $post = Post::create($validatedData);
+        $post = Post::create($validatedData);
 
-            PostImage::where('post_id_temporal', $id_temporal)
-                ->update(['post_id' => $post->id, 'post_id_temporal' => null]);
+        PostImage::where('post_id_temporal', $id_temporal)
+            ->update(['post_id' => $post->id, 'post_id_temporal' => null]);
 
-            return redirect()->back()->with('success', 'Post guardado correctamente.');
-        } catch (ValidationException $e) {
-            $errors = $e->validator->errors()->all();
-            return redirect()->back()->with($errors);
-        }
+        return redirect()->back()->with('success', 'Post guardado correctamente.');
     }
 
     public function delete($id)
@@ -71,42 +67,36 @@ class PostsController extends Controller
 
     public function update(Request $request)
     {
-        try {
-            $validatedData = $request->validate([
-                'title' => 'required|string',
-                'slug' => 'required|string',
-                'short_text' => 'required|string',
-                'text' => 'required|string',
-                'post_id' => 'required',
-            ], [
-                'title.required' => 'El campo Título es obligatorio.',
-                'slug.required' => 'El campo Título es obligatorio.',
-                'short_text.required' => 'El campo texto corto es obligatorio.',
-                'text.required' => 'El campo Texto es obligatorio.',
-            ]);
 
-            $id = $validatedData['post_id'];
+        $validatedData = $request->validate([
+            'title' => 'required|string',
+            'slug' => 'required|string',
+            'short_text' => 'required|string',
+            'text' => 'required|string',
+            'post_id' => 'required',
+        ], [
+            'title.required' => 'El campo Título es obligatorio.',
+            'slug.required' => 'El campo Título es obligatorio.',
+            'short_text.required' => 'El campo texto corto es obligatorio.',
+            'text.required' => 'El campo Texto es obligatorio.',
+        ]);
 
-            $post = Post::findOrFail($id);
-            $post->update($validatedData);
+        $id = $validatedData['post_id'];
 
-            if ($request->hasFile('images')) {
-                foreach ($request->file('images') as $index => $image) {
-                    $path = $image->store('imgs/post_images', 'publico'); 
-                    $post->images()->create([
-                        'image_path' => 'storage/' . $path,
-                        'alt_text'   => $post->title,
-                        'order'      => $index,
-                    ]);
-                }
+        $post = Post::findOrFail($id);
+        $post->update($validatedData);
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $index => $image) {
+                $path = $image->store('imgs/post_images', 'publico');
+                $post->images()->create([
+                    'image_path' => 'storage/' . $path,
+                    'alt_text'   => $post->title,
+                    'order'      => $index,
+                ]);
             }
-
-            return redirect()->back()->with('success', 'Noticia guardada correctamente.');
-        } catch (ValidationException $e) {
-            // Manejar la excepción de validación
-            $errors = $e->validator->errors()->all();
-            // Manejar la excepción, por ejemplo, mostrar un mensaje de error
-            return redirect()->back()->with($errors);
         }
+
+        return redirect()->back()->with('success', 'Noticia guardada correctamente.');
     }
 }

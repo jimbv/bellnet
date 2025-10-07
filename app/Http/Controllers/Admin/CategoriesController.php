@@ -23,35 +23,29 @@ class CategoriesController extends Controller
 
     public function save(Request $request)
     {
-        try {
-            $validatedData = $request->validate([
-                'name' => 'required|string',
-                'slug' => 'required|string',
-                'color' => '',
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ], [
-                'name.required' => 'El campo Nombre es obligatorio.',
-                'slug.required' => 'El campo Nombre es obligatorio.',
-                'image.image' => 'El archivo debe ser una imagen.',
-                'image.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
-                'image.max' => 'La imagen no debe superar los 2048 KB.',
-            ]);
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'slug' => 'required|string',
+            'color' => '',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ], [
+            'name.required' => 'El campo Nombre es obligatorio.',
+            'slug.required' => 'El campo Nombre es obligatorio.',
+            'image.image' => 'El archivo debe ser una imagen.',
+            'image.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
+            'image.max' => 'La imagen no debe superar los 2048 KB.',
+        ]);
 
-            $image = $request->file('image');
+        $image = $request->file('image');
 
-            $category = Category::create($validatedData);
+        $category = Category::create($validatedData);
 
-            if ($image) {
-                $path = $image->store('imgs/category_images', 'publico');
-                $category->update(['image' => $path]);
-            }
-
-
-            return redirect()->back()->with('success', 'Categoría guardada correctamente.');
-        } catch (ValidationException $e) {
-            $errors = $e->validator->errors()->all();
-            return redirect()->back()->withErrors($errors);
+        if ($image) {
+            $path = $image->store('imgs/category_images', 'publico');
+            $category->update(['image' => $path]);
         }
+
+        return redirect()->back()->with('success', 'Categoría guardada correctamente.');
     }
 
 
@@ -91,13 +85,13 @@ class CategoriesController extends Controller
             if ($request->deleteImg == 1) {
                 Storage::disk('publico')->delete($category->image);
                 $category->update(['image' => '']);
-            } 
+            }
 
             if ($image) {
                 $path = $image->store('imgs/category_images', 'publico');
                 $category->update(['image' => $path]);
                 unset($validatedData['image']);
-            }  
+            }
 
             $category->update($validatedData);
 

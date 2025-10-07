@@ -23,34 +23,30 @@ class TestimonialsController extends Controller
 
     public function save(Request $request)
     {
-        try {
-            $validatedData = $request->validate([
-                'client' => 'required|string',
-                'review' => 'required|string',
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ], [
-                'client.required' => 'El campo Cliente es obligatorio.',
-                'review.required' => 'El campo Texto es obligatorio.',
-                'image.image' => 'El archivo debe ser una imagen.',
-                'image.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
-                'image.max' => 'La imagen no debe superar los 2048 KB.',
-            ]);
 
-            $image = $request->file('image');
+        $validatedData = $request->validate([
+            'client' => 'required|string',
+            'review' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ], [
+            'client.required' => 'El campo Cliente es obligatorio.',
+            'review.required' => 'El campo Texto es obligatorio.',
+            'image.image' => 'El archivo debe ser una imagen.',
+            'image.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
+            'image.max' => 'La imagen no debe superar los 2048 KB.',
+        ]);
 
-            $testimony = Testimony::create($validatedData);
+        $image = $request->file('image');
 
-            if ($image) {
-                $path = $image->store('imgs/testimony_images', 'publico');
-                $testimony->update(['image' => $path]);
-            }
+        $testimony = Testimony::create($validatedData);
 
-
-            return redirect()->back()->with('success', 'Testimonio guardado correctamente.');
-        } catch (ValidationException $e) {
-            $errors = $e->validator->errors()->all();
-            return redirect()->back()->withErrors($errors);
+        if ($image) {
+            $path = $image->store('imgs/testimony_images', 'publico');
+            $testimony->update(['image' => $path]);
         }
+
+
+        return redirect()->back()->with('success', 'Testimonio guardado correctamente.');
     }
 
 
@@ -69,44 +65,36 @@ class TestimonialsController extends Controller
 
     public function update(Request $request)
     {
-        try {
-            $validatedData = $request->validate([
-                'client' => 'required|string',
-                'review' => 'required|string',
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ], [
-                'client.required' => 'El campo Cliente es obligatorio.',
-                'review.required' => 'El campo Texto es obligatorio.',
-                'image.image' => 'El archivo debe ser una imagen.',
-                'image.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
-                'image.max' => 'La imagen no debe superar los 2048 KB.',
-            ]);
 
-            $image = $request->file('image');
+        $validatedData = $request->validate([
+            'client' => 'required|string',
+            'review' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ], [
+            'client.required' => 'El campo Cliente es obligatorio.',
+            'review.required' => 'El campo Texto es obligatorio.',
+            'image.image' => 'El archivo debe ser una imagen.',
+            'image.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
+            'image.max' => 'La imagen no debe superar los 2048 KB.',
+        ]);
 
-            $id = $request->testimony_id;
-            $testimony = Testimony::findOrFail($id);
+        $image = $request->file('image');
 
-            if ($request->deleteImg == 1) {
-                Storage::disk('publico')->delete($testimony->image);
-                $testimony->update(['image' => '']);
-            } 
+        $id = $request->testimony_id;
+        $testimony = Testimony::findOrFail($id);
 
-            if ($image) {
-                $path = $image->store('imgs/testimony_images', 'publico');
-                $testimony->update(['image' => $path]);
-                unset($validatedData['image']);
-            }  
-
-            $testimony->update($validatedData);
-
-
-            return redirect()->back()->with('success', 'Testimonio guardado correctamente.');
-        } catch (ValidationException $e) {
-            // Manejar la excepción de validación
-            $errors = $e->validator->errors()->all();
-            // Manejar la excepción, por ejemplo, mostrar un mensaje de error
-            return redirect()->back()->withErrors($errors);
+        if ($request->deleteImg == 1) {
+            Storage::disk('publico')->delete($testimony->image);
+            $testimony->update(['image' => '']);
         }
+
+        if ($image) {
+            $path = $image->store('imgs/testimony_images', 'publico');
+            $testimony->update(['image' => $path]);
+            unset($validatedData['image']);
+        }
+
+        $testimony->update($validatedData);
+        return redirect()->back()->with('success', 'Testimonio guardado correctamente.');
     }
 }

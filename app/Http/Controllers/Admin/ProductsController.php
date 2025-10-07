@@ -28,42 +28,37 @@ class ProductsController extends Controller
 
     public function save(Request $request)
     {
-        try {
-            $validatedData = $request->validate([
-                'name' => 'required|string',
-                'slug' => 'required|string',
-                'category_id' => 'required',
-                'technical_notes' => '',
-                'description' => 'required|string',
-                'price' => 'nullable|numeric',
-                'product_id_temporal' => 'required',
-                'latitude' => 'nullable|numeric',
-                'longitude' => 'nullable|numeric',
-            ], [
-                'name.required' => 'El campo Nombre es obligatorio.',
-                'slug.required' => 'El campo Nombre es obligatorio.',
-                'category_id.required' => 'Seleccione una categoría',
-                'description.required' => 'El campo Descripción es obligatorio.',
-                'latitude.numeric' => 'El campo Latitud debe ser un número válido.',
-                'longitude.numeric' => 'El campo Longitud debe ser un número válido.',
-            ]);
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'slug' => 'required|string',
+            'category_id' => 'required',
+            'technical_notes' => '',
+            'description' => 'required|string',
+            'price' => 'nullable|numeric',
+            'product_id_temporal' => 'required',
+            'latitude' => 'nullable|numeric',
+            'longitude' => 'nullable|numeric',
+        ], [
+            'name.required' => 'El campo Nombre es obligatorio.',
+            'slug.required' => 'El campo Nombre es obligatorio.',
+            'category_id.required' => 'Seleccione una categoría',
+            'description.required' => 'El campo Descripción es obligatorio.',
+            'latitude.numeric' => 'El campo Latitud debe ser un número válido.',
+            'longitude.numeric' => 'El campo Longitud debe ser un número válido.',
+        ]);
 
-            $id_temporal = $validatedData['product_id_temporal'];
-            unset($validatedData['product_id_temporal']);
+        $id_temporal = $validatedData['product_id_temporal'];
+        unset($validatedData['product_id_temporal']);
 
-            $product = Product::create($validatedData);
+        $product = Product::create($validatedData);
 
-            ProductImage::where('product_id_temporal', $id_temporal)
-                ->update(['product_id' => $product->id, 'product_id_temporal' => null]);
+        ProductImage::where('product_id_temporal', $id_temporal)
+            ->update(['product_id' => $product->id, 'product_id_temporal' => null]);
 
-            ProductAdditional::where('product_id_temporal', $id_temporal)
-                ->update(['product_id' => $product->id, 'product_id_temporal' => null]);
+        ProductAdditional::where('product_id_temporal', $id_temporal)
+            ->update(['product_id' => $product->id, 'product_id_temporal' => null]);
 
-            return redirect()->back()->with('success', 'Producto guardado correctamente.');
-        } catch (ValidationException $e) {
-            $errors = $e->validator->errors()->all();
-            return redirect()->back()->withErrors($errors);
-        }
+        return redirect()->back()->with('success', 'Producto guardado correctamente.');
     }
 
     public function delete($id)
@@ -82,40 +77,34 @@ class ProductsController extends Controller
 
     public function update(Request $request)
     {
-        try {
-            $validatedData = $request->validate([
-                'name' => 'required|string',
-                'slug' => 'required|string',
-                'category_id' => 'required',
-                'technical_notes' => '',
-                'description' => 'required|string',
-                'price' => 'nullable|numeric',
-                'product_id' => 'required',
-                'latitude' => 'nullable|numeric',
-                'longitude' => 'nullable|numeric',
-            ], [
-                'name.required' => 'El campo Nombre es obligatorio.',
-                'slug.required' => 'El campo Nombre es obligatorio.',
-                'category_id.required' => 'Seleccione una categoría',
-                'description.required' => 'El campo Descripción es obligatorio.',
-                'latitude.numeric' => 'El campo Latitud debe ser un número válido.',
-                'longitude.numeric' => 'El campo Longitud debe ser un número válido.',
 
-            ]);
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'slug' => 'required|string',
+            'category_id' => 'required',
+            'technical_notes' => '',
+            'description' => 'required|string',
+            'price' => 'nullable|numeric',
+            'product_id' => 'required',
+            'latitude' => 'nullable|numeric',
+            'longitude' => 'nullable|numeric',
+        ], [
+            'name.required' => 'El campo Nombre es obligatorio.',
+            'slug.required' => 'El campo Nombre es obligatorio.',
+            'category_id.required' => 'Seleccione una categoría',
+            'description.required' => 'El campo Descripción es obligatorio.',
+            'latitude.numeric' => 'El campo Latitud debe ser un número válido.',
+            'longitude.numeric' => 'El campo Longitud debe ser un número válido.',
 
-            $id = $validatedData['product_id'];
-            unset($validatedData['images']);
-            unset($validatedData['product_id']);
+        ]);
 
-            $product = Product::findOrFail($id);
-            $product->update($validatedData);
+        $id = $validatedData['product_id'];
+        unset($validatedData['images']);
+        unset($validatedData['product_id']);
 
-            return redirect()->back()->with('success', 'Producto guardado correctamente.');
-        } catch (ValidationException $e) {
-            // Manejar la excepción de validación
-            $errors = $e->validator->errors()->all();
-            // Manejar la excepción, por ejemplo, mostrar un mensaje de error
-            return redirect()->back()->withErrors($errors);
-        }
+        $product = Product::findOrFail($id);
+        $product->update($validatedData);
+
+        return redirect()->back()->with('success', 'Producto guardado correctamente.');
     }
 }
