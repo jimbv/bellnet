@@ -53,7 +53,7 @@
     @yield('styles')
 </head>
 
-<body class="bg-white flex flex-col min-h-screen justify-start min-w-[390px]">
+<body class="bg-white flex flex-col min-h-screen justify-start">
 
 
 

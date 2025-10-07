@@ -135,13 +135,13 @@
                 @foreach($work_images as $index => $work)
                 <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                     <div class="row justify-content-center align-items-center g-4">
-                        
+
                         <!-- Imagen -->
                         <div class="col-md-5 text-center">
-                            <img src="/{{ $work->image }}" 
-                                 class="img-fluid rounded-4 shadow"
-                                 alt="{{ $work->title }}" 
-                                 style="max-height: 300px; object-fit: cover; margin: 0 auto;">
+                            <img src="/{{ $work->image }}"
+                                class="img-fluid rounded-4 shadow"
+                                alt="{{ $work->title }}"
+                                style="max-height: 300px; object-fit: cover; margin: 0 auto;">
                         </div>
 
                         <!-- Texto -->
@@ -157,11 +157,11 @@
 
             <!-- Controles -->
             @if($work_images->count() > 1)
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="prev" style="left: -50px;">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon  rounded-circle p-3" aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="next" style="right: -50px;">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="next">
                 <span class="carousel-control-next-icon rounded-circle p-3" aria-hidden="true"></span>
                 <span class="visually-hidden">Siguiente</span>
             </button>
@@ -171,17 +171,17 @@
             @if($work_images->count() > 1)
             <div class="carousel-indicators mt-4">
                 @foreach($work_images as $index => $work)
-                    <button type="button"
-                            data-bs-target="#carouselTrabajos"
-                            data-bs-slide-to="{{ $index }}"
-                            class="{{ $index === 0 ? 'active' : '' }}"
-                            aria-label="Trabajo {{ $index + 1 }}"></button>
+                <button type="button"
+                    data-bs-target="#carouselTrabajos"
+                    data-bs-slide-to="{{ $index }}"
+                    class="{{ $index === 0 ? 'active' : '' }}"
+                    aria-label="Trabajo {{ $index + 1 }}"></button>
                 @endforeach
             </div>
             @endif
         </div>
         @else
-            <p class="text-center text-muted">Aún no hay trabajos cargados.</p>
+        <p class="text-center text-muted">Aún no hay trabajos cargados.</p>
         @endif
     </div>
 </section>
@@ -198,6 +198,10 @@
     #carouselTrabajos .carousel-control-prev,
     #carouselTrabajos .carousel-control-next {
         width: auto;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
     }
 
     /* Indicadores más visibles */
