@@ -151,7 +151,7 @@
                             </button>
                         </div>
 
-                            <div class="mb-1">
+                            <div class="mb-1 mt-1">
                                 <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
                                 @error('g-recaptcha-response') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
