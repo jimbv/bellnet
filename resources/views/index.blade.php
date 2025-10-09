@@ -7,8 +7,8 @@
         class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
         poster="/static/images/anfi.bafe026b9054.png"
         style="z-index:0;">
-        <source src="/videos/video.mp4" type="video/mp4">
-        <source src="/videos/video.webm" type="video/webm">
+        <source src="/videos/click.mp4" type="video/mp4">
+        <source src="/videos/click.webm" type="video/webm">
     </video>
 
     <!-- Overlay negro -->
