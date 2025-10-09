@@ -3,12 +3,12 @@
 <section class="position-relative w-100" style="height: 50vh; border-bottom: 10px solid #f74e04; overflow:hidden;">
 
     <!-- Video de fondo -->
-    <video autoplay muted loop playsinline preload="none"
+    <video autoplay muted loop playsinline preload="metadata"
         class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
         poster="/static/images/anfi.bafe026b9054.png"
         style="z-index:0;">
+        <source src="/videos/clickweb.webm" type="video/webm">
         <source src="/videos/click.mp4" type="video/mp4">
-        <source src="/videos/click.webm" type="video/webm">
     </video>
 
     <!-- Overlay negro -->
