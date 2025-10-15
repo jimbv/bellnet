@@ -31,7 +31,7 @@
 
 </section>
 <section style="background: linear-gradient(to bottom, #d3d3d3, #ffffff);">
-    <div class="container py-3" style="position: relative; top: -70px;z-index:9;background:#f74e05;color:white;text-shadow:0px 0px 1px black">
+    <div class="container py-3" style="position: relative; top: -70px;z-index:9;background:#f74e05;color:white;">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-11 text-center" style="font-size:17px;font-weight:bold;letter: spacing 1px;">
                 Ayudamos a potenciar tu marca, trabajando las herramientas de comunicación adecuadas y posicionándola a través de distintos espacios de publicidad y difusión.
