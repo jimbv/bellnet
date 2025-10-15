@@ -33,7 +33,7 @@
 <section style="background: linear-gradient(to bottom, #d3d3d3, #ffffff);">
     <div class="container py-3" style="position: relative; top: -70px;z-index:9;background:#f74e05;color:white;">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-11 text-center" style="font-size:18px;font-weight:bold;letter: spacing 1px;text-align:justify;">
+            <div class="col-12 col-md-10 col-lg-11 text-center" style="font-size:18px;font-weight:bold;letter: spacing 1px;">
                 Ayudamos a potenciar tu marca, trabajando las herramientas de comunicación adecuadas y posicionándola a través de distintos espacios de publicidad y difusión.
                 
                 Contamos con un amplio abanico de medios en todos los formatos publicitarios y producimos campañas efectivas para llevar estratégicamente tu marca a todas partes y a otro nivel.
@@ -56,7 +56,7 @@
                 @endif
                 <div class="flex flex-col ml-5 xl:ml-0" style="text-decoration:none;">
                     <span class="text-white font-semibold xl:text-center"
-                        style="font-size:18px;text-decoration:none;font-family:Logomark;">
+                        style="font-size:18px;text-decoration:none;font-family:Cloudsters;">
                         {{strtoupper($category->name)}}
                     </span>
                 </div>
