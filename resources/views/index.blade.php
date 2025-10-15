@@ -18,7 +18,7 @@
 
     <!-- Cuadro de texto centrado verticalmente -->
     <div class="position-absolute top-50 start-50 translate-middle" style="z-index:2; width:90%; max-width:600px;">
-        <div style="background: rgba(0,0,0,0.6); color: white; padding: 0.5rem 1rem; 
+        <div style="background: rgba(0,0,0,0); color: white; padding: 0.5rem 1rem; 
                 text-align:center; box-shadow: none;">
             <h1 class="h1 fw-bold mb-0" style="font-family: Cloudsters; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
                 Tu marca en todas partes <br>y a otro nivel
@@ -125,7 +125,7 @@
 <section class="py-5" style="background: linear-gradient(to bottom, #ffffff, #ffbe80);">
     <div class="container">
         <h2 class="text-center text-uppercase fw-bold mb-5" style="color:#111!important;font-family:Logomark;">
-            Trabajos Realizados
+            Campañas Realizadas
         </h2>
 
         @if($work_images->count() > 0)
@@ -215,7 +215,7 @@
     <div class="container">
         <div class="text-center mb-5">
             <p></p>
-            <h2 class="pt-3 text-2xl md:text-3xl font-black text-primary uppercase text-center mb-10" style="color:#f74e04!important;font-family:Logomark;">Nuestros clientes</h2>
+            <h2 class="pt-3 text-2xl md:text-3xl font-black text-primary uppercase text-center mb-10" style="color:#f74e04!important;font-family:Logomark;">Clientes que confían en nosotros</h2>
             <p class="text-muted">Experiencias reales de quienes confiaron en nosotros</p>
         </div>
 
@@ -291,7 +291,7 @@
 
 
 <div class="social-fixed d-flex flex-column">
-    <a href="https://wa.me/5493534066579?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" target="_blank" class="btn btn-success mb-2">
+    <a href="https://wa.me/5493535626287?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" target="_blank" class="btn btn-success mb-2">
         <i class="fab fa-whatsapp"></i>
     </a>
     <a href="https://www.instagram.com/clickcomunicacion.vm" target="_blank" class="btn btn-light mb-2" style="background-color:#E1306C; color:white;border-color:#E1306C;">

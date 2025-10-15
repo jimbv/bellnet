@@ -59,7 +59,7 @@
                 <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
                     
                     <li class="nav-item mx-2">
-                        <a target="_blank" class="redesMenu" href="https://www.instagram.com/clickcomunicacionvm/"><i class="fab fa-instagram"></i></a>
+                        <a target="_blank" class="redesMenu" href="https://www.instagram.com/clickcomunicacion.vm/"><i class="fab fa-instagram"></i></a>
                     </li>
                     
                 </ul>
@@ -77,7 +77,7 @@
                         <ul class="navbar-nav ms-auto d-none d-lg-inline-flex  pt-2">
                             
                             <li class="nav-item mx-2">
-                                <a target="_blank" class="bottomSocial" href="https://www.instagram.com/clickcomunicacionvm/"><i class="fab fa-instagram"></i> Instagram</a>
+                                <a target="_blank" class="bottomSocial" href="https://www.instagram.com/clickcomunicacion.vm/"><i class="fab fa-instagram"></i> Instagram</a>
                             </li>
                             
                         </ul>
@@ -88,9 +88,9 @@
                         <strong >Click Comunicación</strong> <br>
                         Bruno Daniel Schiavi <br>
                         <i class="fa fa-phone"></i>  
-                        <a href="https://wa.me/5493534066579?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
+                        <a href="https://wa.me/5493535626287?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
                             +54 9 3537 667250</a> <br> 
-                        <a href="https://wa.me/5493534066579?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
+                        <a href="https://wa.me/5493535626287?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
                             +54 9 11 6256-3230</a> <br>
                         <a href="mailto:info@clickcomunicacion.com.ar" style="color:white;text-decoration:none;"><i class="fa fa-envelope"></i> &nbsp;&nbsp;info@clickcomunicacion.com.ar</a>
 
@@ -102,7 +102,7 @@
             &copy; Click Comunicación <?= date('Y') ?>
         </div>
     </footer>
-    <a href="https://wa.me/5493534066579?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="z-index=5;">
+    <a href="https://wa.me/5493535626287?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="z-index=5;">
         <div alt="Comunicarse por WhatsApp" style="background:#07b018;position:fixed;bottom:20px;right:20px;height: 70px;width: 70px;font-size:45px;padding-top:2px;line-height:70px; color:white; overflow:hidden;border-radius:100px;box-shadow: 0px 0px 5px #111;text-align:center;">
             <i class="fab fa-whatsapp"></i>
         </div>

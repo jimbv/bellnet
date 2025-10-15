@@ -166,14 +166,14 @@
                             </p>
 
                             <p>
-                                <a href="https://wa.me/5493534066579?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" target="_blank" style="color:#fff; text-decoration:none; margin:0 10px; font-size:16px;">
+                                <a href="https://wa.me/5493535626287?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" target="_blank" style="color:#fff; text-decoration:none; margin:0 10px; font-size:16px;">
                                     <i class="fab fa-whatsapp"></i> 353 4066579
                                 </a>
                             </p>
 
                             <p>
-                                <a href="https://instagram.com/clickcomunicacionvm" target="_blank" style="color:#fff; text-decoration:none; margin:0 10px; font-size:16px;">
-                                    <i class="fab fa-instagram"></i> @clickcomunicacionvm
+                                <a href="https://instagram.com/clickcomunicacion.vm" target="_blank" style="color:#fff; text-decoration:none; margin:0 10px; font-size:16px;">
+                                    <i class="fab fa-instagram"></i> @clickcomunicacion.vm
                                 </a>
                             </p>
 
@@ -209,8 +209,8 @@
                     <a href="/nuestra-empresa" style="color: white;text-decoration: none;">Nuestra empresa</a>
                     <a href="/novedades" style="color: white;text-decoration: none;">Noticias</a>
                     <a href="/preguntas-frecuentes" style="color: white;text-decoration: none;">Preguntas frecuentes</a>
-                    <a target="_blank" href="https://www.instagram.com/clickcomunicacionvm/" style="color: white;text-decoration: none;">
-                        <i class="fab fa-instagram"></i> clickcomunicacionvm
+                    <a target="_blank" href="https://www.instagram.com/clickcomunicacion.vm/" style="color: white;text-decoration: none;">
+                        <i class="fab fa-instagram"></i> clickcomunicacion.vm
                     </a>
                 </div>
                 <div class="text-center pb-10 text-xs " style="color: white;text-decoration: none;">

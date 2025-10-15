@@ -89,6 +89,20 @@
                             ${{ number_format($product->price, 2, ',', '.') }}
                         </p>
                         @endif
+                        @php 
+                            $telefono = '5493535626287'; // Cambiá por tu número con código de país (sin +)
+                            $mensaje = "Hola, me interesa el producto: " . $product->name;
+                            $urlWhatsapp = "https://wa.me/{$telefono}?text=" . urlencode($mensaje);
+                        @endphp
+                        <p class="fw-bold text-success fs-4 mt-4">
+                            <a href="{{ $urlWhatsapp }}"
+                                target="_blank"
+                                class="btn btn-success d-inline-flex align-items-center gap-2">
+                                <i class="fab fa-whatsapp"></i> Me interesa este producto
+                            </a>
+                        </p>
+
+
 
                     </div>
 
@@ -100,7 +114,6 @@
 
                         @if($product->latitude && $product->longitude)
                         <div class="mt-4">
-                            <h5 class="fw-bold mb-2">Ubicación</h5>
                             <div style="border-radius:12px; overflow:hidden;">
                                 <iframe
                                     width="100%"
@@ -126,7 +139,7 @@
 @endsection
 
 <div class="social-fixed d-flex flex-column">
-    <a href="https://wa.me/5493534066579?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" target="_blank" class="btn btn-success mb-2">
+    <a href="https://wa.me/5493535626287?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" target="_blank" class="btn btn-success mb-2">
         <i class="fab fa-whatsapp"></i>
     </a>
     <a href="https://www.instagram.com/clickcomunicacion.vm" target="_blank" class="btn btn-light mb-2" style="background-color:#E1306C; color:white;border-color:#E1306C;">
