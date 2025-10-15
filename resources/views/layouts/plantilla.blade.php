@@ -92,7 +92,7 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">EMPRESA</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="/page/nuestra-empresa">ACERCA DE NOSOTROS</a></li>
-                                <li><a class="dropdown-item" href="/novedades">NOTICIAS</a></li>
+                                <li><a class="dropdown-item" href="/novedades">EVENTOS</a></li>
                                 <li><a class="dropdown-item" href="/page/preguntas-frecuentes">PREGUNTAS FRECUENTES</a></li>
                             </ul>
                         </li>
