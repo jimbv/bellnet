@@ -2,13 +2,14 @@
 @section('contenido')
 <section class="bg-white py-5">
     <div class="container">
-        <h2 class="text-center fw-bold text-uppercase mb-5" style="color:#111;font-family:Logomark;">
-            Novedades
-        </h2>
+        <h2 class="pt-2 text-2xl md:text-3xl font-black text-primary uppercase text-center mb-1" style="color:#111!important;font-family:Logomark;">
+                Eventos y espacios para tu marca</h2>
+<p class="text-muted" style="font-family:Cloudsters;">̉¡Quiero sumarme!</p> <br>
 
         <div class="row g-4">
             @foreach($posts as $post)
                 <div class="col-12 col-sm-6 col-lg-4">
+                    <a href="{{ url('/novedad/'.$post->slug) }}">
                     <div class="card h-100 border-0 shadow-sm overflow-hidden news-card">
                         {{-- Imagen destacada --}}
                         @if($post->images->isNotEmpty())
@@ -31,6 +32,7 @@
                             </a>
                         </div>
                     </div>
+                    </a>
                 </div>
             @endforeach
         </div>
