@@ -20,7 +20,7 @@
                 <li class="breadcrumb-item active" aria-current="page">{{ $category->name }}</li>
             </ol>
         </nav>
-        @else 
+        @else
         <div class="text-center mb-4">
             <h2 class="text-center text-uppercase fw-bold mb-5 display-5"
                 style="color: #0d6efd !important; font-family: Logomark;">
@@ -73,38 +73,39 @@
                 <div class="row g-4">
                     @forelse($products as $producto)
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm" style="overflow:hidden;">
-                            <!-- Carrusel de imágenes -->
-                            @if($producto->images->count() > 0)
-                            <div id="carousel{{ $producto->id }}" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    @foreach($producto->images as $index => $img)
-                                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                        <img src="/{{ $img->image_path }}" class="d-block w-100" alt="{{ $producto->name }}">
+                        <a href="/productos/{{ $producto->slug }}" style="text-decoration:none;">
+                            <div class="card h-100 shadow-sm" style="overflow:hidden;">
+                                <!-- Carrusel de imágenes -->
+                                @if($producto->images->count() > 0)
+                                <div id="carousel{{ $producto->id }}" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        @foreach($producto->images as $index => $img)
+                                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                            <img src="/{{ $img->image_path }}" class="d-block w-100" alt="{{ $producto->name }}">
+                                        </div>
+                                        @endforeach
                                     </div>
-                                    @endforeach
-                                </div>
-                                @if($producto->images->count() > 1)
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ $producto->id }}" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ $producto->id }}" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
-                                @endif
-                            </div>
-                            @endif
-
-                            <!-- Contenido del producto -->
-                            <a href="/productos/{{ $producto->slug }}" style="text-decoration:none; color:black;">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">{{ $producto->name }}</h5>
-                                    <p class="card-text small text-muted">{!! $producto->description !!}</p>
-                                    @if($producto->price)
-                                    <p class="fw-bold text-success mb-0">${{ number_format($producto->price, 2, ',', '.') }}</p>
+                                    @if($producto->images->count() > 1)
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ $producto->id }}" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ $producto->id }}" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon"></span>
+                                    </button>
                                     @endif
                                 </div>
-                        </div>
+                                @endif
+
+                                <!-- Contenido del producto -->
+                                <a href="/productos/{{ $producto->slug }}" style="text-decoration:none; color:black;">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ $producto->name }}</h5>
+                                        <p class="card-text small text-muted">{!! $producto->description !!}</p>
+                                        @if($producto->price)
+                                        <p class="fw-bold text-success mb-0">${{ number_format($producto->price, 2, ',', '.') }}</p>
+                                        @endif
+                                    </div>
+                            </div>
                         </a>
                     </div>
                     @empty
