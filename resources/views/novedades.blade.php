@@ -9,7 +9,7 @@
         <div class="row g-4">
             @foreach($posts as $post)
                 <div class="col-12 col-sm-6 col-lg-4">
-                    <a href="{{ url('/novedad/'.$post->slug) }}">
+                    <a href="{{ url('/novedad/'.$post->slug) }}" style="text-decoration: none;color:inherit;">
                     <div class="card h-100 border-0 shadow-sm overflow-hidden news-card">
                         {{-- Imagen destacada --}}
                         @if($post->images->isNotEmpty())

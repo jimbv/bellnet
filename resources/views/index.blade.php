@@ -95,7 +95,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $post->title }}</h5>
                                     <p class="card-text">{!! Str::limit($post->short_text, 100) !!}</p>
-                                    <a href="{{ url('/posts/'.$post->slug) }}" class="btn btn-primary btn-sm">
+                                    <a href="{{ url('/novedad/'.$post->slug) }}" class="btn btn-primary btn-sm">
                                         Leer más
                                     </a>
                                 </div>
