@@ -67,11 +67,11 @@
 </section>
 <section class="mb-5 bg-gray-200 p-5">
     <div id="postsCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
+        <div class="text-center carousel-inner">
             <p></p>
-            <h2 class="pt-3 text-2xl md:text-3xl font-black text-primary uppercase text-center mb-10" style="color:#111!important;font-family:Logomark;">
-                NOVEDADES</h2>
-
+            <h2 class="pt-2 text-2xl md:text-3xl font-black text-primary uppercase text-center mb-1" style="color:#111!important;font-family:Logomark;">
+                Eventos y espacios para tu marca</h2>
+<p class="text-muted" style="font-family:Cloudsters;">̉¡Quiero sumarme!</p> <br>
             @foreach($posts->chunk(3) as $chunk)
             <div class="carousel-item @if($loop->first) active @endif">
                 <div class="row g-4 justify-content-center">
