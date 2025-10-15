@@ -207,7 +207,7 @@
                 </div>
                 <div class=" text-sm flex flex-col sm:flex-row justify-center items-center gap-5 pb-10" style="color: white;">
                     <a href="/page/nuestra-empresa" style="color: white;text-decoration: none;">Nuestra empresa</a>
-                    <a href="/novedades" style="color: white;text-decoration: none;">Noticias</a>
+                    <a href="/novedades" style="color: white;text-decoration: none;">Eventos</a>
                     <a href="/page/preguntas-frecuentes" style="color: white;text-decoration: none;">Preguntas frecuentes</a>
                     <a target="_blank" href="https://www.instagram.com/clickcomunicacion.vm/" style="color: white;text-decoration: none;">
                         <i class="fab fa-instagram"></i> clickcomunicacion.vm
