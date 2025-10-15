@@ -167,7 +167,7 @@
 
                             <p>
                                 <a href="https://wa.me/5493535626287?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" target="_blank" style="color:#fff; text-decoration:none; margin:0 10px; font-size:16px;">
-                                    <i class="fab fa-whatsapp"></i> 353 4066579
+                                    <i class="fab fa-whatsapp"></i> 353 5626287
                                 </a>
                             </p>
 
