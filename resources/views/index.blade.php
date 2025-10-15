@@ -20,7 +20,7 @@
     <div class="position-absolute top-50 start-50 translate-middle" style="z-index:2; width:90%; max-width:600px;">
         <div style="background: rgba(0,0,0,0); color: white; padding: 0.5rem 1rem; 
                 text-align:center; box-shadow: none;">
-            <h1 class="h1 fw-bold mb-0" style="font-family: Cloudsters; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
+            <h1 class="h1 fw-bold mb-0" style="font-family: Cloudsters; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);position:relative;top:-15px;">
                 Tu marca en todas partes <br>y a otro nivel
             </h1>
         </div>
@@ -31,11 +31,11 @@
 
 </section>
 <section style="background: linear-gradient(to bottom, #d3d3d3, #ffffff);">
-    <div class="container py-3" style="position: relative; top: -70px;z-index:9;background:white;">
+    <div class="container py-3" style="position: relative; top: -70px;z-index:9;background:#f74e05;color:white;text-shadow:0px 0px 1px black">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-10 text-center" style="font-size:16px;font-weight:bold;letter: spacing 1px;">
+            <div class="col-12 col-md-10 col-lg-11 text-center" style="font-size:17px;font-weight:bold;letter: spacing 1px;">
                 Ayudamos a potenciar tu marca, trabajando las herramientas de comunicación adecuadas y posicionándola a través de distintos espacios de publicidad y difusión.
-                <br>
+                
                 Contamos con un amplio abanico de medios en todos los formatos publicitarios y producimos campañas efectivas para llevar estratégicamente tu marca a todas partes y a otro nivel.
                 </p>
             </div>
