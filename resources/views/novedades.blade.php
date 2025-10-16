@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 @section('contenido')
-<section class="bg-white py-5">
+<section class="bg-white py-5 text-center">
     <div class="container">
         <h2 class="pt-2 text-2xl md:text-3xl font-black text-primary uppercase text-center mb-1" style="color:#111!important;font-family:Logomark;">
                 Eventos y espacios para tu marca</h2>
