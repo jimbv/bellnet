@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Click Comunicación & Publicidad</title>
+    <meta property="og:image" content="https://www.clickcomunicacion.com.ar/imgs/og-imagen.png">
+    <meta property="og:url" content="https://www.clickcomunicacion.com.ar">
+    <meta property="og:site_name" content="Click Comunicación & Publicidad">
 
     <meta property="og:locale" content="es_AR" />
     <meta property="og:title" content="Click Comunicación y Publicidad, Agencia Villa María, Córdoba, Argentina" />
@@ -82,11 +85,11 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">SERVICIOS</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 @foreach($services as $service)
-                                <li><a class="dropdown-item" href="/servicio/{{$service->slug}}">{{$service->name}}</a></li> 
+                                <li><a class="dropdown-item" href="/servicio/{{$service->slug}}">{{$service->name}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
-                        
+
                         <li class="nav-item dropdown">
                             <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">EMPRESA</a>
@@ -151,10 +154,10 @@
                             </button>
                         </div>
 
-                            <div class="mb-1 mt-1">
-                                <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
-                                @error('g-recaptcha-response') <span class="text-danger">{{ $message }}</span> @enderror
-                            </div>
+                        <div class="mb-1 mt-1">
+                            <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
+                            @error('g-recaptcha-response') <span class="text-danger">{{ $message }}</span> @enderror
+                        </div>
                     </form>
 
 
