@@ -23,7 +23,7 @@
                         @endif
 
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold mb-2">{{ $post->title }}</h5>
+                            <h5 class="card-title fw-bold mb-2 no-autolink" >{{ $post->title }}</h5>
                             <p class="card-text text-muted mb-3">
                                 {!! Str::limit($post->short_text, 100) !!}
                             </p>

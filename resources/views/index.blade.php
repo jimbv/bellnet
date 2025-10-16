@@ -84,7 +84,7 @@
                                 {{-- Imagen destacada (primera del post) --}}
                                 @if($post->images->isNotEmpty())
                                 <img src="{{ asset($post->images->first()->image_path) }}"
-                                    class="card-img-top"
+                                    class="card-img-top no-autolink"
                                     alt="{{ $post->images->first()->alt_text ?? $post->title }}">
                                 @else
                                 <img src="https://via.placeholder.com/600x400?text=Sin+Imagen"

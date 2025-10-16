@@ -11,7 +11,7 @@
         <div class="card border-0 shadow-lg p-4">
             {{-- Carrusel de imágenes --}}
             @if($post->images->isNotEmpty())
-                <div id="postCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+                <div id="postCarousel" class="carousel slide mb-4 no-autolink" data-bs-ride="carousel">
                     <div class="carousel-inner rounded-4 shadow-sm" style="max-height: 350px; overflow:hidden;">
                         @foreach($post->images as $key => $image)
                             <div class="carousel-item @if($key == 0) active @endif">

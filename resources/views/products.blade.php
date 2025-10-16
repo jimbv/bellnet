@@ -98,7 +98,7 @@
 
                                 <!-- Contenido del producto -->
                                 <a href="/productos/{{ $producto->slug }}" style="text-decoration:none; color:black;">
-                                    <div class="card-body text-center">
+                                    <div class="card-body text-center  no-autolink">
                                         <h5 class="card-title">{{ $producto->name }}</h5>
                                         <p class="card-text small text-muted">{!! $producto->description !!}</p>
                                         @if($producto->price)

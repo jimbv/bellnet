@@ -49,7 +49,7 @@
                     <!-- Columna izquierda: imágenes -->
                     <div class="col-md-6">
                         <div id="carousel{{ $product->id }}" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner mb-3">
+                            <div class="carousel-inner mb-3 no-autolink">
                                 @foreach($product->images as $index => $img)
                                 <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                                     <img src="/{{ $img->image_path }}"
@@ -78,7 +78,7 @@
 
                     <!-- Columna derecha: texto y precio -->
                     <div class="col-md-6">
-                        <h2 class="fw-bold mb-3">{{ $product->name }}</h2>
+                        <h2 class="fw-bold mb-3 no-autolink">{{ $product->name }}</h2>
 
                         <p class="card-text small text-muted">{!! $product->description !!}</p>
 
