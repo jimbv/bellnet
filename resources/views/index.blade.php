@@ -120,7 +120,7 @@
                     @foreach($chunk as $post)
                     <div class="col-md-4">
                         <a href="/novedad/{{$post->slug}}" style="text-decoration:none; color:black;">
-                            <div class="card h-100 shadow-sm border-0">
+                            <div class="card h-100 shadow-sm border-0 cardpost">
 
                                 {{-- Imagen destacada (primera del post) --}}
                                 @if($post->images->isNotEmpty())
@@ -150,12 +150,12 @@
             @endforeach
 
             <style>
-                .card {
+                .cardpost {
                     transition: all 0.3s ease;
                     cursor: pointer;
                 }
 
-                .card:hover {
+                .cardpost:hover {
                     transform: translateY(-10px) scale(1.02);
                     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
                 }
