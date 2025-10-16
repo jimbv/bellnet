@@ -35,7 +35,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-11 text-center" style="font-size:18px;font-weight:bold;letter: spacing 1px;">
                 Ayudamos a potenciar tu marca, trabajando las herramientas de comunicación adecuadas y posicionándola a través de distintos espacios de publicidad y difusión.
-                
+
                 Contamos con un amplio abanico de medios en todos los formatos publicitarios y producimos campañas efectivas para llevar estratégicamente tu marca a todas partes y a otro nivel.
                 </p>
             </div>
@@ -65,13 +65,13 @@
         </div>
     </div>
 </section>
-<section class="mb-5 bg-gray-200 p-5">
+<section class="mb-5 bg-gray-200 p-5 text-center">
     <div id="postsCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="text-center carousel-inner">
             <p></p>
             <h2 class="pt-2 text-2xl md:text-3xl font-black text-primary uppercase text-center mb-1" style="color:#111!important;font-family:Logomark;">
                 Eventos y espacios para tu marca</h2>
-<p class="text-muted" style="font-family:Cloudsters;">̉¡Quiero sumarme!</p> <br>
+            <p class="text-muted" style="font-family:Cloudsters;">̉¡Quiero sumarme!</p> <br>
             @foreach($posts->chunk(3) as $chunk)
             <div class="carousel-item @if($loop->first) active @endif">
                 <div class="row g-4 justify-content-center">
@@ -122,6 +122,9 @@
         @endif
     </div>
 
+            <a href="/novedades" class="btn btn-secondary mt-5">
+                <i class="fa fa-plus me-2"></i> Ver todos
+            </a>
 
 
 </section>
