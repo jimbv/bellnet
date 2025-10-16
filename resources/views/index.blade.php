@@ -65,6 +65,47 @@
         </div>
     </div>
 </section>
+<section id="servicios" class="bg-[#f9f9f9] mb-5 pt-5" style="border-top: 10px solid #e5e7eb;">
+    <div class="max-w-screen-xl mx-auto px-5 py-16 text-center">
+        <h2 class="text-2xl md:text-3xl font-black uppercase mb-12"
+            style="color:#f74e04; font-family:Logomark;">
+            Nuestros Servicios
+        </h2>
+
+        <div class="flex flex-wrap justify-center gap-6">
+            @foreach($services as $service)
+                <a href="/servicios/{{$service->slug}}/"
+                   class="rounded-xl px-8 py-4 flex items-center justify-center text-center
+                          transition-all duration-300 transform hover:scale-[1.05] servicio-btn"
+                   style="
+                       padding: 10px 20px;
+                       background-color: white;
+                       color: #f74e04;
+                       text-decoration: none;
+                       font-family: Cloudsters;
+                       font-weight: 600;
+                       border: 1px solid #f74e04;
+                       min-width: 200px;
+                       margin: 10px;
+                   ">
+                    {{ strtoupper($service->name) }}
+                </a>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+<style>
+/* Efecto hover: fondo naranja y texto blanco */
+.servicio-btn:hover {
+    background-color: #f74e04 !important;
+    color: white !important;
+}
+</style>
+
+
+
+
 <section class="mb-5 bg-gray-200 p-5 text-center">
     <div id="postsCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="text-center carousel-inner">
@@ -108,6 +149,19 @@
             </div>
             @endforeach
 
+            <style>
+                .card {
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                }
+
+                .card:hover {
+                    transform: translateY(-10px) scale(1.02);
+                    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+                }
+            </style>
+
+
 
         </div>
 
@@ -122,9 +176,9 @@
         @endif
     </div>
 
-            <a href="/novedades" class="btn btn-secondary mt-5">
-                <i class="fa fa-plus me-2"></i> Ver todos
-            </a>
+    <a href="/novedades" class="btn btn-secondary mt-5">
+        <i class="fa fa-plus me-2"></i> Ver todos
+    </a>
 
 
 </section>
