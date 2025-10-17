@@ -74,7 +74,7 @@
 
         <div class="flex flex-wrap justify-center gap-6">
             @foreach($services as $service)
-                <a href="/servicios/{{$service->slug}}/"
+                <a href="/servicio/{{$service->slug}}/"
                    class="rounded-xl px-8 py-4 flex items-center justify-center text-center
                           transition-all duration-300 transform hover:scale-[1.05] servicio-btn"
                    style="
