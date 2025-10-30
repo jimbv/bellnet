@@ -351,11 +351,11 @@ return [
 
         ['header' => 'WEB'],
         [
-            'text' => 'Testimonios',
+            'text' => 'Clientes',
             'icon' => 'fa fa-tags',
             'submenu' => [
                 [
-                    'text' => 'Nuevo testimonio',
+                    'text' => 'Nuevo cliente',
                     'icon' => 'fa fa-tag',
                     'url' => '/admin/testimonials/create',
                 ],

@@ -3,14 +3,14 @@
 @section('title', 'Inicio')
 
 @section('content_header') 
-    <h1>Nuevo Testimonio</h1> 
+    <h1>Nuevo Cliente</h1> 
 @stop
 
 @section('content')
 
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item">Testimonios</li>
-    <li class="breadcrumb-item active">Nuevo Testimonio</li>
+    <li class="breadcrumb-item">Clientes</li>
+    <li class="breadcrumb-item active">Nuevo Cliente</li>
 </ol>
 <div class="card mb-4">
     <div class="card-body">
@@ -64,7 +64,7 @@
             <div class="row mb-0">
                 <div class="col-md-6 offset-md-4">
                     <button type="submit" class="btn btn-primary">
-                        Guardar Testimonio
+                        Guardar Cliente
                     </button>
                 </div>
             </div>

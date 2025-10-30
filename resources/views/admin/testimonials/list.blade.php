@@ -3,12 +3,12 @@
 @section('title', 'Inicio')
 
 @section('content_header')
-<h1 class="mt-4">Listado de testimonios</h1>
+<h1 class="mt-4">Listado de clientes</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">Testimonios</li>
+        <li class="breadcrumb-item active">Clientes</li>
     </ol>
     <a href="/admin/testimonials/create">
-    <button class="btn btn-primary">Nuevo Testimonio</button>
+    <button class="btn btn-primary">Nuevo cliente</button>
     </a>
     <p></p>
 @stop

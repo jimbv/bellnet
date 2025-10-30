@@ -185,7 +185,7 @@
 <section class="py-5" style="background: linear-gradient(to bottom, #ffffff, #ffbe80);">
     <div class="container">
         <h2 class="text-center text-uppercase fw-bold mb-5" style="color:#111!important;font-family:Logomark;">
-            Campañas Realizadas
+            Trabajos Realizadas
         </h2>
 
         @if($work_images->count() > 0)
@@ -275,76 +275,38 @@
     <div class="container">
         <div class="text-center mb-5">
             <p></p>
-            <h2 class="pt-3 text-2xl md:text-3xl font-black text-primary uppercase text-center mb-10" style="color:#f74e04!important;font-family:Logomark;">Clientes que confían en nosotros</h2>
-            <p class="text-muted">Experiencias reales de quienes confiaron en nosotros</p>
+            <h2 class="pt-3 text-2xl md:text-3xl font-black text-primary uppercase text-center mb-10" style="color:#f74e04!important;font-family:Logomark;">
+                Clientes que confían en nosotros</h2>
         </div>
 
-        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-
-                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-
-                        @foreach($testimonials->chunk(3) as $chunkIndex => $chunk)
-                        <div class="carousel-item @if($loop->first) active @endif">
-                            <div class="row g-4 justify-content-center">
-                                @foreach($chunk as $testimonial)
-                                <div class="col-md-4 @if($loop->index > 0) d-none d-md-block @endif @if($loop->index > 1) d-none d-lg-block @endif">
-                                    <div class="card h-100 shadow-sm border-0 position-relative">
-                                        <div class="card-body text-center">
-                                            <i class="fas fa-quote-left fa-2x text-primary position-absolute top-0 start-50 translate-middle-x opacity-25"></i>
-                                            <p class="card-text fst-italic mt-4">
-                                                “{{ $testimonial->review }}”
-                                            </p>
-                                        </div>
-                                        <div class="card-footer bg-white border-0 text-center">
-                                            <img src="{{ $testimonial->image ?? 'https://via.placeholder.com/60' }}"
-                                                class="testimonial-img rounded-circle mx-auto d-block mb-2"
-                                                alt="{{ $testimonial->client }}">
-                                            <h6 class="fw-bold mb-0">{{ $testimonial->client }}</h6>
-                                            <small class="text-muted">{{ $testimonial->role ?? '' }}</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        @endforeach
-
-                    </div>
-
-                    <!-- Controles -->
-                    @if($testimonials->count() > 3)
-                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
-                    @endif
-                </div>
-
-                <style>
-                    .testimonial-img {
-                        width: 60px;
-                        /* tamaño fijo */
-                        height: 60px;
-                        /* cuadrado */
-                        object-fit: cover;
-                        /* recorta si la foto no es cuadrada */
-                    }
-                </style>
+         <div class="container py-4 text-center">
+    <div class="row justify-content-center row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
+        @foreach($testimonials as $testimonial)
+        <div class="col d-flex justify-content-center">
+            <div class="card border-0">
+                <img src="{{ $testimonial->image ?? 'https://via.placeholder.com/200x200' }}"
+                     alt="{{ $testimonial->client }}"
+                     class="testimonial-img">
             </div>
-
-            <!-- Controles -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
         </div>
+        @endforeach
     </div>
+</div>
+
+<style>
+    .testimonial-img {
+        width: 180px;               /* ancho fijo para que queden alineadas */
+        height: 180px;              /* mismo alto */
+        object-fit: cover;          /* recorta sin deformar */
+        border-radius: 0 !important;/* sin bordes redondeados */
+        transition: transform .3s ease;
+    }
+
+    .testimonial-img:hover {
+        transform: scale(1.05);     /* efecto leve de zoom */
+    }
+</style>
+
 </section>
 
 @endsection
