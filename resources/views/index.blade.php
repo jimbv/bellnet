@@ -185,7 +185,7 @@
 <section class="py-5" style="background: linear-gradient(to bottom, #ffffff, #ffbe80);">
     <div class="container">
         <h2 class="text-center text-uppercase fw-bold mb-5" style="color:#111!important;font-family:Logomark;">
-            Trabajos Realizadas
+            Trabajos Realizados
         </h2>
 
         @if($work_images->count() > 0)
