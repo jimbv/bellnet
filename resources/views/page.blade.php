@@ -13,8 +13,8 @@
                 <img src="https://via.placeholder.com/600x400?text=Sin+Imagen" alt="{{$page->name}}" style="width:100%; border-radius:8px; box-shadow:0px 0px 8px #f74e04;">
                 @endif
             </div>
-            <div class="col-md-6">
-                <p style="text-align: justify;">{!! $page->description !!}</p>
+            <div class="col-md-6 descripcion-general">
+                <p>{!! $page->description !!}</p>
             </div>
         </div>
 </section>
@@ -51,5 +51,12 @@
         justify-content: center;
         border-radius: 50%;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .descripcion-general,
+    .descripcion-general p,
+    .descripcion-general span {
+        font-size: 19px !important;
+        line-height: 1.8 !important; 
     }
 </style>
