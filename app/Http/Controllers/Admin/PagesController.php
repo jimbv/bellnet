@@ -78,10 +78,11 @@ class PagesController extends Controller
             'image.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg.',
             'image.max' => 'La imagen no debe superar los 2048 KB.',
         ]);
+ 
         $image = $request->file('image');
 
-        $id = $request->Page_id;
-        $page = Page::findOrFail($id);
+        $id = $request->page_id;
+        $page = Page::findOrFail($id); 
 
         if ($request->deleteImg == 1) {
             Storage::disk('publico')->delete($page->image);
