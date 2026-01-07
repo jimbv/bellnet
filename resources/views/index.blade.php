@@ -25,10 +25,6 @@
             </h1>
         </div>
     </div>
-
-
-
-
 </section>
 <section style="background: linear-gradient(to bottom, #d3d3d3, #ffffff);">
     <div class="container py-3" style="position: relative; top: -70px;z-index:9;background:#f74e05;color:white;">
@@ -40,70 +36,6 @@
             </div>
         </div>
 </section>
-<section id="productos" class="bg-white">
-    <div class="max-w-screen-xl mx-auto px-5 py-10">
-        <h2 class="text-2xl md:text-3xl font-black text-primary uppercase text-center mb-10" style="color:#f74e04!important;font-family:Logomark;">Nuestros Productos</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5 place-items-center">
-
-            @foreach($categories as $category)
-            <a href="/categorias/{{$category->slug}}/"
-                style="background-color: {{$category->color}}!important; text-decoration:none;"
-                class="bg-tertiary-2 rounded-xl p-5 flex xl:flex-col justify-start xl:justify-center items-center hover:scale-[1.02] focus:outline-none focus:ring-4 focus:transform-none transition-all w-full xl:w-48 xl:h-48 relative">
-                @if($category->image)
-                <img src="{{$category->image}}" alt="Ícono" class="h-16 xl:h-18 w-auto pr-[15px] xl:pr-0 border-r-2 border-r-white xl:border-none xl:mb-2">
-                @endif
-                <div class="flex flex-col ml-5 xl:ml-0" style="text-decoration:none;">
-                    <span class="text-white font-semibold xl:text-center"
-                        style="font-size:18px;text-decoration:none;font-family:Cloudsters;">
-                        {{strtoupper($category->name)}}
-                    </span>
-                </div>
-            </a>
-            @endforeach
-        </div>
-    </div>
-</section>
-<section id="servicios" class="bg-[#f9f9f9] mb-5 pt-5" style="border-top: 10px solid #e5e7eb;">
-    <div class="max-w-screen-xl mx-auto px-5 py-16 text-center">
-        <h2 class="text-2xl md:text-3xl font-black uppercase mb-12"
-            style="color:#f74e04; font-family:Logomark;">
-            Nuestros Servicios
-        </h2>
-
-        <div class="flex flex-wrap justify-center gap-6">
-            @foreach($services as $service)
-                <a href="/servicio/{{$service->slug}}/"
-                   class="rounded-xl px-8 py-4 flex items-center justify-center text-center
-                          transition-all duration-300 transform hover:scale-[1.05] servicio-btn"
-                   style="
-                       padding: 10px 20px;
-                       background-color: white;
-                       color: #f74e04;
-                       text-decoration: none;
-                       font-family: Cloudsters;
-                       font-weight: 600;
-                       border: 1px solid #f74e04;
-                       min-width: 200px;
-                       margin: 10px;
-                   ">
-                    {{ strtoupper($service->name) }}
-                </a>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-<style>
-/* Efecto hover: fondo naranja y texto blanco */
-.servicio-btn:hover {
-    background-color: #f74e04 !important;
-    color: white !important;
-}
-</style>
-
-
-
 
 <section class="mb-5 bg-gray-200 p-5 text-center">
     <div id="postsCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -115,7 +47,6 @@
             @foreach($posts->chunk(3) as $chunk)
             <div class="carousel-item @if($loop->first) active @endif">
                 <div class="row g-4 justify-content-center">
-
                     @foreach($chunk as $post)
                     <div class="col-md-4">
                         <a href="/novedad/{{$post->slug}}" style="text-decoration:none; color:black;">
@@ -147,7 +78,6 @@
                 </div>
             </div>
             @endforeach
-
             <style>
                 .cardpost {
                     transition: all 0.3s ease;
@@ -159,11 +89,7 @@
                     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
                 }
             </style>
-
-
-
         </div>
-
         {{-- Controles del carrusel --}}
         @if($posts->count() > 3)
         <button class="carousel-control-prev" type="button" data-bs-target="#postsCarousel" data-bs-slide="prev">
@@ -174,13 +100,70 @@
         </button>
         @endif
     </div>
-
     <a href="/novedades" class="btn btn-secondary mt-5">
         <i class="fa fa-plus me-2"></i> Ver todos
     </a>
-
-
 </section>
+
+<section id="productos" class="bg-white">
+    <div class="max-w-screen-xl mx-auto px-5 py-10">
+        <h2 class="text-2xl md:text-3xl font-black text-primary uppercase text-center mb-10" style="color:#f74e04!important;font-family:Logomark;">Nuestros Productos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5 place-items-center">
+            @foreach($categories as $category)
+            <a href="/categorias/{{$category->slug}}/"
+                style="background-color: {{$category->color}}!important; text-decoration:none;"
+                class="bg-tertiary-2 rounded-xl p-5 flex xl:flex-col justify-start xl:justify-center items-center hover:scale-[1.02] focus:outline-none focus:ring-4 focus:transform-none transition-all w-full xl:w-48 xl:h-48 relative">
+                @if($category->image)
+                <img src="{{$category->image}}" alt="Ícono" class="h-16 xl:h-18 w-auto pr-[15px] xl:pr-0 border-r-2 border-r-white xl:border-none xl:mb-2">
+                @endif
+                <div class="flex flex-col ml-5 xl:ml-0" style="text-decoration:none;">
+                    <span class="text-white font-semibold xl:text-center"
+                        style="font-size:18px;text-decoration:none;font-family:Cloudsters;">
+                        {{strtoupper($category->name)}}
+                    </span>
+                </div>
+            </a>
+            @endforeach
+        </div>
+    </div>
+</section>
+<section id="servicios" class="bg-[#f9f9f9] mb-5 pt-5" style="border-top: 10px solid #e5e7eb;">
+    <div class="max-w-screen-xl mx-auto px-5 py-16 text-center">
+        <h2 class="text-2xl md:text-3xl font-black uppercase mb-12"
+            style="color:#f74e04; font-family:Logomark;">
+            Nuestros Servicios
+        </h2>
+        <div class="flex flex-wrap justify-center gap-6">
+            @foreach($services as $service)
+                <a href="/servicio/{{$service->slug}}/"
+                   class="rounded-xl px-8 py-4 flex items-center justify-center text-center
+                          transition-all duration-300 transform hover:scale-[1.05] servicio-btn"
+                   style="
+                       padding: 10px 20px;
+                       background-color: white;
+                       color: #f74e04;
+                       text-decoration: none;
+                       font-family: Cloudsters;
+                       font-weight: 600;
+                       border: 1px solid #f74e04;
+                       min-width: 200px;
+                       margin: 10px;
+                   ">
+                    {{ strtoupper($service->name) }}
+                </a>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+<style>
+/* Efecto hover: fondo naranja y texto blanco */
+.servicio-btn:hover {
+    background-color: #f74e04 !important;
+    color: white !important;
+}
+</style>
+
 <section class="py-5" style="background: linear-gradient(to bottom, #ffffff, #ffbe80);">
     <div class="container">
         <h2 class="text-center text-uppercase fw-bold mb-5" style="color:#111!important;font-family:Logomark;">
