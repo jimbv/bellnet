@@ -12,4 +12,22 @@ class Client extends Model
         'phone',
         'active',
     ];
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
+    }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class, 'subscriptions')
+            ->withPivot([
+                'start_date',
+                'next_billing_date',
+                'end_date',
+                'agreed_price',
+                'status',
+            ]);
+    }
+
 }
