@@ -26,7 +26,7 @@ class UpcomingSubscriptions extends BaseWidget
             ->whereDate(
                 'next_billing_date',
                 '<=',
-                Carbon::now()->addDays(15)
+                Carbon::now()->addDays(30)
             )
             ->orderBy('next_billing_date');
     }
@@ -41,10 +41,18 @@ class UpcomingSubscriptions extends BaseWidget
             Tables\Columns\TextColumn::make('service.name')
                 ->label('Servicio'),
 
-            Tables\Columns\TextColumn::make('next_billing_date')
-                ->label('Vence')
-                ->date()
-                ->sortable(),
+             Tables\Columns\TextColumn::make('next_billing_date')
+                    ->label('Próxima fecha de facturación')
+                    ->date()
+                    ->color(
+                        fn($record) =>
+                        $record->next_billing_date->isToday() ||
+                            $record->next_billing_date->isPast()
+                            ? 'danger'
+                            : ($record->next_billing_date->diffInDays(now()) <= 7
+                                ? 'warning'
+                                : 'success')
+                    ),
 
             Tables\Columns\TextColumn::make('agreed_price')
                 ->money('ARS'),
