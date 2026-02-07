@@ -59,10 +59,7 @@
 
       <div class="logo mr-auto">
 
-        <h1 class="text-light"><a href="/"> 
-      
-        <img src="/imgs/bellnet.png" alt="Bellnet" style='height:100%;position:relative;top:-4px;' class="img-fluid pl-1">
-      </a></h1>
+        <h1 class="text-light"><a href="/"><img src="/imgs/icono.png" style='height:100%;position:relative;top:-4px;' class="img-fluid"><span>&nbsp;&nbsp;bellnet</span></a></h1>
 
       </div>
 
