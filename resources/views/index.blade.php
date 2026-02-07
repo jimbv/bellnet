@@ -13,8 +13,7 @@
             <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1">
                 <h1>Sistemas simples. Soluciones claras.</h1>
                 <h2>
-                    Desarrollamos sistemas y sitios web pensados para funcionar,
-                    ser fáciles de usar y acompañar el día a día de tu negocio.
+                    Desarrollamos sistemas y sitios web simples, funcionales y fáciles de usar, pensados para acompañar el día a día de tu negocio.
                 </h2>
 
                 <a href="#contact" class="btn-get-started scrollto">Contactanos</a>

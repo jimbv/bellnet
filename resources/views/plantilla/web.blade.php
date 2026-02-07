@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta name="keywords" content="Desarrollo Web, Sistemas de Información, Bell Ville, Páginas web, paginas web, sitios web, pagina web, pagina bell ville, webpage, webmaster, desarrollador"/>
-    
+  <meta name="keywords" content="Desarrollo Web, Sistemas de Información, Bell Ville, Páginas web, paginas web, sitios web, pagina web, pagina bell ville, webpage, webmaster, desarrollador" />
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172049918-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
 
     gtag('config', 'UA-172049918-1');
@@ -32,21 +36,33 @@
 
   <!-- Template Main CSS File -->
   <link href="/ninestars/assets/css/style.css" rel="stylesheet">
-  
+
   @yield('cabecera')
 
+
+
+  <meta property="og:type" content="Bellnet | Sistemas simples, soluciones claras" />
+  <meta property="og:title" content="Bellnet Sistemas" />
+  <meta property="og:description" content="Desarrollamos sistemas web simples y confiables. Hablamos claro, sin vender humo, y acompañamos a empresas y profesionales con soluciones reales." />
+  <meta property="og:url" content="https://www.bellnet.com.ar/" />
+  <meta property="og:image" content="https://www.bellnet.com.ar/imgs/facebook.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
 </head>
+
 <body>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
 
     <div class="container-fluid d-flex">
 
-
-
       <div class="logo mr-auto">
 
-        <h1 class="text-light"><a href="/"><img src="/imgs/icono.png" style='height:100%;position:relative;top:-4px;'  class="img-fluid"><span>&nbsp;&nbsp;bellnet</span></a></h1>
+        <h1 class="text-light"><a href="/"> 
+      
+        <img src="/imgs/bellnet.png" alt="Bellnet" style='height:100%;position:relative;top:-4px;' class="img-fluid pl-1">
+      </a></h1>
 
       </div>
 
@@ -56,7 +72,7 @@
 
         <ul>
 
-          <li class="active"><a href="/#header">Inicio</a></li> 
+          <li class="active"><a href="/#header">Inicio</a></li>
 
           <li><a href="/#services">Servicios</a></li>
 
@@ -111,12 +127,12 @@
   </header><!-- End Header -->
 
 
- 
- 
+
+
 
 
   <main id="main">
- 
+
     @yield('contenido')
   </main><!-- End #main -->
 
@@ -124,7 +140,7 @@
 
   <!-- ======= Footer ======= -->
 
-  <footer id="footer"  style='background:#CCC;'> 
+  <footer id="footer" style='background:#CCC;'>
 
 
     <div class="footer-top">
@@ -164,7 +180,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="/#">Inicio</a></li>
 
               <li><i class="bx bx-chevron-right"></i> <a href="/#services">Servicios</a></li>
-              
+
               <li><i class="bx bx-chevron-right"></i> <a href="/#novedades">Novedades</a></li>
 
               <li><i class="bx bx-chevron-right"></i> <a href="/#compromiso">Compromiso</a></li>
@@ -202,13 +218,13 @@
 
               <a href="http://facebook.com/bellnetweb" class="facebook"><i class="bx bxl-facebook"></i></a>
 
-              <a href="https://www.instagram.com/bellnetweb/" class="instagram"><i class="bx bxl-instagram"></i></a> 
+              <a href="https://www.instagram.com/bellnetweb/" class="instagram"><i class="bx bxl-instagram"></i></a>
 
               <a href="https://wa.me/5493537609004" class="linkedin"><i class="bx bxl-whatsapp"></i></a>
 
             </div>
             <a href="http://qr.afip.gob.ar/?qr=riUNFrGsUiEEARhn-Vxv3A,," target="_F960AFIPInfo"><img src="http://www.afip.gob.ar/images/f960/DATAWEB.jpg" border="0" style="height: 100px;padding:10px;"></a>
- 
+
 
           </div>
 
@@ -223,7 +239,7 @@
     <div class="container py-4">
 
       <div class="copyright">
-         <strong><span><img src="/imgs/bellnet_icon.png" alt="Bellnet" style='width:25px;'></span></strong> 
+        <strong><span><img src="/imgs/bellnet_icon.png" alt="Bellnet" style='width:25px;'></span></strong>
 
       </div>
       <div class="credits">
@@ -265,4 +281,5 @@
 
 
 </body>
+
 </html>
