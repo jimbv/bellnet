@@ -106,3 +106,14 @@ Route::get('/buscar', [App\Http\Controllers\ProductsController::class, 'buscar']
 Route::get('/servicio/{slug}',  [App\Http\Controllers\ServicesController::class, 'showService'])->name('servicios.servicio');
  
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::prefix('bonafe')->group(function () {
+    Route::get('{cliente}', [App\Http\Controllers\BonafeController::class, 'form']);
+    Route::post('{cliente}', [App\Http\Controllers\BonafeController::class, 'guardar']);
+    Route::get('{cliente}/lista', [App\Http\Controllers\BonafeController::class, 'lista']);
+    Route::post('pedido/{pedido}/estado', [App\Http\Controllers\BonafeController::class, 'cambiarEstado']);
+    Route::delete('pedido/{pedido}', [App\Http\Controllers\BonafeController::class, 'eliminar']);
+    Route::get('pedido/{pedido}/pdf', [App\Http\Controllers\BonafeController::class, 'pdf']);
+});
+
