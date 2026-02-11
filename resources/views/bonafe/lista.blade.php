@@ -10,6 +10,14 @@
 <div class="container py-4">
 
     <h3 class="mb-4">📦 Últimos pedidos de {{ ucfirst($cliente) }}</h3>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+    <a href="{{ '/bonafe/'.$cliente }}"
+       class="btn">
+        ← Volver al pedido abierto
+    </a> 
+
+</div>
 
     <table class="table table-bordered table-striped align-middle">
         <thead class="table-dark">
