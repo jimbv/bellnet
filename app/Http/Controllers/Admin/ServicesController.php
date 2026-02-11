@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Storage;
 
-class servicesController extends Controller
+class ServicesController extends Controller
 {
     public function list()
     {
