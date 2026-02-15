@@ -1,7 +1,7 @@
 @extends('plantilla.web')
 @section('cabecera')
 <title>Bellnet | Sistemas simples, soluciones claras</title>
-<meta name="description" content="Desarrollamos sistemas web simples y confiables. Hablamos claro, sin vender humo, y acompañamos a empresas y profesionales con soluciones reales." />
+<meta name="description" content="Desarrollamos sistemas web simples y confiables. Hablamos claro y acompañamos a empresas y profesionales con soluciones reales." />
 
 @endsection
 @section('contenido')
