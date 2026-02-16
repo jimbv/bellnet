@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Click Comunicación</title> 
+    <title>Bellnet</title> 
 </head>
 <body>
     <h1>Contacto desde web</h1>

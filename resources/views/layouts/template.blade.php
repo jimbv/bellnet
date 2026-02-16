@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Click Comunicación</title>
+    <title>Bellnet</title>
     <link rel="icon" type="image/x-icon" href="/imgs/logo.png">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Click Comunicación') }}</title>
+    <title>{{ config('app.name', 'Bellnet') }}</title>
 
     <link href="/css/style.css?v=19" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -28,7 +28,7 @@
     @yield('header')
     <nav class="navbar navbar-expand-lg navbar-light p-3" style="z-index: 10;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/#inicio"> <img src="/imgs/logo.png" alt="Click comunicación"> </a>
+            <a class="navbar-brand" href="/#inicio"> <img src="/imgs/logo.png" alt="Bellnet"> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars" style="color: white;font-size:22px;box-shadow:1px solid black;"></i>
             </button>
@@ -85,21 +85,16 @@
                     <div class="col-md-4 text-center"> 
                     </div>
                     <div class="col-md-4 text-end pt-5">
-                        <strong >Click Comunicación</strong> <br>
-                        Bruno Daniel Schiavi <br>
+                        <strong >Bellnet</strong> <br>
+                         <br>
                         <i class="fa fa-phone"></i>  
-                        <a href="https://wa.me/5493535626287?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
-                            +54 9 3537 667250</a> <br> 
-                        <a href="https://wa.me/5493535626287?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="color:white;text-decoration:none;"><i class="fab fa-whatsapp"></i> &nbsp;&nbsp;
-                            +54 9 11 6256-3230</a> <br>
-                        <a href="mailto:info@clickcomunicacion.com.ar" style="color:white;text-decoration:none;"><i class="fa fa-envelope"></i> &nbsp;&nbsp;info@clickcomunicacion.com.ar</a>
-
+                         
                     </div>
                 </div>
             </div>
         </div>
         <div class="copyright" style="color:white; background-image: linear-gradient(to right,#111, #555, #111);">
-            &copy; Click Comunicación <?= date('Y') ?>
+            &copy; Bellnet <?= date('Y') ?>
         </div>
     </footer>
     <a href="https://wa.me/5493535626287?text=Hola,%20acabo%20de%20visitar%20su%20pagina%20web%20y%20queria%20pedir%20mas%20informacion%20sobre%20sus%20productos%20y%20servicios" style="z-index=5;">

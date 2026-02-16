@@ -217,7 +217,7 @@
                     </a>
                 </div>
                 <div class="text-center pb-10 text-xs " style="color: white;text-decoration: none;">
-                    © {{ date('Y') }} Click comunicación & publicidad
+                    © {{ date('Y') }} Bellnet
                 </div>
 
             </div>
